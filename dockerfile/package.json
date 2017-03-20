@@ -1,0 +1,23 @@
+{
+  "name": "glamrous.me",
+  "version": "0.0.1",
+  "description": "IMDB for cosmetics",
+  "main": "index.js",
+  "author": "The Glam Fam",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrewRomanyk/glamrous.me.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrewRomanyk/glamrous.me/issues"
+  },
+  "homepage": "https://github.com/DrewRomanyk/glamrous.me#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "rollup": "^0.41.6"
+  }
+}

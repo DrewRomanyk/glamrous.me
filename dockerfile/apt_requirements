@@ -1,0 +1,4 @@
+npm
+libpq-dev
+postgresql
+postgresql-contrib
