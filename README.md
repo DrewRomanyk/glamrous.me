@@ -1,4 +1,4 @@
-# glamrous.me
+# glamrous.me [![Build Status](https://travis-ci.org/DrewRomanyk/glamrous.me.svg?branch=master)](https://travis-ci.org/DrewRomanyk/glamrous.me)
 ---
 
 Setup:
