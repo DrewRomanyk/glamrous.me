@@ -25,4 +25,7 @@ Build for frontend:
 
 ```bash
 ; ./build.sh
+; rollup -cw
 ```
+
+NOTE: If rollup is failing, make sure to npm install
