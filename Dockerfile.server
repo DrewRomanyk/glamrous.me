@@ -1,0 +1,18 @@
+FROM python:3.6.0
+
+ADD . /app
+WORKDIR /app
+
+RUN pip install --upgrade pip && \
+    pip install flask
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        npm \
+        libpq-dev \
+        postgresql \
+        postgresql-contrib
+
+RUN npm install --only="production"
+
+EXPOSE 5000
