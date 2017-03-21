@@ -16,14 +16,12 @@ db = SQLAlchemy(app)
 from .models import *
 
 
-@app.route('/js/<path:path>')
-def js(path):
-    print("JS GET")
-    return send_from_directory('js', path)
+@app.route('/static/<path:path>')
+def static_resources(path):
+    return send_from_directory('static', path)
+
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<string:path>')
-def route(path): # pylint: disable=unused-argument
-    print("ROOT GET")
-    print(path)
+def route(path):  # pylint: disable=unused-argument
     return send_from_directory('', 'index.html')
