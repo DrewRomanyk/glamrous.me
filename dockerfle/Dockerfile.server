@@ -1,13 +1,17 @@
-FROM python:3.6.0
+FROM alpine:3.3
 
-RUN pip install --upgrade pip && \
+RUN apk add --update && \
+	apk add --no-cache \
+		libpq \
+		python3 && \
+	ln -s /usr/bin/python3 /usr/bin/python
+
+RUN python -m ensurepip && \
+	ln -s /usr/bin/pip3 /usr/bin/pip && \
+	pip install --upgrade pip && \
 	pip install \
 		flask \
 		Flask-Migrate \
 		Flask-SQLAlchemy
-
-RUN apt-get update && \
-	apt-get install -y --no-install-recommends \
-		libpq-dev \
 
 EXPOSE 5000
