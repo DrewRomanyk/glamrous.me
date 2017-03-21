@@ -1,5 +1,5 @@
 sudo docker run \
-	-v $(pwd):/usr/web -t \
+	-v $(pwd):/usr/web -d \
 	-w /usr/web \
 	-p 8080:5000 \
 	docker-glamrous \
