@@ -2,3 +2,5 @@ coverage
 pylint
 autopep8
 flask
+Flask-SQLAlchemy
+Flask-Migrate

@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 RUN npm install
 
-CMD python server/server.py
+CMD python app/app.py
 
 EXPOSE 80
 EXPOSE 5000

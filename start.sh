@@ -3,7 +3,7 @@ sudo docker run \
 	-w /usr/web \
 	-p 8080:5000 \
 	docker-glamrous \
-	python server/server.py
+	python run.py
 	#python -m http.server
 
 # sudo docker kill $(sudo docker ps | grep "docker-glamrous" | cut -d" " -f1)

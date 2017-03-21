@@ -1,3 +1,7 @@
+# IDE files
+.idea
+
 # Private configuration
+config.json
 client-secret.json
 credentials.tar.gz
