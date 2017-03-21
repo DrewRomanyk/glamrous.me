@@ -4,4 +4,4 @@ exec sudo docker run \
 	-p 8080:5000 \
 	--entrypoint="python" \
 	glamrous-server \
-	server.py
+	run_server.py
