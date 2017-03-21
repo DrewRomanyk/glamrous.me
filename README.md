@@ -7,6 +7,12 @@ Setup:
 ; cd dockerfile
 ; docker build -t glamrous-dev .
 ; docker build -t glamrous-server .
+; docker pull postgres
+```
+
+Start postgres server:
+```bash
+; ./postgres.sh [detach]
 ```
 
 Run server:
