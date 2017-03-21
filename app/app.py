@@ -22,5 +22,5 @@ def js(path):
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def home():
+def route(path): # pylint: disable=unused-argument
     return send_from_directory('', 'index.html')
