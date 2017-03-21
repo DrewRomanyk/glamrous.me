@@ -18,9 +18,12 @@ from .models import *
 
 @app.route('/js/<path:path>')
 def js(path):
+    print("JS GET")
     return send_from_directory('js', path)
 
 @app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
+@app.route('/<string:path>')
 def route(path): # pylint: disable=unused-argument
+    print("ROOT GET")
+    print(path)
     return send_from_directory('', 'index.html')
