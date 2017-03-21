@@ -12,7 +12,7 @@ Setup:
 Run server:
 
 ```bash
-; ./start.sh
+; ./start.sh [detach]
 ```
 
 Build for frontend:
