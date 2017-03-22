@@ -1,6 +1,6 @@
 # generated build files
 node_modules
-app/js
+app/static/js
 app/__pycache__
 
 # IDE files
