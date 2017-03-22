@@ -24,7 +24,7 @@ export default {
 		babel({
 			exclude: 'node_modules/**',
 		}),
-		eslint(),
+//		eslint(),
 		(process.env.NODE_ENV === 'production' && uglify()),
 		replace({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
