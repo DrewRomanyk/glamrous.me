@@ -7,7 +7,7 @@ import os
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_url_path='/static')
 
 app.config.from_json(os.getcwd() + "/config.json")
 db = SQLAlchemy(app)
@@ -16,12 +16,7 @@ db = SQLAlchemy(app)
 from .models import *
 
 
-@app.route('/static/<path:path>')
-def static_resources(path):
-    return send_from_directory('static', path)
-
-
 @app.route('/', defaults={'path': ''})
-@app.route('/<string:path>')
+@app.route('/<path:path>')
 def route(path):  # pylint: disable=unused-argument
     return send_from_directory('', 'index.html')
