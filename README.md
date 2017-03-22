@@ -5,11 +5,27 @@ Setup:
 
 ```bash
 ; cd dockerfile
-; docker build -t docker-glamrous .
+; docker build -t glamrous-dev -f Dockerfile.dev .
+; docker build -t glamrous-server -f Dockerfile.server .
+; docker pull postgres
 ```
 
-Run:
+Start postgres server:
+```bash
+; ./postgres.sh [detach]
+```
+
+Run server:
 
 ```bash
-; ./start.sh
+; ./start.sh [detach]
 ```
+
+Build for frontend:
+
+```bash
+; ./build.sh
+; rollup -cw
+```
+
+NOTE: If rollup is failing, make sure to npm install
