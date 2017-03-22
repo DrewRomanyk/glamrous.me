@@ -1,36 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import App from './app.jsx';
 import Home from './pages/home.jsx'
 
-const pages = [
-	{	name: 'About',
-		path: '/about',
-		component: (<Home />),
-	}
-];
+const wrap = (name, component) => (
+	<App pageName={name}>{component}</App>
+);
 const Routed = () => (
 	<Router>
-		<div>
-			<Route exact path='/' render={() => (
-				<App pageName='Home'>
-					<Home />
-				</App>
-			)} />
-			{pages.forEach((page) => (
-				<Route path={page.path} render={() => (
-					<App pageName={page.name}>
-						{page.component}
-					</App>
-				)} />
-			))}
-		</div>
+		<Switch>
+			<Route exact path='/' render={() => wrap('Home', <Home />)} />
+			<Route path='/about' render={() => wrap('About', <Home />)} />
+			<Route path='/' render={() => wrap('Not Found', <div>404</div>)} />
+		</Switch>
 	</Router>
 );
 
-// pretend we're routing on /
 ReactDOM.render(
 	(<Routed />),
 	document.getElementById('react-root')
