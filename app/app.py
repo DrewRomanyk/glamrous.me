@@ -6,6 +6,7 @@ import os
 
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
+from .api.brands.views import api_brands_blueprints
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -14,6 +15,8 @@ db = SQLAlchemy(app)
 
 # Needed to make migrations happen
 from .models import *
+
+app.register_blueprint(api_brands_blueprints)
 
 
 @app.route('/', defaults={'path': ''})

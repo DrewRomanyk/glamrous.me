@@ -1,7 +1,7 @@
 # generated build files
 node_modules
 app/static/js
-app/__pycache__
+__pycache__
 
 # IDE files
 .idea
