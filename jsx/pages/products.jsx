@@ -1,25 +1,25 @@
 import React from 'react';
 
-export default class Brands extends React.Component {
+export default class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {brands: []}
+        this.state = {products: []}
     }
 
     componentDidMount() {
-        $.getJSON(document.location.origin + '/api/brands')
+        $.getJSON(document.location.origin + '/api/products')
             .then((data) => {
-                this.setState({brands: data});
+                this.setState({products: data});
             });
     }
 
     render() {
-        const brands = this.state.brands.map((item, i) => {
+        const products = this.state.products.map((item, i) => {
             return (
                 <tr key={item.id}>
-                    <td><a href={"/brands/" + item.id}>{item.name}</a></td>
-                    <td>{item.avg_price}</td>
-                    <td>{item.avg_rating}</td>
+                    <td><a href={"/products/" + item.id}>{item.name}</a></td>
+                    <td>{item.price}</td>
+                    <td>{item.rating}</td>
                 </tr>
             );
         });
@@ -30,12 +30,12 @@ export default class Brands extends React.Component {
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Avg Price</th>
-                            <th>Avg Rating</th>
+                            <th>Price</th>
+                            <th>Rating</th>
                         </tr>
                         </thead>
                         <tbody>
-                        { brands }
+                        { products }
                         </tbody>
                     </table>
                 </div>
