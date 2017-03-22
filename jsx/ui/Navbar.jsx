@@ -21,12 +21,24 @@ const Navbar = () => {
                 <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                     <ul className='nav navbar-nav'>
                         <li className='nav-item'>
-                            <a className='nav-link' href='google.com'>About</a>
+                            <a className='nav-link' href='/about'>About</a>
+                        </li>
+                        <li className='nav-item'>
+                            <a className='nav-link' href='/brands'>Brands</a>
+                        </li>
+                        <li className='nav-item'>
+                            <a className='nav-link' href='/products'>Products</a>
+                        </li>
+                        <li className='nav-item'>
+                            <a className='nav-link' href='/types'>Types</a>
+                        </li>
+                        <li className='nav-item'>
+                            <a className='nav-link' href='/tags'>Tags</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     );
-}
+};
 export default Navbar;
