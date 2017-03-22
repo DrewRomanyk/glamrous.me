@@ -8,7 +8,7 @@ export default class Brands_Details extends React.Component {
     }
 
     componentDidMount() {
-        $.getJSON('http://0.0.0.0:8080/api/brands/' + this.id)
+        $.getJSON(document.location.origin + '/api/brands/' + this.id)
             .then((data) => {
                 this.setState({brand: data});
             });
