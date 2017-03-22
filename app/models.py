@@ -172,11 +172,11 @@ class ProductClassificationCategory(db.Model):
     __tablename__ = 'product_classification_category'
 
     product_id = db.Column('product_id', db.Integer, db.ForeignKey(
-        'product.product_id'), primary_key=True)
+        'product.id'), primary_key=True)
     classification_id = db.Column('classification_id', db.Integer, db.ForeignKey(
-        'classification.classification_id'), primary_key=True)
+        'classification.id'), primary_key=True)
     category_id = db.Column('category_id', db.Integer, db.ForeignKey(
-        'category.category_id'), primary_key=True, nullable=True)
+        'category.id'), primary_key=True, nullable=True)
 
     def __init__(self, product_id, classification_id, category_id):
         assert isinstance(product_id, int)
