@@ -1,3 +1,4 @@
+#! /bin/bash
 FLAG="-t"
 if [[ "$1" == "detach" ]]; then
 	FLAG="-d"
