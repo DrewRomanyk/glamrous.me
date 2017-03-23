@@ -2,7 +2,7 @@ glamrous.me
 ===========
 [![Build Status](https://travis-ci.org/DrewRomanyk/glamrous.me.svg?branch=master)](https://travis-ci.org/DrewRomanyk/glamrous.me)
 
-### Installation
+## Installation
 
 #### Requirements
 * [Docker](https://www.docker.com)
