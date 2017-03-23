@@ -12,7 +12,7 @@ const About = () => (
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="/static/img/about/thomas.jpg" alt=""/>
                 <h3>Thomas Gaubert</h3>
-                <h6>Devops</h6>
+                <h6>Devops & Frontend</h6>
                 <p>I'm an avid lover of the outdoors and the co-lead of Freetail Hackers. I'll be an intern at
                     Microsoft this summer.</p>
                 <p>Number of commits: ##</p>
