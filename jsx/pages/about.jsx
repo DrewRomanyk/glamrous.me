@@ -14,6 +14,9 @@ const About = () => (
                 <h3>Thomas Gaubert</h3>
                 <h6>Devops</h6>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="/static/img/about/drew.jpg" alt=""/>
@@ -21,6 +24,9 @@ const About = () => (
                 <h6>Frontend & Backend</h6>
                 <p>I'm currently a junior computer science student at The University of Texas at Austin. I'm the
                     president of MAD, and currently going to intern with RetailMeNot over the summer.</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="/static/img/about/cameron.jpg" alt=""/>
@@ -28,24 +34,36 @@ const About = () => (
                 <h6>Database & Backend</h6>
                 <p>My name is Cameron Piel, I am a 5th year student here at UT. When I am not coding or cooking you can
                     find me sitting at my desk pretending to be productive.</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""/>
                 <h3>Robert Perce</h3>
                 <h6>Frontend</h6>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""/>
                 <h3>Melody Park</h3>
                 <h6>Frontend & Backend</h6>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
                 <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""/>
                 <h3>Thomas Potnuru</h3>
                 <h6>API & Backend</h6>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                <p>Number of commits: ##</p>
+                <p>Number of issues: ##</p>
+                <p>Number of unit tests: ##</p>
             </div>
         </div>
 
