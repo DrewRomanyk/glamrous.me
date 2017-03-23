@@ -4,7 +4,7 @@ export default class Products_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
-        this.state = {product: {name: '', price: '', rating: ''}}
+        this.state = {product: {brand: {name: ''}, image_url: '', name: '', price: '', rating: ''}}
     }
 
     componentDidMount() {
@@ -15,15 +15,25 @@ export default class Products_Details extends React.Component {
     }
 
     render() {
-        const product = (
-            <div>
-                <h1>{this.state.product.name}</h1>
-                <p>{this.state.product.price}</p>
-                <p>{this.state.product.rating}</p>
-            </div>
-        );
         return (
-            <div>{ product }</div>
+            <div className="container">
+
+                <div className="panel panel-default">
+                    <div className="panel-heading">
+                        <h1 className="panel-title">{this.state.product.name}</h1>
+                    </div>
+                    <div className="panel-body">
+                        <img src={this.state.product.image_url}/>
+                        <h5>Price: </h5>
+                        <p>{this.state.product.price}</p>
+                        <h5>Rating: </h5>
+                        <p>{this.state.product.rating}</p>
+                        <h5>Brand: </h5>
+                        <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
+                        <h5>Tags: </h5>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

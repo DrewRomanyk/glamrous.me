@@ -12,6 +12,19 @@ brand_data = {
         'avg_rating': 5.00,
         'num_products': 1,
         'image_url': "http://www.thesimplemoms.com/wp-content/uploads/2013/11/PureAnadaLogo.jpg",
+        "products": [
+            {
+                'id': 0,
+                'brand_id': 0,
+                'name': "Pure Anada Natural Mascara",
+                'description': 'Be the glamrous you.',
+                'price': 12.99,
+                'rating': 5.00,
+                'image_url': "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
+                'colors': [],
+                'tags': [],
+            }
+        ]
     },
     1: {
         'id': 1,
@@ -20,6 +33,19 @@ brand_data = {
         'avg_rating': 4.56,
         'num_products': 1,
         'image_url': "http://loreal-dam-front-resources-corp-en-cdn.brainsonic.com/ressources/afile/149700-bf308-picture_photo-loreal-logo.jpg",
+        "products": [
+            {
+                'id': 1,
+                'brand_id': 1,
+                'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour",
+                'description': 'Be the glamrous you.',
+                'price': 12.99,
+                'rating': 5.00,
+                'image_url': "https://d3t32hsnjxo7q6.cloudfront.net/i/a9c19212339fb2ed792af559b2a4208d_ra,w158,h184_pa,w158,h184.jpeg",
+                'colors': [],
+                'tags': [],
+            }
+        ]
     },
     2: {
         'id': 2,
@@ -28,6 +54,19 @@ brand_data = {
         'avg_rating': 3.03,
         'num_products': 1,
         'image_url': "http://www.wearemoviegeeks.com/wp-content/uploads/Smashbox-Logo.jpg",
+        "products": [
+            {
+                'id': 2,
+                'brand_id': 2,
+                'name': "Jet Set Waterproof Eye Liner",
+                'description': 'Be the glamrous you.',
+                'price': 12.99,
+                'rating': 5.00,
+                'image_url': "http://www.smashbox.com/media/images/products/388x396/sbx_sku_46012_388x396_0.jpg",
+                'colors': [],
+                'tags': [],
+            }
+        ]
     }
 }
 

@@ -1,29 +1,27 @@
 from flask import Blueprint, jsonify
 
-api_tags_blueprints = Blueprint(
-    'api_tags', __name__
+api_categories_blueprints = Blueprint(
+    'api_categories', __name__
 )
 
-tag_data = {
+category_data = {
     0: {
         'id': 0,
-        'name': "Gluten-Free",
+        'name': "Mascara",
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
     },
     1: {
         'id': 1,
-        'brand_id': 1,
-        'name': "Canadian",
+        'name': "Lipstick",
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
     },
     2: {
         'id': 2,
-        'brand_id': 2,
-        'name': "Natural",
+        'name': "Eye liner",
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
@@ -31,12 +29,12 @@ tag_data = {
 }
 
 
-@api_tags_blueprints.route('/api/tags')
+@api_categories_blueprints.route('/api/categories')
 def get_brands():
-    tag_data_list = [tag_data[key] for key in tag_data]
+    tag_data_list = [category_data[key] for key in category_data]
     return jsonify(tag_data_list)
 
 
-@api_tags_blueprints.route('/api/tags/<id>')
+@api_categories_blueprints.route('/api/categories/<id>')
 def get_tag(id):
-    return jsonify(tag_data[int(id)])
+    return jsonify(category_data[int(id)])

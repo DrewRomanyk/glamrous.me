@@ -9,6 +9,10 @@ import Brands from './pages/brands.jsx'
 import Brands_Detail from './pages/brands_detail.jsx'
 import Products from './pages/products.jsx'
 import Products_Details from './pages/products_detail.jsx'
+import Tags from './pages/tags.jsx'
+import Tags_Details from './pages/tags_detail.jsx'
+import Categories from './pages/categories.jsx'
+import Categories_Details from './pages/categories_detail.jsx'
 import Not_Found from './pages/not_found.jsx'
 
 const wrap = (name, component) => (
@@ -23,8 +27,10 @@ const Routed = () => (
             <Route exact path='/brands/:id' render={({ match }) => wrap('Brands', <Brands_Detail id={match.params.id} />)} />
             <Route exact path='/products' render={() => wrap('Products', <Products />)} />
 			<Route exact path='/products/:id' render={({ match }) => wrap('Products', <Products_Details  id={match.params.id} />)} />
-            <Route exact path='/types' render={() => wrap('About', <About />)} />
-            <Route exact path='/tags' render={() => wrap('About', <About />)} />
+            <Route exact path='/categories' render={() => wrap('Categories', <Categories />)} />
+			<Route exact path='/categories/:id' render={({ match }) => wrap('Products', <Categories_Details  id={match.params.id} />)} />
+            <Route exact path='/tags' render={() => wrap('Tags', <Tags />)} />
+			<Route exact path='/tags/:id' render={({ match }) => wrap('Tags', <Tags_Details  id={match.params.id} />)} />
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>
