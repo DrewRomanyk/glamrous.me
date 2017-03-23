@@ -130,7 +130,7 @@ class SubCategory(db.Model):
         self.num_products = num_products
 
     def __repr__(self):
-        return '<Sub-Category %r>' % self.name
+        return '<Sub_Category %r>' % self.name
 
 
 class Tag(db.Model):
