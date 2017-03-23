@@ -7,27 +7,27 @@ api_brands_blueprints = Blueprint(
 brand_data = {
     0: {
         'id': 0,
-        'name': "Robert's Lipstick Company",
+        'name': "Pure Anada",
         'avg_price': 12.99,
         'avg_rating': 5.00,
-        'num_products': 20,
-        'image_url': "http://www.nyxcosmetics.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-cpd-nyxusa-master-catalog/default/dwdcc2ff58/ProductImages/2016/Lips/Velvet_Matte_Lipstick/velvetmattelipstick_main.jpg?sw=195&sh=195&sm=fit",
+        'num_products': 1,
+        'image_url': "http://www.thesimplemoms.com/wp-content/uploads/2013/11/PureAnadaLogo.jpg",
     },
     1: {
         'id': 1,
-        'name': "Thomas' Mascara Company",
+        'name': "L'oreal",
         'avg_price': 20.99,
         'avg_rating': 4.56,
-        'num_products': 15,
-        'image_url': "http://ell.h-cdn.co/assets/15/47/urban-decay-perversion-mascara---open_1.jpg",
+        'num_products': 1,
+        'image_url': "http://loreal-dam-front-resources-corp-en-cdn.brainsonic.com/ressources/afile/149700-bf308-picture_photo-loreal-logo.jpg",
     },
     2: {
         'id': 2,
-        'name': "Piel's Eyeliner Company",
+        'name': "smashbox",
         'avg_price': 12.99,
         'avg_rating': 3.03,
-        'num_products': 10,
-        'image_url': "http://images.ulta.com/is/image/Ulta/2297439?$detail$",
+        'num_products': 1,
+        'image_url': "http://www.wearemoviegeeks.com/wp-content/uploads/Smashbox-Logo.jpg",
     }
 }
 

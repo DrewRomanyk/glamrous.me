@@ -25,6 +25,7 @@ export default class Products extends React.Component {
                             <p className="group inner list-group-item-text">{item.description}</p>
                             <div className="row">
                                 <div className="col-xs-12 col-md-6">
+                                    <p className="lead">Brand: {item.brand.name}</p>
                                     <p className="lead">Price: {item.price}</p>
                                     <p className="lead">Rating: {item.rating}</p>
                                 </div>
