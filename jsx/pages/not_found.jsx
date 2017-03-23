@@ -4,13 +4,17 @@ function getGif() {
     var gifs = [
         'confused.gif',
         'donald.gif',
-        'wow.gif'
+        'wow.gif',
+        'hacking.gif',
+        'beyo.gif'
     ];
 
     var text = [
         'Where are we?',
         'Yeah, he\'s just as lost...',
-        'Wooooow'
+        'Wooooow',
+        'All your base are belong to us',
+        '#StayGlam'
     ]
 
     var randomIndex = Math.floor(Math.random() * gifs.length); 
