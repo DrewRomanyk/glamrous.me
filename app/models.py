@@ -14,8 +14,8 @@ class Brand(db.Model):
 
     def __init__(self, name, avg_price, avg_rating, num_products, image_url):
         assert isinstance(name, str)
-        assert isinstance(avg_price, int) or avg_price is None
-        assert isinstance(avg_rating, int) or avg_rating is None
+        assert isinstance(avg_price, float) or avg_price is None
+        assert isinstance(avg_rating, float) or avg_rating is None
         assert isinstance(num_products, int) or num_products is None
         assert isinstance(image_url, str) or image_url is None
 
@@ -49,8 +49,8 @@ class Product(db.Model):
         assert isinstance(brand_id, int)
         assert isinstance(name, str)
         assert isinstance(description, str) or description is None
-        assert isinstance(price, int) or price is None
-        assert isinstance(rating, int) or rating is None
+        assert isinstance(price, float) or price is None
+        assert isinstance(rating, float) or rating is None
         assert isinstance(image_url, str) or image_url is None
 
         self.name = name
@@ -96,8 +96,8 @@ class Category(db.Model):
 
     def __init__(self, name, avg_price, avg_rating, num_products):
         assert isinstance(name, str)
-        assert isinstance(avg_price, int) or avg_price is None
-        assert isinstance(avg_rating, int) or avg_rating is None
+        assert isinstance(avg_price, float) or avg_price is None
+        assert isinstance(avg_rating, float) or avg_rating is None
         assert isinstance(num_products, int) or num_products is None
 
         self.name = name
@@ -120,8 +120,8 @@ class SubCategory(db.Model):
 
     def __init__(self, name, avg_price, avg_rating, num_products):
         assert isinstance(name, str)
-        assert isinstance(avg_price, int) or avg_price is None
-        assert isinstance(avg_rating, int) or avg_rating is None
+        assert isinstance(avg_price, float) or avg_price is None
+        assert isinstance(avg_rating, float) or avg_rating is None
         assert isinstance(num_products, int) or num_products is None
 
         self.name = name
@@ -144,8 +144,8 @@ class Tag(db.Model):
 
     def __init__(self, name, avg_price, avg_rating, num_products):
         assert isinstance(name, str)
-        assert isinstance(avg_price, int) or avg_price is None
-        assert isinstance(avg_rating, int) or avg_rating is None
+        assert isinstance(avg_price, float) or avg_price is None
+        assert isinstance(avg_rating, float) or avg_rating is None
         assert isinstance(num_products, int) or num_products is None
 
         self.name = name
