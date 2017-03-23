@@ -85,8 +85,8 @@ class Color(db.Model):
         return '<Color %r>' % self.name
 
 
-class Classification(db.Model):
-    __tablename__ = 'type'
+class Category(db.Model):
+    __tablename__ = 'category'
 
     id = db.Column('id', db.Integer, primary_key=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
@@ -109,8 +109,8 @@ class Classification(db.Model):
         return '<type %r>' % self.name
 
 
-class Category(db.Model):
-    __tablename__ = 'category'
+class SubCategory(db.Model):
+    __tablename__ = 'sub_category'
 
     id = db.Column('id', db.Integer, primary_key=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
@@ -130,7 +130,7 @@ class Category(db.Model):
         self.num_products = num_products
 
     def __repr__(self):
-        return '<Category %r>' % self.name
+        return '<Sub-Category %r>' % self.name
 
 
 class Tag(db.Model):
@@ -168,21 +168,21 @@ product_tag = db.Table('product_tag',
                        db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')))
 
 
-class ProductClassificationCategory(db.Model):
-    __tablename__ = 'product_classification_category'
+class ProductCategory(db.Model):
+    __tablename__ = 'product_category'
 
     product_id = db.Column('product_id', db.Integer, db.ForeignKey(
         'product.id'), primary_key=True)
-    classification_id = db.Column('classification_id', db.Integer, db.ForeignKey(
-        'classification.id'), primary_key=True)
     category_id = db.Column('category_id', db.Integer, db.ForeignKey(
-        'category.id'), primary_key=True, nullable=True)
+        'category.id'), primary_key=True)
+    sub_category_id = db.Column('sub_category_id', db.Integer, db.ForeignKey(
+        'sub_category.id'), primary_key=True, nullable=True)
 
-    def __init__(self, product_id, classification_id, category_id):
+    def __init__(self, product_id, category_id, sub_category_id):
         assert isinstance(product_id, int)
         assert isinstance(category_id, int)
-        assert isinstance(classification_id, int) or classification_id is None
+        assert isinstance(sub_category_id, int) or sub_category_id is None
 
         self.product_id = product_id
-        self.classification_id = classification_id
         self.category_id = category_id
+        self.sub_category_id = sub_category_id
