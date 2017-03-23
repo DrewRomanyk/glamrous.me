@@ -1,5 +1,5 @@
 #!/bin/bash
-FLAG=""
+FLAG="-i"
 if [ -z "$1" ]; then
 	FLAG="-it"
 fi
