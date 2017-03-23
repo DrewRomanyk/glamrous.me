@@ -4,7 +4,11 @@ export default class Brands_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
-        this.state = {brand: {products: [], name: '', avg_price: '', image_url: '', avg_rating: ''}}
+        this.state = {
+            brand: {
+                tags: [], products: [], name: '', avg_price: '', image_url: '', avg_rating: ''
+            }
+        }
     }
 
     componentDidMount() {
@@ -18,7 +22,14 @@ export default class Brands_Details extends React.Component {
         const products = this.state.brand.products.map((item, i) => {
             return (
                 <div key={item.id}>
-                    <a href={"/products/" + item.id}><h4>{item.name}</h4></a>
+                    <a href={"/products/" + item.id}>{item.name}</a>
+                </div>
+            );
+        });
+        const tags = this.state.brand.tags.map((item, i) => {
+            return (
+                <div key={item.id}>
+                    <a href={"/tags/" + item.id}>{item.name}</a>
                 </div>
             );
         });
@@ -36,8 +47,9 @@ export default class Brands_Details extends React.Component {
                         <h5>Average rating: </h5>
                         <p>{this.state.brand.avg_rating}</p>
                         <h5>Products: </h5>
-                        <p>{products}</p>
+                        {products}
                         <h5>Tags: </h5>
+                        {tags}
                     </div>
                 </div>
             </div>
