@@ -4,7 +4,11 @@ export default class Products_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
-        this.state = {product: {brand: {name: ''}, image_url: '', name: '', price: '', rating: ''}}
+        this.state = {
+            product: {
+                tags: [], brand: {name: ''}, image_url: '', name: '', price: '', rating: ''
+            }
+        }
     }
 
     componentDidMount() {
@@ -15,6 +19,13 @@ export default class Products_Details extends React.Component {
     }
 
     render() {
+        const tags = this.state.product.tags.map((item, i) => {
+            return (
+                <div key={item.id}>
+                    <a href={"/tags/" + item.id}>{item.name}</a>
+                </div>
+            );
+        });
         return (
             <div className="container">
 
@@ -31,6 +42,7 @@ export default class Products_Details extends React.Component {
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>
+                        {tags}
                     </div>
                 </div>
             </div>

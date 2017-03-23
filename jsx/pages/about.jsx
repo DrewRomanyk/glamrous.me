@@ -59,10 +59,10 @@ const About = () => (
                 <p>Number of unit tests: ##</p>
             </div>
             <div className="col-lg-4 col-sm-6 text-center">
-                <img className="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""/>
+                <img className="img-circle img-responsive img-center" src="/static/img/about/thomasp.jpg" alt=""/>
                 <h3>Thomas Potnuru</h3>
                 <h6>API & Backend</h6>
-                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+                <p>Currently a senior at UT Austin doing my Bachelor's in Computer Sceince. I am a IEEE Computer Society Officer again this year! Usually making and eating dessert in my free time. </p>
                 <p>Number of commits: ##</p>
                 <p>Number of issues: ##</p>
                 <p>Number of unit tests: ##</p>

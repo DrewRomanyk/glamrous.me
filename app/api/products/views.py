@@ -18,7 +18,12 @@ product_data = {
         'rating': 5.00,
         'image_url': "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
         'colors': [],
-        'tags': [],
+        'tags': [
+            {
+                "id": 0,
+                "name": "Gluten-Free",
+            }
+        ],
     },
     1: {
         'id': 1,
@@ -29,11 +34,16 @@ product_data = {
         },
         'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour",
         'description': 'Be the glamrous you.',
-        'price': 12.99,
-        'rating': 5.00,
+        'price': 20.99,
+        'rating': 4.56,
         'image_url': "https://d3t32hsnjxo7q6.cloudfront.net/i/a9c19212339fb2ed792af559b2a4208d_ra,w158,h184_pa,w158,h184.jpeg",
         'colors': [],
-        'tags': [],
+        'tags': [
+            {
+                "id": 1,
+                "name": "Canadian",
+            }
+        ],
     },
     2: {
         'id': 2,
@@ -45,10 +55,15 @@ product_data = {
         'name': "Jet Set Waterproof Eye Liner",
         'description': 'Be the glamrous you.',
         'price': 12.99,
-        'rating': 5.00,
+        'rating': 3.03,
         'image_url': "http://www.smashbox.com/media/images/products/388x396/sbx_sku_46012_388x396_0.jpg",
         'colors': [],
-        'tags': [],
+        'tags': [
+            {
+                "id": 2,
+                "name": "Natural",
+            }
+        ],
     },
 }
 

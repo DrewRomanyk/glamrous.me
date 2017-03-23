@@ -1,31 +1,33 @@
-# glamrous.me [![Build Status](https://travis-ci.org/DrewRomanyk/glamrous.me.svg?branch=master)](https://travis-ci.org/DrewRomanyk/glamrous.me)
----
+glamrous.me 
+===========
+[![Build Status](https://travis-ci.org/DrewRomanyk/glamrous.me.svg?branch=master)](https://travis-ci.org/DrewRomanyk/glamrous.me)
 
-Setup:
+## Installation
 
+#### Requirements
+* [Docker](https://www.docker.com)
+
+#### Building containers
 ```bash
-; cd dockerfile
-; docker build -t glamrous-dev -f Dockerfile.dev .
-; docker build -t glamrous-server -f Dockerfile.server .
-; docker pull postgres
+$ cd dockerfile
+$ docker build -t glamrous-dev -f Dockerfile.dev .
+$ docker build -t glamrous-server -f Dockerfile.server .
+$ docker pull postgres
 ```
 
-Start postgres server:
+#### Starting postgres
 ```bash
-; ./postgres.sh [detach]
+$ ./postgres.sh [detach]
 ```
 
-Run server:
-
+#### Build the frontend
 ```bash
-; ./start.sh [detach]
+$ npm install
+$ ./build.sh
+$ rollup -cw
 ```
 
-Build for frontend:
-
+#### Start Server
 ```bash
-; ./build.sh
-; rollup -cw
+$ ./start.sh [detach]
 ```
-
-NOTE: If rollup is failing, make sure to npm install

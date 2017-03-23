@@ -24,7 +24,13 @@ brand_data = {
                 'colors': [],
                 'tags': [],
             }
-        ]
+        ],
+        'tags': [
+            {
+                "id": 0,
+                "name": "Gluten-Free",
+            }
+        ],
     },
     1: {
         'id': 1,
@@ -45,7 +51,13 @@ brand_data = {
                 'colors': [],
                 'tags': [],
             }
-        ]
+        ],
+        'tags': [
+            {
+                "id": 1,
+                "name": "Canadian",
+            }
+        ],
     },
     2: {
         'id': 2,
@@ -66,7 +78,13 @@ brand_data = {
                 'colors': [],
                 'tags': [],
             }
-        ]
+        ],
+        'tags': [
+            {
+                "id": 2,
+                "name": "Natural",
+            }
+        ],
     }
 }
 

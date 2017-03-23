@@ -11,6 +11,18 @@ category_data = {
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
+        'brands': [
+            {
+                'id': 0,
+                'name': 'Pure Anada'
+            }
+        ],
+        'products': [
+            {
+                'id': 0,
+                'name': 'Pure Anada Natural Mascara'
+            }
+        ]
     },
     1: {
         'id': 1,
@@ -18,6 +30,18 @@ category_data = {
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
+        'brands': [
+            {
+                'id': 1,
+                'name': "L'Oreal"
+            }
+        ],
+        'products': [
+            {
+                'id': 1,
+                'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour"
+            }
+        ]
     },
     2: {
         'id': 2,
@@ -25,6 +49,18 @@ category_data = {
         'avg_price': 12.99,
         'avg_rating': 5.00,
         'num_products': 1,
+        'brands': [
+            {
+                'id': 2,
+                'name': 'smashbox'
+            }
+        ],
+        'products': [
+            {
+                'id': 2,
+                'name': 'Jet Set Waterproof Eye Liner'
+            }
+        ]
     },
 }
 
