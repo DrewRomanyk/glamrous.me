@@ -36,3 +36,14 @@
 .img-center {
     margin: 0 auto;
 }
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bottom-fix {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+}
