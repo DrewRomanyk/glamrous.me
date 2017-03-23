@@ -31,6 +31,12 @@ tag_data = {
 }
 
 
+@api_tags_blueprints.route('/api/tags')
+def get_brands():
+    tag_data_list = [tag_data[key] for key in tag_data]
+    return jsonify(tag_data_list)
+
+
 @api_tags_blueprints.route('/api/tags/<id>')
 def get_tag(id):
     return jsonify(tag_data[int(id)])
