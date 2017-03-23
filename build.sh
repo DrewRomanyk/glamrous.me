@@ -1,9 +1,14 @@
 #!/bin/bash
+FLAG=""
+if [[ -z "$1" ]]; then
+	FLAG="-it"
+fi
+
 if [ -z "$1" ] || [[ "$1" == "auto" ]]; then
 	sudo docker run \
 		-v $(pwd):/usr/dev \
 		-w /usr/dev \
-		-it \
+		$FLAG \
 		glamrous-dev \
 		./build.sh $(whoami) "$1"
 else
