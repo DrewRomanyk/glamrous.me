@@ -49,7 +49,7 @@ const About = () => (
                 <h6>Frontend & Devops</h6>
                 <p>Fourth-year Computer Science and Mathematics student at UT Austin. I'll be starting full-time at
                    Indeed in July!</p>
-                <p>Number of commits: 18</p>
+                <p>Number of commits: 19</p>
                 <p>Number of issues: 3</p>
                 <p>Number of unit tests: 0</p>
             </div>
