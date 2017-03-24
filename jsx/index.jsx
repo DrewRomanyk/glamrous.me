@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './app.jsx';
 import Home from './pages/home.jsx'
 import About from './pages/about.jsx'
+import Report from './pages/report.jsx'
 import Brands from './pages/brands.jsx'
 import Brands_Detail from './pages/brands_detail.jsx'
 import Products from './pages/products.jsx'
@@ -18,19 +19,29 @@ import Not_Found from './pages/not_found.jsx'
 const wrap = (name, component) => (
 	<App pageName={name}>{component}</App>
 );
+
+const route = (path, name, component, id=false) => {
+	const renderFN = ({ match }) => {
+		const props = id ? {id : match.params.id} : {};
+		return wrap(name, React.createElement(component, props, null));
+	};
+	return (<Route exact path={path} render={renderFN} />);
+};
+
 const Routed = () => (
 	<Router>
 		<Switch>
 			<Route exact path='/' render={() => wrap('Home', <Home />)} />
-			<Route exact path='/about' render={() => wrap('About', <About />)} />
-            <Route exact path='/brands' render={() => wrap('Brands', <Brands />)} />
-            <Route exact path='/brands/:id' render={({ match }) => wrap('Brands', <Brands_Detail id={match.params.id} />)} />
-            <Route exact path='/products' render={() => wrap('Products', <Products />)} />
-			<Route exact path='/products/:id' render={({ match }) => wrap('Products', <Products_Details  id={match.params.id} />)} />
-            <Route exact path='/categories' render={() => wrap('Categories', <Categories />)} />
-			<Route exact path='/categories/:id' render={({ match }) => wrap('Products', <Categories_Details  id={match.params.id} />)} />
-            <Route exact path='/tags' render={() => wrap('Tags', <Tags />)} />
-			<Route exact path='/tags/:id' render={({ match }) => wrap('Tags', <Tags_Details  id={match.params.id} />)} />
+			{route('/about',          'About',      About)}
+			{route('/report1',        'Report #1',  Report)}
+			{route('/brands',         'Brands',     Brands)}
+			{route('/brands/:id',     'Brands',     Brands_Detail,      true)}
+			{route('/products',       'Products',   Products)}
+			{route('/products/:id',   'Products',   Products_Details,   true)}
+			{route('/categories',     'Categories', Categories)}
+			{route('/categories/:id', 'Products',   Categories_Details, true)}
+			{route('/tags',           'Tags',       Tags)}
+			{route('/tags/:id',       'Tags',       Tags_Details,       true)}
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>

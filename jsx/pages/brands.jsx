@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterBar from '../ui/FilterBar.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
@@ -18,7 +19,6 @@ export default class Brands extends React.Component {
     render() {
         const brands = this.state.brands.map((item, i) => {
             return (
-
                 <div key={item.id} className="item  col-xs-4 col-lg-4">
                     <div className="thumbnail">
                         <img className="group list-group-image" src={item.image_url} alt=""/>
@@ -40,11 +40,14 @@ export default class Brands extends React.Component {
             );
         });
         return (
-            <div className="container">
-                <div id="brands" className="row list-group">
-                    { brands }
-                </div>
-            </div>
+			<div>
+				<div className="container">
+					<FilterBar />
+					<div id="brands" className="row list-group">
+						{ brands }
+					</div>
+				</div>
+			</div>
         );
     }
 }
