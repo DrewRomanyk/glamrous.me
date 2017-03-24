@@ -4,6 +4,8 @@
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
+@import url('https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff');
+
 /* Carousel base class */
 .carousel {
     top: -23px;
@@ -22,12 +24,17 @@
     background-color: #858585;
 }
 
-.carousel-inner > .item > img {
+.carousel-inner > .item > img  {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.carousel-caption {
+    font-family: 'Herr Von Muellerhoff', cursive;
+
 }
 
 /* GENERAL

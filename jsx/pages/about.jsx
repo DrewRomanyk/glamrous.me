@@ -57,7 +57,7 @@ const About = () => (
 				<img className="img-circle img-responsive img-center" src="static/img/about/mpark.jpg" alt="Melody Park, get it, hahahaha"/>
                 <h3>Melody Park</h3>
                 <h6>Frontend & Backend</h6>
-                <p>What does this team member do? Keep it short! This is also a great spot for social links!</p>
+                <p>Fourth year UT student who likes to get swole. Weenie on the outside. Dragon on the inside.</p>
                 <p>Number of commits: ##</p>
                 <p>Number of issues: ##</p>
                 <p>Number of unit tests: ##</p>
