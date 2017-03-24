@@ -49,32 +49,117 @@ cosmetics. The following is a list of use cases for Glamrous.me:
 
 #### RESTful API
 
-Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON
-object modeled after it’s backend model except for internal mapping tables.
+Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON object modeled after it’s backend model except for internal mapping tables.
 
-Resources
-
-glamrous.me/product [GET]
+##### glamrous.me/product [GET]
 
 This API call will return a JSON object containing all the products held. The HTTP
 response for a successful call will be 200 and will contain a JSON object. The format of
-the JSON object is a list product JSON Objects. The product object matches the product
-model closely. It has the following fields:
-
+the JSON object is a list of product JSON Objects. The product object matches the product
+model closely. It has the following fields :
 
 ```
-product_id:  integer, unique value that identifies the product in the backend
-brand_name:  string, brand name of the product
-name:        string, name of the product
-description: string
-price:
-rating:
-image_link:
-product_colors: {
-    hex_color: "#000000",
-    color_name": "Black
-}
-tag_list: []
+product_id: integer, unique value that identifies the product in the backend
+brand_name: string, brand name of the product
+name: string, name of the product 
+description: string, description of the product
+price: decimal, price of the product
+rating: decimal, rating of the product
+image_link: string, link to the image of the product
+product_colors: List of mini-color objects each containing:
+hex_color: string, hex value of the color
+color_name: string, name of color
+tag_list: list of strings, tags associated with product
+```
+
+##### glamrous.me/brand [GET]
+
+This API call will return a JSON object containing all the brands held. The HTTP response
+for a successful call will be 200 and will contain a JSON object. The format of the JSON
+object is a list of brand JSON Objects. The brand object matches the brand model closely.
+It has the following fields :
+
+```
+brand_id: integer, unique brand id given by the backend server
+brand_name: string, name of the brand
+avg_price: decimal, average price of all the products under the brand
+avg_rating: decimal, average rating of all the products under the brand
+num_products: integer, number of products under the brand
+image_link: string, link to the brand image
+products: list of product data each containing:
+product_id: integer, unique id of the product
+product_name: string, name of the product
+```
+
+##### glamrous.me/color [GET]
+
+This API call will return a JSON object containing all the colors held. The HTTP response
+for a successful call will be 200 and will contain a JSON object. The format of the JSON
+object is a list of color JSON Objects. The color object matches the color model closely.
+It has the following fields :
+
+```
+color_id: integer, unique color id given by the backend server
+color_name: string, name of the color
+color_hashcode: string, hex code of the color
+num_products: integer, number of products that sell in this color
+```
+
+##### glamrous.me/category [GET]
+
+This API call will return a JSON object containing all the categories held. The HTTP
+response for a successful call will be 200 and will contain a JSON object. The format of
+the JSON object is a list of category JSON Objects. The category object matches the
+category model closely. It has the following fields :
+
+```
+category_id: integer, unique category id given by the backend server
+category_name: string, name of the category
+avg_price: decimal, average price of all products within this category
+avg_rating: decimal, average rating of all products within this category
+num_products: integer, number of products within this category
+products: list of product objects each containing:
+product_id: integer, unique id of the product
+brand_name: string, name of the brand of the product 
+product_name: string, name of the product
+```
+
+##### glamrous.me/sub_category [GET]
+
+This API call will return a JSON object containing all the subcategories held. The HTTP
+response for a successful call will be 200 and will contain a JSON object. The format of
+the JSON object is a list of subcategories JSON Objects. The subcategories object matches
+the subcategory model closely. It has the following fields:
+
+```
+sub_category_id: integer, unique category id given by the backend server
+sub_category_name: string, name of the subcategory
+avg_price: decimal, average price of all products within this subcategory
+avg_rating: decimal, average rating of all products within this subcategory
+num_products: integer, number of products within this subcategory
+products: list of product objects each containing:
+product_id: integer, unique id of the product
+brand_name: string, name of the brand of the product 
+product_name: string, name of the product
+```
+
+##### glamrous.me/tags [GET]
+
+This API call will return a JSON object containing all the tags held. The HTTP response
+for a successful call will be 200 and will contain a JSON object. The format of the JSON
+object is a list of tags JSON Objects. The tags object matches the tags model closely. It
+has the following fields:
+
+```
+tag_id: integer, unique tag id given by the backend server
+tag_name: string, name of the tag
+avg_price: decimal, average price of all products associate with this tag
+avg_rating: decimal, average rating of all products associate with this tag
+num_products: integer, number of products associate with this tag
+products: list of product objects each containing:
+product_id: integer, unique id of the product
+brand_name: string, name of the brand of the product 
+product_name: string, name of the product
 ```
 
 ### Tools
