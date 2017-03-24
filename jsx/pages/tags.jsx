@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterBar from '../ui/FilterBar.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
@@ -41,6 +42,7 @@ export default class Tags extends React.Component {
         });
         return (
             <div className="container">
+				<FilterBar />
                 <div id="tags" className="row list-group">
                     { tags }
                 </div>
