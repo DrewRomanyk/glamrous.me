@@ -18,24 +18,39 @@ Melody Park
 
 #### The Problem
 
-Glamrous.me is an online database of information relating to various types of cosmetics. This will include major brand names and type of products. There is a huge amount of different makeup products from eyeshadow to lipstick and each has their own subtype which increases the number of products in the market. Each company will also release their own kind of product. The problem is that there is no system that kept track of the different types of beauty products in an organized way. Glamrous.me will serve as a resources that will give users an easy experience to find and discover different cosmetics.
+Glamrous.me is an online database of information relating to various types of cosmetics.
+This will include major brand names and type of products. There is a huge amount of
+different makeup products from eyeshadow to lipstick and each has their own subtype which
+increases the number of products in the market. Each company will also release their own
+kind of product. The problem is that there is no system that kept track of the different
+types of beauty products in an organized way. Glamrous.me will serve as a resources that
+will give users an easy experience to find and discover different cosmetics.
 
 #### Use Cases
 
-The website will be targeted to people with different backgrounds who are interested in cosmetics. The following is a list of use cases for Glamrous.me:
+The website will be targeted to people with different backgrounds who are interested in
+cosmetics. The following is a list of use cases for Glamrous.me:
 
-*   User is a consumer and wants to buy a specific product. They want more information about the product and will go to the website to find ratings, company, and description about that product before they buy.
-*   User wants to know more about a type of product such as lipstick because they have not tried lipstick before. They will find a list of lipstick and the different types of lipstick with colors to meet their need
-*   User is a seller and has products that they want to sell online. They will find average ratings and company where they can find the price to base their sales on.
-*   User received a gift and wants to find out the rating and more about the product they received.
+*   User is a consumer and wants to buy a specific product. They want more information
+    about the product and will go to the website to find ratings, company, and description
+    about that product before they buy.
+*   User wants to know more about a type of product such as lipstick because they have not
+    tried lipstick before. They will find a list of lipstick and the different types of
+    lipstick with colors to meet their need
+*   User is a seller and has products that they want to sell online. They will find
+    average ratings and company where they can find the price to base their sales on.
+*   User received a gift and wants to find out the rating and more about the product they
+    received.
 *   User is researching different products because they need to buy gifts.
-*   User is merely browsing for entertainment purposes and part of their online shopping routine.
+*   User is merely browsing for entertainment purposes and part of their online shopping
+    routine.
 
 ### Design
 
 #### RESTful API
 
-Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON object modeled after it’s backend model except for internal mapping tables.
+Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON
+object modeled after it’s backend model except for internal mapping tables.
 
 Resources
 
@@ -185,6 +200,36 @@ avg_price           Float           the average price for Products with this Sub
 avg_rating          Float           the average rating for Products with this SubCategory
 num_products        Integer         number of products with this SubCategory
 ```
+
+### Development Process
+
+#### Docker
+
+To prevent everyone needing to install their own versions of the software used, all
+development and running is performed through `docker`. Install that on your local machine
+however you do, then build our two images:
+
+```bash
+; cd dockerfiles
+; docker build -t glamrous-server -f Dockerfile.server .
+; docker build -t glamrous-dev -f Dockerfile.dev .
+```
+
+and pull down `postgres`' image:
+
+```bash
+; docker pull postgres
+```
+
+Then, from the project root, run `./postgres.sh [detach]` to spin up the Postgres daemon
+(adding `detach` runs it in the backgroun), followed by `./start.sh [detach]` to start the
+server (adding `detach`, unsurprisingly, also runs it in the background). 
+
+Run `./build.sh` to open up a `tmux` window with the tools you'll need for building
+already installed---in particular, run `rollup -cw` to watch for and rebundle javascript
+changes. It may be necessary, depending on machine (we think...?) to run `npm install`
+before launching `./build.sh`; the image is supposed to do that automatically but it just
+doesn't sometimes. We're putting off fixing that for stage two of the project.
 
 ### Hosting
 
