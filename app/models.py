@@ -1,7 +1,24 @@
-from .app import db
+# pylint: disable=missing-docstring
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 class Brand(db.Model):
+    """
+    Brand is the outermost model of the project structure. A Brand leads you to the
+    Products for said brand. A Brand is the company that owns and sells the products.
+    Brand has a one-to-many relationship with the Product model.
+
+    Attributes:
+        id          Integer     numerical identifier for this model
+        name        String      name of the Brand
+        avg_price   Float       average price of all products in the Brand
+        avg_rating  Float       average rating of all products in the Brand
+        image_url   String      url of the image for the Brand
+        products    List        list of all Products in the Brand
+    """
+
     __tablename__ = 'brand'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -30,6 +47,25 @@ class Brand(db.Model):
 
 
 class Product(db.Model):
+    """
+    Product is the center of the cluster of models, all others are things describing a Product.
+    Each Product is one item being sold by a Brand. Product has a one-to-many relationship with 
+    the Brand model, a many-to-many relationship with the Tag model, a ternary relationship with 
+    the category and subcategory model, and an optional many-many relationship with the Color model.
+
+
+    Attributes:
+        id          Integer     numerical identifier for this model
+        brand_id    Integer     numerical identifier for the Brand for this Product
+        brand       String      the Brand object the Product belongs to       
+        name        String      name of the Product
+        price       Float       price of the Product
+        rating      Float       rating of the Product
+        image_url   String      url of the image for the Product
+        colors      List        list of all Colors belonging to this Product
+        tags        List        list of all Tags belonging to this Product
+    """
+
     __tablename__ = 'product'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -66,6 +102,19 @@ class Product(db.Model):
 
 
 class Color(db.Model):
+    """
+    The Color model is a colection of all Colors appearing throughout all of the 
+    Products in the database. Not all Products have a Color and some have more 
+    than one Color. Color has an optional many-many relationship with the Product model.
+
+
+    Attributes:
+        id              Integer     numerical identifier for this model
+        name            String      name of the Color
+        hashcode        String      the hash value for the Color
+        num_products    Integer     number of products with this Color
+    """
+    
     __tablename__ = 'color'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -87,6 +136,21 @@ class Color(db.Model):
 
 
 class Category(db.Model):
+    """
+    The Category Model describes the type of the Product in collaboration with
+    the SubCategory Model. A Category is something like "Blush", "Mascara", "Eye Liner".
+    Category has a ternary relationship with Product and SubCategory represented in
+    the ProductCategory Model.
+
+
+    Attributes:
+        id              Integer     numerical identifier for this model
+        name            String      name of the Category
+        avg_price       Float       the average price for Products with this Category
+        avg_rating      Float       the average rating fro Products with this Category
+        num_products    Integer     number of products with this Category
+    """
+
     __tablename__ = 'category'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -111,6 +175,22 @@ class Category(db.Model):
 
 
 class SubCategory(db.Model):
+    """
+    The SubCategory Model describes the type of the Product in collaboration with
+    the Category Model. A SubCategory is something like "Pencil", "Cream", "Liquid" that
+    describes the Category of the Product. However, this Model is optional for some 
+    Categories due to them not having SubCateogories. SubCategory has a ternary
+    relationship with Product and Category represented in the ProductCategory Model.
+
+
+    Attributes:
+        id              Integer     numerical identifier for this model
+        name            String      name of the SubCategory
+        avg_price       Float       the average price for Products with this SubCategory
+        avg_rating      Float       the average rating fro Products with this SubCategory
+        num_products    Integer     number of products with this SubCategory
+    """
+
     __tablename__ = 'sub_category'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -135,6 +215,20 @@ class SubCategory(db.Model):
 
 
 class Tag(db.Model):
+    """
+    The Tag model descibes attributes of the Product. A Tag is something like 
+    "Vegan", "Sugar-Free", "Organic". The Tag model has a many-many relationship
+    with the Product model.
+
+
+    Attributes:
+        id              Integer     numerical identifier for this model
+        name            String      name of the Tag
+        avg_price       Float       the average price for Products with this Tag
+        avg_rating      Float       the average rating fro Products with this Tag
+        num_products    Integer     number of products with this Tag
+    """
+
     __tablename__ = 'tag'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -170,6 +264,21 @@ product_tag = db.Table('product_tag',
 
 
 class ProductCategory(db.Model):
+    """
+    The ProductCategory model is the manifestation of the ternary relationship
+    between Product, Category, and SubCategory. A Category can have many to no 
+    SubCategories so a ternary relationship is necesary to show the unique 
+    combination for a certain Product.
+
+    Attributes:
+        product_id          Integer     numerical identifier for the Product
+        category_id         Integer     numerical identifier for the Category of the
+                                        Product
+        sub_category_id     Integer     numerical identifier for the SubCategory of 
+                                        the Product
+    """
+
+
     __tablename__ = 'product_category'
 
     product_id = db.Column('product_id', db.Integer, db.ForeignKey(
