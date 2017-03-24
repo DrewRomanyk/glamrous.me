@@ -1,6 +1,7 @@
 # TODO: Uncomment once target implemented
 # .DEFAULT_GOAL := test
 
+
 ifeq ($(shell uname), Darwin)          # MacOS
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -32,7 +33,7 @@ else                                   # UTCS
 endif
 
 IDB1.html:
-	echo "Hello, world!" >> IDB1.html
+	pydoc3.5 -w app/Models.py
 
 IDB1.log:
 	git log > IDB1.log
