@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './app.jsx';
 import Home from './pages/home.jsx'
 import About from './pages/about.jsx'
+import Report from './pages/report.jsx'
 import Brands from './pages/brands.jsx'
 import Brands_Detail from './pages/brands_detail.jsx'
 import Products from './pages/products.jsx'
@@ -31,8 +32,8 @@ const Routed = () => (
 	<Router>
 		<Switch>
 			<Route exact path='/' render={() => wrap('Home', <Home />)} />
-
 			{route('/about',          'About',      About)}
+			{route('/report1',        'Report #1',  Report)}
 			{route('/brands',         'Brands',     Brands)}
 			{route('/brands/:id',     'Brands',     Brands_Detail,      true)}
 			{route('/products',       'Products',   Products)}
@@ -41,7 +42,6 @@ const Routed = () => (
 			{route('/categories/:id', 'Products',   Categories_Details, true)}
 			{route('/tags',           'Tags',       Tags)}
 			{route('/tags/:id',       'Tags',       Tags_Details,       true)}
-
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>

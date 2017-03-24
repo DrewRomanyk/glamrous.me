@@ -10,7 +10,7 @@ class Brand(db.Model):
     avg_rating = db.Column('avg_rating', db.Integer)
     num_products = db.Column('num_products', db.Integer, default=0)
     image_url = db.Column('image_url', db.Unicode(255))
-    products = db.relationship('product')
+    products = db.relationship('product', back_populates="brand")
 
     def __init__(self, name, avg_price, avg_rating, num_products, image_url):
         assert isinstance(name, str)
@@ -35,6 +35,7 @@ class Product(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     brand_id = db.Column('brand_id', db.Integer, db.ForeignKey(
         'brand.brand_id'), nullable=False)
+    brand = db.relationship('Brand', back_populates="products")
     name = db.Column('name', db.Unicode(255), nullable=False)
     description = db.Column('description', db.UnicodeText(4000))
     price = db.Column('price', db.Integer)

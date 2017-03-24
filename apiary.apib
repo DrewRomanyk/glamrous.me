@@ -3,14 +3,11 @@ HOST: http://glmarous.me/
 
 # glamrous.me
 
-Glamrous has a simple API that lets you get information on all your favorite makeup items.
+Glamrous has a simple API that lets you get information all your favorite makeup items.
 
-## Products Collection [/product{?limit}]
+## Products Collection [/product]
 
-+ Parameters
-    + limit (number, optional) - max number of products to list. -1 means all.
-
-### List a Number of Products [GET]
+### List All Products [GET]
 
 + Response 200 (application/json)
 
@@ -22,7 +19,6 @@ Glamrous has a simple API that lets you get information on all your favorite mak
                 "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
                 "price": "14.0",
                 "rating": 4.6,
-                "product_type": "Mascara",
                 "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
                 "product_colors": [
                   {
@@ -47,7 +43,6 @@ Glamrous has a simple API that lets you get information on all your favorite mak
                 "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
                 "price": "14.0",
                 "rating": 4.6,
-                "product_type": "Mascara",
                 "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
                 "product_colors": [
                   {
@@ -67,70 +62,6 @@ Glamrous has a simple API that lets you get information on all your favorite mak
             }
         ]
 
-
-### Create a New Product [POST]
-
-You may create your own product using this action. It takes a JSON
-object containing information about the product and returns a JSON
-object about the product added.
-
-+ Request (application/json)
-
-        {
-            "brand_name": "Pure Anada", 
-            "name": "Pure Anada Natural Mascara",
-            "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-            "price": "14.0",
-            "product_type": "Mascara",
-            "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-            "product_colors": [
-              {
-                "color_name": "Brown",
-                "color_hashcode": "#A52A2A"
-              },
-              {
-                "color_name": "Black",
-                "color_hashcode": "#000000"
-              }
-            ],
-            "tag_list": [
-              "Canadian",
-              "Gluten Free",
-              "Natural"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /product/1
-
-    + Body
-
-            {
-                "product_id": 1,
-                "brand_name": "Pure Anada", 
-                "name": "Pure Anada Natural Mascara",
-                "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-                "price": "14.0",
-                "product_type": "Mascara",
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-                "product_colors": [
-                    {
-                        "color_name": "Brown "
-                    }, {
-                        "color_name": "Black "
-                    }
-                ],
-                "tag_list": [
-                  "Canadian",
-                  "Gluten Free",
-                  "Natural"
-                ]
-            }
-
-
 ## Product Collection [/product/{product_id}]
 
 + Parameters
@@ -146,8 +77,7 @@ object about the product added.
             "name": "Pure Anada Natural Mascara",
             "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
             "price": "14.0",
-            "rating": 4.6,
-            "product_type": "Mascara",
+            "rating": 4.6,move
             "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
             "product_colors": [
               {
@@ -165,50 +95,6 @@ object about the product added.
               "Natural"
             ]
         }
-        
-### Replace/Create a New Product [PUT]
-
-You may replace the product at this location or if it does not exist,
-create it at this location with the information given. Returns a JSON
-object with the added product's information.
-
-+ Request (application/json)
-
-        [
-            {
-                "brand_name": "Pure Anada", 
-                "name": "Pure Anada Natural Mascara",
-                "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-                "price": "14.0",
-                "product_type": "Mascara",
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-                "product_colors": [
-                  {
-                    "color_name": "Brown",
-                    "color_hashcode": "#A52A2A"
-                  },
-                  {
-                    "color_name": "Black",
-                    "color_hashcode": "#000000"
-                  }
-                ],
-                "tag_list": [
-                  "Canadian",
-                  "Gluten Free",
-                  "Natural"
-                ]
-            }
-        ]
-
-+ Response 204 (application/json)
-
-### Delete a Product [DELETE]
-
-Delete the product at this location.
-
-+ Response 202 (application/json)
-
-
             
 ## Brands Collection [/brand]
 
@@ -237,51 +123,6 @@ Delete the product at this location.
             }
         ]
         
-### Create a New Brand [POST]
-
-You may create your own brand using this action. It takes a JSON
-object containing the name of the brand and a link to it's image
-and returns a JSON object about the product added including it's 
-assigned id and some initialized values.
-
-+ Request (application/json)
-
-        [
-            {
-                "brand_id": 1,
-                "brand_name": "Pure Anada", 
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg"
-            }
-        ]
-        ]
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /brand/1
-
-    + Body
-
-              {
-                "brand_id": 1,
-                "brand_name": "Pure Anada", 
-                "avg_price": 0.0,
-                "avg_rating": 0.0,
-                "num_products": 0,
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg"
-            }
-            
-## Brand Collection [/brand/{brand_id}]
-
-+ Parameters
-    + brand_id (number) - ID of the brand in the form of an integer
-
-### Delete a Brand [DELETE]
-
-Delete the Brand at this location.
-
-+ Response 202 (application/json)
 
 ## Colors Collection [/color]
 
@@ -298,93 +139,7 @@ Delete the Brand at this location.
             }
         ]
 
-### Create a New Color [POST]
 
-You may create your own color using this action. It takes a JSON
-object containing the name and hashcode(hex value) of the color 
-and returns a JSON object with the given information and the 
-color id assigned by the database.
-
-+ Request (application/json)
-
-        [
-            {
-                "color_name": "Princess Peach Pink", 
-                "color_hashcode": "#F5B6FC",
-            }
-        ]
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /color/14
-
-    + Body
-
-            {
-                "color_id": 14,
-                "color_name": "Princess Peach Pink", 
-                "color_hashcode": "#F5B6FC",
-                "num_products": 0
-            }
-## Type Collection [/type]
-
-### List All Types [GET]
-
-Lists all the types plus products associated with those types
-+ Response 200 (application/json)
-
-        [
-            {
-                "type_id": 1,
-                "type_name": "Mascara", 
-                "avg_price": "14.0",
-                "avg_rating": 4.6,
-                "num_products": 2,
-                "products": [
-                    {
-                        "product_id": 1,
-                        "brand_name": "Pure Anada",
-                        "product_name": "Pure Anada Natural Mascara"
-                    }, {
-                        "product_id": 4,
-                        "brand_name": "Generic Company",
-                        "product_name": "Generic Mascara"
-                    }
-                    
-                ]
-            }
-        ]
-
-### Create a New Type [POST]
-
-You may create your own type using this action. It takes a JSON
-object containing the name of the type and returns the database 
-assigned typeid and some other instantiated information.
-+ Request (application/json)
-
-        [
-            {
-                "type_name": "Mascara", 
-            }
-        ]
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /type/1
-
-    + Body
-
-            {
-                "type_id": 1,
-                "type_name": "Mascara", 
-                "avg_price": 0.0,
-                "avg_rating": 0.0,
-                "num_products": 0,
-            }
 ## Category Collection [/category]
 
 ### List All Categories [GET]
@@ -412,36 +167,34 @@ assigned typeid and some other instantiated information.
                 ]
             }
         ]
+        
+## Sub-Category Collection [/sub_category]
 
-### Create a New Category [POST]
+### List All Sub-Categories [GET]
 
-You may create your own category using this action. It takes a JSON
-object containing the category name and returns a JSON object containing
-the assigned id and some instantiated information.
-
-+ Request (application/json)
++ Response 200 (application/json)
 
         [
             {
-                "category_name": "Generic Category"
+                "sub_category_id": 1,
+                "sub_category_name": "Generic Name", 
+                "avg_price": 14.0,
+                "avg_rating": 4.6,
+                "num_products": 2,
+                "products": [
+                    {
+                        "product_id": 1,
+                        "brand_name": "Pure Anada",
+                        "product_name": "Pure Anada Natural Mascara"
+                    }, {
+                        "product_id": 4,
+                        "brand_name": "Generic Company",
+                        "product_name": "Generic Mascara"
+                    }
+                    
+                ]
             }
         ]
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /category/1
-
-    + Body
-
-            {
-                "category_id": 1,
-                "category_name": "Generic Category", 
-                "avg_price": 0.0,
-                "avg_rating": 0.0,
-                "num_products": 0
-            }
             
 ## Tags Collection [/tag]
 
@@ -470,32 +223,3 @@ the assigned id and some instantiated information.
                 ]
             }
         ]
-
-### Create a New Tag [POST]
-
-You may create your own tag using this action. It takes a JSON
-object containing the name of the tag and returns a JSON object
-with the database assigned id of the tag and some instantiated information.
-
-+ Request (application/json)
-
-        [
-            "tag_name": "Generic Tag",
-        ]
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /tag/1
-
-    + Body
-
-            {
-                "tag_id": 1,
-                "tag_name": "Generic Tag", 
-                "avg_price": 0.0,
-                "avg_rating": 0.0,
-                "num_products": 0
-            }
-
