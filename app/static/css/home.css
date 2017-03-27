@@ -8,9 +8,9 @@
 
 /* Carousel base class */
 .carousel {
-    top: -23px;
-    height: 500px;
-    margin-bottom: 60px;
+    top: 0;
+    height: 100vh;
+    position: absolute;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -20,12 +20,12 @@
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-    height: 500px;
+    height: 100vh;
     background-color: #858585;
 }
 
 .carousel-inner > .item > img  {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     min-width: 100%;
