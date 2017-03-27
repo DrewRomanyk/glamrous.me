@@ -11,21 +11,11 @@ const Home = () => (
             <li data-target='#myCarousel' data-slide-to='2' className='active'></li>
         </ol>
         <div className='carousel-inner' role='listbox'>
-            <div className='item'>
-                <img className='first-slide'
-                     src='/static/img/home/slide1.jpg'
-                     alt='First slide'/>
+            <div className='first-item item'>
             </div>
-            <div className='item active left'>
-                <img className='second-slide'
-                     src='/static/img/home/slide2.jpg'
-                     alt='Second slide'/>
+            <div className='second-item item active left'>
             </div>
-            <div className='item next left'>
-                <img className='third-slide'
-                     src='/static/img/home/slide3.jpg'
-                     alt='Third slide'/>
-            
+            <div className='third-item item next left'>
             </div>
         </div>
     </div>
