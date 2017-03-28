@@ -1,7 +1,5 @@
 # pylint: disable=missing-docstring
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from .app import db
 
 
 class Brand(db.Model):
@@ -21,13 +19,15 @@ class Brand(db.Model):
 
     __tablename__ = 'brand'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Integer, default=0)
+    avg_rating = db.Column('avg_rating', db.Integer, default=0)
     num_products = db.Column('num_products', db.Integer, default=0)
     image_url = db.Column('image_url', db.Unicode(255))
-    products = db.relationship('product', back_populates="brand")
+    
+    # One-to-Many relationships
+    products = db.relationship('product', backref='brand', lazy='dynamic')
 
     def __init__(self, name, avg_price, avg_rating, num_products, image_url):
         assert isinstance(name, str)
@@ -68,19 +68,21 @@ class Product(db.Model):
 
     __tablename__ = 'product'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     brand_id = db.Column('brand_id', db.Integer, db.ForeignKey(
-        'brand.brand_id'), nullable=False)
-    brand = db.relationship('Brand', back_populates="products")
+        'brand.id'), nullable=False)
+    #brand = db.relationship('Brand', back_populates="products")
     name = db.Column('name', db.Unicode(255), nullable=False)
-    description = db.Column('description', db.UnicodeText(4000))
+    description = db.Column('description', db.Unicode(4000))
     price = db.Column('price', db.Integer)
     rating = db.Column('rating', db.Integer)
     image_url = db.Column('image_url', db.Unicode(255))
+   
+    # Many-to-Many relationships
     colors = db.relationship('Color',
-                             secondary='product_color')
+                             secondary='product_color', backref='product')
     tags = db.relationship('Tag',
-                           secondary='product_tag')
+                           secondary='product_tag', backref='product')
 
     def __init__(self, brand_id, name, description, price, rating, image_url):
         assert isinstance(brand_id, int)
@@ -117,9 +119,9 @@ class Color(db.Model):
     
     __tablename__ = 'color'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    hashcode = db.Column('hashcode', db.Unicode('25'), nullable=False)
+    hashcode = db.Column('hashcode', db.Unicode(25), nullable=False)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, hashcode, num_products):
@@ -153,7 +155,7 @@ class Category(db.Model):
 
     __tablename__ = 'category'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Integer)
     avg_rating = db.Column('avg_rating', db.Integer)
@@ -193,7 +195,7 @@ class SubCategory(db.Model):
 
     __tablename__ = 'sub_category'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Integer)
     avg_rating = db.Column('avg_rating', db.Integer)
@@ -231,7 +233,7 @@ class Tag(db.Model):
 
     __tablename__ = 'tag'
 
-    id = db.Column('id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Integer)
     avg_rating = db.Column('avg_rating', db.Integer)
@@ -255,12 +257,14 @@ class Tag(db.Model):
 product_color = db.Table('product_color',
                          db.Column('product_id', db.Integer,
                                    db.ForeignKey('product.id')),
-                         db.Column('color_id', db.Integer, db.ForeignKey('color.id')))
+                         db.Column('color_id', db.Integer, db.ForeignKey('color.id')),
+                         db.PrimaryKeyConstraint('product_id', 'color_id'))
 
 product_tag = db.Table('product_tag',
                        db.Column('product_id', db.Integer,
                                  db.ForeignKey('product.id')),
-                       db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')))
+                       db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+                       db.PrimaryKeyConstraint('product_id', 'tag_id'))
 
 
 class ProductCategory(db.Model):
