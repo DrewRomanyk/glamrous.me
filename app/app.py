@@ -10,6 +10,7 @@ from .api.brands.views import api_brands_blueprints
 from .api.products.views import api_products_blueprints
 from .api.tags.views import api_tags_blueprints
 from .api.categories.views import api_categories_blueprints
+from .api.tests.views import api_test_blueprints
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -24,6 +25,7 @@ app.register_blueprint(api_brands_blueprints)
 app.register_blueprint(api_products_blueprints)
 app.register_blueprint(api_tags_blueprints)
 app.register_blueprint(api_categories_blueprints)
+app.register_blueprint(api_test_blueprints)
 
 
 # Client-side routing through React
