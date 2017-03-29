@@ -1,0 +1,3 @@
+CREATE USER glamrous;
+CREATE DATABASE glamrous;
+GRANT ALL PRIVILEGES ON DATABASE glamrous TO glamrous;
