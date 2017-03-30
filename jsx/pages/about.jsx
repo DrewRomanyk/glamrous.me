@@ -1,4 +1,78 @@
 import React from 'react';
+import { Container, GridCell, Modal, PageHeader, Row } from '../ui/Bootstrap.jsx';
+
+const TeamMember = (props) => (
+	<GridCell lg={4} sm={6} text-center style={{marginBottom: '2em'}}>
+		<img
+			className='img-circle img-responsive img-center'
+			src={'/static/img/about/' + props.image}
+			alt=""
+		/>
+		<h3>{props.name}</h3>
+		<h6>{props.role}</h6>
+		<p>{props.about}</p>
+		<div>Number of commits: {props.contrib.commits}</div>
+		<div>Number of issues: {props.contrib.issues}</div>
+		<div>Number of unit tests: {props.contrib.tests}</div>
+	</GridCell>
+);
+
+const TheGlamFam = () => (
+	<Row>
+		<TeamMember
+			name='Thomas Gaubert'
+			image='thomas.jpg'
+			role='Devops & Frontend'
+			about={"I'm an avid lover of the outdoors and the co-lead of Freetail "
+				+ "Hackers. I'll be an intern at Microsoft this summer."}
+			contrib={{ commits: 21, issues: 3, tests: 0 }}
+		/>
+		<TeamMember
+			name='Drew Romanyk'
+			image='drew.jpg'
+			role='Frontend & Backend'
+			about={"I'm currently a junior computer science student at The University of "
+				+ "Texas at Austin. I'm the president of MAD, and currently going to "
+				+ "intern with RetailMeNot over the summer."}
+			contrib={{ commits: 28, issues: 4, tests: 0 }}
+		/>
+		<TeamMember
+			name='Cameron Piel'
+			image='cameron.jpg'
+			role='Database & Backend'
+			about={"My name is Cameron Piel, I am a 5th year student here at "
+				+ "UT. When I am not coding or cooking you can find me sitting "
+				+ "at my desk pretending to be productive."}
+			contrib={{ commits: 11, issues: 3, tests: 15 }}
+		/>
+		<TeamMember
+			image='rperce.jpg'
+			name='Robert Perce'
+			role='Frontend & Devops'
+			about={"Fourth-year Computer Science and Mathematics student at UT "
+				+ "Austin. I'll be starting full-time at Indeed in July!"}
+			contrib={{ commits: 20, issues: 3, tests: 0 }}
+		/>
+		<TeamMember
+			image='mpark.jpg'
+			name='Melody Park'
+			role='Frontend & Backend'
+			about={"Fourth year UT student who likes to get swole. Weenie on "
+				+ "the outside. Dragon on the inside."}
+			contrib={{ commits: 2, issues: 1, tests: 0 }}
+		/>
+		<TeamMember
+			image='thomasp.jpg'
+			name='Thomas Potnuru'
+			role='API & Backend'
+			about={"Currently a senior at UT Austin doing my Bachelor's in "
+				+ "Computer Sceince. I am a IEEE Computer Society Officer "
+				+ "again this year! Usually making and eating dessert in my "
+				+ " free time."}
+			contrib={{ commits: 3, issues: 1, tests: 0 }}
+		/>
+	</Row>
+);
 
 export default class About extends React.Component {
     constructor(props) {
@@ -18,91 +92,19 @@ export default class About extends React.Component {
 
     render() {
         return (
-            <div className="container">
-
-                <div className="row">
-                    <div className="col-lg-12">
-                        <h2 className="page-header">Meet The Glam Fam</h2>
+			<Container>
+				<Row>
+					<GridCell lg={12}>
+						<PageHeader>Meet The Glam Fam</PageHeader>
                         <p>Welcome to glamrous.me! This web app is a way to get access to all of your favorite cosmetics
-                            in one
-                            quick glance.</p>
+							in one quick glance.</p>
                         <a href="/report1">Technical Report #1</a>
-                    </div>
-                    <br />
-                    <br />
-                    <br />
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="/static/img/about/thomas.jpg"
-                             alt=""/>
-                        <h3>Thomas Gaubert</h3>
-                        <h6>Devops & Frontend</h6>
-                        <p>I'm an avid lover of the outdoors and the co-lead of Freetail Hackers. I'll be an intern at
-                            Microsoft this summer.</p>
-                        <p>Number of commits: 21</p>
-                        <p>Number of issues: 3</p>
-                        <p>Number of unit tests: 0</p>
-                    </div>
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="/static/img/about/drew.jpg" alt=""/>
-                        <h3>Drew Romanyk</h3>
-                        <h6>Frontend & Backend</h6>
-                        <p>I'm currently a junior computer science student at The University of Texas at Austin. I'm the
-                            president of MAD, and currently going to intern with RetailMeNot over the summer.</p>
-                        <p>Number of commits: 28</p>
-                        <p>Number of issues: 4</p>
-                        <p>Number of unit tests: 0</p>
-                    </div>
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="/static/img/about/cameron.jpg"
-                             alt=""/>
-                        <h3>Cameron Piel</h3>
-                        <h6>Database & Backend</h6>
-                        <p>My name is Cameron Piel, I am a 5th year student here at UT. When I am not coding or cooking
-                            you can
-                            find me sitting at my desk pretending to be productive.</p>
-                        <p>Number of commits: 11</p>
-                        <p>Number of issues: 3</p>
-                        <p>Number of unit tests: 15</p>
-                    </div>
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="static/img/about/rperce.jpg"
-                             alt="Robert Perce"/>
-                        <h3>Robert Perce</h3>
-                        <h6>Frontend & Devops</h6>
-                        <p>Fourth-year Computer Science and Mathematics student at UT Austin. I'll be starting full-time
-                            at
-                            Indeed in July!</p>
-                        <p>Number of commits: 19</p>
-                        <p>Number of issues: 3</p>
-                        <p>Number of unit tests: 0</p>
-                    </div>
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="static/img/about/mpark.jpg"
-                             alt="Melody Park, get it, hahahaha"/>
-                        <h3>Melody Park</h3>
-                        <h6>Frontend & Backend</h6>
-                        <p>Fourth year UT student who likes to get swole. Weenie on the outside. Dragon on the
-                            inside.</p>
-                        <p>Number of commits: 2</p>
-                        <p>Number of issues: 1</p>
-                        <p>Number of unit tests: 0</p>
-                    </div>
-                    <div className="col-lg-4 col-sm-6 text-center">
-                        <img className="img-circle img-responsive img-center" src="/static/img/about/thomasp.jpg"
-                             alt=""/>
-                        <h3>Thomas Potnuru</h3>
-                        <h6>API & Backend</h6>
-                        <p>Currently a senior at UT Austin doing my Bachelor's in Computer Sceince. I am a IEEE Computer
-                            Society Officer again this year! Usually making and eating dessert in my free time. </p>
-                        <p>Number of commits: 3</p>
-                        <p>Number of issues: 1</p>
-                        <p>Number of unit tests: 0</p>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-lg-4">
-                        <h1 className="page-header">Stats</h1>
+					</GridCell>
+				</Row>
+				<TheGlamFam />
+				<Row>
+					<GridCell lg={4}>
+						<PageHeader>Stats</PageHeader>
                         <ul>
                             <li>Number of commits: 97</li>
                             <li>Number of issues: 15</li>
@@ -112,17 +114,17 @@ export default class About extends React.Component {
                             </li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me">Github Repo</a></li>
                         </ul>
-                    </div>
-                    <div className="col-lg-4">
-                        <h1 className="page-header">Data</h1>
+					</GridCell>
+					<GridCell lg={4}>
+						<PageHeader>Data</PageHeader>
                         <li><a href="http://makeup-api.herokuapp.com/">Makeup API</a> - used to collect all the
                             information
                             about each cosmetics brand, product, and details
                             about those objects.
                         </li>
-                    </div>
-                    <div className="col-lg-4">
-                        <h1 className="page-header">Tools</h1>
+					</GridCell>
+					<GridCell lg={4}>
+						<PageHeader>Tools</PageHeader>
                         <li>Bootstrap - Frontend framework to simplify building pages.</li>
                         <li>React - Frontend engine to power all of our clientside rendering and routing.</li>
                         <li>Flask - Python server engine to power all the api and forward all non-api routing to
@@ -131,37 +133,33 @@ export default class About extends React.Component {
                         <li>Slack - Group messaging to communicate effectively as a group.</li>
                         <li>Github - A git repository hosting service.</li>
                         <li>Apiary - An API documentation service.</li>
-                    </div>
-                </div>
+					</GridCell>
+				</Row>
 
-                <div className="row">
-                    <div className="col-lg-12">
-                        <h1 className="page-header">Unit Tests</h1>
+				<Row>
+					<GridCell lg={12}>
+						<PageHeader>Unit Tests</PageHeader>
                         <button onClick={(e) => this.runUnitTests(e)} type="button"
                                 className="btn btn-info btn-lg antisocial" data-toggle="modal"
                                 data-target="#myModal">Run
                         </button>
-                        <div id="myModal" className="modal fade" role="dialog">
-                            <div className="modal-dialog">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                        <h4 className="modal-title">Tests</h4>
-                                    </div>
-                                    <div className="modal-body">
-                                        <p>{this.state.unit_test_desc}</p>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-default" data-dismiss="modal">
-                                            Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					</GridCell>
+				</Row>
+
+				<Modal.Modal id="myModal">
+					<Modal.Header>
+						<Modal.CloseX />
+						<Modal.Title>Tests</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<pre><code>{this.state.unit_test_desc}</code></pre>
+					</Modal.Body>
+					<Modal.Footer>
+						<Modal.CloseButton />
+					</Modal.Footer>
+				</Modal.Modal>
+
+			</Container>
         );
     }
 }
