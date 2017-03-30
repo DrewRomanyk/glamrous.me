@@ -121,7 +121,7 @@ export default class About extends React.Component {
 					<GridCell lg={4}>
 						<PageHeader>Stats</PageHeader>
                         <ul>
-                            <li>{'Number of commits: ' + totalStats.commits}</li>
+                            <li>{'Number of commits: ' + totalStats.commits + ' (excluding merge commits)'}</li>
                             <li>{'Number of issues: ' + totalStats.issues}</li>
                             <li>Number of unit tests: 15</li>
                             <li><a href="http://docs.glamrousme.apiary.io/#">Apiary API</a></li>
