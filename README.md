@@ -10,6 +10,7 @@ glamrous.me
 #### Building containers
 ```bash
 $ cd dockerfile
+$ docker build -t glamrous-db -f Dockerfile.db .
 $ docker build -t glamrous-dev -f Dockerfile.dev .
 $ docker build -t glamrous-server -f Dockerfile.server .
 $ docker pull postgres
