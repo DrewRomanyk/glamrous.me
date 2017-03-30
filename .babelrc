@@ -1,4 +1,5 @@
 {
     "presets": ["es2015-rollup"],
-    "plugins": ["transform-react-jsx"],
+    "plugins": ["transform-react-jsx", 
+		"transform-object-rest-spread"],
 }

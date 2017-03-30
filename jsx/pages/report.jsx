@@ -1,5 +1,6 @@
 import React from 'react';
 import marked from 'marked';
+import { Container } from '../ui/Bootstrap.jsx';
 
 export default class Report extends React.Component {
 	constructor(props) {
@@ -15,9 +16,9 @@ export default class Report extends React.Component {
 	render() {
 		const md = marked(this.state.markdown);
 		return (
-			<div className='container'>
+			<Container>
 				<div dangerouslySetInnerHTML={{__html: md}} />
-			</div>
+			</Container>
 		);
 	}
 };

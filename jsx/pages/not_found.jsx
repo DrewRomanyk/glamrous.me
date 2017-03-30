@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from '../ui/Bootstrap.jsx';
 
 function getGif() {
     var gifs = [
@@ -27,13 +28,13 @@ var text = g.text;
 var c = gif === "confused.gif" ? "bottom-fix" : "";
 
 const Not_Found = () => (
-    <div className="container center">
+	<Container center={true}>
         <h1 className="center">404</h1>
         <p><b>Page not found - <a href="/">Go home?</a></b></p>
 
         <img className={c} src={"/static/img/404/" + gif}/>
 
         <p><small>{text}</small></p>
-    </div>
+	</Container>
 );
 export default Not_Found;
