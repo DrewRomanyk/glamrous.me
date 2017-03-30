@@ -1,4 +1,5 @@
 import React from 'react';
+import find from 'lodash/find';
 
 export default class About extends React.Component {
     constructor(props) {
@@ -8,6 +9,14 @@ export default class About extends React.Component {
         };
     }
 
+	componentDidMount() {
+		console.log("Getting stats...");
+		$.getJSON(document.location.origin + '/api/about/contributions')
+			.then((data) => {
+				console.log(data);
+				this.setState({contrib: data});
+			});
+	}
     runUnitTests() {
         console.log("running unit tests...");
         $.getJSON(document.location.origin + '/api/test')
@@ -17,6 +26,21 @@ export default class About extends React.Component {
     }
 
     render() {
+		const getCommitsFor = (name) => {
+			const obj = find(this.state.contrib, s => s.author === name);
+			if (obj)  {
+				return obj.commits;
+			}
+			return "...";
+		};
+		const getIssuesFor = (name) => {
+			const obj = find(this.state.contrib, s => s.author === name);
+			if (obj)  {
+				return obj.issues;
+			}
+			return "...";
+		};
+
         return (
             <div className="container">
 
@@ -38,8 +62,8 @@ export default class About extends React.Component {
                         <h6>Devops & Frontend</h6>
                         <p>I'm an avid lover of the outdoors and the co-lead of Freetail Hackers. I'll be an intern at
                             Microsoft this summer.</p>
-                        <p>Number of commits: 21</p>
-                        <p>Number of issues: 3</p>
+                        <p>{'Number of commits: ' + getCommitsFor('ThomasGaubert')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('ThomasGaubert')}</p>
                         <p>Number of unit tests: 0</p>
                     </div>
                     <div className="col-lg-4 col-sm-6 text-center">
@@ -48,8 +72,8 @@ export default class About extends React.Component {
                         <h6>Frontend & Backend</h6>
                         <p>I'm currently a junior computer science student at The University of Texas at Austin. I'm the
                             president of MAD, and currently going to intern with RetailMeNot over the summer.</p>
-                        <p>Number of commits: 28</p>
-                        <p>Number of issues: 4</p>
+                        <p>{'Number of commits: ' + getCommitsFor('DrewRomanyk')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('DrewRomanyk')}</p>
                         <p>Number of unit tests: 0</p>
                     </div>
                     <div className="col-lg-4 col-sm-6 text-center">
@@ -60,8 +84,8 @@ export default class About extends React.Component {
                         <p>My name is Cameron Piel, I am a 5th year student here at UT. When I am not coding or cooking
                             you can
                             find me sitting at my desk pretending to be productive.</p>
-                        <p>Number of commits: 11</p>
-                        <p>Number of issues: 3</p>
+                        <p>{'Number of commits: ' + getCommitsFor('Cpiely')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('Cpiely')}</p>
                         <p>Number of unit tests: 15</p>
                     </div>
                     <div className="col-lg-4 col-sm-6 text-center">
@@ -72,8 +96,8 @@ export default class About extends React.Component {
                         <p>Fourth-year Computer Science and Mathematics student at UT Austin. I'll be starting full-time
                             at
                             Indeed in July!</p>
-                        <p>Number of commits: 19</p>
-                        <p>Number of issues: 3</p>
+                        <p>{'Number of commits: ' + getCommitsFor('rperce')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('rperce')}</p>
                         <p>Number of unit tests: 0</p>
                     </div>
                     <div className="col-lg-4 col-sm-6 text-center">
@@ -83,8 +107,8 @@ export default class About extends React.Component {
                         <h6>Frontend & Backend</h6>
                         <p>Fourth year UT student who likes to get swole. Weenie on the outside. Dragon on the
                             inside.</p>
-                        <p>Number of commits: 2</p>
-                        <p>Number of issues: 1</p>
+                        <p>{'Number of commits: ' + getCommitsFor('myopark')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('myopark')}</p>
                         <p>Number of unit tests: 0</p>
                     </div>
                     <div className="col-lg-4 col-sm-6 text-center">
@@ -94,8 +118,8 @@ export default class About extends React.Component {
                         <h6>API & Backend</h6>
                         <p>Currently a senior at UT Austin doing my Bachelor's in Computer Sceince. I am a IEEE Computer
                             Society Officer again this year! Usually making and eating dessert in my free time. </p>
-                        <p>Number of commits: 3</p>
-                        <p>Number of issues: 1</p>
+                        <p>{'Number of commits: ' + getCommitsFor('thomas-potnuru')}</p>
+						<p>{'Number of issues: ' + getIssuesFor('thomas-potnuru')}</p>
                         <p>Number of unit tests: 0</p>
                     </div>
                 </div>
