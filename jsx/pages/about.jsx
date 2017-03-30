@@ -85,14 +85,15 @@ export default class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            unit_test_desc: "Running unit tests..."
+            unit_test_desc: "Running unit tests...",
+            stats: {contributors: []}
         };
     }
 
 	componentDidMount() {
 		$.getJSON(document.location.origin + '/api/about/contributions')
 			.then((data) => {
-				this.setState({contrib: data});
+				this.setState({stats: data});
 			});
 	}
     runUnitTests() {
@@ -104,6 +105,7 @@ export default class About extends React.Component {
     }
 
     render() {
+    	const totalStats = this.state.stats.totals || {commits: '...', issues: '...'};
         return (
 			<Container>
 				<Row>
@@ -114,13 +116,13 @@ export default class About extends React.Component {
                         <a href="/report1">Technical Report #1</a>
 					</GridCell>
 				</Row>
-				<TheGlamFam stats={this.state.contrib}/>
+				<TheGlamFam stats={this.state.stats.contributors}/>
 				<Row>
 					<GridCell lg={4}>
 						<PageHeader>Stats</PageHeader>
                         <ul>
-                            <li>Number of commits: 97</li>
-                            <li>Number of issues: 15</li>
+                            <li>{'Number of commits: ' + totalStats.commits}</li>
+                            <li>{'Number of issues: ' + totalStats.issues}</li>
                             <li>Number of unit tests: 15</li>
                             <li><a href="http://docs.glamrousme.apiary.io/#">Apiary API</a></li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me/issues">Github Issue Tracker</a>

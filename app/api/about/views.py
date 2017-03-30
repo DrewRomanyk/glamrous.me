@@ -18,29 +18,36 @@ def get_contributions():
     commit_request = url + repo + 'stats/contributors'
     r = requests.get(commit_request, headers=headers)
     commitCounts = {}
-    issueCounts = {}
     for contrib in r.json():
         author = contrib['author']['login']
         commits = contrib['total']
         commitCounts[author] = commits
-        issueCounts[author] = 0
 
-    issues_request = url + repo + 'issues?state=closed'
+    issues_request = url + repo + 'issues?state=all'
+    total_issue_count = 0
+    issueCounts = {}
     r = requests.get(issues_request, headers=headers)
     for issue in r.json():
-        if issue['assignee']:
-            assignee = issue['assignee']['login']
-            issueCounts[assignee] += 1
-        else:
-            print('WARNING: Issue #' + str(issue['number']) + ' has no assignee')
+        total_issue_count += 1
+        if issue['state'] == 'closed':
+            if issue['assignee']:
+                assignee = issue['assignee']['login']
+                if assignee not in issueCounts:
+                    issueCounts[assignee] = 0
+                issueCounts[assignee] += 1
+            else:
+                print('WARNING: Issue #' + str(issue['number']) + ' has no assignee')
 
-    response = []
+    response = {'contributors': []}
     for user in commitCounts:
-        response.append({
+        response['contributors'].append({
             'author': user,
             'commits': commitCounts[user],
-            'issues': issueCounts[user]
+            'issues': issueCounts[user] if user in issueCounts else 0
             })
+
+    total_commit_count = sum(commitCounts.values())
+    response['totals'] = {'commits': total_commit_count, 'issues': total_issue_count}
 
     print(response)
     return jsonify(response)
