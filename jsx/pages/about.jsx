@@ -10,10 +10,8 @@ export default class About extends React.Component {
     }
 
 	componentDidMount() {
-		console.log("Getting stats...");
 		$.getJSON(document.location.origin + '/api/about/contributions')
 			.then((data) => {
-				console.log(data);
 				this.setState({contrib: data});
 			});
 	}
