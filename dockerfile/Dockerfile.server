@@ -12,6 +12,7 @@ RUN python -m ensurepip && \
 	pip install \
 		flask \
 		Flask-Migrate \
-		Flask-SQLAlchemy
+		Flask-SQLAlchemy \
+		requests
 
 EXPOSE 5000

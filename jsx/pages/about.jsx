@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, GridCell, Modal, PageHeader, Row } from '../ui/Bootstrap.jsx';
+import find from 'lodash/find';
 
 const TeamMember = (props) => (
 	<GridCell lg={4} sm={6} text-center style={{marginBottom: '2em'}}>
@@ -17,62 +18,68 @@ const TeamMember = (props) => (
 	</GridCell>
 );
 
-const TheGlamFam = () => (
-	<Row>
-		<TeamMember
-			name='Thomas Gaubert'
-			image='thomas.jpg'
-			role='Devops & Frontend'
-			about={"I'm an avid lover of the outdoors and the co-lead of Freetail "
-				+ "Hackers. I'll be an intern at Microsoft this summer."}
-			contrib={{ commits: 21, issues: 3, tests: 0 }}
-		/>
-		<TeamMember
-			name='Drew Romanyk'
-			image='drew.jpg'
-			role='Frontend & Backend'
-			about={"I'm currently a junior computer science student at The University of "
-				+ "Texas at Austin. I'm the president of MAD, and currently going to "
-				+ "intern with RetailMeNot over the summer."}
-			contrib={{ commits: 28, issues: 4, tests: 0 }}
-		/>
-		<TeamMember
-			name='Cameron Piel'
-			image='cameron.jpg'
-			role='Database & Backend'
-			about={"My name is Cameron Piel, I am a 5th year student here at "
-				+ "UT. When I am not coding or cooking you can find me sitting "
-				+ "at my desk pretending to be productive."}
-			contrib={{ commits: 11, issues: 3, tests: 15 }}
-		/>
-		<TeamMember
-			image='rperce.jpg'
-			name='Robert Perce'
-			role='Frontend & Devops'
-			about={"Fourth-year Computer Science and Mathematics student at UT "
-				+ "Austin. I'll be starting full-time at Indeed in July!"}
-			contrib={{ commits: 20, issues: 3, tests: 0 }}
-		/>
-		<TeamMember
-			image='mpark.jpg'
-			name='Melody Park'
-			role='Frontend & Backend'
-			about={"Fourth year UT student who likes to get swole. Weenie on "
-				+ "the outside. Dragon on the inside."}
-			contrib={{ commits: 2, issues: 1, tests: 0 }}
-		/>
-		<TeamMember
-			image='thomasp.jpg'
-			name='Thomas Potnuru'
-			role='API & Backend'
-			about={"Currently a senior at UT Austin doing my Bachelor's in "
-				+ "Computer Sceince. I am a IEEE Computer Society Officer "
-				+ "again this year! Usually making and eating dessert in my "
-				+ " free time."}
-			contrib={{ commits: 3, issues: 1, tests: 0 }}
-		/>
-	</Row>
-);
+const TheGlamFam = (props) => {
+	const stats = (name) => {
+		const block = find(props.stats, x => x.author === name);
+		return block || { commits: '...', issues: '...' };
+	};
+	return (
+		<Row>
+			<TeamMember
+				name='Thomas Gaubert'
+				image='thomas.jpg'
+				role='Devops & Frontend'
+				about={"I'm an avid lover of the outdoors and the co-lead of Freetail "
+					+ "Hackers. I'll be an intern at Microsoft this summer."}
+				contrib={{...stats('ThomasGaubert'), tests: 0}}
+			/>
+			<TeamMember
+				name='Drew Romanyk'
+				image='drew.jpg'
+				role='Frontend & Backend'
+				about={"I'm currently a junior computer science student at The University of "
+					+ "Texas at Austin. I'm the president of MAD, and currently going to "
+					+ "intern with RetailMeNot over the summer."}
+				contrib={{...stats('DrewRomanyk'), tests: 0}}
+			/>
+			<TeamMember
+				name='Cameron Piel'
+				image='cameron.jpg'
+				role='Database & Backend'
+				about={"My name is Cameron Piel, I am a 5th year student here at "
+					+ "UT. When I am not coding or cooking you can find me sitting "
+					+ "at my desk pretending to be productive."}
+				contrib={{...stats('Cpiely'), tests: 0}}
+			/>
+			<TeamMember
+				image='rperce.jpg'
+				name='Robert Perce'
+				role='Frontend & Devops'
+				about={"Fourth-year Computer Science and Mathematics student at UT "
+					+ "Austin. I'll be starting full-time at Indeed in July!"}
+				contrib={{...stats('rperce'), tests: 0}}
+			/>
+			<TeamMember
+				image='mpark.jpg'
+				name='Melody Park'
+				role='Frontend & Backend'
+				about={"Fourth year UT student who likes to get swole. Weenie on "
+					+ "the outside. Dragon on the inside."}
+				contrib={{...stats('myopark'), tests: 0}}
+			/>
+			<TeamMember
+				image='thomasp.jpg'
+				name='Thomas Potnuru'
+				role='API & Backend'
+				about={"Currently a senior at UT Austin doing my Bachelor's in "
+					+ "Computer Sceince. I am a IEEE Computer Society Officer "
+					+ "again this year! Usually making and eating dessert in my "
+					+ " free time."}
+				contrib={{...stats('thomas-potnuru'), tests: 0}}
+			/>
+		</Row>
+	)
+};
 
 export default class About extends React.Component {
     constructor(props) {
@@ -82,6 +89,12 @@ export default class About extends React.Component {
         };
     }
 
+	componentDidMount() {
+		$.getJSON(document.location.origin + '/api/about/contributions')
+			.then((data) => {
+				this.setState({contrib: data});
+			});
+	}
     runUnitTests() {
         console.log("running unit tests...");
         $.getJSON(document.location.origin + '/api/test')
@@ -101,7 +114,7 @@ export default class About extends React.Component {
                         <a href="/report1">Technical Report #1</a>
 					</GridCell>
 				</Row>
-				<TheGlamFam />
+				<TheGlamFam stats={this.state.contrib}/>
 				<Row>
 					<GridCell lg={4}>
 						<PageHeader>Stats</PageHeader>
