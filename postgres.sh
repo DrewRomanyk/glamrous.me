@@ -5,5 +5,5 @@ if [[ "$1" == "detach" ]]; then
 fi
 exec sudo docker run $FLAG \
 	--name glamrous-postgres \
-	postgres
+	glamrous-db
 #	-e POSTGRES_PASSWORD=mysecretpassword
