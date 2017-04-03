@@ -27,7 +27,7 @@ class Brand(db.Model):
     image_url = db.Column('image_url', db.Unicode(255))
     
     # One-to-Many relationships
-    products = db.relationship('product', backref='brand', lazy='dynamic')
+    products = db.relationship('Product', backref='brand', lazy='dynamic')
 
     def __init__(self, name, avg_price, avg_rating, num_products, image_url):
         assert isinstance(name, str)
