@@ -7,15 +7,15 @@ const Home = () => (
         </div>
         <ol className='carousel-indicators'>
             <li data-target='#myCarousel' data-slide-to='0' className=''></li>
-            <li data-target='#myCarousel' data-slide-to='1' className=''></li>
-            <li data-target='#myCarousel' data-slide-to='2' className='active'></li>
+            <li data-target='#myCarousel' data-slide-to='1' className='active'></li>
+            <li data-target='#myCarousel' data-slide-to='2' className=''></li>
         </ol>
         <div className='carousel-inner' role='listbox'>
             <div className='first-item item'>
             </div>
-            <div className='second-item item active left'>
+            <div className='second-item item active'>
             </div>
-            <div className='third-item item next left'>
+            <div className='third-item item'>
             </div>
         </div>
     </div>
