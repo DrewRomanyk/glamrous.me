@@ -64,6 +64,124 @@ tag_data = {
             }
         ]
     },
+    3: {
+        'id': 0,
+        'name': "Gluten-Free",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 0,
+                'name': 'Pure Anada'
+            }
+        ],
+        'products': [
+            {
+                'id': 0,
+                'name': 'Pure Anada Natural Mascara'
+            }
+        ]
+    },
+    4: {
+        'id': 1,
+        'brand_id': 1,
+        'name': "Canadian",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 1,
+                'name': "L'Oreal"
+            }
+        ],
+        'products': [
+            {
+                'id': 1,
+                'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour"
+            }
+        ]
+    },
+    5: {
+        'id': 2,
+        'brand_id': 2,
+        'name': "Natural",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 2,
+                'name': 'smashbox'
+            }
+        ],
+        'products': [
+            {
+                'id': 2,
+                'name': 'Jet Set Waterproof Eye Liner'
+            }
+        ]
+    },
+    6: {
+        'id': 0,
+        'name': "Gluten-Free",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 0,
+                'name': 'Pure Anada'
+            }
+        ],
+        'products': [
+            {
+                'id': 0,
+                'name': 'Pure Anada Natural Mascara'
+            }
+        ]
+    },
+    7: {
+        'id': 1,
+        'brand_id': 1,
+        'name': "Canadian",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 1,
+                'name': "L'Oreal"
+            }
+        ],
+        'products': [
+            {
+                'id': 1,
+                'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour"
+            }
+        ]
+    },
+    8: {
+        'id': 2,
+        'brand_id': 2,
+        'name': "Natural",
+        'avg_price': 12.99,
+        'avg_rating': 5.00,
+        'num_products': 1,
+        'brands': [
+            {
+                'id': 2,
+                'name': 'smashbox'
+            }
+        ],
+        'products': [
+            {
+                'id': 2,
+                'name': 'Jet Set Waterproof Eye Liner'
+            }
+        ]
+    },
 }
 
 
