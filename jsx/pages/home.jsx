@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => (
-    <div id='myCarousel' className='carousel slide' data-ride='carousel'>
+    <div id='myCarousel' className='carousel slide' data-ride='carousel' data-interval='2000'>
         <div className="carousel-caption">
             <h1>Be Glamrous</h1>
         </div>
