@@ -175,7 +175,6 @@ class Category(db.Model):
     def __repr__(self):
         return '<type %r>' % self.name
 
-
 class SubCategory(db.Model):
     """
     The SubCategory Model describes the type of the Product in collaboration with
@@ -253,7 +252,6 @@ class Tag(db.Model):
     def __repr__(self):
         return '<Tag %r>' % self.name
 
-
 product_color = db.Table('product_color',
                          db.Column('product_id', db.Integer,
                                    db.ForeignKey('product.id')),
@@ -265,7 +263,6 @@ product_tag = db.Table('product_tag',
                                  db.ForeignKey('product.id')),
                        db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
                        db.PrimaryKeyConstraint('product_id', 'tag_id'))
-
 
 class ProductCategory(db.Model):
     """
@@ -291,6 +288,11 @@ class ProductCategory(db.Model):
         'category.id'), primary_key=True)
     sub_category_id = db.Column('sub_category_id', db.Integer, db.ForeignKey(
         'sub_category.id'), primary_key=True, nullable=True)
+
+    db.UniqueConstraint('product_id', 'category_id', 'sub_category_id')
+    db.relationship('User', uselist=False, backref='product_category', lazy='dynamic')
+    db.relationship('Team', uselist=False, backref='product_category', lazy='dynamic')
+    db.relationship('Role', uselist=False, backref='product_category', lazy='dynamic')
 
     def __init__(self, product_id, category_id, sub_category_id):
         assert isinstance(product_id, int)
