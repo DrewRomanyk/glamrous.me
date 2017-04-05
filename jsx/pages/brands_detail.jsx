@@ -41,17 +41,17 @@ export default class Brands_Details extends React.Component {
                         <h1 className="panel-title">{this.state.brand.name}</h1>
                     </div>
                     <div className="panel-body">
-                        <img src={this.state.brand.image_url}/>
+                        <img className="img-thumbnail" src={this.state.brand.image_url}/>
                         <h5>Average price: </h5>
                         <p>{this.state.brand.avg_price}</p>
                         <h5>Average rating: </h5>
                         <p>{this.state.brand.avg_rating}</p>
                         <h5>Products: </h5>
-                        <div>
+                        <div className="thumbnail horizontal-container">
                             {products}
                         </div>
                         <h5>Tags: </h5>
-                        <div>
+                        <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
                     </div>

@@ -86,6 +86,13 @@ body {
     padding-bottom: 15px;
 }
 
+.horizontal-container {
+    overflow: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+    white-space: nowrap
+}
+
 .card-detail {
     margin-bottom: .5em;
 }

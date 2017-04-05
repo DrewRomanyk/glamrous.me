@@ -42,7 +42,7 @@ export default class Products_Details extends React.Component {
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>
-                        <div>
+                        <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
                     </div>

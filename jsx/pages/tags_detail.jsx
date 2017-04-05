@@ -46,11 +46,11 @@ export default class Tags_Details extends React.Component {
                         <h5>Average rating: </h5>
                         <p>{this.state.tag.avg_rating}</p>
                         <h5>Brands: </h5>
-                        <div>
+                        <div className="thumbnail horizontal-container">
                             {brands}
                         </div>
                         <h5>Products: </h5>
-                        <div>
+                        <div className="thumbnail horizontal-container">
                             {products}
                         </div>
                     </div>
