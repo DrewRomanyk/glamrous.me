@@ -10,7 +10,7 @@ Melody Park
 
 ---
 
-# Table of Contents
+### Table of Contents
 1. [Introduction](#introduction)
     1. [The Problem](#the-problem)
     2. [Use Cases](#use-cases)
