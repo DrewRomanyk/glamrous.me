@@ -27,7 +27,10 @@ Melody Park
     4. [Tag](#tag)
     5. [Category](#category)
     6. [SubCategory](#subcategory)
-5. [Development Process](#development-process)
+5. [Database](#database)
+    1. [Getting Data](#getting-data)
+    2. [Importing to Database](#importing-to-database)
+6. [Development Process](#development-process)
     1. [Docker](#docker)
     2. [Hosting](#hosting)
 
@@ -334,6 +337,13 @@ already installed---in particular, run `rollup -cw` to watch for and rebundle ja
 changes. It may be necessary, depending on machine (we think...?) to run `npm install`
 before launching `./build.sh`; the image is supposed to do that automatically but it just
 doesn't sometimes. We're putting off fixing that for stage two of the project.
+
+### Database
+#### Getting Data
+
+In order to populate the database, we first had to create a script that would gather all of the cosmetics information. Once we had this information, we converted their schema into our own schema that would eventually fit into our own design and our database.
+
+#### Importing to Database
 
 ### Hosting
 

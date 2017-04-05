@@ -82,6 +82,10 @@ body {
     /*font-family: 'Muli', sans-serif;*/
 }
 
+.container {
+    padding-bottom: 15px;
+}
+
 .card-detail {
     margin-bottom: .5em;
 }
