@@ -10,7 +10,26 @@ Melody Park
 
 ---
 
-<!-- toc -->
+# Table of Contents
+1. [Introduction](#introduction)
+    1. [The Problem](#the-problem)
+    2. [Use Cases](#use-cases)
+2. [Design](#design)
+    1. [RESTful API](#restful-api)
+3. [Tools](#tools)
+    1. [Front-End](#front-end)
+    2. [Back-End](#back-end)
+    3. [Embedded-Media-Service](#embedded-media-service)
+4. [Models](#models)
+    1. [Brand](#brand)
+    2. [Product](#product)
+    3. [Color](#color)
+    4. [Tag](#tag)
+    5. [Category](#category)
+    6. [SubCategory](#subcategory)
+5. [Development Process](#development-process)
+    1. [Docker](#docker)
+    2. [Hosting](#hosting)
 
 ---
 

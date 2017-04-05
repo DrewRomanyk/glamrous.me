@@ -12,9 +12,9 @@ const TeamMember = (props) => (
         <h3>{props.name}</h3>
         <h6>{props.role}</h6>
         <p>{props.about}</p>
-        <div>Number of commits <span className="badge">{props.contrib.commits}</span></div>
-        <div>Number of issues <span className="badge">{props.contrib.issues}</span></div>
-        <div>Number of unit tests <span className="badge">{props.contrib.tests}</span></div>
+        <div><span className="badge">{props.contrib.commits}</span> commits</div>
+        <div><span className="badge">{props.contrib.issues}</span> issues</div>
+        <div><span className="badge">{props.contrib.tests}</span> unit tests</div>
     </GridCell>
 );
 
@@ -114,7 +114,6 @@ export default class About extends React.Component {
                         <PageHeader>Meet The Glam Fam</PageHeader>
                         <p>Welcome to glamrous.me! This web app is a way to get access to all of your favorite cosmetics
                             in one quick glance.</p>
-                        <a href="/report1">Technical Report #1</a>
                     </GridCell>
                 </Row>
                 <TheGlamFam stats={this.state.stats.contributors}/>
@@ -123,15 +122,10 @@ export default class About extends React.Component {
                         <PageHeader>Stats</PageHeader>
                         <ul>
                             <li>
-                                {'Number of commits '}
-                                <span className="badge">{totalStats.commits}</span>
-                                {' (excluding merge commits)'}
+                                <span className="badge">{totalStats.commits}</span> commits (excluding merge commits)
                             </li>
-                            <li>
-                                {'Number of issues '}
-                                <span className="badge">{totalStats.issues}</span>
-                            </li>
-                            <li>Number of unit tests <span className="badge">15</span></li>
+                            <li><span className="badge">{totalStats.issues}</span> issues</li>
+                            <li><span className="badge">15</span> unit tests</li>
                             <li><a href="http://docs.glamrousme.apiary.io/#">Apiary API</a></li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me/issues">Github Issue Tracker</a>
                             </li>
@@ -160,7 +154,11 @@ export default class About extends React.Component {
                 </Row>
 
                 <Row>
-                    <GridCell lg={12}>
+                    <GridCell lg={6}>
+                        <PageHeader>Technical Report</PageHeader>
+                        <a className="btn" href="/report">View Report</a>
+                    </GridCell>
+                    <GridCell lg={6}>
                         <PageHeader>Unit Tests</PageHeader>
                         <button onClick={(e) => this.runUnitTests(e)} type="button"
                                 className="btn btn-info btn-lg antisocial" data-toggle="modal"
