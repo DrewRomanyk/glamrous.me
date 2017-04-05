@@ -21,9 +21,9 @@ export default class Products_Details extends React.Component {
     render() {
         const tags = this.state.product.tags.map((item, i) => {
             return (
-                <div key={item.id}>
+                <span key={item.id} className="label label-primary">
                     <a href={"/tags/" + item.id}>{item.name}</a>
-                </div>
+                </span>
             );
         });
         return (
@@ -42,7 +42,9 @@ export default class Products_Details extends React.Component {
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>
-                        {tags}
+                        <div>
+                            {tags}
+                        </div>
                     </div>
                 </div>
             </div>

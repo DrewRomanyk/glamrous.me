@@ -82,6 +82,28 @@ body {
     /*font-family: 'Muli', sans-serif;*/
 }
 
+.card-detail {
+    margin-bottom: .5em;
+}
+
+.card-btn {
+    margin-top: .5em;
+}
+
+.max-lines {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.label {
+    margin-right: .5em;
+}
+
+.label a {
+    color: #fff;
+}
+
 .img-center {
     margin: 0 auto;
 }

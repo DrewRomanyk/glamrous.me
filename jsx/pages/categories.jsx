@@ -26,13 +26,11 @@ export default class Categories extends React.Component {
                         <div className="caption">
                             <h4 className="group inner list-group-item-heading">{item.name}</h4>
                             <div className="row">
-                                <div className="col-xs-12 col-md-6">
-                                    <p className="lead">Products: {item.num_products}</p>
-                                    <p className="lead">Average Price: {item.avg_price}</p>
-                                    <p className="lead">Average Rating: {item.avg_rating}</p>
-                                </div>
-                                <div className="col-xs-12 col-md-6">
-                                    <a className="btn" href={"/categories/" + item.id}>View Tag</a>
+                                <div className="col-xs-12 col-md-12">
+                                    <p className="card-detail">Products: {item.num_products}</p>
+                                    <p className="card-detail">Average Price: {item.avg_price}</p>
+                                    <p className="card-detail">Average Rating: {item.avg_rating}</p>
+                                    <a className="card-btn btn" href={"/categories/" + item.id}>View</a>
                                 </div>
                             </div>
                         </div>
