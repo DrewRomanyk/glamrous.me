@@ -3,7 +3,8 @@ import React from 'react';
 const Home = () => (
     <div id='myCarousel' className='carousel slide' data-ride='carousel' data-interval='2000'>
         <div className="carousel-caption">
-            <h1>Be Glamrous</h1>
+            <h2>Find what makes you <span>Glamrous</span></h2>
+            <h5>Simple, Vast, & Free</h5>
         </div>
         <ol className='carousel-indicators'>
             <li data-target='#myCarousel' data-slide-to='0' className=''></li>

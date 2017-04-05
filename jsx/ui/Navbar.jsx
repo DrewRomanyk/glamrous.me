@@ -15,25 +15,25 @@ const Navbar = () => {
                         <span className='icon-bar'></span>
                     </button>
                     <a className='navbar-brand' href='/'>
-                        <p>Glamrous</p>
+                        <p>GLAMROUS</p>
                     </a>
                 </div>
                 <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
-                    <ul className='nav navbar-nav'>
+                    <ul className='nav navbar-nav navbar-right'>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/about'>About</a>
+                            <a className='nav-link' href='/brands'>BRANDS</a>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/brands'>Brands</a>
+                            <a className='nav-link' href='/products'>PRODUCTS</a>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/products'>Products</a>
+                            <a className='nav-link' href='/categories'>CATEGORIES</a>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/categories'>Categories</a>
+                            <a className='nav-link' href='/tags'>TAGS</a>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/tags'>Tags</a>
+                            <a className='nav-link' href='/about'>ABOUT</a>
                         </li>
                     </ul>
                 </div>
