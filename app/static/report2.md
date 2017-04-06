@@ -309,15 +309,15 @@ development and running is performed through `docker`. Install that on your loca
 however you do, then build our two images:
 
 ```bash
-; cd dockerfiles
-; docker build -t glamrous-server -f Dockerfile.server .
-; docker build -t glamrous-dev -f Dockerfile.dev .
+$ cd dockerfiles
+$ docker build -t glamrous-server -f Dockerfile.server .
+$ docker build -t glamrous-dev -f Dockerfile.dev .
 ```
 
 and pull down `postgres`' image:
 
 ```bash
-; docker pull postgres
+$ docker pull postgres
 ```
 
 Then, from the project root, run `./postgres.sh [detach]` to spin up the Postgres daemon
@@ -521,7 +521,10 @@ Next, build the frontend assets.
 $ ./build.sh auto
 ```
 
-Create a `config.json` file using `config.json.template`, then start the server.
+Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can get the IP address of the
+postgres container using `sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"`.
+
+Finally, start the server.
 
 ```
 $ ./start.sh detach
@@ -723,7 +726,7 @@ $ sudo usermod -a -G www-data <user>
 Notice that Travis is using SSH to kick off a deployment script:
 
 ```
-$ gcloud compute ssh $GCLOUD_INSTANCE --zone $GCLOUD_ZONE --command                         "/var/www/deploy.sh"
+$ gcloud compute ssh $GCLOUD_INSTANCE --zone $GCLOUD_ZONE --command "/var/www/deploy.sh"
 ```
 
 To create this deploy script:
