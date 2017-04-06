@@ -2,7 +2,7 @@
 /*text-color: #fcccc7*/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Italianno|Muli');
+@import url('https://fonts.googleapis.com/css?family=Italianno|Muli:300');
 
 /* Carousel base class */
 .carousel {
@@ -54,7 +54,8 @@
 
 .carousel-caption h2 span {
     font-family: 'Italianno', cursive;
-    font-size: 60px;
+    font-size: 75px;
+    color: #b2a4cc;
 }
 
 /* NAVBAR
@@ -79,7 +80,7 @@
 -------------------------------------------------- */
 
 body {
-    /*font-family: 'Muli', sans-serif;*/
+    font-family: 'Muli', sans-serif;
 }
 
 .container {
