@@ -8,6 +8,8 @@ python:
 
 sudo: required
 
+privileged: true
+
 services:
   - docker
 
