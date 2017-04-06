@@ -23,6 +23,7 @@
     "eslint": "^3.18.0",
     "eslint-plugin-react": "^6.10.3",
     "gulp": "^3.9.1",
+    "jsxstyle": "^1.0.2",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "react-router-dom": "^4.0.0",

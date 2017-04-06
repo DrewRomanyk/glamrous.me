@@ -1,0 +1,56 @@
+import React, { Component, PropTypes } from 'react';
+import flatten from 'lodash/flatten';
+import merge from 'lodash/merge';
+import find from 'lodash/find';
+import zip from 'lodash/zip';
+import { Container } from '../ui/Bootstrap.jsx';
+import Flex from 'jsxstyle/Flex';
+
+class SortOptions extends Component {
+	constructor(props) {
+		super(props);
+
+		this.setSortBy = (name, reverse) => {
+			return (event) => {
+				event.stopPropagation();
+				this.props.setSortBy(name, reverse);
+				return false;
+			}
+		}
+	}
+
+	render() {
+		const sorts = flatten(zip(
+			this.props.sortOptions.map(x => ({sort: x, reverse: false})),
+			this.props.sortOptions.map(x => ({sort: x, reverse: true})),
+		));
+		const dropdownItem = (sortOpt) => {
+			const rev  = sortOpt.reverse;
+			const name = sortOpt.sort + (rev ? ' (Reverse)' : '');
+			return (
+				<li key={name}>
+					<a href='javascript:;' onClick={this.setSortBy(sortOpt.sort, rev)}>{name}</a>
+				</li>
+			);
+		};
+		return (
+			<Flex>
+				<Flex marginRight='5px' fontSize='large'>
+					Sort By:
+				</Flex>
+				<div className='dropdown'>
+					<button className='btn btn-default dropdown-toggle' type='button' id='sortByDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+						{this.props.current} <span className='caret' style={{marginLeft: '5px'}}></span>
+					</button>
+					<ul className='dropdown-menu' aria-labelledby='sortByDropdown'>
+						{sorts.map( sort => dropdownItem(sort) )}
+					</ul>
+				</div>
+			</Flex>
+		);
+	}
+}
+SortOptions.propTypes = {
+	sortOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+export default SortOptions;
