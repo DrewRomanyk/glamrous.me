@@ -507,20 +507,24 @@ $ cd /var/www/glamrous-server/dockerfile
 $ docker build -t glamrous-db -f Dockerfile.db .
 $ docker build -t glamrous-dev -f Dockerfile.dev .
 $ docker build -t glamrous-server -f Dockerfile.server .
-$ docker pull postgres
 ```
 
 Once the container is built, start Glamrous using start.sh in the repository root.
 
 ```
 $ ./postgres.sh detach
-$ ./start.sh detach
 ```
 
 Next, build the frontend assets.
 
 ```
 $ ./build.sh auto
+```
+
+Create a `config.json` file using `config.json.template`, then start the server.
+
+```
+$ ./start.sh detach
 ```
 
 #### Stopping
@@ -733,28 +737,39 @@ $ chmod +x deploy.sh
 Edit deploy.sh with the following:
 
 ```
-#!/bin/bash
+#! /bin/bash
+
+docker-ip() {
+  sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
+
 echo "Connected to server, deploying to prod."
+
 echo "Killing existing glamrous-server instance..."
 sudo docker kill $(sudo docker ps | grep "glamrous-server" | cut -d" " -f1)
+
 echo "Cleaning up exited containers..."
 sudo docker rm $(sudo docker ps -q -f status=exited)
+
 echo "Pulling latest from master..."
 cd /var/www/glamrous-server > /dev/null
 git fetch --all
 git checkout --force origin/master
-echo "Creating configuration file..."
-cp /var/www/config.json config.json > /dev/null
+
 echo "Building dockerfiles..."
 cd dockerfile > /dev/null
-$ docker build -t glamrous-db -f Dockerfile.db .
+sudo docker build -t glamrous-db -f Dockerfile.db .
 sudo docker build -t glamrous-dev -f Dockerfile.dev .
 sudo docker build -t glamrous-server -f Dockerfile.server .
+
 cd ..
+
 echo "Grabbing latest npm dependencies..."
 sudo npm update
+
 echo "Building frontend..."
 sudo ./build.sh auto
+
 echo "Ensuring postgres container is running..."
 if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
     if [ "$(sudo docker ps -aq -f status=exited -f name=glamrous-postgres)" ]; then
@@ -764,8 +779,18 @@ if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
     echo "Starting postgres container..."
     sudo ./postgres.sh detach
 fi
+
+DB_IP=$(docker-ip glamrous-postgres)
+
+echo "IP address of postgres container is $DB_IP"
+
+echo "Creating configuration file..."
+cp /var/www/config.json config.json > /dev/null
+sed -ie "s/IPADDRESS/${DB_IP}/g" config.json
+
 echo "Starting glamrous-server..."
 sudo ./start.sh detach
+
 echo "Finished deploying to prod."
 ```
 
