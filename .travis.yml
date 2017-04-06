@@ -29,6 +29,7 @@ script:
   - make Dockerfile.server
   - make start-db
   - make test
+  - cat tests.tmp
 
 after_success:
   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
