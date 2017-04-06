@@ -7,6 +7,7 @@ brands.json
 categories.json
 products.json
 tags.json
+.pylintrc
 
 # IDE files
 .idea
@@ -15,3 +16,6 @@ tags.json
 config.json
 client-secret.json
 credentials.tar.gz
+
+# Temporary output
+*.tmp

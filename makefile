@@ -1,6 +1,7 @@
 # TODO: Uncomment once target implemented
 # .DEFAULT_GOAL := test
 
+ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 ifeq ($(shell uname), Darwin)          # MacOS
     PYTHON   := python3.5
@@ -42,7 +43,13 @@ IDB1.log:
 	git log > IDB1.log
 
 test:
-	./test.sh
+	sudo docker run \
+	-v $(ROOT_DIR):/usr/web -t \
+	-w /usr/web \
+	-p 8081:5000 \
+	--link glamrous-postgres:postgres \
+	glamrous-server \
+	make tests.tmp
 
 tests.tmp: .pylintrc
 	-$(PYLINT) app/tests.py
