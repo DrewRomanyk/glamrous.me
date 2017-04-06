@@ -305,6 +305,8 @@ for api_product in api_products:
 
 # Brand Images
 brand_images = get_brand_images()
+for brand_name in brands:
+    brands[brand_name]['image_url'] = brand_images[brand_name]
 
 # Drop all tables in db and recreate them from the models.py
 reset_db()

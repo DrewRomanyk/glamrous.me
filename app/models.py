@@ -24,7 +24,7 @@ class Brand(db.Model):
     avg_price = db.Column('avg_price', db.Float, default=0)
     avg_rating = db.Column('avg_rating', db.Float, default=0)
     num_products = db.Column('num_products', db.Integer, default=0)
-    image_url = db.Column('image_url', db.Unicode(255))
+    image_url = db.Column('image_url', db.Unicode(511))
     
     # One-to-Many relationships
     products = db.relationship('Product', backref='brand', lazy='dynamic')
