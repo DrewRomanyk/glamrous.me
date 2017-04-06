@@ -35,7 +35,8 @@ export default class Tags extends React.Component {
     }
 
     render() {
-        const tagObjs = this.state.tags.map((item, i) => ({
+        console.log('tags', this.state.tags);
+        const tagObjs = this.state.tags.map(item => ({
 			filterables: [
 				{	name: 'Brand',
 					type: FILTER_TYPE.SELECTABLE,

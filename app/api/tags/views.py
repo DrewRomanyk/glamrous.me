@@ -5,8 +5,9 @@ api_tags_blueprints = Blueprint(
     'api_tags', __name__
 )
 
+
 @api_tags_blueprints.route('/api/tags')
-def get_brands():
+def get_tags():
     result = []
     for tag in Tag.query.all():
         tag_json = dict()
@@ -15,6 +16,18 @@ def get_brands():
         tag_json['avg_price'] = tag.avg_price
         tag_json['avg_rating'] = tag.avg_rating
         tag_json['num_products'] = tag.num_products
+        tag_json['brands'] = []
+        brand_dict = dict()
+        products = Product.query.filter(Product.tags.any(id=tag.id)).all()
+        for product in products:
+            brand = Brand.query.filter_by(id=product.brand_id).first()
+            brand_dict[brand.id] = {
+                'id': brand.id,
+                'name': brand.name
+            }
+        for brand_key in brand_dict:
+            tag_json['brands'].append(brand_dict[brand_key])
+
         result.append(tag_json)
     return jsonify(result)
 
