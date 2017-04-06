@@ -2,7 +2,7 @@
 /*text-color: #fcccc7*/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Italianno|Muli');
+@import url('https://fonts.googleapis.com/css?family=Italianno|Muli:300');
 
 /* Carousel base class */
 .carousel {
@@ -54,7 +54,8 @@
 
 .carousel-caption h2 span {
     font-family: 'Italianno', cursive;
-    font-size: 60px;
+    font-size: 75px;
+    color: #b2a4cc;
 }
 
 /* NAVBAR
@@ -79,7 +80,7 @@
 -------------------------------------------------- */
 
 body {
-    /*font-family: 'Muli', sans-serif;*/
+    font-family: 'Muli', sans-serif;
 }
 
 .container {
@@ -133,6 +134,7 @@ body {
 /* Search box */
 
 .searchBox {
+    padding-top: 16px;
     width: 20em;
     vertical-align: middle;
     white-space: nowrap;
@@ -144,7 +146,7 @@ body {
     height: 2.5em;
     border: none;
     background: #f5f5f5;
-    font-size: large;
+    font-size: 13px;
     float: left;
     padding-left: 45px;
     border-radius: 5px;
@@ -161,7 +163,7 @@ body {
     top: 50%;
     z-index: 1;
     margin-left: 1.4em;
-    margin-top: 0.85em;
+    margin-top: 0.99em;
 }
 
 .searchBox input.search::-webkit-input-placeholder {

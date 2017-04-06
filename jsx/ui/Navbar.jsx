@@ -35,6 +35,12 @@ const Navbar = () => {
                         <li className='nav-item'>
                             <a className='nav-link' href='/about'>ABOUT</a>
                         </li>
+                        <li>
+                            <div className='searchBox'>
+                            <span className='icon'><i className='fa fa-search'></i></span>
+                            <input type='search' className='search' placeholder='Search'/>
+                        </div>
+                        </li>
                     </ul>
                 </div>
             </div>
