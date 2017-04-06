@@ -56,8 +56,7 @@ start-db:
 	--name glamrous-postgres \
 	-p 5433:5432 \
 	glamrous-db
-	[[ -e config.json ]] && cp config.json config.json.bak
-	cp config.json.test config.json
+	./scripts/swap-test-config.sh
 	DB_IP=sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"
 	sed -ie "s/IPADDRESS/${DB_IP}/g" config.json
 
@@ -81,4 +80,4 @@ clean:
 	rm -f .pylintrc
 
 reset-config:
-	[[ -e config.json.bak ]] && cp config.json.bak config.json
+	./scripts/reset-test-config.sh
