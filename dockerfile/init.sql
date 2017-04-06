@@ -1,3 +1,5 @@
 CREATE USER glamrous;
 CREATE DATABASE glamrous;
+CREATE DATABASE glamrous_test;
 GRANT ALL PRIVILEGES ON DATABASE glamrous TO glamrous;
+GRANT ALL PRIVILEGES ON DATABASE glamrous_test TO glamrous;
