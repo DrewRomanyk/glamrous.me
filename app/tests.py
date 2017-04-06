@@ -1,5 +1,12 @@
+# pylint: disable=no-member
+# pylint: disable=trailing-whitespace
+# pylint: disable=too-many-arguments
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-docstring
+# pylint: disable=line-too-long
+
 from unittest import main, TestCase
-from models import Brand, Product, Color, Category, SubCategory, ProductCategory
+from .models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag
 from .app import db
 from .app import app
 
@@ -97,10 +104,10 @@ class UnitTests(TestCase):
             category = Category('blush', 12.99, 2.13, None)
             db.session.add(category)
             db.session.commit()
-           
+
             query = db.session.query(Category).filter_by(name='blush').first
             self.assertEqual(query.num_products, 0)
-           
+
             db.session.delete(category)
             db.session.commit()
 
@@ -126,10 +133,10 @@ class UnitTests(TestCase):
             category = SubCategory('pencil', 12.99, 2.13, None)
             db.session.add(category)
             db.session.commit()
-           
+
             query = db.session.query(Category).filter_by(name='pencil').first()
             self.assertEqual(query.num_products, 0)
-           
+
             db.session.delete(category)
             db.session.commit()
 
@@ -138,11 +145,11 @@ class UnitTests(TestCase):
             color = Color('White', "#FFFFFF", 1)
             db.session.add(color)
             db.session.commit()
-            
+
             query = db.session.query(Color).filter_by(name='White').first()
             self.assertEqual(query.hashcode, '#FFFFFF')
             self.assertEqual(query.num_products, 1)
-            
+
             db.session.delete(color)
             db.session.commit()
 
@@ -151,11 +158,11 @@ class UnitTests(TestCase):
             color = Color('White', "#FFFFFF", None)
             db.session.add(color)
             db.session.commit()
-            
+
             query = db.session.query(Color).filter_by(name='White').first()
             self.assertEqual(query.hashcode, '#FFFFFF')
             self.assertEqual(query.num_products, 0)
-            
+
             db.session.delete(color)
             db.session.commit()
 
@@ -164,7 +171,7 @@ class UnitTests(TestCase):
             tag = Tag('Canadian', 9.99, 1.25, 27)
             db.session.add(tag)
             db.session.commit()
-            
+
             query = db.session.query(Tag).filter_by(name='Canadian').count()
             self.assertEqual(query, 1)
 

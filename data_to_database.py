@@ -186,7 +186,8 @@ def get_tag_name(tid):
 def get_category_id(cid):
     for c in categories:
         if categories[c]['id'] == cid:
-            cid = Category.query.filter_by(name=categories[c]['name']).first().id
+            cid = Category.query.filter_by(
+                name=categories[c]['name']).first().id
             return cid
 
 
@@ -194,7 +195,8 @@ def get_sub_category_id(sid):
     if sid:
         for s in categories:
             if categories[s]['id'] == sid:
-                sid = SubCategory.query.filter_by(name=categories[s]['name']).first().id
+                sid = SubCategory.query.filter_by(
+                    name=categories[s]['name']).first().id
                 return sid
     else:
         sid = sub_cat_id = SubCategory.query.filter_by(name='').first().id
@@ -209,18 +211,21 @@ def insert_brand_product_relations(bname, b):
     for p in b['products']:
         cur_product = products[p]
         product = Product(brand.id, cur_product['name'], cur_product['description'],
-                          float(format(cur_product['price'], '.2f')), float(format(cur_product['rating'], '.2f')),
+                          float(format(cur_product['price'], '.2f')), float(
+                              format(cur_product['rating'], '.2f')),
                           cur_product['image_url'])
         db.session.add(product)
         db.session.flush()
 
         # Add product_tag relation
         for t in cur_product['tags']:
-            product.tags.append(Tag.query.filter_by(name=get_tag_name(t)).first())
+            product.tags.append(Tag.query.filter_by(
+                name=get_tag_name(t)).first())
 
         # Add product_color relation
         for c in cur_product['colors']:
-            product.colors.append(Color.query.filter_by(name=c['colour_name']).first())
+            product.colors.append(Color.query.filter_by(
+                name=c['colour_name']).first())
 
         # Add product_category relation
         cid = cur_product['category']
@@ -228,7 +233,8 @@ def insert_brand_product_relations(bname, b):
         if 'sub_category' in cur_product:
             sid = cur_product['sub_category']
 
-        product_category = ProductCategory(product.id, get_category_id(cid), get_sub_category_id(sid))
+        product_category = ProductCategory(
+            product.id, get_category_id(cid), get_sub_category_id(sid))
         db.session.add(product_category)
 
         brand.products.append(product)
@@ -255,7 +261,8 @@ def insert_color(cname, c):
 
 
 def insert_tag(tname, t):
-    tag = Tag(tname, float(format(t['avg_price'], '.2f')), float(format(t['avg_rating'], '.2f')), len(t['products']))
+    tag = Tag(tname, float(format(t['avg_price'], '.2f')), float(
+        format(t['avg_rating'], '.2f')), len(t['products']))
     db.session.add(tag)
     db.session.commit()
 
@@ -285,9 +292,11 @@ for api_product in api_products:
     # Create/Update Sub-Category
     sub_category_name = api_product['category']
     if sub_category_name is not None:
-        create_or_update_category(sub_category_name, False, products[product_id])
+        create_or_update_category(
+            sub_category_name, False, products[product_id])
         products[product_id]['sub_category'] = categories[sub_category_name]['id']
-        categories[category_name]['sub_categories'] |= {categories[sub_category_name]['id']}
+        categories[category_name]['sub_categories'] |= {
+            categories[sub_category_name]['id']}
 
     # Create/Update Tags
     tag_name_list = api_product['tag_list']
@@ -299,7 +308,8 @@ for api_product in api_products:
     # Relations
     brands[brand_name]['categories'] |= {categories[category_name]['id']}
     if sub_category_name is not None:
-        brands[brand_name]['categories'] |= {categories[sub_category_name]['id']}
+        brands[brand_name]['categories'] |= {
+            categories[sub_category_name]['id']}
 
     categories[category_name]['brands'] |= {brands[brand_name]['id']}
 
@@ -320,7 +330,8 @@ create_colors()
 for c in colors:
     insert_color(c, colors[c])
 
-# Insert a null sub category for categories without one and insert category values
+# Insert a null sub category for categories without one and insert
+# category values
 insert_null_category()
 for c in categories:
     if categories[c]['is_root']:
@@ -328,6 +339,7 @@ for c in categories:
     else:
         insert_subcategory(c, categories[c])
 
-# Insert the brands, products, and the relationships those products have with the other tables
+# Insert the brands, products, and the relationships those products have
+# with the other tables
 for b in brands:
     insert_brand_product_relations(b, brands[b])

@@ -1,6 +1,11 @@
 # pylint: disable=missing-docstring
+# pylint: disable=no-member
+# pylint: disable=too-few-public-methods
+# pylint: disable=invalid-name
+# pylint: disable=trailing-whitespace
+# pylint: disable=too-many-arguments
+
 from .app import db
-import json
 
 
 class Brand(db.Model):
@@ -257,13 +262,15 @@ class Tag(db.Model):
 product_color = db.Table('product_color',
                          db.Column('product_id', db.Integer,
                                    db.ForeignKey('product.id')),
-                         db.Column('color_id', db.Integer, db.ForeignKey('color.id')),
+                         db.Column('color_id', db.Integer,
+                                   db.ForeignKey('color.id')),
                          db.PrimaryKeyConstraint('product_id', 'color_id'))
 
 product_tag = db.Table('product_tag',
                        db.Column('product_id', db.Integer,
                                  db.ForeignKey('product.id')),
-                       db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+                       db.Column('tag_id', db.Integer,
+                                 db.ForeignKey('tag.id')),
                        db.PrimaryKeyConstraint('product_id', 'tag_id'))
 
 
@@ -292,9 +299,12 @@ class ProductCategory(db.Model):
         'sub_category.id'), primary_key=True, nullable=True)
 
     db.UniqueConstraint('product_id', 'category_id', 'sub_category_id')
-    db.relationship('User', uselist=False, backref='product_category', lazy='dynamic')
-    db.relationship('Team', uselist=False, backref='product_category', lazy='dynamic')
-    db.relationship('Role', uselist=False, backref='product_category', lazy='dynamic')
+    db.relationship('User', uselist=False,
+                    backref='product_category', lazy='dynamic')
+    db.relationship('Team', uselist=False,
+                    backref='product_category', lazy='dynamic')
+    db.relationship('Role', uselist=False,
+                    backref='product_category', lazy='dynamic')
 
     def __init__(self, product_id, category_id, sub_category_id):
         assert isinstance(product_id, int)
