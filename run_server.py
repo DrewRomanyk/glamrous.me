@@ -1,4 +1,4 @@
-import data_to_database
+import app.data_to_database
 from app.app import app
 
 if __name__ == "__main__":
