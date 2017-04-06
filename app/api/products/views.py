@@ -22,6 +22,10 @@ product_data = {
             {
                 "id": 0,
                 "name": "Gluten-Free",
+            },
+            {
+                "id": 1,
+                "name": "Canadian",
             }
         ],
     },
@@ -33,7 +37,7 @@ product_data = {
             'name': "L'Oreal",
         },
         'name': "L'Oreal Paris Colour Riche Collection Exclusive Lip Colour",
-        'description': 'Be the glamrous you.',
+        'description': 'I am a long description. I am a long description. I am a long description. I am a long description. I am a long description. I am a long description. ',
         'price': 20.99,
         'rating': 4.56,
         'image_url': "https://d3t32hsnjxo7q6.cloudfront.net/i/a9c19212339fb2ed792af559b2a4208d_ra,w158,h184_pa,w158,h184.jpeg",

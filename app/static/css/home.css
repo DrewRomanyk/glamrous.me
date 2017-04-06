@@ -2,7 +2,7 @@
 /*text-color: #fcccc7*/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff');
+@import url('https://fonts.googleapis.com/css?family=Italianno|Muli:300');
 
 /* Carousel base class */
 .carousel {
@@ -26,6 +26,14 @@
     background-position: 50% 50%;
 }
 
+.carousel-indicators li {
+    margin: 5px;
+}
+
+.carousel-indicators .active {
+    margin: 4px;
+}
+
 .first-item {
     background-image: url("/static/img/home/slide1.jpg");
 }
@@ -39,12 +47,88 @@
 }
 
 .carousel-caption {
-    font-family: 'Herr Von Muellerhoff', cursive;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+}
 
+.carousel-caption h2 span {
+    font-family: 'Italianno', cursive;
+    font-size: 75px;
+    color: #b2a4cc;
+}
+
+/* NAVBAR
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+    .navbar > .container-fluid .navbar-brand {
+        margin-left: 0;
+    }
+
+    .navbar-right {
+        margin-right: 0;
+    }
+
+}
+
+.navbar-brand {
+    font-size: 20px;
 }
 
 /* GENERAL
 -------------------------------------------------- */
+
+body {
+    font-family: 'Muli', sans-serif;
+}
+
+.container {
+    padding-bottom: 15px;
+}
+
+.horizontal-container {
+    overflow: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+    white-space: nowrap
+}
+
+.card-detail {
+    margin-bottom: .5em;
+}
+
+.card-btn {
+    margin-top: .5em;
+}
+
+.two-max-lines {
+    line-height: 1.5em;
+    height: 3em; /* height is 2x line-height, so two lines will display */
+    overflow: hidden; /* prevents extra lines from being visible */
+}
+
+.max-lines {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /*margin: 0 auto;*/
+}
+
+.center-cropped {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.label {
+    margin-right: .5em;
+}
+
+.label a {
+    color: #fff;
+}
 
 .img-center {
     margin: 0 auto;

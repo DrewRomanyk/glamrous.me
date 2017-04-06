@@ -7,6 +7,7 @@ api_about_blueprints = Blueprint(
     'api_about', __name__
 )
 
+
 @api_about_blueprints.route('/api/about/contributions')
 def get_contributions():
     url = 'https://api.github.com/'
@@ -23,11 +24,12 @@ def get_contributions():
         commits = contrib['total']
         commitCounts[author] = commits
 
-    issues_request = url + repo + 'issues?state=all'
+    issues_request = url + 'search/issues?q=repo:drewromanyk/glamrous.me+is:issue+is:closed'
     total_issue_count = 0
     issueCounts = {}
     r = requests.get(issues_request, headers=headers)
-    for issue in r.json():
+    json_data = r.json()
+    for issue in json_data['items']:
         total_issue_count += 1
         if issue['state'] == 'closed':
             if issue['assignee']:
@@ -44,10 +46,9 @@ def get_contributions():
             'author': user,
             'commits': commitCounts[user],
             'issues': issueCounts[user] if user in issueCounts else 0
-            })
+        })
 
     total_commit_count = sum(commitCounts.values())
     response['totals'] = {'commits': total_commit_count, 'issues': total_issue_count}
 
-    print(response)
     return jsonify(response)
