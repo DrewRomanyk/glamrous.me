@@ -41,7 +41,10 @@ IDB1.html:
 IDB1.log:
 	git log > IDB1.log
 
-test: .pylintrc
+test:
+	./test.sh
+
+tests.tmp: .pylintrc
 	-$(PYLINT) app/tests.py
 	$(COVERAGE) run    --branch app/tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
