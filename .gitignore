@@ -2,6 +2,7 @@
 node_modules
 app/static/js
 __pycache__
+*.pyc
 brands.json
 categories.json
 products.json
