@@ -32,8 +32,17 @@ else                                   # UTCS
     AUTOPEP8 := autopep8
 endif
 
+.pylintrc:
+	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+
 IDB1.html:
 	pydoc3.5 -w app/Models.py
 
 IDB1.log:
 	git log > IDB1.log
+
+test: .pylintrc
+	-$(PYLINT) app/tests.py
+	$(COVERAGE) run    --branch app/tests.py >  tests.tmp 2>&1
+	$(COVERAGE) report -m                      >> tests.tmp
+	cat tests.tmp

@@ -1,6 +1,6 @@
 FROM python:3-slim
 
-RUN apt-get update && apt-get install -y libpq-dev gcc
+RUN apt-get update && apt-get install -y libpq-dev gcc build-essential
 
 RUN ls /usr/bin
 
@@ -14,7 +14,8 @@ RUN python -m ensurepip && \
 		Flask-Migrate \
 		Flask-SQLAlchemy \
 		requests \
-		psycopg2
+		psycopg2 \
+		pylint
 
 EXPOSE 5000
 EXPOSE 5432
