@@ -36,9 +36,9 @@ export default class Products_Details extends React.Component {
                     <div className="panel-body">
                         <img className="img-thumbnail" src={this.state.product.image_url}/>
                         <h5>Price: </h5>
-                        <p>{this.state.product.price}</p>
+                        <p>{Number(this.state.product.price).toFixed(2)}</p>
                         <h5>Rating: </h5>
-                        <p>{this.state.product.rating}</p>
+                        <p>{Number(this.state.product.rating).toFixed(2)}</p>
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>

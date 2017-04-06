@@ -43,9 +43,9 @@ export default class Brands_Details extends React.Component {
                     <div className="panel-body">
                         <img className="img-thumbnail" src={this.state.brand.image_url}/>
                         <h5>Average price: </h5>
-                        <p>{this.state.brand.avg_price}</p>
+                        <p>{Number(this.state.brand.avg_price).toFixed(2)}</p>
                         <h5>Average rating: </h5>
-                        <p>{this.state.brand.avg_rating}</p>
+                        <p>{Number(this.state.brand.avg_rating).toFixed(2)}</p>
                         <h5>Products: </h5>
                         <div className="thumbnail horizontal-container">
                             {products}

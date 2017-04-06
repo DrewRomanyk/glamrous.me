@@ -28,8 +28,8 @@ export default class Brands extends React.Component {
                             <div className="row">
                                 <div className="col-xs-12 col-md-12">
                                     <p className="card-detail">Products: {item.num_products}</p>
-                                    <p className="card-detail">Average Price: {item.avg_price}</p>
-                                    <p className="card-detail">Average Rating: {item.avg_rating}</p>
+                                    <p className="card-detail">Average Price: {Number(item.avg_price).toFixed(2)}</p>
+                                    <p className="card-detail">Average Rating: {Number(item.avg_rating).toFixed(2)}</p>
                                     <a className="card-btn btn" href={"/brands/" + item.id}>View</a>
                                 </div>
                             </div>

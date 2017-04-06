@@ -42,9 +42,9 @@ export default class Tags_Details extends React.Component {
                     </div>
                     <div className="panel-body">
                         <h5>Average price: </h5>
-                        <p>{this.state.tag.avg_price}</p>
+                        <p>{Number(this.state.tag.avg_price).toFixed(2)}</p>
                         <h5>Average rating: </h5>
-                        <p>{this.state.tag.avg_rating}</p>
+                        <p>{Number(this.state.tag.avg_rating).toFixed(2)}</p>
                         <h5>Brands: </h5>
                         <div className="thumbnail horizontal-container">
                             {brands}
