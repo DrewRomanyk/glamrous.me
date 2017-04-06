@@ -30,7 +30,7 @@ export default class Products extends React.Component {
                                     <p className="card-detail">Brand: {item.brand.name}</p>
                                     <p className="card-detail">Price: {item.price}</p>
                                     <p className="card-detail">Rating: {item.rating}</p>
-                                    <a className="card-btn btn" href={"/products/" + item.id}>View Product</a>
+                                    <a className="card-btn btn" href={"/products/" + item.id}>View</a>
                                 </div>
                             </div>
                         </div>

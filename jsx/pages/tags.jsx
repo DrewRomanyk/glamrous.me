@@ -30,7 +30,7 @@ export default class Tags extends React.Component {
                                     <p className="card-detail">Products: {item.num_products}</p>
                                     <p className="card-detail">Average Price: {item.avg_price}</p>
                                     <p className="card-detail">Average Rating: {item.avg_rating}</p>
-                                    <a className="card-btn btn" href={"/tags/" + item.id}>View Tag</a>
+                                    <a className="card-btn btn" href={"/tags/" + item.id}>View</a>
                                 </div>
                             </div>
                         </div>
