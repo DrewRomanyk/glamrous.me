@@ -42,7 +42,25 @@ IDB1.html:
 IDB1.log:
 	git log > IDB1.log
 
-test:
+Dockerfile.db:
+	cd dockerfile
+	sudo docker build -t glamrous-db -f Dockerfile.db .
+	cd ..
+
+Dockerfile.dev:
+	cd dockerfile
+	sudo docker build -t glamrous-dev -f Dockerfile.dev .
+	cd ..
+
+Dockerfile.server:
+	cd dockerfile
+	sudo docker build -t glamrous-server -f Dockerfile.server .
+	cd ..
+
+start-db:
+	./postgres.sh detach
+
+test: start-db
 	sudo docker run \
 	-v $(ROOT_DIR):/usr/web -t \
 	-w /usr/web \
@@ -51,8 +69,12 @@ test:
 	glamrous-server \
 	make tests.tmp
 
-tests.tmp: .pylintrc
+tests.tmp: clean .pylintrc
 	-$(PYLINT) app/tests.py
 	$(COVERAGE) run    --branch app/tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
 	cat tests.tmp
+
+clean:
+	rm -f tests.tmp
+	rm -f .pylintrc
