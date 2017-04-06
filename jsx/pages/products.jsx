@@ -1,5 +1,4 @@
 import React from 'react';
-import FilterBar from '../ui/FilterBar.jsx';
 
 export default class Products extends React.Component {
     constructor(props) {
@@ -41,7 +40,6 @@ export default class Products extends React.Component {
         });
         return (
             <div className="container">
-				<FilterBar />
                 <div id="products" className="row list-group">
                     { products }
                 </div>
