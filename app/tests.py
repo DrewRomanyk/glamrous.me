@@ -1,5 +1,10 @@
+# pylint: disable=missing-docstring
+# pylint: disable=no-member
+# pylint: disable=trailing-whitespace
+# pylint: disable=line-too-long
+
 from unittest import main, TestCase
-from .models import Brand, Product, Color, Category, SubCategory, ProductCategory
+from .models import *
 from .app import db
 from .app import app
 
