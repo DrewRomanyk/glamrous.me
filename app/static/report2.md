@@ -338,6 +338,8 @@ In order to populate the database, we first had to create a script that would ga
 
 #### Importing to Database
 
+From the json that we formated our schema into, we were able to create a script to parse through the data and insert it into our database as well defining the different relationships between our models. By collecting all of the data from their API into our own json file we avoided the issues of rate limiting from their site, their data changing from how we built our API to interpret it, and the off chance that their API goes offline or is removed. 
+
 ### Hosting
 
 #### Introduction
