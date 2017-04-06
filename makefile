@@ -43,13 +43,13 @@ IDB1.log:
 	git log > IDB1.log
 
 Dockerfile.db:
-	cd dockerfile/dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
+	cd dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
 
 Dockerfile.dev:
-	sudo docker build -t glamrous-dev -f dockerfile/Dockerfile.dev .
+	cd dockerfile && sudo docker build -t glamrous-dev -f Dockerfile.dev .
 
 Dockerfile.server:
-	sudo docker build -t glamrous-server -f dockerfile/Dockerfile.server .
+	cd dockerfile && sudo docker build -t glamrous-server -f Dockerfile.server .
 
 start-db:
 	./postgres.sh detach
