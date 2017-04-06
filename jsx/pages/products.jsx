@@ -18,11 +18,12 @@ export default class Products extends React.Component {
         const products = this.state.products.map((item, i) => {
             return (
 
-                <div key={item.id} className="item  col-xs-4 col-lg-4">
+                <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="thumbnail">
-                        <img className="group list-group-image" src={item.image_url} alt=""/>
+                        <div className="card-img center-cropped"
+                             style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
                         <div className="caption">
-                            <h4 className="group inner list-group-item-heading">{item.name}</h4>
+                            <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
                             <p className="group inner list-group-item-text max-lines card-detail">{item.description}</p>
                             <div className="row">
                                 <div className="col-xs-12 col-md-12">

@@ -20,7 +20,7 @@ export default class Categories extends React.Component {
         const categories = this.state.categories.map((item, i) => {
             return (
 
-                <div key={item.id} className="item  col-xs-4 col-lg-4">
+                <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="thumbnail">
                         {/*<img className="group list-group-image" src={item.image_url} alt=""/>*/}
                         <div className="caption">

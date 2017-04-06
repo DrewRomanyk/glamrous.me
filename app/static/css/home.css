@@ -102,10 +102,24 @@ body {
     margin-top: .5em;
 }
 
+.two-max-lines {
+    line-height: 1.5em;
+    height: 3em; /* height is 2x line-height, so two lines will display */
+    overflow: hidden; /* prevents extra lines from being visible */
+}
+
 .max-lines {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    /*margin: 0 auto;*/
+}
+
+.center-cropped {
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .label {

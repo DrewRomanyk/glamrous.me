@@ -19,9 +19,10 @@ export default class Brands extends React.Component {
     render() {
         const brands = this.state.brands.map((item, i) => {
             return (
-                <div key={item.id} className="item  col-xs-4 col-lg-4">
-                    <div className="thumbnail">
-                        <img className="group list-group-image" src={item.image_url} alt=""/>
+                <div key={item.id} className="item  col-xs-6 col-lg-4">
+                    <div className="card thumbnail">
+                        <div className="card-img center-cropped"
+                             style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
                         <div className="caption">
                             <h4 className="group inner list-group-item-heading">{item.name}</h4>
                             <div className="row">
