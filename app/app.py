@@ -5,9 +5,11 @@
 import os
 
 from flask import Flask, send_from_directory
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='/static')
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 app.config.from_json(os.getcwd() + "/config.json")
 db = SQLAlchemy(app)
