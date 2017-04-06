@@ -1,8 +1,10 @@
+from app.app import db
+from app.models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag
 from urllib.request import Request, urlopen
 import json
 
-with open('config.json') as f:
-    bing_api_key = json.load(f)['BING_IMAGE_API_KEY']
+# with open('config.json') as f:
+#     bing_api_key = json.load(f)['BING_IMAGE_API_KEY']
 
 """ API JSON """
 # url = "http://makeup-api.herokuapp.com/api/v1/products.json"
@@ -16,7 +18,11 @@ brands = {}
 products = {}
 categories = {}
 tags = {}
+colors = {}
 
+def reset_db():
+    db.drop_all()
+    db.create_all()
 
 def get_brand_image_from_bing(brand_name):
     # image_url_req = Request(
@@ -31,7 +37,6 @@ def get_brand_image_from_bing(brand_name):
 
 def update_average(cur_avg, length, new_data):
     return cur_avg + (new_data - cur_avg) / length
-
 
 def create_product(api_product):
     price = api_product['price'] if api_product['price'] is not None else 0
@@ -134,6 +139,93 @@ def create_or_update_tag(tag_name, product):
         )
         tags[tag_name]['products'] |= {product['id']}
 
+def create_colors():
+    for p in products:
+        for c in products[p]['colors']:
+            cur_color = c['colour_name']
+            if cur_color not in colors:
+                colors[cur_color] = {}
+                colors[cur_color]['hex'] = c['hex_value']
+                colors[cur_color]['count'] = 1
+            else:
+                colors[cur_color]['count'] += 1
+
+def get_tag_name(tid):
+    for t in tags:
+        if tags[t]['id'] == tid:
+            return t
+
+def get_category_id(cid):
+    for c in categories:
+        if categories[c]['id'] == cid:
+            cid = Category.query.filter_by(name=categories[c]['name']).first().id
+            return cid
+
+def get_sub_category_id(sid):
+    if sid:
+        for s in categories:
+            if categories[s]['id'] == sid:
+                sid = SubCategory.query.filter_by(name=categories[s]['name']).first().id
+                return sid
+    else:
+        sid = sub_cat_id = SubCategory.query.filter_by(name='').first().id
+        return sid
+
+def insert_brand_product_relations(bname, b):
+
+    brand = Brand(bname, float(format(b['avg_price'],'.2f')), float(format(b['avg_rating'],'.2f')), len(b['products']), b['image_url'])
+    db.session.add(brand)
+    db.session.flush()
+    for p in b['products']:
+        cur_product = products[p]
+        product = Product(brand.id, cur_product['name'], cur_product['description'], float(format(cur_product['price'],'.2f')), float(format(cur_product['rating'],'.2f')), cur_product['image_url'])
+        db.session.add(product)
+        db.session.flush()
+
+        # Add product_tag relation
+        for t in cur_product['tags']:
+            product.tags.append(Tag.query.filter_by(name=get_tag_name(t)).first())
+        
+        # Add product_color relation
+        for c in cur_product['colors']:
+            product.colors.append(Color.query.filter_by(name=c['colour_name']).first())
+        
+        # Add product_category relation
+        cid = cur_product['category']
+        sid = None
+        if 'sub_category' in cur_product:
+            sid = cur_product['sub_category']
+
+        product_category = ProductCategory(product.id, get_category_id(cid), get_sub_category_id(sid))
+        db.session.add(product_category)
+
+        brand.products.append(product)
+    db.session.commit()
+
+def insert_null_category():
+    sub_category = SubCategory('', None, None, None)
+    db.session.add(sub_category)
+    db.session.commit()
+
+def insert_category(cname, c):
+    category = Category(cname, float(format(c['avg_price'],'.2f')), float(format(c['avg_rating'],'.2f')), len(c['products']))
+    db.session.add(category)
+    db.session.commit()
+
+def insert_color(cname, c):
+    color = Color(cname, c['hex'], c['count'])
+    db.session.add(color)
+    db.session.commit()
+
+def insert_tag(tname, t):
+    tag = Tag(tname, float(format(t['avg_price'],'.2f')), float(format(t['avg_rating'],'.2f')), len(t['products']))
+    db.session.add(tag)
+    db.session.commit() 
+
+def insert_subcategory(sname, s):
+    sub_category = SubCategory(sname, float(format(s['avg_price'],'.2f')), float(format(s['avg_rating'],'.2f')), len(s['products']))
+    db.session.add(sub_category)
+    db.session.commit()
 
 get_brand_image_from_bing("smashbox")
 
@@ -174,21 +266,32 @@ for api_product in api_products:
     categories[category_name]['brands'] |= {brands[brand_name]['id']}
 
 
+# Drop all tables in db and recreate them from the models.py
+reset_db()
+
+# Insert all tags values
+for t in tags:
+    insert_tag(t, tags[t])
+
+# Insert all color values
+create_colors()
+for c in colors:
+    insert_color(c, colors[c])
+
+# Insert a null sub category for categories without one and insert category values
+insert_null_category()
+for c in categories:
+    if categories[c]['is_root']:
+        insert_category(c, categories[c])
+    else:
+        insert_subcategory(c, categories[c])
+
+# Insert the brands, products, and the relationships those products have with the other tables
+for b in brands:
+    insert_brand_product_relations(b, brands[b])
+
 class SetEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, set):
             return list(obj)
         return json.JSONEncoder.default(self, obj)
-
-
-with open('products.json', 'w') as f:
-    json.dump(products, f, cls=SetEncoder)
-
-with open('brands.json', 'w') as f:
-    json.dump(brands, f, cls=SetEncoder)
-
-with open('categories.json', 'w') as f:
-    json.dump(categories, f, cls=SetEncoder)
-
-with open('tags.json', 'w') as f:
-    json.dump(tags, f, cls=SetEncoder)

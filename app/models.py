@@ -21,8 +21,8 @@ class Brand(db.Model):
 
     id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer, default=0)
-    avg_rating = db.Column('avg_rating', db.Integer, default=0)
+    avg_price = db.Column('avg_price', db.Float, default=0)
+    avg_rating = db.Column('avg_rating', db.Float, default=0)
     num_products = db.Column('num_products', db.Integer, default=0)
     image_url = db.Column('image_url', db.Unicode(255))
     
@@ -71,11 +71,10 @@ class Product(db.Model):
     id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     brand_id = db.Column('brand_id', db.Integer, db.ForeignKey(
         'brand.id'), nullable=False)
-    #brand = db.relationship('Brand', back_populates="products")
     name = db.Column('name', db.Unicode(255), nullable=False)
-    description = db.Column('description', db.Unicode(4000))
-    price = db.Column('price', db.Integer)
-    rating = db.Column('rating', db.Integer)
+    description = db.Column('description', db.Unicode(10000))
+    price = db.Column('price', db.Float)
+    rating = db.Column('rating', db.Float)
     image_url = db.Column('image_url', db.Unicode(255))
    
     # Many-to-Many relationships
@@ -157,8 +156,8 @@ class Category(db.Model):
 
     id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
@@ -196,8 +195,8 @@ class SubCategory(db.Model):
 
     id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
@@ -234,8 +233,8 @@ class Tag(db.Model):
 
     id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
