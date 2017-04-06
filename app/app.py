@@ -6,12 +6,6 @@ import os
 
 from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from .api.brands.views import api_brands_blueprints
-from .api.products.views import api_products_blueprints
-from .api.tags.views import api_tags_blueprints
-from .api.categories.views import api_categories_blueprints
-from .api.tests.views import api_test_blueprints
-from .api.about.views import api_about_blueprints
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -20,6 +14,12 @@ db = SQLAlchemy(app)
 
 # Needed to make migrations happen
 from .models import *
+from .api.brands.views import api_brands_blueprints
+from .api.products.views import api_products_blueprints
+from .api.tags.views import api_tags_blueprints
+from .api.categories.views import api_categories_blueprints
+from .api.tests.views import api_test_blueprints
+from .api.about.views import api_about_blueprints
 
 # API routing through their own modules
 app.register_blueprint(api_brands_blueprints)
