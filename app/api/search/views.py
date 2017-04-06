@@ -13,7 +13,7 @@ search_results = {
 
 @api_search_blueprints.route('/api/search/<data>')
 def get_tag(data):
-    keywords = data.split('+')
+    keywords = data.split(' ')
     search_results['keywords'] = keywords
 
     # Search for keywords for the entire database
