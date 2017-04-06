@@ -28,6 +28,10 @@ $ ./build.sh
 $ rollup -cw
 ```
 
+#### Configuration
+ * Copy `config.json.template` to `config.json` and fill out.
+ * To get DB URI, use `sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"`
+
 #### Start Server
 ```bash
 $ ./start.sh [detach]
