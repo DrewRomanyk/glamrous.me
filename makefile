@@ -43,7 +43,7 @@ IDB1.log:
 	git log > IDB1.log
 
 Dockerfile.db:
-	cd dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
+	cd dockerfile/dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
 
 Dockerfile.dev:
 	sudo docker build -t glamrous-dev -f dockerfile/Dockerfile.dev .
