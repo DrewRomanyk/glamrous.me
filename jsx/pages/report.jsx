@@ -1,3 +1,4 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
 import marked from 'marked';
 import { Container } from '../ui/Bootstrap.jsx';
@@ -21,4 +22,4 @@ export default class Report extends React.Component {
 			</Container>
 		);
 	}
-};
+}

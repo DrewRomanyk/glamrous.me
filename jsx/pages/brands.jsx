@@ -1,3 +1,4 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
@@ -5,7 +6,7 @@ import React from 'react';
 export default class Brands extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {brands: []}
+        this.state = {brands: []};
     }
 
     componentDidMount() {
@@ -16,7 +17,7 @@ export default class Brands extends React.Component {
     }
 
     render() {
-        const brands = this.state.brands.map((item, i) => {
+        const brands = this.state.brands.map(item => {
             return (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="card thumbnail">
@@ -29,7 +30,7 @@ export default class Brands extends React.Component {
                                     <p className="card-detail">Products: {item.num_products}</p>
                                     <p className="card-detail">Average Price: {Number(item.avg_price).toFixed(2)}</p>
                                     <p className="card-detail">Average Rating: {Number(item.avg_rating).toFixed(2)}</p>
-                                    <a className="card-btn btn" href={"/brands/" + item.id}>View</a>
+                                    <a className="card-btn btn" href={'/brands/' + item.id}>View</a>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
-import flatten from 'lodash/flatten';
 import merge from 'lodash/merge';
 import find from 'lodash/find';
-import zip from 'lodash/zip';
 import { Container } from '../ui/Bootstrap.jsx';
 import Flex from 'jsxstyle/Flex';
 import SortOptions from '../ui/SortOptions.jsx';
@@ -25,8 +23,6 @@ class SortFilterPaginate extends Component {
 		this.getAllSorts = this.getAllSorts.bind(this);
 		this.toggleSelected = this.toggleSelected.bind(this);
 		this.changeBounds = this.changeBounds.bind(this);
-
-		console.log('filters', this.state.filters);
 	}
 
 	componentWillReceiveProps(props) {
@@ -37,7 +33,7 @@ class SortFilterPaginate extends Component {
 	}
 
 	getAllSorts(data) {
-		let allSortMethods = new Set()
+		let allSortMethods = new Set();
 		data.forEach(datum => {
 			datum.sortables.map(sortable => sortable.name).forEach(name => {
 				allSortMethods.add(name);
@@ -58,7 +54,7 @@ class SortFilterPaginate extends Component {
 				}
 
 				if (filterable.type === FILTER_TYPE.SELECTABLE) {
-					filter.selectables = filter.selectables || []
+					filter.selectables = filter.selectables || [];
 					if (Array.isArray(filterable.value)) {
 						filterable.value.forEach(str => {
 							const selectable = {name: str, selected: false};
@@ -74,7 +70,6 @@ class SortFilterPaginate extends Component {
 				}
 			});
 		});
-		console.log('filters', allFilters);
 		return allFilters;
 	}
 
@@ -152,17 +147,16 @@ class SortFilterPaginate extends Component {
 					</Flex>
 				</div>
 				<div id="tags" className="row list-group">
-					{displayData.map(element => element.display)}
+					{displayData.map(element => element.display())}
 				</div>
 			</Container>
 		);
 	}
-
-};
+}
 SortFilterPaginate.propTypes = {
 	id: PropTypes.string,
 	data: PropTypes.arrayOf(PropTypes.shape({
-		display: PropTypes.element.isRequired, // anything directly renderable
+		display: PropTypes.func.isRequired,
 		filterables: PropTypes.arrayOf(
 			PropTypes.shape({
 				name: PropTypes.string.isRequired,

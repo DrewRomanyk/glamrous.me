@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import flatten from 'lodash/flatten';
-import merge from 'lodash/merge';
-import find from 'lodash/find';
 import zip from 'lodash/zip';
-import { Container } from '../ui/Bootstrap.jsx';
 import Flex from 'jsxstyle/Flex';
 
 class SortOptions extends Component {
@@ -15,14 +12,14 @@ class SortOptions extends Component {
 				event.stopPropagation();
 				this.props.setSortBy(name, reverse);
 				return false;
-			}
-		}
+			};
+		};
 	}
 
 	render() {
 		const sorts = flatten(zip(
 			this.props.sortOptions.map(x => ({sort: x, reverse: false})),
-			this.props.sortOptions.map(x => ({sort: x, reverse: true})),
+			this.props.sortOptions.map(x => ({sort: x, reverse: true}))
 		));
 		const dropdownItem = (sortOpt) => {
 			const rev  = sortOpt.reverse;

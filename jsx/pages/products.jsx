@@ -1,9 +1,11 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
+import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
 export default class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {products: []}
+        this.state = {products: []};
     }
 
     componentDidMount() {
@@ -14,9 +16,41 @@ export default class Products extends React.Component {
     }
 
     render() {
-        const products = this.state.products.map((item, i) => {
-            return (
-
+        const productObjs = this.state.products.map(item => ({
+			filterables: [
+				{	name: 'Brand',
+					type: FILTER_TYPE.SELECTABLE,
+					value: [item.brand.name],
+				},
+				{	name: 'Tag',
+					type: FILTER_TYPE.SELECTABLE,
+					value: item.tags.map(tagObj => tagObj.name),
+				},
+				{	name: 'Color',
+					type: FILTER_TYPE.SELECTABLE,
+					value: item.colors.map(colorObj => colorObj.name.trim()),
+				},
+				{	name: 'Price',
+					type: FILTER_TYPE.RANGE,
+					value: item.price,
+				},
+				{	name: 'Rating',
+					type: FILTER_TYPE.RANGE,
+					value: item.rating,
+				},
+			],
+			sortables: [
+				{	name: 'Name',
+					sort: item.name,
+				},
+				{	name: 'Price',
+					sort: item.price,
+				},
+				{	name: 'Rating',
+					sort: item.rating,
+				},
+			],
+			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="thumbnail">
                         <div className="card-img center-cropped"
@@ -29,20 +63,16 @@ export default class Products extends React.Component {
                                     <p className="card-detail">Brand: {item.brand.name}</p>
                                     <p className="card-detail">Price: {Number(item.price).toFixed(2)}</p>
                                     <p className="card-detail">Rating: {Number(item.rating).toFixed(2)}</p>
-                                    <a className="card-btn btn" href={"/products/" + item.id}>View</a>
+                                    <a className="card-btn btn" href={'/products/' + item.id}>View</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            );
-        });
+            ),
+        }));
         return (
-            <div className="container">
-                <div id="products" className="row list-group">
-                    { products }
-                </div>
-            </div>
+			<SortFilterPaginate data={productObjs} />
         );
     }
 }

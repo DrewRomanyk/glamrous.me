@@ -1,11 +1,13 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
+import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
 export default class Categories extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {categories: []}
+        this.state = {categories: []};
     }
 
     componentDidMount() {
@@ -16,12 +18,31 @@ export default class Categories extends React.Component {
     }
 
     render() {
-        const categories = this.state.categories.map((item, i) => {
-            return (
-
+        const categoryObjs = this.state.categories.map(item => ({
+			filterables: [
+				{	name: 'Average Price',
+					type: FILTER_TYPE.RANGE,
+					value: item.avg_price,
+				},
+				{	name: 'Average Rating',
+					type: FILTER_TYPE.RANGE,
+					value: item.avg_rating,
+				},
+			],
+			sortables: [
+				{	name: 'Name',
+					sort: item.name,
+				},
+				{	name: 'Price',
+					sort: item.avg_price,
+				},
+				{	name: 'Rating',
+					sort: item.avg_rating,
+				},
+			],
+			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="thumbnail">
-                        {/*<img className="group list-group-image" src={item.image_url} alt=""/>*/}
                         <div className="caption">
                             <h4 className="group inner list-group-item-heading">{item.name}</h4>
                             <div className="row">
@@ -29,20 +50,16 @@ export default class Categories extends React.Component {
                                     <p className="card-detail">Products: {item.num_products}</p>
                                     <p className="card-detail">Average Price: {Number(item.avg_price).toFixed(2)}</p>
                                     <p className="card-detail">Average Rating: {Number(item.avg_rating).toFixed(2)}</p>
-                                    <a className="card-btn btn" href={"/categories/" + item.id}>View</a>
+                                    <a className="card-btn btn" href={'/categories/' + item.id}>View</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            );
-        });
+            ),
+        }));
         return (
-            <div className="container">
-                <div id="categories" className="row list-group">
-                    { categories }
-                </div>
-            </div>
+			<SortFilterPaginate data={categoryObjs} />
         );
     }
 }

@@ -1,3 +1,4 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
 import {Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
 import find from 'lodash/find';
@@ -39,23 +40,23 @@ const TheGlamFam = (props) => {
                 role='Frontend & Backend'
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
-                + "intern with RetailMeNot over the summer."}
+                + 'intern with RetailMeNot over the summer.'}
                 contrib={{...stats('DrewRomanyk'), tests: 0}}
             />
             <TeamMember
                 name='Cameron Piel'
                 image='cameron.jpg'
                 role='Database & Backend'
-                about={"My name is Cameron Piel, I am a 5th year student here at "
-                + "UT. When I am not coding or cooking you can find me sitting "
-                + "at my desk pretending to be productive."}
+                about={'My name is Cameron Piel, I am a 5th year student here at '
+                + 'UT. When I am not coding or cooking you can find me sitting '
+                + 'at my desk pretending to be productive.'}
                 contrib={{...stats('Cpiely'), tests: 15}}
             />
             <TeamMember
                 image='rperce.jpg'
                 name='Robert Perce'
                 role='Frontend & Devops'
-                about={"Fourth-year Computer Science and Mathematics student at UT "
+                about={'Fourth-year Computer Science and Mathematics student at UT '
                 + "Austin. I'll be starting full-time at Indeed in July!"}
                 contrib={{...stats('rperce'), tests: 0}}
             />
@@ -63,8 +64,8 @@ const TheGlamFam = (props) => {
                 image='mpark.jpg'
                 name='Melody Park'
                 role='Frontend & Backend'
-                about={"Fourth year UT student who likes to get swole. Weenie on "
-                + "the outside. Dragon on the inside."}
+                about={'Fourth year UT student who likes to get swole. Weenie on '
+                + 'the outside. Dragon on the inside.'}
                 contrib={{...stats('myopark'), tests: 0}}
             />
             <TeamMember
@@ -72,20 +73,20 @@ const TheGlamFam = (props) => {
                 name='Thomas Potnuru'
                 role='API & Backend'
                 about={"Currently a senior at UT Austin doing my Bachelor's in "
-                + "Computer Sceince. I am a IEEE Computer Society Officer "
-                + "again this year! Usually making and eating dessert in my "
-                + " free time."}
+                + 'Computer Sceince. I am a IEEE Computer Society Officer '
+                + 'again this year! Usually making and eating dessert in my '
+                + ' free time.'}
                 contrib={{...stats('thomas-potnuru'), tests: 0}}
             />
         </Row>
-    )
+    );
 };
 
 export default class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            unit_test_desc: "Running unit tests...",
+            unit_test_desc: 'Running unit tests...',
             stats: {contributors: []}
         };
     }
@@ -98,7 +99,6 @@ export default class About extends React.Component {
     }
 
     runUnitTests() {
-        console.log("running unit tests...");
         $.getJSON(document.location.origin + '/api/test')
             .then((data) => {
                 this.setState({unit_test_desc: data.result});

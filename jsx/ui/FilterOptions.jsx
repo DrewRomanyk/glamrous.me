@@ -20,8 +20,8 @@ class DropdownRange extends Component {
 			return (
 				str.length > 0 &&
 				!isNaN(str)
-			)
-		}
+			);
+		};
 
 		this.onMinChange = (evt) => {
 			this.setState({
@@ -38,7 +38,7 @@ class DropdownRange extends Component {
 		this.apply = () => {
 			this.props.changeBounds(
 				this.state.min,
-				this.state.max,
+				this.state.max
 			);
 		};
 	}
@@ -179,5 +179,5 @@ FilterOptions.propTypes = {
 	}).isRequired).isRequired,
 	toggleSelected: PropTypes.func.isRequired,
 	changeBounds: PropTypes.func.isRequired,
-}
+};
 export default FilterOptions;

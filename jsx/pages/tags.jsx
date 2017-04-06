@@ -1,5 +1,5 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
-import ReactPaginate from 'react-paginate';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
@@ -9,7 +9,7 @@ export default class Tags extends React.Component {
         super(props);
         this.state = {
             tags: [],
-        }
+        };
     }
 
     componentDidMount() {
@@ -24,7 +24,6 @@ export default class Tags extends React.Component {
             type: 'GET',
 
             success: data => {
-            	console.log(data);
 				this.setState({ tags: data, });
             },
 
@@ -35,7 +34,6 @@ export default class Tags extends React.Component {
     }
 
     render() {
-        console.log('tags', this.state.tags);
         const tagObjs = this.state.tags.map(item => ({
 			filterables: [
 				{	name: 'Brand',
@@ -62,7 +60,7 @@ export default class Tags extends React.Component {
 					sort: item.avg_rating,
 				},
 			],
-			display: (
+			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="thumbnail">
                         <div className="caption">
@@ -72,7 +70,7 @@ export default class Tags extends React.Component {
                                     <p className="card-detail">Products: {item.num_products}</p>
                                     <p className="card-detail">Average Price: {Number(item.avg_price).toFixed(2)}</p>
                                     <p className="card-detail">Average Rating: {Number(item.avg_rating).toFixed(2)}</p>
-                                    <a className="card-btn btn" href={"/tags/" + item.id}>View</a>
+                                    <a className="card-btn btn" href={'/tags/' + item.id}>View</a>
                                 </div>
                             </div>
                         </div>

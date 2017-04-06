@@ -1,3 +1,4 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
 
 export default class Tags_Details extends React.Component {
@@ -8,7 +9,7 @@ export default class Tags_Details extends React.Component {
             category: {
                 products: [], brands: [], name: '', avg_price: '', avg_rating: ''
             }
-        }
+        };
     }
 
     componentDidMount() {
@@ -19,17 +20,17 @@ export default class Tags_Details extends React.Component {
     }
 
     render() {
-        const brands = this.state.category.brands.map((item, i) => {
+        const brands = this.state.category.brands.map(item => {
             return (
-                <span key={item.id} className="label label-primary">
-                    <a href={"/tags/" + item.id}>{item.name}</a>
+                <span key={item.id} className='label label-primary'>
+                    <a href={'/tags/' + item.id}>{item.name}</a>
                 </span>
             );
         });
-        const products = this.state.category.products.map((item, i) => {
+        const products = this.state.category.products.map(item => {
             return (
-                <span key={item.id} className="label label-primary">
-                    <a href={"/products/" + item.id}>{item.name}</a>
+                <span key={item.id} className='label label-primary'>
+                    <a href={'/products/' + item.id}>{item.name}</a>
                 </span>
             );
         });

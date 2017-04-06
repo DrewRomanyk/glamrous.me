@@ -62,6 +62,6 @@ export const GridCell = (props) => {
 		}
 	});
 	const pass = omit(props, sizes);
-	const className = classes.join(' ')
+	const className = classes.join(' ');
 	return bootstrap(className, ['text-center'])(pass);
-}
+};
