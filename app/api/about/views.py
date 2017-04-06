@@ -1,7 +1,7 @@
 # pylint: disable=invalid-name
 # pylint: disable=missing-docstring
 from flask import Blueprint, jsonify, current_app
-import requests
+import requests, time
 
 api_about_blueprints = Blueprint(
     'api_about', __name__
@@ -18,6 +18,11 @@ def get_contributions():
 
     commit_request = url + repo + 'stats/contributors'
     r = requests.get(commit_request, headers=headers)
+
+    while r.status_code == 202:
+        time.sleep(.5)
+        r = requests.get(commit_request, headers=headers)
+
     commitCounts = {}
     for contrib in r.json():
         author = contrib['author']['login']
