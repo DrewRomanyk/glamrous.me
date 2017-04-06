@@ -1,4 +1,4 @@
-from ..data_to_database
+from ... import data_to_database
 from unittest import main, TestCase
 from .models import Brand, Product, Color, Category, SubCategory, ProductCategory
 from .app import db
