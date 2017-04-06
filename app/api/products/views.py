@@ -21,7 +21,8 @@ def get_products():
         product_json['price'] = product.price
         product_json['rating'] = product.rating
         product_json['image_url'] = product.image_url
-        product_json['description'] = product.description
+        product_json['description'] = product.description if len(product.description) <= 255 \
+            else product.description[:254]
         product_json['name'] = product.name
         product_json['colors'] = []
         for color in product.colors:
