@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
     _handleKeyPress(e) {
         if (e.key === 'Enter') {
             let keywords = document.getElementsByClassName('search')[0].value;
-            window.location.replace(document.location.origin + "/api/search/" + keywords);
+            window.location.replace(document.location.origin + "/search/" + keywords);
         }
     }
 

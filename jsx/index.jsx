@@ -14,6 +14,7 @@ import Tags from './pages/tags.jsx'
 import Tags_Details from './pages/tags_detail.jsx'
 import Categories from './pages/categories.jsx'
 import Categories_Details from './pages/categories_detail.jsx'
+import Search from './pages/search.jsx'
 import Not_Found from './pages/not_found.jsx'
 
 const wrap = (name, component) => (
@@ -42,6 +43,7 @@ const Routed = () => (
 			{route('/categories/:id', 'Products',   Categories_Details, true)}
 			{route('/tags',           'Tags',       Tags)}
 			{route('/tags/:id',       'Tags',       Tags_Details,       true)}
+			{route('/search/:id',     'Search',     Search,             true)}
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>
