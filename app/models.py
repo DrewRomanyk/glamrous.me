@@ -1,5 +1,6 @@
 # pylint: disable=missing-docstring
 from .app import db
+import json
 
 
 class Brand(db.Model):
@@ -19,13 +20,13 @@ class Brand(db.Model):
 
     __tablename__ = 'brand'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Float, default=0)
     avg_rating = db.Column('avg_rating', db.Float, default=0)
     num_products = db.Column('num_products', db.Integer, default=0)
     image_url = db.Column('image_url', db.Unicode(511))
-    
+
     # One-to-Many relationships
     products = db.relationship('Product', backref='brand', lazy='dynamic')
 
@@ -68,7 +69,7 @@ class Product(db.Model):
 
     __tablename__ = 'product'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     brand_id = db.Column('brand_id', db.Integer, db.ForeignKey(
         'brand.id'), nullable=False)
     name = db.Column('name', db.Unicode(255), nullable=False)
@@ -76,7 +77,7 @@ class Product(db.Model):
     price = db.Column('price', db.Float)
     rating = db.Column('rating', db.Float)
     image_url = db.Column('image_url', db.Unicode(255))
-   
+
     # Many-to-Many relationships
     colors = db.relationship('Color',
                              secondary='product_color', backref='product')
@@ -115,10 +116,10 @@ class Color(db.Model):
         hashcode        String      the hash value for the Color
         num_products    Integer     number of products with this Color
     """
-    
+
     __tablename__ = 'color'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     hashcode = db.Column('hashcode', db.Unicode(25), nullable=False)
     num_products = db.Column('num_products', db.Integer, default=0)
@@ -154,7 +155,7 @@ class Category(db.Model):
 
     __tablename__ = 'category'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Float)
     avg_rating = db.Column('avg_rating', db.Float)
@@ -173,6 +174,7 @@ class Category(db.Model):
 
     def __repr__(self):
         return '<type %r>' % self.name
+
 
 class SubCategory(db.Model):
     """
@@ -193,7 +195,7 @@ class SubCategory(db.Model):
 
     __tablename__ = 'sub_category'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Float)
     avg_rating = db.Column('avg_rating', db.Float)
@@ -231,7 +233,7 @@ class Tag(db.Model):
 
     __tablename__ = 'tag'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     avg_price = db.Column('avg_price', db.Float)
     avg_rating = db.Column('avg_rating', db.Float)
@@ -251,6 +253,7 @@ class Tag(db.Model):
     def __repr__(self):
         return '<Tag %r>' % self.name
 
+
 product_color = db.Table('product_color',
                          db.Column('product_id', db.Integer,
                                    db.ForeignKey('product.id')),
@@ -263,11 +266,12 @@ product_tag = db.Table('product_tag',
                        db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
                        db.PrimaryKeyConstraint('product_id', 'tag_id'))
 
+
 class ProductCategory(db.Model):
     """
     The ProductCategory model is the manifestation of the ternary relationship
     between Product, Category, and SubCategory. A Category can have many to no 
-    SubCategories so a ternary relationship is necesary to show the unique 
+    SubCategories so a ternary relationship is necessary to show the unique
     combination for a certain Product.
 
     Attributes:
@@ -277,7 +281,6 @@ class ProductCategory(db.Model):
         sub_category_id     Integer     numerical identifier for the SubCategory of 
                                         the Product
     """
-
 
     __tablename__ = 'product_category'
 

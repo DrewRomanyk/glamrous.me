@@ -331,10 +331,3 @@ for c in categories:
 # Insert the brands, products, and the relationships those products have with the other tables
 for b in brands:
     insert_brand_product_relations(b, brands[b])
-
-
-class SetEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, set):
-            return list(obj)
-        return json.JSONEncoder.default(self, obj)
