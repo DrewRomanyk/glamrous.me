@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 import flatten from 'lodash/flatten';
 import merge from 'lodash/merge';
 import find from 'lodash/find';
@@ -6,8 +7,7 @@ import zip from 'lodash/zip';
 import { Container } from '../ui/Bootstrap.jsx';
 import Flex from 'jsxstyle/Flex';
 import SortOptions from '../ui/SortOptions.jsx';
-import FilterOptions from '../ui/FilterOptions.jsx';
-
+import FilterOptions, { FILTER_TYPE } from '../ui/FilterOptions.jsx';
 
 class SortFilterPaginate extends Component {
 	constructor(props) {
@@ -16,16 +16,24 @@ class SortFilterPaginate extends Component {
 		this.state = {
 			sortBy: 'Name',
 			allSorts: this.getAllSorts(props.data),
+			filters: this.getFilters(props.data),
 			selectedAttributes: {},
 			selectedText: [],
 		};
 
 		this.setSortBy = this.setSortBy.bind(this);
 		this.getAllSorts = this.getAllSorts.bind(this);
+		this.toggleSelected = this.toggleSelected.bind(this);
+		this.changeBounds = this.changeBounds.bind(this);
+
+		console.log('filters', this.state.filters);
 	}
 
 	componentWillReceiveProps(props) {
-		this.setState({ allSorts: this.getAllSorts(props.data) });
+		this.setState({
+			allSorts: this.getAllSorts(props.data),
+			filters: this.getFilters(props.data),
+		});
 	}
 
 	getAllSorts(data) {
@@ -38,6 +46,38 @@ class SortFilterPaginate extends Component {
 		return allSortMethods;
 	}
 
+	getFilters(data) {
+		let allFilters = [];
+		data.forEach(datum => {
+			datum.filterables.forEach(filterable => {
+				const filter_base = {name: filterable.name, type: filterable.type};
+				let filter = find(allFilters, filter_base);
+				if (filter === undefined) {
+					allFilters.push(filter_base);
+					filter = filter_base;
+				}
+
+				if (filterable.type === FILTER_TYPE.SELECTABLE) {
+					filter.selectables = filter.selectables || []
+					if (Array.isArray(filterable.value)) {
+						filterable.value.forEach(str => {
+							const selectable = {name: str, selected: false};
+							if (find(filter.selectables, selectable) === undefined) {
+								filter.selectables.push(selectable);
+							}
+						});
+					} else {
+						console.warn('Error: if type is FILTER_TYPE.SELECTABLE, value must be array');
+					}
+				} else if (filterable.type === FILTER_TYPE.RANGE) {
+					merge(filter, {min: -Infinity, max: Infinity});
+				}
+			});
+		});
+		console.log('filters', allFilters);
+		return allFilters;
+	}
+
 	setSortBy(sortBy, reverse) {
 		this.setState({
 			sortBy: sortBy,
@@ -45,9 +85,44 @@ class SortFilterPaginate extends Component {
 		});
 	}
 
+	toggleSelected(filterName, option) {
+		// TODO immutable.js would be p cool
+		const filters = cloneDeep(this.state.filters);
+		const filter = find(filters, {name: filterName});
+		const selectable = find(filter.selectables, {name: option});
+		selectable.selected = !selectable.selected;
+		this.setState({filters: filters});
+	}
+
+	changeBounds(filterName, min, max) {
+		const filters = cloneDeep(this.state.filters);
+		const filter = find(filters, {name: filterName});
+		filter.min = min;
+		filter.max = max;
+		this.setState({filters: filters});
+	}
+
 	render() {
 		const displayData = this.props.data.filter(element => {
-			return true;
+			return this.state.filters.every(filter => {
+				const matching_filterable = find(element.filterables, { name: filter.name });
+				if (matching_filterable === undefined) {
+					return true;
+				}
+
+				if (filter.type === FILTER_TYPE.SELECTABLE) {
+					const applicable = filter.selectables.filter(selectable => selectable.selected);
+					return applicable.length === 0 || (
+						applicable.map(selectable => selectable.name).some(name =>
+							matching_filterable.value.includes(name)
+						)
+					);
+				} else if (filter.type === FILTER_TYPE.RANGE) {
+					return filter.min <= matching_filterable.value &&
+					       matching_filterable.value <= filter.max;
+				}
+				return true;
+			});
 		}).sort((a, b) => {
 			const fn = obj => obj.name === this.state.sortBy;
 			const x = find(a.sortables, fn).sort;
@@ -64,7 +139,9 @@ class SortFilterPaginate extends Component {
 				<div className='panel panel-default'>
 					<Flex className='panel-body' alignItem='center'>
 						<FilterOptions
-
+							filters={this.state.filters}
+							toggleSelected={this.toggleSelected}
+							changeBounds={this.changeBounds}
 						/>
 						<Flex flex='1 1 auto' />
 						<SortOptions
@@ -104,7 +181,4 @@ SortFilterPaginate.propTypes = {
 
 export default SortFilterPaginate;
 
-export const FILTER_TYPE = {
-	SELECTABLE: 0,
-	RANGE: 1,
-};
+export { FILTER_TYPE };

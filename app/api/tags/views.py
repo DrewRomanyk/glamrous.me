@@ -65,7 +65,7 @@ tag_data = {
         ]
     },
     3: {
-        'id': 0,
+        'id': 3,
         'name': "Gluten-Free",
         'avg_price': 12.99,
         'avg_rating': 5.00,
@@ -84,7 +84,7 @@ tag_data = {
         ]
     },
     4: {
-        'id': 1,
+        'id': 4,
         'brand_id': 1,
         'name': "Canadian",
         'avg_price': 12.99,
@@ -104,7 +104,7 @@ tag_data = {
         ]
     },
     5: {
-        'id': 2,
+        'id': 5,
         'brand_id': 2,
         'name': "Natural",
         'avg_price': 12.99,
@@ -124,7 +124,7 @@ tag_data = {
         ]
     },
     6: {
-        'id': 0,
+        'id': 6,
         'name': "Gluten-Free",
         'avg_price': 12.99,
         'avg_rating': 5.00,
@@ -143,7 +143,7 @@ tag_data = {
         ]
     },
     7: {
-        'id': 1,
+        'id': 7,
         'brand_id': 1,
         'name': "Canadian",
         'avg_price': 12.99,
@@ -163,7 +163,7 @@ tag_data = {
         ]
     },
     8: {
-        'id': 2,
+        'id': 8,
         'brand_id': 2,
         'name': "Natural",
         'avg_price': 12.99,

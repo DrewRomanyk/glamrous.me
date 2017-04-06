@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import FilterBar from '../ui/FilterBar.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
@@ -36,7 +35,6 @@ export default class Tags extends React.Component {
     }
 
     render() {
-		this.state.tags.forEach(item => console.log(item.id, item.name));
         const tagObjs = this.state.tags.map((item, i) => ({
 			filterables: [
 				{	name: 'Brand',
