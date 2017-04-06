@@ -35,3 +35,12 @@ $ rollup -cw
 ```bash
 $ ./start.sh [detach]
 ```
+
+## Testing
+[Travis](https://travis-ci.org/DrewRomanyk/glamrous.me) runs tests automatically, but to run them on your machine:
+ * Ensure no instances of `glamrous-db` are running.
+ * `make Dockerfile.db`
+ * `make Dockerfile.server`
+ * `make start-db`
+ * `make test`
+ * `make reset-config`
