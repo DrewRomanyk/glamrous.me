@@ -5,7 +5,6 @@ api_tags_blueprints = Blueprint(
     'api_tags', __name__
 )
 
-
 @api_tags_blueprints.route('/api/tags')
 def get_brands():
     result = []
