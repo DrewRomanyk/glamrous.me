@@ -6,12 +6,6 @@ from .app import app
 
 class UnitTests(TestCase):
 
-    def setup():
-        db.create_all()
-
-    def teardown():
-        db.drop_all()
-
     def test_model_brand_1(self):
         with app.test_request_context():
             brand = Brand('Pure Anada', 1.01, 4.02, 2,
