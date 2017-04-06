@@ -1,4 +1,3 @@
-import .data_to_database
 from unittest import main, TestCase
 from .models import Brand, Product, Color, Category, SubCategory, ProductCategory
 from .app import db
@@ -6,6 +5,12 @@ from .app import app
 
 
 class UnitTests(TestCase):
+
+    def setup():
+        db.create_all()
+
+    def teardown():
+        db.drop_all()
 
     def test_model_brand_1(self):
         with app.test_request_context():

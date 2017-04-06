@@ -1,11 +1,10 @@
-from app.app import db
-from app.models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag
+from .models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag, db
 from urllib.request import Request, urlopen
 import json
 from pathlib import Path
 import urllib.parse
 
-with open('config.json') as f:
+with open('/config.json') as f:
     bing_api_key = json.load(f)['BING_IMAGE_API_KEY']
 
 """ API JSON """
