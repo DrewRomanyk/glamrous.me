@@ -10,7 +10,21 @@ Melody Park
 
 ---
 
-<!-- toc -->
+### Table of Contents
+1. [Introduction](#introduction)
+    1. [The Problem](#the-problem)
+    2. [Use Cases](#use-cases)
+2. [Design](#design)
+    1. [RESTful API](#restful-api)
+    2. [Models](#models)
+3. [Tools](#tools)
+    1. [Front-End](#front-end)
+    2. [Back-End](#back-end)
+    3. [Embedded-Media-Service](#embedded-media-service)
+4. [Development Process](#development-process)
+    1. [Docker](#docker)
+    2. [Database](#database)
+    3. [Hosting](#hosting)
 
 ---
 
@@ -162,23 +176,9 @@ brand_name: string, name of the brand of the product
 product_name: string, name of the product
 ```
 
-### Tools
+#### Models
 
-#### Front-End
-
-For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
-
-#### Back-End
-
-For the backend and API service, Glamrous is using [Flask](https://www.google.com/url?q=http://flask.pocoo.org/&sa=D&ust=1490321471972000&usg=AFQjCNGUbauaA4holcNJH3ncUaq5dmykQA). Flask is a microframework for Python, which allows us to route and control how our web application functions. Currently the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up to sub-modules that uses the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing service. Currently for the api, it just sends static json, but we plan to use data from our database in further versions. We also plan to use Postgres as our database.
-
-#### Embedded-Media-Service
-
-For embedding media, we used HTML to display our images.
-
-### Models
-
-#### Brand
+##### Brand
 
 Brand is the outermost model of the project structure. A Brand leads you to the
 
@@ -197,7 +197,7 @@ image_url       String          url of the image for the Brand
 products        List            list of all Products in the Brand
 ```
 
-#### Product
+##### Product
 
 Product is the center of the cluster of models, all others are things describing a Product.
 
@@ -220,7 +220,7 @@ colors          List            list of all Colors belonging to this Product
 tags            List            list of all Tags belonging to this Product
 ```
 
-#### Color
+##### Color
 
 The Color model is a collection of all Colors appearing throughout all of the
 Products in the database. Not all Products have a Color and some have more
@@ -235,7 +235,7 @@ hashcode        String          the hash value for the Color
 num_products    Integer         number of products with this Color
 ```
 
-#### Tag
+##### Tag
 
 The Tag model describes attributes of the Product. A Tag is something like
 "Vegan", "Sugar-Free", "Organic". The Tag model has a many-many relationship
@@ -251,7 +251,7 @@ avg_rating      Float           the average rating fro Products with this Tag
 num_products    Integer         number of products with this Tag
 ```
 
-#### Category
+##### Category
 
 The Category Model describes the type of the Product in collaboration with
 the SubCategory Model. A Category is something like "Blush", "Mascara", "Eye Liner".
@@ -268,7 +268,7 @@ avg_rating          Float           the average rating fro Products with this Ca
 num_products        Integer         number of products with this Category
 ```
 
-#### SubCategory
+##### SubCategory
 
 The SubCategory Model describes the type of the Product in collaboration with the Category
 Model. A SubCategory is something like "Pencil", "Cream", "Liquid" that describes
@@ -285,6 +285,20 @@ avg_price           Float           the average price for Products with this Sub
 avg_rating          Float           the average rating for Products with this SubCategory
 num_products        Integer         number of products with this SubCategory
 ```
+
+### Tools
+
+#### Front-End
+
+For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+
+#### Back-End
+
+For the backend and API service, Glamrous is using [Flask](https://www.google.com/url?q=http://flask.pocoo.org/&sa=D&ust=1490321471972000&usg=AFQjCNGUbauaA4holcNJH3ncUaq5dmykQA). Flask is a microframework for Python, which allows us to route and control how our web application functions. Currently the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up to sub-modules that uses the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing service. Currently for the api, it just sends static json, but we plan to use data from our database in further versions. We also plan to use Postgres as our database.
+
+#### Embedded-Media-Service
+
+For embedding media, we used HTML to display our images.
 
 ### Development Process
 
@@ -315,6 +329,14 @@ already installed---in particular, run `rollup -cw` to watch for and rebundle ja
 changes. It may be necessary, depending on machine (we think...?) to run `npm install`
 before launching `./build.sh`; the image is supposed to do that automatically but it just
 doesn't sometimes. We're putting off fixing that for stage two of the project.
+
+### Database
+
+#### Getting Data
+
+In order to populate the database, we first had to create a script that would gather all of the cosmetics information. Once we had this information, we converted their schema into our own schema that would eventually fit into our own design and our database.
+
+#### Importing to Database
 
 ### Hosting
 

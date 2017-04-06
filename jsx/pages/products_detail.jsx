@@ -21,9 +21,9 @@ export default class Products_Details extends React.Component {
     render() {
         const tags = this.state.product.tags.map((item, i) => {
             return (
-                <div key={item.id}>
+                <span key={item.id} className="label label-primary">
                     <a href={"/tags/" + item.id}>{item.name}</a>
-                </div>
+                </span>
             );
         });
         return (
@@ -34,7 +34,7 @@ export default class Products_Details extends React.Component {
                         <h1 className="panel-title">{this.state.product.name}</h1>
                     </div>
                     <div className="panel-body">
-                        <img src={this.state.product.image_url}/>
+                        <img className="img-thumbnail" src={this.state.product.image_url}/>
                         <h5>Price: </h5>
                         <p>{this.state.product.price}</p>
                         <h5>Rating: </h5>
@@ -42,7 +42,9 @@ export default class Products_Details extends React.Component {
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>
-                        {tags}
+                        <div className="thumbnail horizontal-container">
+                            {tags}
+                        </div>
                     </div>
                 </div>
             </div>

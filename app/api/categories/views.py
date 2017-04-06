@@ -15,7 +15,59 @@ category_data = {
             {
                 'id': 0,
                 'name': 'Pure Anada'
-            }
+            },
+            {
+                'id': 1,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 2,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 3,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 4,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 5,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 6,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 7,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 8,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 9,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 10,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 11,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 12,
+                'name': 'Pure Anada'
+            },
+            {
+                'id': 13,
+                'name': 'Pure Anada'
+            },
         ],
         'products': [
             {

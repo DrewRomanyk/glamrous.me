@@ -33,7 +33,7 @@ const Routed = () => (
 		<Switch>
 			<Route exact path='/' render={() => wrap('Home', <Home />)} />
 			{route('/about',          'About',      About)}
-			{route('/report1',        'Report #1',  Report)}
+			{route('/report',         'Report',     Report)}
 			{route('/brands',         'Brands',     Brands)}
 			{route('/brands/:id',     'Brands',     Brands_Detail,      true)}
 			{route('/products',       'Products',   Products)}
