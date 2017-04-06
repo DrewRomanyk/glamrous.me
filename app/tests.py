@@ -1,3 +1,4 @@
+import ../data_to_database
 from unittest import main, TestCase
 from models import Brand, Product, Color, Category, SubCategory, ProductCategory
 from .app import db
@@ -187,5 +188,4 @@ class UnitTests(TestCase):
 
 if __name__ == "__main__":
     with app.test_request_context():
-
         main()
