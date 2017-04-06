@@ -8,6 +8,7 @@ categories.json
 products.json
 tags.json
 .pylintrc
+.coverage
 
 # IDE files
 .idea

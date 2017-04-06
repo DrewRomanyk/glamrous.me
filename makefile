@@ -70,8 +70,8 @@ test:
 	make tests.tmp
 
 tests.tmp: clean .pylintrc
-	-$(PYLINT) app/tests.py
-	$(COVERAGE) run    --branch app/tests.py >  tests.tmp 2>&1
+	-$(PYLINT) run_tests.py
+	$(COVERAGE) run    --branch run_tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
 	cat tests.tmp
 

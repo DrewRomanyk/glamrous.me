@@ -1,5 +1,5 @@
 # pylint: disable=missing-docstring
-from .app import db
+from app import db
 
 
 class Brand(db.Model):
