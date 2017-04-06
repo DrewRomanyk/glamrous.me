@@ -29,6 +29,7 @@ before_install:
 script:
   - make Dockerfile.db
   - make Dockerfile.server
+  - make start-db
   - make test
 
 after_success:

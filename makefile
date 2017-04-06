@@ -52,9 +52,16 @@ Dockerfile.server:
 	cd dockerfile && sudo docker build -t glamrous-server -f Dockerfile.server .
 
 start-db:
-	./postgres.sh detach
+	sudo docker run -d \
+	--name glamrous-postgres \
+	-p 5433:5432 \
+	glamrous-db
+	cp config.json config.json.bak
+	cp config.json.test config.json
+	DB_IP=sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"
+	sed -ie "s/IPADDRESS/${DB_IP}/g" config.json
 
-test: start-db
+test:
 	sudo docker run \
 	-v $(ROOT_DIR):/usr/web -t \
 	-w /usr/web \
@@ -72,3 +79,6 @@ tests.tmp: clean .pylintrc
 clean:
 	rm -f tests.tmp
 	rm -f .pylintrc
+
+reset-config:
+	cp config.json.bak config.json
