@@ -74,7 +74,7 @@ def get_product(id):
                 'hashcode': color.hashcode
             })
 
-            result['tags'] = []
+        result['tags'] = []
         for tag in product.tags:
             result['tags'].append({
                 'id': tag.id,
