@@ -22,7 +22,8 @@ def get_brands():
         tag_dict = dict()
         categories_dict = dict()
         for product in brand.products:
-            prod_cat_query = ProductCategory.query.filter_by(product_id=product.id).all()
+            prod_cat_query = ProductCategory.query.filter_by(
+                product_id=product.id).all()
             for prodcat in prod_cat_query:
                 cats = Category.query.filter_by(id=prodcat.category_id).all()
                 for cat in cats:
@@ -41,6 +42,7 @@ def get_brands():
             brand_json['categories'].append(categories_dict[categories_key])
         result.append(brand_json)
     return jsonify(result)
+
 
 @api_brands_blueprints.route('/api/brands/<id>')
 def get_brand(id):

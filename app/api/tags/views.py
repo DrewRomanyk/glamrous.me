@@ -33,7 +33,6 @@ def get_tags():
     return jsonify(result)
 
 
-
 @api_tags_blueprints.route('/api/tags/<id>')
 def get_tag(id):
     result = {}

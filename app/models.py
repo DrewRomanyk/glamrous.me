@@ -8,7 +8,6 @@
 from app import db
 
 
-
 class Brand(db.Model):
     """
     Brand is the outermost model of the project structure. A Brand leads you to the

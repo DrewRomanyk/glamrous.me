@@ -16,7 +16,8 @@ test_data = {
 def get_tests():
     # Run tests.py here
     with open("unit-test.cache", "w") as stream:
-        testResult = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite())
+        testResult = unittest.TextTestRunner(
+            stream=stream, verbosity=2).run(suite())
     with open("unit-test.cache") as stream:
         test_data['result'] = stream.read()
     return jsonify(test_data)

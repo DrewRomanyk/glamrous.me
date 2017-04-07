@@ -37,10 +37,12 @@ def get_category(id):
         tag_dict = dict()
         brand_dict = dict()
         sub_cat_dict = dict()
-        product_cats = ProductCategory.query.filter_by(category_id=category.id).all()
+        product_cats = ProductCategory.query.filter_by(
+            category_id=category.id).all()
         for product_cat in product_cats:
             # Handle the product
-            product = Product.query.filter_by(id=product_cat.product_id).first()
+            product = Product.query.filter_by(
+                id=product_cat.product_id).first()
             product_json = dict()
             product_json['id'] = product.id
             product_json['name'] = product.name
@@ -57,7 +59,8 @@ def get_category(id):
                 }
             # Handle the sub_categories
             if product_cat.sub_category_id is not None:
-                sub_category = SubCategory.query.filter_by(id=product_cat.sub_category_id).first()
+                sub_category = SubCategory.query.filter_by(
+                    id=product_cat.sub_category_id).first()
                 sub_cat_json = {
                     'id': sub_category.id,
                     'name': sub_category.name
@@ -73,4 +76,3 @@ def get_category(id):
     except AttributeError:
         print("Error with Category ID: " + id)
     return jsonify(result)
-

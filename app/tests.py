@@ -17,6 +17,7 @@ from .models import Brand, Category, SubCategory, Product, Color, Tag
 
 
 class UnitTests(unittest.TestCase):
+
     def test_model_brand_1(self):
         with app.test_request_context():
             brand = Brand('Pure Anada', 1.01, 4.02, 2,
@@ -52,7 +53,6 @@ class UnitTests(unittest.TestCase):
             db.session.delete(brand)
             db.session.commit()
 
-
     def test_model_product_brand_1(self):
         with app.test_request_context():
             brand = Brand('Pure hatred', 1.01, 4.02, 2,
@@ -65,7 +65,8 @@ class UnitTests(unittest.TestCase):
             db.session.add(product)
             db.session.commit()
 
-            self.assertEqual(db.session.query(Brand).filter_by(name='Pure hatred').join(Product).count(), 1)
+            self.assertEqual(db.session.query(Brand).filter_by(
+                name='Pure hatred').join(Product).count(), 1)
 
             db.session.delete(product)
             db.session.delete(brand)
@@ -81,7 +82,7 @@ class UnitTests(unittest.TestCase):
             db.session.add(brand)
             db.session.add(product)
             db.session.commit()
-            
+
             self.assertEqual(db.session.query(Brand).join(Product).filter_by(
                 name='Makeup').first().name, 'Pure hatred')
 
@@ -100,7 +101,6 @@ class UnitTests(unittest.TestCase):
 
             db.session.delete(category)
             db.session.commit()
-
 
     def test_model_category_3(self):
         with app.test_request_context():
@@ -199,6 +199,7 @@ class UnitTests(unittest.TestCase):
             res = get_categories()
             categories = json.loads(res.data.decode())
             self.assertEqual(len(categories), 10)
+
 
 def suite():
     suite = unittest.TestSuite()

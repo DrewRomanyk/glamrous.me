@@ -33,7 +33,8 @@ def get_products():
                 'hashcode': color.hashcode
             })
         product_json['category'] = {}
-        prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+        prodcat = ProductCategory.query.filter_by(
+            product_id=product.id).first()
         cats = Category.query.filter_by(id=prodcat.category_id).first()
         product_json['category'] = {
             'id': cats.id,
@@ -81,7 +82,8 @@ def get_product(id):
                 'name': tag.name
             })
         result['category'] = {}
-        prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+        prodcat = ProductCategory.query.filter_by(
+            product_id=product.id).first()
         cats = Category.query.filter_by(id=prodcat.category_id).first()
         result['category'] = {
             'id': cats.id,
