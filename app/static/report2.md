@@ -89,7 +89,7 @@ colors: List of mini-color objects each containing:
 tags: list of tags associated with product
     id: integer, primary key of tag
     name: string, name of tag
-categories: list of categories associated with product
+category: category associated with product
     id: integer, primary key of category
     name: string, name of category
 ```
@@ -118,7 +118,7 @@ colors: List of mini-color objects each containing:
 tags: list of tags associated with product
     id: integer, primary key of tag
     name: string, name of tag
-categories: list of categories associated with product
+category: category associated with product
     id: integer, primary key of category
     name: string, name of category
 ```

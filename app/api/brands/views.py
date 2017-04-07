@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Brand
+from app.models import Brand, ProductCategory, Category
 
 api_brands_blueprints = Blueprint(
     'api_brands', __name__
@@ -17,6 +17,28 @@ def get_brands():
         brand_json['avg_rating'] = brand.avg_rating
         brand_json['image_url'] = brand.image_url
         brand_json['num_products'] = brand.num_products
+        brand_json['tags'] = []
+        brand_json['categories'] = []
+        tag_dict = dict()
+        categories_dict = dict()
+        for product in brand.products:
+            prod_cat_query = ProductCategory.query.filter_by(product_id=product.id).all()
+            for prodcat in prod_cat_query:
+                cats = Category.query.filter_by(id=prodcat.category_id).all()
+                for cat in cats:
+                    categories_dict[cat.id] = {
+                        'id': cat.id,
+                        'name': cat.name
+                    }
+            for tag in product.tags:
+                tag_dict[tag.id] = {
+                    'id': tag.id,
+                    'name': tag.name
+                }
+        for tag_key in tag_dict:
+            brand_json['tags'].append(tag_dict[tag_key])
+        for categories_key in categories_dict:
+            brand_json['categories'].append(categories_dict[categories_key])
         result.append(brand_json)
     return jsonify(result)
 
