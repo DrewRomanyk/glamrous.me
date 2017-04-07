@@ -96,16 +96,22 @@ def get_tag(data):
 
         # Get class from id sets
         model_class = Brand
+        url_class = '/brands/'
         if class_name == 'Brand':
             model_class = Brand
+            url_class = '/brands/'
         elif class_name == 'Product':
             model_class = Product
+            url_class = '/products/'
         elif class_name == 'Category':
             model_class = Category
+            url_class = '/categories/'
         elif class_name == 'Sub Category':
             model_class = SubCategory
+            url_class = '/subcategories/'
         elif class_name == 'Tag':
             model_class = Tag
+            url_class = '/tags/'
         else:
             print("Model Class not found: " + class_name)
 
@@ -116,6 +122,7 @@ def get_tag(data):
                 search_results['and_results'].append({
                     'id': obj.id,
                     'type': class_name,
+                    'url_type': url_class,
                     'name': obj.name
                 })
 
@@ -126,6 +133,7 @@ def get_tag(data):
                 search_results['or_results'].append({
                     'id': obj.id,
                     'type': class_name,
+                    'url_type': url_class,
                     'name': obj.name
                 })
 
