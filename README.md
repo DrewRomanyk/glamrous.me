@@ -29,7 +29,7 @@ $ rollup -cw
 
 #### Configuration
  * Copy `config.json.template` to `config.json` and fill out.
- * To get DB URI, use `docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"`
+ * DB URI should be `postgresql://glamrous@postgres/glamrous`
 
 #### Start Server
 ```bash
