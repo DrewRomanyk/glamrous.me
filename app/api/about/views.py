@@ -29,7 +29,7 @@ def get_contributions():
         commits = contrib['total']
         commitCounts[author] = commits
 
-    issues_request = url + 'search/issues?q=repo:drewromanyk/glamrous.me+is:issue+is:closed'
+    issues_request = url + 'search/issues?q=repo:drewromanyk/glamrous.me+is:issue+is:closed&per_page=100'
     total_issue_count = 0
     issueCounts = {}
     r = requests.get(issues_request, headers=headers)
@@ -37,11 +37,12 @@ def get_contributions():
     for issue in json_data['items']:
         total_issue_count += 1
         if issue['state'] == 'closed':
-            if issue['assignee']:
-                assignee = issue['assignee']['login']
-                if assignee not in issueCounts:
-                    issueCounts[assignee] = 0
-                issueCounts[assignee] += 1
+            if issue['assignees']:
+                for issue_assignee in issue['assignees']:
+                    assignee = issue_assignee['login']
+                    if assignee not in issueCounts:
+                        issueCounts[assignee] = 0
+                    issueCounts[assignee] += 1
             else:
                 print('WARNING: Issue #' + str(issue['number']) + ' has no assignee')
 
