@@ -1,6 +1,6 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
-import {Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
+import {Badge, Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
 import find from 'lodash/find';
 
 const TeamMember = (props) => (
@@ -122,10 +122,10 @@ export default class About extends React.Component {
                         <PageHeader>Stats</PageHeader>
                         <ul>
                             <li>
-                                <span className="badge">{totalStats.commits}</span> commits (excluding merge commits)
+								<Badge>{totalStats.commits}</Badge> commits (excluding merge commits)
                             </li>
-                            <li><span className="badge">{totalStats.issues}</span> issues</li>
-                            <li><span className="badge">15</span> unit tests</li>
+                            <li><Badge>{totalStats.issues}</Badge> issues</li>
+                            <li><Badge>15</Badge> unit tests</li>
                             <li><a href="http://docs.glamrousme.apiary.io/#">Apiary API</a></li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me/issues">Github Issue Tracker</a>
                             </li>

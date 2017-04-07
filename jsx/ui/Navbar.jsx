@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavItem } from '../ui/Bootstrap.jsx';
 
 const Navbar = () => {
     return (
@@ -20,21 +21,11 @@ const Navbar = () => {
                 </div>
                 <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                     <ul className='nav navbar-nav navbar-right'>
-                        <li className='nav-item'>
-                            <a className='nav-link' href='/brands'>BRANDS</a>
-                        </li>
-                        <li className='nav-item'>
-                            <a className='nav-link' href='/products'>PRODUCTS</a>
-                        </li>
-                        <li className='nav-item'>
-                            <a className='nav-link' href='/categories'>CATEGORIES</a>
-                        </li>
-                        <li className='nav-item'>
-                            <a className='nav-link' href='/tags'>TAGS</a>
-                        </li>
-                        <li className='nav-item'>
-                            <a className='nav-link' href='/about'>ABOUT</a>
-                        </li>
+						<NavItem href='/brands'>BRANDS</NavItem>
+						<NavItem href='/products'>PRODUCTS</NavItem>
+						<NavItem href='/categories'>CATEGORIES</NavItem>
+						<NavItem href='/tags'>TAGS</NavItem>
+						<NavItem href='/about'>ABOUT</NavItem>
                     </ul>
                 </div>
             </div>

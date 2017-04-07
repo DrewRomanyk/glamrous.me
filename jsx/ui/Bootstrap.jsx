@@ -19,7 +19,23 @@ const bootstrap = (name, attributes = [], element = 'div') => (
 	}
 );
 
+export const Badge = bootstrap('badge');
+export const Caption = bootstrap('caption');
 export const Container  = bootstrap('container', ['center']);
+
+export const GridCell = (props) => {
+	let classes = [];
+	const sizes = ['xs', 'sm', 'md', 'lg'];
+	sizes.forEach(size => {
+		if (props[size]) {
+			classes.push(['col', size, props[size]].join('-'));
+		}
+	});
+	const pass = omit(props, sizes);
+	const className = classes.join(' ');
+	return bootstrap(className, ['text-center'])(pass);
+};
+
 
 export const Modal = {
 	Header:     bootstrap('modal-header'),
@@ -48,20 +64,18 @@ export const Modal = {
 		</div>
 	),
 };
+export const NavItem = (props) => (
+	<li className='nav-item'>
+		<a className='nav-link' href={props.href}>{props.children}</a>
+	</li>
+);
+export const Panel = {
+	Panel: bootstrap('panel panel-default'),
+	Heading: bootstrap('panel-heading'),
+	Body: bootstrap('panel-body'),
+};
 
 export const PageHeader = bootstrap('page-header', [], 'h2');
 export const Row        = bootstrap('row');
 
-
-export const GridCell = (props) => {
-	let classes = [];
-	const sizes = ['xs', 'sm', 'md', 'lg'];
-	sizes.forEach(size => {
-		if (props[size]) {
-			classes.push(['col', size, props[size]].join('-'));
-		}
-	});
-	const pass = omit(props, sizes);
-	const className = classes.join(' ');
-	return bootstrap(className, ['text-center'])(pass);
-};
+export const Thumbnail = bootstrap('thumbnail');

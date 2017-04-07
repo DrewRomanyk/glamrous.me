@@ -1,5 +1,6 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
+import { Container, Panel } from '../ui/Bootstrap.jsx';
 
 export default class Products_Details extends React.Component {
     constructor(props) {
@@ -28,13 +29,12 @@ export default class Products_Details extends React.Component {
             );
         });
         return (
-            <div className="container">
-
-                <div className="panel panel-default">
-                    <div className="panel-heading">
+			<Container>
+				<Panel.Panel>
+					<Panel.Heading>
                         <h1 className="panel-title">{this.state.product.name}</h1>
-                    </div>
-                    <div className="panel-body">
+					</Panel.Heading>
+					<Panel.Body>
                         <img className="img-thumbnail" src={this.state.product.image_url}/>
                         <h5>Price: </h5>
                         <p>{Number(this.state.product.price).toFixed(2)}</p>
@@ -46,9 +46,9 @@ export default class Products_Details extends React.Component {
                         <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
-                    </div>
-                </div>
-            </div>
+					</Panel.Body>
+				</Panel.Panel>
+			</Container>
         );
     }
 }

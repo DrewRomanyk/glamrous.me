@@ -1,5 +1,6 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
+import { Caption, GridCell, Row, Thumbnail } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
 export default class Products extends React.Component {
@@ -52,22 +53,22 @@ export default class Products extends React.Component {
 			],
 			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
-                    <div className="thumbnail">
+					<Thumbnail>
                         <div className="card-img center-cropped"
                              style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
-                        <div className="caption">
+						 <Caption>
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
                             <p className="group inner list-group-item-text max-lines card-detail">{item.description}</p>
-                            <div className="row">
-                                <div className="col-xs-12 col-md-12">
+							<Row>
+								<GridCell xs={12} md={12}>
                                     <p className="card-detail">Brand: {item.brand.name}</p>
                                     <p className="card-detail">Price: {Number(item.price).toFixed(2)}</p>
                                     <p className="card-detail">Rating: {Number(item.rating).toFixed(2)}</p>
                                     <a className="card-btn btn" href={'/products/' + item.id}>View</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+								</GridCell>
+							</Row>
+						</Caption>
+					</Thumbnail>
                 </div>
             ),
         }));
