@@ -57,8 +57,6 @@ start-db:
 	-p 5433:5432 \
 	glamrous-db
 	./scripts/swap-test-config.sh
-	DB_IP=sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"
-	sed -ie "s/IPADDRESS/${DB_IP}/g" config.json
 
 test:
 	sudo docker run \
