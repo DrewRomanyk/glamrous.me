@@ -12,54 +12,83 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 + Response 200 (application/json)
 
         [
-            {
-                "product_id": 1,
-                "brand_name": "Pure Anada", 
-                "name": "Pure Anada Natural Mascara",
-                "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-                "price": "14.0",
-                "rating": 4.6,
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-                "product_colors": [
-                  {
-                    "hex_color": "#3E2829",
-                    "color_name": "Brown "
-                  },
-                  {
-                    "hex_color": "#000000",
-                    "color_name": "Black "
-                  }
-                ],
-                "tag_list": [
-                  "Canadian",
-                  "Gluten Free",
-                  "Natural"
-                ]
+          {
+            "brand": {
+              "id": 1, 
+              "name": "pure anada"
             }, 
-            {
-                "product_id": 2,
-                "brand_name": "Pure Anada", 
-                "name": "Pure Anada Natural Mascara 2",
-                "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-                "price": "14.0",
-                "rating": 4.6,
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-                "product_colors": [
-                  {
-                    "hex_color": "#3E2829",
-                    "color_name": "Brown "
-                  },
-                  {
-                    "hex_color": "#000000",
-                    "color_name": "Black "
-                  }
-                ],
-                "tag_list": [
-                  "Canadian",
-                  "Gluten Free",
-                  "Natural"
-                ]
-            }
+            "brand_id": 1, 
+            "category": {
+              "id": 1, 
+              "name": "mascara"
+            }, 
+            "colors": [
+              {
+                "hashcode": "#3E2829", 
+                "id": 1, 
+                "name": "Brown "
+              }, 
+              {
+                "hashcode": "#000000", 
+                "id": 2, 
+                "name": "Black "
+              }
+            ], 
+            "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you\u2019", 
+            "id": 1, 
+            "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg", 
+            "name": "Pure Anada Natural Mascara", 
+            "price": 14.0, 
+            "rating": 4.6, 
+            "tags": [
+              {
+                "id": 1, 
+                "name": "Canadian"
+              }, 
+              {
+                "id": 2, 
+                "name": "Gluten Free"
+              }, 
+              {
+                "id": 3, 
+                "name": "Natural"
+              }
+            ]
+          }, 
+          {
+            "brand": {
+              "id": 1, 
+              "name": "pure anada"
+            }, 
+            "brand_id": 1, 
+            "category": {
+              "id": 7, 
+              "name": "bronzer"
+            }, 
+            "colors": [
+              {
+                "hashcode": "#FFFFFF", 
+                "id": 1726, 
+                "name": "Earth "
+              }
+            ], 
+            "description": "Impart a healthy glow, with a Pure Anada luminous mineral bronzer!Shade Range:Ingredients: Mica,\u00a0 Iron Oxides, Ultramarines, May contain: Titanium Dioxide", 
+            "id": 2, 
+            "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/01195de6de1092125f703c5662d99af9_ra,w158,h184_pa,w158,h184.jpeg", 
+            "name": "Pure Anada Loose Mineral Luminous Bronzer", 
+            "price": 12.0, 
+            "rating": 5.0, 
+            "tags": [
+              {
+                "id": 1, 
+                "name": "Canadian"
+              }, 
+              {
+                "id": 3, 
+                "name": "Natural"
+              }
+            ]
+          }
         ]
 
 ## Product Collection [/product/{product_id}]
@@ -72,28 +101,47 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 + Response 200 (application/json)
 
         {
-            "product_id": 1,
-            "brand_name": "Pure Anada", 
-            "name": "Pure Anada Natural Mascara",
-            "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you’ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),  \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).",
-            "price": "14.0",
-            "rating": 4.6,move
-            "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-            "product_colors": [
-              {
-                "hex_color": "#3E2829",
-                "color_name": "Brown "
-              },
-              {
-                "hex_color": "#000000",
-                "color_name": "Black "
-              }
-            ],
-            "tag_list": [
-              "Canadian",
-              "Gluten Free",
-              "Natural"
-            ]
+          "brand": {
+            "id": 1, 
+            "name": "pure anada"
+          }, 
+          "brand_id": 1, 
+          "category": {
+            "id": 1, 
+            "name": "mascara"
+          }, 
+          "colors": [
+            {
+              "hashcode": "#3E2829", 
+              "id": 1, 
+              "name": "Brown "
+            }, 
+            {
+              "hashcode": "#000000", 
+              "id": 2, 
+              "name": "Black "
+            }
+          ], 
+          "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you\u2019ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),\u00a0 \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).", 
+          "id": 1, 
+          "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg", 
+          "name": "Pure Anada Natural Mascara", 
+          "price": 14.0, 
+          "rating": 4.6, 
+          "tags": [
+            {
+              "id": 1, 
+              "name": "Canadian"
+            }, 
+            {
+              "id": 2, 
+              "name": "Gluten Free"
+            }, 
+            {
+              "id": 3, 
+              "name": "Natural"
+            }
+          ]
         }
             
 ## Brands Collection [/brand]
@@ -104,39 +152,73 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 
         [
             {
-                "brand_id": 1,
-                "brand_name": "Pure Anada", 
-                "avg_price": 4.20,
-                "avg_rating": 4.2,
-                "num_products": 2,
-                "image_link": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg",
-                "products": [
+                "avg_price": 14.27, 
+                "avg_rating": 4.15, 
+                "categories": [
                   {
-                    "product_id": 1,
-                    "product_name": "Pure Anada Natural Mascara"
-                  },
+                    "id": 1, 
+                    "name": "mascara"
+                  }, 
                   {
-                    "product_id": 2,
-                    "product_name": "Pure Anada Natural Bronzer "
+                    "id": 7, 
+                    "name": "bronzer"
+                  }, 
+                  {
+                    "id": 2, 
+                    "name": "nail_polish"
+                  }, 
+                  {
+                    "id": 4, 
+                    "name": "eyeliner"
+                  }, 
+                  {
+                    "id": 8, 
+                    "name": "blush"
+                  }, 
+                  {
+                    "id": 6, 
+                    "name": "foundation"
+                  }, 
+                  {
+                    "id": 9, 
+                    "name": "eyeshadow"
+                  }, 
+                  {
+                    "id": 3, 
+                    "name": "lipstick"
+                  }
+                ], 
+                "id": 1, 
+                "image_url": "http://www.bing.com/cr?IG=9E6042FAB29E48619367089D0427BD32&CID=28BE60F4916B6E4A0A7A6AA890FB6F86&rd=1&h=a8eL8rF95Twk30Yzc1lFgq1VF1iquIdc0O42B7TPsTk&v=1&r=http%3a%2f%2fgenerationgreenwpg.com%2fwp-content%2fuploads%2f2016%2f02%2fPure-Anada-logo-300x149.jpg&p=DevEx,5008.1", 
+                "name": "pure anada", 
+                "num_products": 16, 
+                "tags": [
+                  {
+                    "id": 1, 
+                    "name": "Canadian"
+                  }, 
+                  {
+                    "id": 2, 
+                    "name": "Gluten Free"
+                  }, 
+                  {
+                    "id": 3, 
+                    "name": "Natural"
+                  }, 
+                  {
+                    "id": 4, 
+                    "name": "Vegan"
+                  }, 
+                  {
+                    "id": 7, 
+                    "name": "Non-GMO"
+                  }, 
+                  {
+                    "id": 6, 
+                    "name": "Peanut Free Product"
                   }
                 ]
-            }
-        ]
-        
-
-## Colors Collection [/color]
-
-### List All Colors [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "color_id": 420,
-                "color_name": "seaWeed Green", 
-                "color_hashcode": "#536633",
-                "num_products": 420 
-            }
+              }
         ]
 
 
@@ -148,52 +230,12 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 
         [
             {
-                "category_id": 1,
-                "category_name": "Generic Name", 
-                "avg_price": 14.0,
-                "avg_rating": 4.6,
-                "num_products": 2,
-                "products": [
-                    {
-                        "product_id": 1,
-                        "brand_name": "Pure Anada",
-                        "product_name": "Pure Anada Natural Mascara"
-                    }, {
-                        "product_id": 4,
-                        "brand_name": "Generic Company",
-                        "product_name": "Generic Mascara"
-                    }
-                    
-                ]
-            }
-        ]
-        
-## Sub-Category Collection [/sub_category]
-
-### List All Sub-Categories [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "sub_category_id": 1,
-                "sub_category_name": "Generic Name", 
-                "avg_price": 14.0,
-                "avg_rating": 4.6,
-                "num_products": 2,
-                "products": [
-                    {
-                        "product_id": 1,
-                        "brand_name": "Pure Anada",
-                        "product_name": "Pure Anada Natural Mascara"
-                    }, {
-                        "product_id": 4,
-                        "brand_name": "Generic Company",
-                        "product_name": "Generic Mascara"
-                    }
-                    
-                ]
-            }
+                "avg_price": 14.03, 
+                "avg_rating": 3.02, 
+                "id": 1, 
+                "name": "mascara", 
+                "num_products": 69
+              }
         ]
             
 ## Tags Collection [/tag]
@@ -204,22 +246,48 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 
         [
             {
-                "tag_id": 1,
-                "tag_name": "Generic Tag", 
-                "avg_price": 12.0,
-                "avg_rating": 4.0,
-                "num_products": 2,
-                "products": [
-                    {
-                        "product_id": 1,
-                        "brand_name": "Pure Anada",
-                        "product_name": "Pure Anada Natural Mascara"
-                    }, {
-                        "product_id": 4,
-                        "brand_name": "Generic Company",
-                        "product_name": "Generic Mascara"
-                    }
-                    
-                ]
-            }
+                "avg_price": 17.77, 
+                "avg_rating": 2.97, 
+                "brands": [
+                  {
+                    "id": 1, 
+                    "name": "pure anada"
+                  }, 
+                  {
+                    "id": 8, 
+                    "name": "earth lab"
+                  }, 
+                  {
+                    "id": 9, 
+                    "name": "suncoat"
+                  }, 
+                  {
+                    "id": 16, 
+                    "name": "marcelle"
+                  }, 
+                  {
+                    "id": 17, 
+                    "name": "zorah"
+                  }, 
+                  {
+                    "id": 21, 
+                    "name": "dalish"
+                  }, 
+                  {
+                    "id": 32, 
+                    "name": "moov"
+                  }, 
+                  {
+                    "id": 38, 
+                    "name": "mistura"
+                  }, 
+                  {
+                    "id": 40, 
+                    "name": "saint cosmetics"
+                  }
+                ], 
+                "id": 1, 
+                "name": "Canadian", 
+                "num_products": 51
+              }
         ]
