@@ -65,7 +65,7 @@ cosmetics. The following is a list of use cases for Glamrous.me:
 
 Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON object modeled after it’s backend model except for internal mapping tables.
 
-##### glamrous.me/product [GET]
+##### glamrous.me/products [GET]
 
 This API call will return a JSON object containing all the products held. The HTTP
 response for a successful call will be 200 and will contain a JSON object. The format of
@@ -73,20 +73,57 @@ the JSON object is a list of product JSON Objects. The product object matches th
 model closely. It has the following fields :
 
 ```
-product_id: integer, unique value that identifies the product in the backend
-brand_name: string, brand name of the product
+id: integer, unique value that identifies the product in the backend
+brand: object, brand of the product
+    name: string, name of brand
+    id: integer, primary key of brand
 name: string, name of the product 
 description: string, description of the product
 price: decimal, price of the product
 rating: decimal, rating of the product
-image_link: string, link to the image of the product
-product_colors: List of mini-color objects each containing:
-hex_color: string, hex value of the color
-color_name: string, name of color
-tag_list: list of strings, tags associated with product
+image_url: string, link to the image of the product
+colors: List of mini-color objects each containing:
+    hashcode: string, hex value of the color
+    name: string, name of color
+    id: integer, primary key of color
+tags: list of tags associated with product
+    id: integer, primary key of tag
+    name: string, name of tag
+category: category associated with product
+    id: integer, primary key of category
+    name: string, name of category
 ```
 
-##### glamrous.me/brand [GET]
+##### glamrous.me/products/:id [GET]
+
+This API call will return a JSON object containing the product with the id. The HTTP
+response for a successful call will be 200 and will contain a JSON object. The format of
+the JSON object is a product JSON Object. The product object matches the product
+model closely. It has the following fields :
+
+```
+id: integer, unique value that identifies the product in the backend
+brand: object, brand of the product
+    name: string, name of brand
+    id: integer, primary key of brand
+name: string, name of the product
+description: string, description of the product
+price: decimal, price of the product
+rating: decimal, rating of the product
+image_url: string, link to the image of the product
+colors: List of mini-color objects each containing:
+    hashcode: string, hex value of the color
+    name: string, name of color
+    id: integer, primary key of color
+tags: list of tags associated with product
+    id: integer, primary key of tag
+    name: string, name of tag
+category: category associated with product
+    id: integer, primary key of category
+    name: string, name of category
+```
+
+##### glamrous.me/brands [GET]
 
 This API call will return a JSON object containing all the brands held. The HTTP response
 for a successful call will be 200 and will contain a JSON object. The format of the JSON
@@ -94,32 +131,37 @@ object is a list of brand JSON Objects. The brand object matches the brand model
 It has the following fields :
 
 ```
-brand_id: integer, unique brand id given by the backend server
-brand_name: string, name of the brand
+id: integer, unique brand id given by the backend server
+name: string, name of the brand
 avg_price: decimal, average price of all the products under the brand
 avg_rating: decimal, average rating of all the products under the brand
 num_products: integer, number of products under the brand
-image_link: string, link to the brand image
-products: list of product data each containing:
-product_id: integer, unique id of the product
-product_name: string, name of the product
+image_url: string, link to the brand image
 ```
 
-##### glamrous.me/color [GET]
+##### glamrous.me/brands/:id [GET]
 
-This API call will return a JSON object containing all the colors held. The HTTP response
+This API call will return a JSON object containing the brand with the id. The HTTP response
 for a successful call will be 200 and will contain a JSON object. The format of the JSON
-object is a list of color JSON Objects. The color object matches the color model closely.
+object is a brand JSON Object. The brand object matches the brand model closely.
 It has the following fields :
 
 ```
-color_id: integer, unique color id given by the backend server
-color_name: string, name of the color
-color_hashcode: string, hex code of the color
-num_products: integer, number of products that sell in this color
+id: integer, unique brand id given by the backend server
+name: string, name of the brand
+avg_price: decimal, average price of all the products under the brand
+avg_rating: decimal, average rating of all the products under the brand
+num_products: integer, number of products under the brand
+image_url: string, link to the brand image
+products: list of product objects
+    id: integer, primary key for product
+    name: string, name of product
+tags: list of tags associated with the brand
+    id: integer, primary key of tag
+    name: string, name of tag
 ```
 
-##### glamrous.me/category [GET]
+##### glamrous.me/categories [GET]
 
 This API call will return a JSON object containing all the categories held. The HTTP
 response for a successful call will be 200 and will contain a JSON object. The format of
@@ -127,34 +169,38 @@ the JSON object is a list of category JSON Objects. The category object matches 
 category model closely. It has the following fields :
 
 ```
-category_id: integer, unique category id given by the backend server
-category_name: string, name of the category
+id: integer, unique category id given by the backend server
+name: string, name of the category
 avg_price: decimal, average price of all products within this category
 avg_rating: decimal, average rating of all products within this category
 num_products: integer, number of products within this category
-products: list of product objects each containing:
-product_id: integer, unique id of the product
-brand_name: string, name of the brand of the product 
-product_name: string, name of the product
 ```
 
-##### glamrous.me/sub_category [GET]
+##### glamrous.me/categories/:id [GET]
 
-This API call will return a JSON object containing all the subcategories held. The HTTP
+This API call will return a JSON object containing category of the id. The HTTP
 response for a successful call will be 200 and will contain a JSON object. The format of
-the JSON object is a list of subcategories JSON Objects. The subcategories object matches
-the subcategory model closely. It has the following fields:
+the JSON object is a category JSON Object. The category object matches the
+category model closely. It has the following fields :
 
 ```
-sub_category_id: integer, unique category id given by the backend server
-sub_category_name: string, name of the subcategory
-avg_price: decimal, average price of all products within this subcategory
-avg_rating: decimal, average rating of all products within this subcategory
-num_products: integer, number of products within this subcategory
-products: list of product objects each containing:
-product_id: integer, unique id of the product
-brand_name: string, name of the brand of the product 
-product_name: string, name of the product
+id: integer, unique category id given by the backend server
+name: string, name of the category
+avg_price: decimal, average price of all products within this category
+avg_rating: decimal, average rating of all products within this category
+num_products: integer, number of products within this category
+brands: list of brands
+    id: integer, primary key of brand
+    name: string, name of brand
+products: list of products
+    id: integer, primary key of product
+    name: string, name of product
+sub_categories: list of sub_categories
+    id: integer, primary key of sub_category
+    name: string, name of sub_category
+tags: list of tags
+    id: integer, primary key of tag
+    name: string, name of tag
 ```
 
 ##### glamrous.me/tags [GET]
@@ -165,15 +211,35 @@ object is a list of tags JSON Objects. The tags object matches the tags model cl
 has the following fields:
 
 ```
-tag_id: integer, unique tag id given by the backend server
-tag_name: string, name of the tag
+id: integer, unique tag id given by the backend server
+name: string, name of the tag
 avg_price: decimal, average price of all products associate with this tag
 avg_rating: decimal, average rating of all products associate with this tag
 num_products: integer, number of products associate with this tag
-products: list of product objects each containing:
-product_id: integer, unique id of the product
-brand_name: string, name of the brand of the product 
-product_name: string, name of the product
+brands: list of brands
+    id: integer, primary key of brand
+    name: string, name of brand
+```
+
+##### glamrous.me/tags/:id [GET]
+
+This API call will return a JSON object containing the tag with the id. The HTTP response
+for a successful call will be 200 and will contain a JSON object. The format of the JSON
+object is a tag JSON Object. The tags object matches the tags model closely. It
+has the following fields:
+
+```
+id: integer, unique tag id given by the backend server
+name: string, name of the tag
+avg_price: decimal, average price of all products associate with this tag
+avg_rating: decimal, average rating of all products associate with this tag
+num_products: integer, number of products associate with this tag
+products: list of products
+    id: integer, primary key of product
+    name: string, name of product
+brands: list of brands
+    id: integer, primary key of brand
+    name: string, name of brand
 ```
 
 #### Models
@@ -290,7 +356,13 @@ num_products        Integer         number of products with this SubCategory
 
 #### Front-End
 
-For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg) is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+
+Basic layout for the React files:
+
+- `jsx/pages` holds react components that have a one-to-one correspondence with actual
+  accessible pages (e.g. /categories/5).
+- `jsx/ui` holds smaller components used in `jsx/pages`.
 
 #### Back-End
 
@@ -309,15 +381,15 @@ development and running is performed through `docker`. Install that on your loca
 however you do, then build our two images:
 
 ```bash
-; cd dockerfiles
-; docker build -t glamrous-server -f Dockerfile.server .
-; docker build -t glamrous-dev -f Dockerfile.dev .
+$ cd dockerfiles
+$ docker build -t glamrous-server -f Dockerfile.server .
+$ docker build -t glamrous-dev -f Dockerfile.dev .
 ```
 
 and pull down `postgres`' image:
 
 ```bash
-; docker pull postgres
+$ docker pull postgres
 ```
 
 Then, from the project root, run `./postgres.sh [detach]` to spin up the Postgres daemon
@@ -337,6 +409,8 @@ doesn't sometimes. We're putting off fixing that for stage two of the project.
 In order to populate the database, we first had to create a script that would gather all of the cosmetics information. Once we had this information, we converted their schema into our own schema that would eventually fit into our own design and our database.
 
 #### Importing to Database
+
+From the json that we formated our schema into, we were able to create a script to parse through the data and insert it into our database as well defining the different relationships between our models. By collecting all of the data from their API into our own json file we avoided the issues of rate limiting from their site, their data changing from how we built our API to interpret it, and the off chance that their API goes offline or is removed. 
 
 ### Hosting
 
@@ -505,20 +579,26 @@ $ cd /var/www/glamrous-server/dockerfile
 $ docker build -t glamrous-db -f Dockerfile.db .
 $ docker build -t glamrous-dev -f Dockerfile.dev .
 $ docker build -t glamrous-server -f Dockerfile.server .
-$ docker pull postgres
 ```
 
 Once the container is built, start Glamrous using start.sh in the repository root.
 
 ```
 $ ./postgres.sh detach
-$ ./start.sh detach
 ```
 
 Next, build the frontend assets.
 
 ```
 $ ./build.sh auto
+```
+
+Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can use `postgresql://glamrous@postgres/glamrous`.
+
+Finally, start the server.
+
+```
+$ ./start.sh detach
 ```
 
 #### Stopping
@@ -717,7 +797,7 @@ $ sudo usermod -a -G www-data <user>
 Notice that Travis is using SSH to kick off a deployment script:
 
 ```
-$ gcloud compute ssh $GCLOUD_INSTANCE --zone $GCLOUD_ZONE --command                         "/var/www/deploy.sh"
+$ gcloud compute ssh $GCLOUD_INSTANCE --zone $GCLOUD_ZONE --command "/var/www/deploy.sh"
 ```
 
 To create this deploy script:
@@ -731,28 +811,34 @@ $ chmod +x deploy.sh
 Edit deploy.sh with the following:
 
 ```
-#!/bin/bash
+#! /bin/bash
 echo "Connected to server, deploying to prod."
+
 echo "Killing existing glamrous-server instance..."
 sudo docker kill $(sudo docker ps | grep "glamrous-server" | cut -d" " -f1)
+
 echo "Cleaning up exited containers..."
 sudo docker rm $(sudo docker ps -q -f status=exited)
+
 echo "Pulling latest from master..."
 cd /var/www/glamrous-server > /dev/null
 git fetch --all
 git checkout --force origin/master
-echo "Creating configuration file..."
-cp /var/www/config.json config.json > /dev/null
+
 echo "Building dockerfiles..."
 cd dockerfile > /dev/null
-$ docker build -t glamrous-db -f Dockerfile.db .
+sudo docker build -t glamrous-db -f Dockerfile.db .
 sudo docker build -t glamrous-dev -f Dockerfile.dev .
 sudo docker build -t glamrous-server -f Dockerfile.server .
+
 cd ..
+
 echo "Grabbing latest npm dependencies..."
 sudo npm update
+
 echo "Building frontend..."
 sudo ./build.sh auto
+
 echo "Ensuring postgres container is running..."
 if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
     if [ "$(sudo docker ps -aq -f status=exited -f name=glamrous-postgres)" ]; then
@@ -762,8 +848,13 @@ if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
     echo "Starting postgres container..."
     sudo ./postgres.sh detach
 fi
+
+echo "Creating configuration file..."
+cp /var/www/config.json config.json > /dev/null
+
 echo "Starting glamrous-server..."
 sudo ./start.sh detach
+
 echo "Finished deploying to prod."
 ```
 

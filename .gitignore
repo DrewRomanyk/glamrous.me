@@ -2,6 +2,14 @@
 node_modules
 app/static/js
 __pycache__
+*.pyc
+brands.json
+categories.json
+products.json
+tags.json
+.pylintrc
+.coverage
+unit-test.cache
 
 # IDE files
 .idea
@@ -10,3 +18,6 @@ __pycache__
 config.json
 client-secret.json
 credentials.tar.gz
+
+# Temporary output
+*.tmp

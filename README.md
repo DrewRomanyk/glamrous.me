@@ -13,7 +13,6 @@ $ cd dockerfile
 $ docker build -t glamrous-db -f Dockerfile.db .
 $ docker build -t glamrous-dev -f Dockerfile.dev .
 $ docker build -t glamrous-server -f Dockerfile.server .
-$ docker pull postgres
 ```
 
 #### Starting postgres
@@ -28,7 +27,22 @@ $ ./build.sh
 $ rollup -cw
 ```
 
+#### Configuration
+ * Copy `config.json.template` to `config.json` and fill out.
+ * `SQLALCHEMY_DATABASE_URI` should be `postgresql://glamrous@postgres/glamrous`
+
 #### Start Server
 ```bash
 $ ./start.sh [detach]
+```
+
+## Testing
+[Travis](https://travis-ci.org/DrewRomanyk/glamrous.me) runs tests automatically, but to run them on your machine:
+
+```bash
+$ make Dockerfile.db
+$ make Dockerfile.server
+$ make start-db
+$ make test
+$ make reset-config
 ```

@@ -1,5 +1,11 @@
 # pylint: disable=missing-docstring
-from .app import db
+# pylint: disable=no-member
+# pylint: disable=too-few-public-methods
+# pylint: disable=invalid-name
+# pylint: disable=trailing-whitespace
+# pylint: disable=too-many-arguments
+
+from app import db
 
 
 class Brand(db.Model):
@@ -19,13 +25,13 @@ class Brand(db.Model):
 
     __tablename__ = 'brand'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer, default=0)
-    avg_rating = db.Column('avg_rating', db.Integer, default=0)
+    avg_price = db.Column('avg_price', db.Float, default=0)
+    avg_rating = db.Column('avg_rating', db.Float, default=0)
     num_products = db.Column('num_products', db.Integer, default=0)
-    image_url = db.Column('image_url', db.Unicode(255))
-    
+    image_url = db.Column('image_url', db.Unicode(511))
+
     # One-to-Many relationships
     products = db.relationship('Product', backref='brand', lazy='dynamic')
 
@@ -68,16 +74,15 @@ class Product(db.Model):
 
     __tablename__ = 'product'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     brand_id = db.Column('brand_id', db.Integer, db.ForeignKey(
         'brand.id'), nullable=False)
-    #brand = db.relationship('Brand', back_populates="products")
     name = db.Column('name', db.Unicode(255), nullable=False)
-    description = db.Column('description', db.Unicode(4000))
-    price = db.Column('price', db.Integer)
-    rating = db.Column('rating', db.Integer)
+    description = db.Column('description', db.Unicode(10000))
+    price = db.Column('price', db.Float)
+    rating = db.Column('rating', db.Float)
     image_url = db.Column('image_url', db.Unicode(255))
-   
+
     # Many-to-Many relationships
     colors = db.relationship('Color',
                              secondary='product_color', backref='product')
@@ -116,10 +121,10 @@ class Color(db.Model):
         hashcode        String      the hash value for the Color
         num_products    Integer     number of products with this Color
     """
-    
+
     __tablename__ = 'color'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
     hashcode = db.Column('hashcode', db.Unicode(25), nullable=False)
     num_products = db.Column('num_products', db.Integer, default=0)
@@ -155,10 +160,10 @@ class Category(db.Model):
 
     __tablename__ = 'category'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
@@ -174,6 +179,7 @@ class Category(db.Model):
 
     def __repr__(self):
         return '<type %r>' % self.name
+
 
 class SubCategory(db.Model):
     """
@@ -194,10 +200,10 @@ class SubCategory(db.Model):
 
     __tablename__ = 'sub_category'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
@@ -232,10 +238,10 @@ class Tag(db.Model):
 
     __tablename__ = 'tag'
 
-    id = db.Column('id', db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     name = db.Column('name', db.Unicode(255), nullable=False)
-    avg_price = db.Column('avg_price', db.Integer)
-    avg_rating = db.Column('avg_rating', db.Integer)
+    avg_price = db.Column('avg_price', db.Float)
+    avg_rating = db.Column('avg_rating', db.Float)
     num_products = db.Column('num_products', db.Integer, default=0)
 
     def __init__(self, name, avg_price, avg_rating, num_products):
@@ -252,23 +258,27 @@ class Tag(db.Model):
     def __repr__(self):
         return '<Tag %r>' % self.name
 
+
 product_color = db.Table('product_color',
                          db.Column('product_id', db.Integer,
                                    db.ForeignKey('product.id')),
-                         db.Column('color_id', db.Integer, db.ForeignKey('color.id')),
+                         db.Column('color_id', db.Integer,
+                                   db.ForeignKey('color.id')),
                          db.PrimaryKeyConstraint('product_id', 'color_id'))
 
 product_tag = db.Table('product_tag',
                        db.Column('product_id', db.Integer,
                                  db.ForeignKey('product.id')),
-                       db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+                       db.Column('tag_id', db.Integer,
+                                 db.ForeignKey('tag.id')),
                        db.PrimaryKeyConstraint('product_id', 'tag_id'))
+
 
 class ProductCategory(db.Model):
     """
     The ProductCategory model is the manifestation of the ternary relationship
     between Product, Category, and SubCategory. A Category can have many to no 
-    SubCategories so a ternary relationship is necesary to show the unique 
+    SubCategories so a ternary relationship is necessary to show the unique
     combination for a certain Product.
 
     Attributes:
@@ -278,7 +288,6 @@ class ProductCategory(db.Model):
         sub_category_id     Integer     numerical identifier for the SubCategory of 
                                         the Product
     """
-
 
     __tablename__ = 'product_category'
 
@@ -290,9 +299,12 @@ class ProductCategory(db.Model):
         'sub_category.id'), primary_key=True, nullable=True)
 
     db.UniqueConstraint('product_id', 'category_id', 'sub_category_id')
-    db.relationship('User', uselist=False, backref='product_category', lazy='dynamic')
-    db.relationship('Team', uselist=False, backref='product_category', lazy='dynamic')
-    db.relationship('Role', uselist=False, backref='product_category', lazy='dynamic')
+    db.relationship('User', uselist=False,
+                    backref='product_category', lazy='dynamic')
+    db.relationship('Team', uselist=False,
+                    backref='product_category', lazy='dynamic')
+    db.relationship('Role', uselist=False,
+                    backref='product_category', lazy='dynamic')
 
     def __init__(self, product_id, category_id, sub_category_id):
         assert isinstance(product_id, int)

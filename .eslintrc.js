@@ -6,6 +6,7 @@ module.exports = {
     "extends": "eslint:recommended",
     "installedESLint": true,
     "parserOptions": {
+	"ecmaVersion": 6,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true
@@ -16,17 +17,31 @@ module.exports = {
         "react"
     ],
     "rules": {
+	"react/jsx-uses-react": "error",
+	"react/jsx-uses-vars": "error",
         "linebreak-style": [
             "error",
             "unix"
         ],
         "quotes": [
             "error",
-            "single"
+            "single",
+	    { "avoidEscape": true },
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+	"no-mixed-spaces-and-tabs": [
+	    "error",
+            "smart-tabs",
+	],
+	"no-console": [
+	    "error",
+	    { allow: [ "warn", "error" ] }
+	],
+	"react/prop-types": [
+	    2, // error
+	],
     }
 };

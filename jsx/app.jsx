@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Navbar from './ui/Navbar.jsx';
 
 export default class App extends React.Component {
@@ -15,3 +15,7 @@ export default class App extends React.Component {
 		);
 	}
 }
+App.propTypes = {
+	pageName: PropTypes.string.isRequired,
+	children: PropTypes.element.isRequired,
+};

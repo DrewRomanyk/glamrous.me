@@ -1,4 +1,6 @@
-import React from 'react';
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
+import React, { PropTypes } from 'react';
+import { Container, Panel } from '../ui/Bootstrap.jsx';
 
 export default class Products_Details extends React.Component {
     constructor(props) {
@@ -8,7 +10,7 @@ export default class Products_Details extends React.Component {
             product: {
                 tags: [], brand: {name: ''}, image_url: '', name: '', price: '', rating: ''
             }
-        }
+        };
     }
 
     componentDidMount() {
@@ -19,35 +21,37 @@ export default class Products_Details extends React.Component {
     }
 
     render() {
-        const tags = this.state.product.tags.map((item, i) => {
+        const tags = this.state.product.tags.map(item => {
             return (
                 <span key={item.id} className="label label-primary">
-                    <a href={"/tags/" + item.id}>{item.name}</a>
+                    <a href={'/tags/' + item.id}>{item.name}</a>
                 </span>
             );
         });
         return (
-            <div className="container">
-
-                <div className="panel panel-default">
-                    <div className="panel-heading">
+			<Container>
+				<Panel.Panel>
+					<Panel.Heading>
                         <h1 className="panel-title">{this.state.product.name}</h1>
-                    </div>
-                    <div className="panel-body">
+					</Panel.Heading>
+					<Panel.Body>
                         <img className="img-thumbnail" src={this.state.product.image_url}/>
                         <h5>Price: </h5>
-                        <p>{this.state.product.price}</p>
+                        <p>{Number(this.state.product.price).toFixed(2)}</p>
                         <h5>Rating: </h5>
-                        <p>{this.state.product.rating}</p>
+                        <p>{Number(this.state.product.rating).toFixed(2)}</p>
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
                         <h5>Tags: </h5>
                         <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
-                    </div>
-                </div>
-            </div>
+					</Panel.Body>
+				</Panel.Panel>
+			</Container>
         );
     }
 }
+Products_Details.propTypes = {
+	id: PropTypes.string.isRequired,
+};

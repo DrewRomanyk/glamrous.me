@@ -1,12 +1,15 @@
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
-import FilterBar from '../ui/FilterBar.jsx';
+import { Caption, GridCell, Row } from '../ui/Bootstrap.jsx';
+import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
+import Block from 'jsxstyle/Block';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
 export default class Brands extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {brands: []}
+        this.state = {brands: []};
     }
 
     componentDidMount() {
@@ -17,36 +20,50 @@ export default class Brands extends React.Component {
     }
 
     render() {
-        const brands = this.state.brands.map((item, i) => {
-            return (
+        const brandObjs = this.state.brands.map(item => ({
+			filterables: [
+				{	name: 'Category',
+					type: FILTER_TYPE.SELECTABLE,
+					value: item.categories.map(obj => obj.name)
+				},
+				{	name: 'Tags',
+					type: FILTER_TYPE.SELECTABLE,
+					value: item.tags.map(obj => obj.name)
+				},
+			],
+			sortables: [
+				{	name: 'Name',
+					sort: item.name,
+				},
+				{	name: 'Price',
+					sort: item.avg_price,
+				},
+				{	name: 'Rating',
+					sort: item.avg_rating,
+				},
+			],
+			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="card thumbnail">
-                        <div className="card-img center-cropped"
-                             style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
-                        <div className="caption">
+                        <Block className="card-img center-cropped"
+                             backgroundImage={'url(' + item.image_url + ' )'} />
+						<Caption>
                             <h4 className="group inner list-group-item-heading">{item.name}</h4>
-                            <div className="row">
-                                <div className="col-xs-12 col-md-12">
+							<Row>
+                                <GridCell xs={12} md={12}>
                                     <p className="card-detail">Products: {item.num_products}</p>
-                                    <p className="card-detail">Average Price: {item.avg_price}</p>
-                                    <p className="card-detail">Average Rating: {item.avg_rating}</p>
-                                    <a className="card-btn btn" href={"/brands/" + item.id}>View</a>
-                                </div>
-                            </div>
-                        </div>
+                                    <p className="card-detail">Average Price: {Number(item.avg_price).toFixed(2)}</p>
+                                    <p className="card-detail">Average Rating: {Number(item.avg_rating).toFixed(2)}</p>
+                                    <a className="card-btn btn" href={'/brands/' + item.id}>View</a>
+								</GridCell>
+							</Row>
+						</Caption>
                     </div>
                 </div>
-            );
-        });
+            )
+        }));
         return (
-            <div>
-                <div className="container">
-                    <FilterBar />
-                    <div id="brands" className="row list-group">
-                        { brands }
-                    </div>
-                </div>
-            </div>
+			<SortFilterPaginate data={brandObjs} />
         );
     }
 }

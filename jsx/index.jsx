@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import App from './app.jsx';
-import Home from './pages/home.jsx'
-import About from './pages/about.jsx'
-import Report from './pages/report.jsx'
-import Brands from './pages/brands.jsx'
-import Brands_Detail from './pages/brands_detail.jsx'
-import Products from './pages/products.jsx'
-import Products_Details from './pages/products_detail.jsx'
-import Tags from './pages/tags.jsx'
-import Tags_Details from './pages/tags_detail.jsx'
-import Categories from './pages/categories.jsx'
-import Categories_Details from './pages/categories_detail.jsx'
-import Search from './pages/search.jsx'
-import Not_Found from './pages/not_found.jsx'
+import Home from './pages/home.jsx';
+import About from './pages/about.jsx';
+import Report from './pages/report.jsx';
+import Brands from './pages/brands.jsx';
+import Brands_Detail from './pages/brands_detail.jsx';
+import Products from './pages/products.jsx';
+import Products_Details from './pages/products_detail.jsx';
+import Tags from './pages/tags.jsx';
+import Tags_Details from './pages/tags_detail.jsx';
+import Categories from './pages/categories.jsx';
+import Categories_Details from './pages/categories_detail.jsx';
+import Search from './pages/search.jsx';
+import Not_Found from './pages/not_found.jsx';
 
 const wrap = (name, component) => (
 	<App pageName={name}>{component}</App>

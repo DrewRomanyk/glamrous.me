@@ -1,5 +1,6 @@
-import React from 'react';
-import {Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
+/*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
+import React, { PropTypes } from 'react';
+import {Badge, Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
 import find from 'lodash/find';
 
 const TeamMember = (props) => (
@@ -17,6 +18,17 @@ const TeamMember = (props) => (
         <div><span className="badge">{props.contrib.tests}</span> unit tests</div>
     </GridCell>
 );
+TeamMember.propTypes = {
+	image: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	role: PropTypes.string.isRequired,
+	about: PropTypes.string.isRequired,
+	contrib: PropTypes.shape({
+		commits: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+		issues: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+		tests: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+	}).isRequired,
+};
 
 const TheGlamFam = (props) => {
     const stats = (name) => {
@@ -39,23 +51,23 @@ const TheGlamFam = (props) => {
                 role='Frontend & Backend'
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
-                + "intern with RetailMeNot over the summer."}
+                + 'intern with RetailMeNot over the summer.'}
                 contrib={{...stats('DrewRomanyk'), tests: 0}}
             />
             <TeamMember
                 name='Cameron Piel'
                 image='cameron.jpg'
                 role='Database & Backend'
-                about={"My name is Cameron Piel, I am a 5th year student here at "
-                + "UT. When I am not coding or cooking you can find me sitting "
-                + "at my desk pretending to be productive."}
+                about={'My name is Cameron Piel, I am a 5th year student here at '
+                + 'UT. When I am not coding or cooking you can find me sitting '
+                + 'at my desk pretending to be productive.'}
                 contrib={{...stats('Cpiely'), tests: 15}}
             />
             <TeamMember
                 image='rperce.jpg'
                 name='Robert Perce'
                 role='Frontend & Devops'
-                about={"Fourth-year Computer Science and Mathematics student at UT "
+                about={'Fourth-year Computer Science and Mathematics student at UT '
                 + "Austin. I'll be starting full-time at Indeed in July!"}
                 contrib={{...stats('rperce'), tests: 0}}
             />
@@ -63,8 +75,8 @@ const TheGlamFam = (props) => {
                 image='mpark.jpg'
                 name='Melody Park'
                 role='Frontend & Backend'
-                about={"Fourth year UT student who likes to get swole. Weenie on "
-                + "the outside. Dragon on the inside."}
+                about={'Fourth year UT student who likes to get swole. Weenie on '
+                + 'the outside. Dragon on the inside.'}
                 contrib={{...stats('myopark'), tests: 0}}
             />
             <TeamMember
@@ -72,20 +84,23 @@ const TheGlamFam = (props) => {
                 name='Thomas Potnuru'
                 role='API & Backend'
                 about={"Currently a senior at UT Austin doing my Bachelor's in "
-                + "Computer Sceince. I am a IEEE Computer Society Officer "
-                + "again this year! Usually making and eating dessert in my "
-                + " free time."}
+                + 'Computer Sceince. I am a IEEE Computer Society Officer '
+                + 'again this year! Usually making and eating dessert in my '
+                + ' free time.'}
                 contrib={{...stats('thomas-potnuru'), tests: 0}}
             />
         </Row>
-    )
+    );
+};
+TheGlamFam.propTypes = {
+	stats: PropTypes.array.isRequired, // TODO lazy
 };
 
 export default class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            unit_test_desc: "Running unit tests...",
+            unit_test_desc: 'Running unit tests...',
             stats: {contributors: []}
         };
     }
@@ -98,7 +113,6 @@ export default class About extends React.Component {
     }
 
     runUnitTests() {
-        console.log("running unit tests...");
         $.getJSON(document.location.origin + '/api/test')
             .then((data) => {
                 this.setState({unit_test_desc: data.result});
@@ -122,10 +136,10 @@ export default class About extends React.Component {
                         <PageHeader>Stats</PageHeader>
                         <ul>
                             <li>
-                                <span className="badge">{totalStats.commits}</span> commits (excluding merge commits)
+								<Badge>{totalStats.commits}</Badge> commits (excluding merge commits)
                             </li>
-                            <li><span className="badge">{totalStats.issues}</span> issues</li>
-                            <li><span className="badge">15</span> unit tests</li>
+                            <li><Badge>{totalStats.issues}</Badge> issues</li>
+                            <li><Badge>15</Badge> unit tests</li>
                             <li><a href="http://docs.glamrousme.apiary.io/#">Apiary API</a></li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me/issues">Github Issue Tracker</a>
                             </li>
