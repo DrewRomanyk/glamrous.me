@@ -55,7 +55,6 @@ start-db:
 	sudo docker run -d \
 	--name glamrous-postgres \
 	glamrous-db
-	./scripts/swap-test-config.sh
 
 test:
 	sudo docker run \
@@ -75,6 +74,3 @@ tests.tmp: clean .pylintrc
 clean:
 	rm -f tests.tmp
 	rm -f .pylintrc
-
-reset-config:
-	./scripts/reset-test-config.sh
