@@ -12,7 +12,6 @@ RUN python -m ensurepip && \
 	pip install \
 		flask \
 		flask-cors \
-		Flask-Migrate \
 		Flask-SQLAlchemy \
 		requests \
 		psycopg2 \

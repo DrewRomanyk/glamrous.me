@@ -1,4 +1,3 @@
-
 # pylint: disable=missing-docstring
 # pylint: disable=no-member
 # pylint: disable=trailing-whitespace
@@ -17,7 +16,6 @@ from .models import Brand, Category, SubCategory, Product, Color, Tag
 
 
 class UnitTests(unittest.TestCase):
-
     def test_model_brand_1(self):
         with app.test_request_context():
             brand = Brand('Pure Anada', 1.01, 4.02, 2,
@@ -205,6 +203,7 @@ def suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(UnitTests, 'test'))
     return suite
+
 
 if __name__ == '__main__':
     with app.test_request_context():
