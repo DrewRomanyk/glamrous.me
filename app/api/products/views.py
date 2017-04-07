@@ -8,6 +8,7 @@ api_products_blueprints = Blueprint(
 
 @api_products_blueprints.route('/api/products')
 def get_products():
+
     result = []
     for product in Product.query.all():
         product_json = dict()

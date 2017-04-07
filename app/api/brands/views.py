@@ -42,7 +42,6 @@ def get_brands():
         result.append(brand_json)
     return jsonify(result)
 
-
 @api_brands_blueprints.route('/api/brands/<id>')
 def get_brand(id):
     result = {}

@@ -5,7 +5,8 @@
 # pylint: disable=trailing-whitespace
 # pylint: disable=too-many-arguments
 
-from .app import db
+from app import db
+
 
 
 class Brand(db.Model):

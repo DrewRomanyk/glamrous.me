@@ -8,6 +8,7 @@ api_tags_blueprints = Blueprint(
 
 @api_tags_blueprints.route('/api/tags')
 def get_tags():
+
     result = []
     for tag in Tag.query.all():
         tag_json = dict()
@@ -30,6 +31,7 @@ def get_tags():
 
         result.append(tag_json)
     return jsonify(result)
+
 
 
 @api_tags_blueprints.route('/api/tags/<id>')

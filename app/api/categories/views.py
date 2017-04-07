@@ -7,6 +7,7 @@ api_categories_blueprints = Blueprint(
 
 
 @api_categories_blueprints.route('/api/categories')
+
 def get_brands():
     result = []
     for category in Category.query.all():
@@ -73,3 +74,4 @@ def get_tag(id):
     except AttributeError:
         print("Error with Category ID: " + id)
     return jsonify(result)
+

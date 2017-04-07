@@ -1,6 +1,7 @@
 # TODO: Uncomment once target implemented
 # .DEFAULT_GOAL := test
 
+ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 ifeq ($(shell uname), Darwin)          # MacOS
     PYTHON   := python3.5
@@ -32,8 +33,45 @@ else                                   # UTCS
     AUTOPEP8 := autopep8
 endif
 
+.pylintrc:
+	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+
 IDB1.html:
 	pydoc3.5 -w app/Models.py
 
 IDB1.log:
 	git log > IDB1.log
+
+Dockerfile.db:
+	cd dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
+
+Dockerfile.dev:
+	cd dockerfile && sudo docker build -t glamrous-dev -f Dockerfile.dev .
+
+Dockerfile.server:
+	cd dockerfile && sudo docker build -t glamrous-server -f Dockerfile.server .
+
+start-db:
+	sudo docker run -d \
+	--name glamrous-postgres \
+	glamrous-db
+
+test:
+	cp config.json.test config.json
+	sudo docker run \
+	-v $(ROOT_DIR):/usr/web -t \
+	-w /usr/web \
+	-p 8081:5000 \
+	--link glamrous-postgres:postgres \
+	glamrous-server \
+	make tests.tmp
+
+tests.tmp: clean .pylintrc
+	-$(PYLINT) run_tests.py
+	$(COVERAGE) run    --branch run_tests.py >  tests.tmp 2>&1
+	$(COVERAGE) report -m                      >> tests.tmp
+	cat tests.tmp
+
+clean:
+	rm -f tests.tmp
+	rm -f .pylintrc
