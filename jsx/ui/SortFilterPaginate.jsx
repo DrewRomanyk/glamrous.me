@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactPaginate from 'react-paginate';
 import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 import find from 'lodash/find';
@@ -17,12 +18,17 @@ class SortFilterPaginate extends Component {
 			filters: this.getFilters(props.data),
 			selectedAttributes: {},
 			selectedText: [],
+
+			per_page: 6,
+			offset: 0,
+			page: 0,
 		};
 
 		this.setSortBy = this.setSortBy.bind(this);
 		this.getAllSorts = this.getAllSorts.bind(this);
 		this.toggleSelected = this.toggleSelected.bind(this);
 		this.changeBounds = this.changeBounds.bind(this);
+		this.handlePageClick = this.handlePageClick.bind(this);
 	}
 
 	componentWillReceiveProps(props) {
@@ -86,7 +92,11 @@ class SortFilterPaginate extends Component {
 		const filter = find(filters, {name: filterName});
 		const selectable = find(filter.selectables, {name: option});
 		selectable.selected = !selectable.selected;
-		this.setState({filters: filters});
+		this.setState({
+			page: 0,
+			offset: 0,
+			filters: filters
+		});
 	}
 
 	changeBounds(filterName, min, max) {
@@ -94,7 +104,21 @@ class SortFilterPaginate extends Component {
 		const filter = find(filters, {name: filterName});
 		filter.min = min;
 		filter.max = max;
-		this.setState({filters: filters});
+		this.setState({
+			page: 0,
+			offset: 0,
+			filters: filters
+		});
+	}
+
+	handlePageClick(data) {
+		const selected = data.selected;
+		const offset = Math.ceil(selected * this.state.per_page);
+
+		this.setState({
+			page: selected,
+			offset: offset
+		});
 	}
 
 	render() {
@@ -129,6 +153,7 @@ class SortFilterPaginate extends Component {
 				return this.state.sortReverse ? -1 : 1;
 			return 0;
 		});
+		const pageCount = Math.ceil(displayData.length / this.state.per_page);
 		return (
 			<Container>
 				<div className='panel panel-default'>
@@ -147,8 +172,33 @@ class SortFilterPaginate extends Component {
 					</Flex>
 				</div>
 				<div id="tags" className="row list-group">
-					{displayData.map(element => element.display())}
+					{displayData
+							.slice(this.state.offset, this.state.offset + this.state.per_page)
+							.map(element => element.display() )}
 				</div>
+				<Flex justifyContent='center' width='100%'>
+					<ReactPaginate
+						previousLabel={'<'}
+						nextLabel={'>'}
+						breakLabel={'...'}
+						pageCount={pageCount}
+						marginPagesDisplayed={1}
+						pageRangeDisplayed={3}
+						onPageChange={this.handlePageClick}
+						forcePage={this.state.page}
+						containerClassName='paginate-container'
+						breakClassName='paginate-break'
+						pageClassName='paginate-page'
+						pageLinkClassName='paginate-link btn btn-default'
+						activeClassName='paginate-active'
+						activeLinkClassName='paginate-active-link bg-primary'
+						previousClassName='paginate-previous'
+						nextClassName='paginate-next'
+						previousLinkClassName='btn-default btn'
+						nextLinkClassName='btn btn-default'
+						disabledClassName='btn-default paginate-disabled'
+					/>
+				</Flex>
 			</Container>
 		);
 	}

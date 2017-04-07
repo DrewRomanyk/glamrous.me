@@ -388,3 +388,30 @@ body {
         transform: translate(0, -1em) rotate(-225deg);
     }
 }
+
+/* Pagination */
+.paginate-container {
+	display: flex;
+	flex-direction: row;
+}
+.paginate-previous, .paginate-next, .paginate-page {
+	list-style-type: none;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	margin-bottom: 2em;
+}
+.paginate-disabled > a, .paginate-disabled > a:hover,
+.paginate-disabled > a:focus, .paginate-disabled > a:active {
+	background-color: #bbb;
+	outline: none;
+}
+.paginate-active > a {
+	background-color: #adf;
+}
+.paginate-break {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3em;
+	height: 3em;
+}
