@@ -57,6 +57,7 @@ start-db:
 	glamrous-db
 
 test:
+	cp config.json.test config.json
 	sudo docker run \
 	-v $(ROOT_DIR):/usr/web -t \
 	-w /usr/web \
