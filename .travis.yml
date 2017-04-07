@@ -30,6 +30,7 @@ script:
   - make Dockerfile.db
   - make Dockerfile.server
   - make start-db
+  - sudo docker ps
   - make test
   - cat tests.tmp
 
