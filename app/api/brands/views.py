@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Brand, ProductCategory, Category
+from app.models import Brand, ProductCategory, Category, SubCategory
 
 api_brands_blueprints = Blueprint(
     'api_brands', __name__
@@ -19,18 +19,23 @@ def get_brands():
         brand_json['num_products'] = brand.num_products
         brand_json['tags'] = []
         brand_json['categories'] = []
+        brand_json['sub_categories'] = []
         tag_dict = dict()
         categories_dict = dict()
+        sub_categories_dict = dict()
         for product in brand.products:
-            prod_cat_query = ProductCategory.query.filter_by(
-                product_id=product.id).all()
-            for prodcat in prod_cat_query:
-                cats = Category.query.filter_by(id=prodcat.category_id).all()
-                for cat in cats:
-                    categories_dict[cat.id] = {
-                        'id': cat.id,
-                        'name': cat.name
-                    }
+            prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+            cat = Category.query.filter_by(id=prodcat.category_id).first()
+            categories_dict[cat.id] = {
+                'id': cat.id,
+                'name': cat.name
+            }
+            if prodcat.sub_category_id != 1:
+                sub_cat = SubCategory.query.filter_by(id=prodcat.sub_category_id).first()
+                sub_categories_dict[sub_cat.id] = {
+                    'id': sub_cat.id,
+                    'name': sub_cat.name
+                }
             for tag in product.tags:
                 tag_dict[tag.id] = {
                     'id': tag.id,
@@ -38,8 +43,10 @@ def get_brands():
                 }
         for tag_key in tag_dict:
             brand_json['tags'].append(tag_dict[tag_key])
-        for categories_key in categories_dict:
-            brand_json['categories'].append(categories_dict[categories_key])
+        for cat_key in categories_dict:
+            brand_json['categories'].append(categories_dict[cat_key])
+        for sub_cat_key in sub_categories_dict:
+            brand_json['sub_categories'].append(sub_categories_dict[sub_cat_key])
         result.append(brand_json)
     return jsonify(result)
 
@@ -57,7 +64,11 @@ def get_brand(id):
         result['num_products'] = brand.num_products
         result['products'] = []
         result['tags'] = []
+        result['categories'] = []
+        result['sub_categories'] = []
         tag_dict = dict()
+        categories_dict = dict()
+        sub_categories_dict = dict()
         for product in brand.products:
             product_json = dict()
             product_json['id'] = product.id
@@ -68,8 +79,25 @@ def get_brand(id):
                     'id': tag.id,
                     'name': tag.name
                 }
+            # Handle the sub_categories
+            prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+            cat = Category.query.filter_by(id=prodcat.category_id).first()
+            categories_dict[cat.id] = {
+                'id': cat.id,
+                'name': cat.name
+            }
+            if prodcat.sub_category_id != 1:
+                sub_cat = SubCategory.query.filter_by(id=prodcat.sub_category_id).first()
+                sub_categories_dict[sub_cat.id] = {
+                    'id': sub_cat.id,
+                    'name': sub_cat.name
+                }
         for tag_key in tag_dict:
             result['tags'].append(tag_dict[tag_key])
+        for cat_key in categories_dict:
+            result['categories'].append(categories_dict[cat_key])
+        for sub_cat_key in sub_categories_dict:
+            result['sub_categories'].append(sub_categories_dict[sub_cat_key])
     except AttributeError:
         print("Error with Brand ID: " + id)
     return jsonify(result)

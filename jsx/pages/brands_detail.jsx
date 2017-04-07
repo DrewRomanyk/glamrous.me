@@ -7,7 +7,14 @@ export default class Brands_Details extends React.Component {
         this.id = props.id;
         this.state = {
             brand: {
-                tags: [], products: [], name: '', avg_price: '', image_url: '', avg_rating: ''
+                tags: [],
+                products: [],
+                categories: [],
+                sub_categories: [],
+                name: '',
+                avg_price: '',
+                image_url: '',
+                avg_rating: ''
             }
         };
     }
@@ -34,6 +41,20 @@ export default class Brands_Details extends React.Component {
                 </span>
             );
         });
+        const categories = this.state.brand.categories.map(item => {
+            return (
+                <span key={item.id} className="label label-primary">
+                    <a href={'/categories/' + item.id}>{item.name}</a>
+                </span>
+            );
+        });
+        const sub_categories = this.state.brand.sub_categories.map(item => {
+            return (
+                <span key={item.id} className="label label-primary">
+                    <a href={'/sub_categories/' + item.id}>{item.name}</a>
+                </span>
+            );
+        });
         return (
             <div className="container">
 
@@ -54,6 +75,14 @@ export default class Brands_Details extends React.Component {
                         <h5>Tags: </h5>
                         <div className="thumbnail horizontal-container">
                             {tags}
+                        </div>
+                        <h5>Categories: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {categories}
+                        </div>
+                        <h5>Sub Categories: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {sub_categories}
                         </div>
                     </div>
                 </div>
