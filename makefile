@@ -54,7 +54,6 @@ Dockerfile.server:
 start-db:
 	sudo docker run -d \
 	--name glamrous-postgres \
-	-p 5433:5432 \
 	glamrous-db
 	./scripts/swap-test-config.sh
 
