@@ -1,5 +1,5 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Container, Panel } from '../ui/Bootstrap.jsx';
 
 export default class Products_Details extends React.Component {
@@ -52,3 +52,6 @@ export default class Products_Details extends React.Component {
         );
     }
 }
+Products_Details.propTypes = {
+	id: PropTypes.string.isRequired,
+};

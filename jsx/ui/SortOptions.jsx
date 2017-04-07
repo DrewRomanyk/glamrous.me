@@ -49,6 +49,8 @@ class SortOptions extends Component {
 	}
 }
 SortOptions.propTypes = {
+	setSortBy: PropTypes.func.isRequired,
+	current: PropTypes.string.isRequired,
 	sortOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 export default SortOptions;

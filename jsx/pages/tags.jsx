@@ -1,5 +1,5 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Caption, GridCell, Row, Thumbnail } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 
@@ -84,3 +84,6 @@ export default class Tags extends React.Component {
         );
     }
 }
+Tags.propTypes = {
+	url: PropTypes.string,
+};

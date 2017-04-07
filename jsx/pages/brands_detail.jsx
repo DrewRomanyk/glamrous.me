@@ -1,5 +1,5 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class Brands_Details extends React.Component {
     constructor(props) {
@@ -61,3 +61,6 @@ export default class Brands_Details extends React.Component {
         );
     }
 }
+Brands_Details.propTypes = {
+	id: PropTypes.string.isRequired,
+};

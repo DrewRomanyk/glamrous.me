@@ -75,6 +75,15 @@ class DropdownRange extends Component {
 		);
 	}
 }
+DropdownRange.propTypes = {
+	changeBounds: PropTypes.func.isRequired,
+	filter: PropTypes.shape({
+		min: PropTypes.number.isRequired,
+		max: PropTypes.number.isRequired,
+		name: PropTypes.string.isRequired,
+	}).isRequired,
+};
+
 
 const DropdownSelectable = (props) => (
 	<Flex padding='5px' flexDirection='column'>
@@ -94,6 +103,12 @@ const DropdownSelectable = (props) => (
 		})}
 	</Flex>
 );
+DropdownSelectable.propTypes = {
+	filter: PropTypes.shape({
+		selectables: PropTypes.arrayOf(PropTypes.object),
+	}).isRequired,
+	onClick: PropTypes.func.isRequired,
+};
 
 class FilterButton extends Component {
 	constructor(props) {
@@ -144,6 +159,14 @@ class FilterButton extends Component {
 		);
 	}
 }
+FilterButton.propTypes = {
+	toggleSelected: PropTypes.func.isRequired,
+	changeBounds: PropTypes.func.isRequired,
+	filter: PropTypes.shape({
+		type: PropTypes.number.isRequired,
+		name: PropTypes.string.isRequired,
+	}).isRequired,
+};
 
 class FilterOptions extends Component {
 	constructor(props) {

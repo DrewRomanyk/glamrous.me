@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import intersection from 'lodash/intersection';
 import omit from 'lodash/omit';
 
@@ -64,11 +64,19 @@ export const Modal = {
 		</div>
 	),
 };
+Modal.Modal.propTypes = {
+	id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+	children: PropTypes.node,
+};
 export const NavItem = (props) => (
 	<li className='nav-item'>
 		<a className='nav-link' href={props.href}>{props.children}</a>
 	</li>
 );
+NavItem.propTypes = {
+	href: PropTypes.string.isRequired,
+	children: PropTypes.node,
+};
 export const Panel = {
 	Panel: bootstrap('panel panel-default'),
 	Heading: bootstrap('panel-heading'),

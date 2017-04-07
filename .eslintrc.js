@@ -40,5 +40,8 @@ module.exports = {
 	    "error",
 	    { allow: [ "warn", "error" ] }
 	],
+	"react/prop-types": [
+	    2, // error
+	],
     }
 };
