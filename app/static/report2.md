@@ -290,7 +290,13 @@ num_products        Integer         number of products with this SubCategory
 
 #### Front-End
 
-For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg) is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+
+Basic layout for the React files:
+
+- `jsx/pages` holds react components that have a one-to-one correspondence with actual
+  accessible pages (e.g. /categories/5).
+- `jsx/ui` holds smaller components used in `jsx/pages`.
 
 #### Back-End
 
