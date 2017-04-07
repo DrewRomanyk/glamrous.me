@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import flatten from 'lodash/flatten';
 import zip from 'lodash/zip';
 import Flex from 'jsxstyle/Flex';
+import Inline from 'jsxstyle/Inline';
 
 class SortOptions extends Component {
 	constructor(props) {
@@ -37,7 +38,7 @@ class SortOptions extends Component {
 				</Flex>
 				<div className='dropdown'>
 					<button className='btn btn-default dropdown-toggle' type='button' id='sortByDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-						{this.props.current} <span className='caret' style={{marginLeft: '5px'}}></span>
+						{this.props.current} <Inline className='caret' marginLeft='5px' />
 					</button>
 					<ul className='dropdown-menu' aria-labelledby='sortByDropdown'>
 						{sorts.map( sort => dropdownItem(sort) )}

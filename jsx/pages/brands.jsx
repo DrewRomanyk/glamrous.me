@@ -2,6 +2,7 @@
 import React from 'react';
 import { Caption, GridCell, Row } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate from '../ui/SortFilterPaginate.jsx';
+import Block from 'jsxstyle/Block';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
@@ -37,8 +38,8 @@ export default class Brands extends React.Component {
 			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="card thumbnail">
-                        <div className="card-img center-cropped"
-                             style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
+                        <Block className="card-img center-cropped"
+                             backgroundImage={'url(' + item.image_url + ' )'} />
 						<Caption>
                             <h4 className="group inner list-group-item-heading">{item.name}</h4>
 							<Row>

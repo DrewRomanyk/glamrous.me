@@ -3,6 +3,7 @@ import React from 'react';
 import { Caption, GridCell, Row, Thumbnail } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
+import Block from 'jsxstyle/Block';
 
 export default class Products extends React.Component {
     constructor(props) {
@@ -66,8 +67,8 @@ export default class Products extends React.Component {
 			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
 					<Thumbnail>
-                        <div className="card-img center-cropped"
-                             style={{backgroundImage: 'url(' + item.image_url + ' )'}}/>
+                        <Block className="card-img center-cropped"
+                             backgroundImage={'url(' + item.image_url + ' )'} />
 						 <Caption>
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
                             <p className="group inner list-group-item-text max-lines card-detail">{item.description}</p>

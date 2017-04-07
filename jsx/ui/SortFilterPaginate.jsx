@@ -191,7 +191,6 @@ class SortFilterPaginate extends Component {
 						pageClassName='paginate-page'
 						pageLinkClassName='paginate-link btn btn-default'
 						activeClassName='paginate-active'
-						activeLinkClassName='paginate-active-link bg-primary'
 						previousClassName='paginate-previous'
 						nextClassName='paginate-next'
 						previousLinkClassName='btn-default btn'
