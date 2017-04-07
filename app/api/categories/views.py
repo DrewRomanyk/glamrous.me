@@ -69,7 +69,7 @@ def get_tag(id):
         for tag_key in tag_dict:
             result['tags'].append(tag_dict[tag_key])
         for sub_cat_key in sub_cat_dict:
-            result['sub_categories'].append(tag_dict[sub_cat_key])
+            result['sub_categories'].append(sub_cat_dict[sub_cat_key])
     except AttributeError:
         print("Error with Category ID: " + id)
     return jsonify(result)
