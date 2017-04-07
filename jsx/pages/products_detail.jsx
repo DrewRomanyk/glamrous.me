@@ -1,6 +1,6 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React, { PropTypes } from 'react';
-import { Container, Panel } from '../ui/Bootstrap.jsx';
+import React, {PropTypes} from 'react';
+import {Container, Panel} from '../ui/Bootstrap.jsx';
 
 export default class Products_Details extends React.Component {
     constructor(props) {
@@ -8,7 +8,20 @@ export default class Products_Details extends React.Component {
         this.id = props.id;
         this.state = {
             product: {
-                tags: [], brand: {name: ''}, image_url: '', name: '', price: '', rating: ''
+                description: '',
+                tags: [],
+                brand: {
+                    id: 0,
+                    name: ''
+                },
+                category: {
+                    id: 0,
+                    name: ''
+                },
+                image_url: '',
+                name: '',
+                price: '',
+                rating: ''
             }
         };
     }
@@ -28,14 +41,24 @@ export default class Products_Details extends React.Component {
                 </span>
             );
         });
+        let sub_category_data = (<p>No sub categories here!</p>);
+        if (this.state.product.sub_category !== undefined) {
+            sub_category_data = (
+                <span key={this.state.product.sub_category.id} className="label label-primary">
+                    <a href={'/sub_categories/' + this.state.product.sub_category.id}>{this.state.product.sub_category.name}</a>
+                </span>
+            );
+        }
         return (
-			<Container>
-				<Panel.Panel>
-					<Panel.Heading>
+            <Container>
+                <Panel.Panel>
+                    <Panel.Heading>
                         <h1 className="panel-title">{this.state.product.name}</h1>
-					</Panel.Heading>
-					<Panel.Body>
+                    </Panel.Heading>
+                    <Panel.Body>
                         <img className="img-thumbnail" src={this.state.product.image_url}/>
+                        <h5>Description: </h5>
+                        <p>{this.state.product.description}</p>
                         <h5>Price: </h5>
                         <p>{Number(this.state.product.price).toFixed(2)}</p>
                         <h5>Rating: </h5>
@@ -46,12 +69,18 @@ export default class Products_Details extends React.Component {
                         <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
-					</Panel.Body>
-				</Panel.Panel>
-			</Container>
+                        <h5>Category: </h5>
+                        <span key={this.state.product.category.id} className="label label-primary">
+                            <a href={'/categories/' + this.state.product.category.id}>{this.state.product.category.name}</a>
+                        </span>
+                        <h5>Sub Category: </h5>
+                        {sub_category_data}
+                    </Panel.Body>
+                </Panel.Panel>
+            </Container>
         );
     }
 }
 Products_Details.propTypes = {
-	id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };

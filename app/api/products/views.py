@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Product, Brand, ProductCategory, Category
+from app.models import Product, Brand, ProductCategory, Category, SubCategory
 
 api_products_blueprints = Blueprint(
     'api_products', __name__
@@ -8,7 +8,6 @@ api_products_blueprints = Blueprint(
 
 @api_products_blueprints.route('/api/products')
 def get_products():
-
     result = []
     for product in Product.query.all():
         product_json = dict()
@@ -39,6 +38,11 @@ def get_products():
         product_json['category'] = {
             'id': cats.id,
             'name': cats.name
+        }
+        sub_category = Category.query.filter_by(id=prodcat.sub_category_id).first()
+        product_json['sub_category'] = {
+            'id': sub_category.id,
+            'name': sub_category.name
         }
         product_json['tags'] = []
         for tag in product.tags:
@@ -89,6 +93,12 @@ def get_product(id):
             'id': cats.id,
             'name': cats.name
         }
+        if prodcat.sub_category_id != 1:
+            sub_category = SubCategory.query.filter_by(id=prodcat.sub_category_id).first()
+            result['sub_category'] = {
+                'id': sub_category.id,
+                'name': sub_category.name
+            }
     except AttributeError:
         print("Error with Product ID: " + id)
     return jsonify(result)
