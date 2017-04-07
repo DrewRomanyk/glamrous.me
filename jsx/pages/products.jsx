@@ -2,21 +2,33 @@
 import React from 'react';
 import { Caption, GridCell, Row, Thumbnail } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
+import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
 
 export default class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {products: []};
+		this.state = {
+			loaded: false,
+			products: []
+		};
     }
 
     componentDidMount() {
         $.getJSON(document.location.origin + '/api/products')
             .then((data) => {
-                this.setState({products: data});
+				this.setState({
+					loaded: true,
+					products: data
+				});
             });
     }
 
     render() {
+		if (!this.state.loaded) {
+			return (
+				<ClimbingBoxLoader />
+			);
+		}
         const productObjs = this.state.products.map(item => ({
 			filterables: [
 				{	name: 'Brand',
