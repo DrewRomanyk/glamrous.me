@@ -15,7 +15,8 @@ RUN python -m ensurepip && \
 		Flask-SQLAlchemy \
 		requests \
 		psycopg2 \
-		pylint
+		pylint \
+		coverage
 
 EXPOSE 5000
 EXPOSE 5432

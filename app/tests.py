@@ -3,12 +3,12 @@
 # pylint: disable=trailing-whitespace
 # pylint: disable=line-too-long
 
-from unittest import main, TestCase
+import unittest
 from . import app, db
 from .models import Brand, Category, SubCategory, Product, Color, Tag
 
 
-class UnitTests(TestCase):
+class UnitTests(unittest.TestCase):
     def test_model_brand_1(self):
         with app.test_request_context():
             brand = Brand('Pure Anada', 1.01, 4.02, 2,
@@ -189,5 +189,12 @@ class UnitTests(TestCase):
             db.session.commit()
 
 
-with app.test_request_context():
-    main()
+def suite():
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(UnitTests, 'test'))
+    return suite
+
+
+if __name__ == '__main__':
+    with app.test_request_context():
+        unittest.main()
