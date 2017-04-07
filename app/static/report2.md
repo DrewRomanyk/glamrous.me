@@ -521,8 +521,7 @@ Next, build the frontend assets.
 $ ./build.sh auto
 ```
 
-Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can get the IP address of the
-postgres container using `sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"`.
+Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can use `postgresql://glamrous@postgres/glamrous`.
 
 Finally, start the server.
 
