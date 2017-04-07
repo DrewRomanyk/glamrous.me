@@ -1,4 +1,7 @@
 from flask import Blueprint, jsonify
+import unittest
+import io
+from app.tests import suite
 
 api_test_blueprints = Blueprint(
     'api_test', __name__
@@ -12,4 +15,8 @@ test_data = {
 @api_test_blueprints.route('/api/test')
 def get_tests():
     # Run tests.py here
+    with open("unit-test.cache", "w") as stream:
+        testResult = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite())
+    with open("unit-test.cache") as stream:
+        test_data['result'] = stream.read()
     return jsonify(test_data)

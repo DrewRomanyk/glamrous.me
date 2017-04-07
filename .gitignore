@@ -9,6 +9,7 @@ products.json
 tags.json
 .pylintrc
 .coverage
+unit-test.cache
 
 # IDE files
 .idea
