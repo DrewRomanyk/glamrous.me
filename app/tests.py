@@ -180,7 +180,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_brands()
             brands = json.loads(res.data.decode())
-            self.assertEqual(len(brands), 42)
+            self.assertEqual(len(brands), 41)
 
     def test_endpoint_tag_1(self):
         with app.test_request_context():
