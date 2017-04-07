@@ -3,7 +3,7 @@ import os
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from app.app import app, db
+from app.__init__ import app, db
 
 app.config.from_json(os.getcwd() + "/config.json")
 

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Product, Brand
+from app.models import Product, Brand, ProductCategory, Category
 
 api_products_blueprints = Blueprint(
     'api_products', __name__
@@ -8,6 +8,7 @@ api_products_blueprints = Blueprint(
 
 @api_products_blueprints.route('/api/products')
 def get_products():
+
     result = []
     for product in Product.query.all():
         product_json = dict()
@@ -31,7 +32,13 @@ def get_products():
                 'name': color.name,
                 'hashcode': color.hashcode
             })
-
+        product_json['category'] = {}
+        prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+        cats = Category.query.filter_by(id=prodcat.category_id).first()
+        product_json['category'] = {
+            'id': cats.id,
+            'name': cats.name
+        }
         product_json['tags'] = []
         for tag in product.tags:
             product_json['tags'].append({
@@ -67,12 +74,19 @@ def get_product(id):
                 'hashcode': color.hashcode
             })
 
-            result['tags'] = []
+        result['tags'] = []
         for tag in product.tags:
             result['tags'].append({
                 'id': tag.id,
                 'name': tag.name
             })
+        result['category'] = {}
+        prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+        cats = Category.query.filter_by(id=prodcat.category_id).first()
+        result['category'] = {
+            'id': cats.id,
+            'name': cats.name
+        }
     except AttributeError:
         print("Error with Product ID: " + id)
     return jsonify(result)

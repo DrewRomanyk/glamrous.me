@@ -1,5 +1,4 @@
-from app.app import db
-from app.models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag
+from app.models import Brand, Product, Color, Category, SubCategory, ProductCategory, Tag, db
 from urllib.request import Request, urlopen
 import json
 from pathlib import Path
@@ -21,7 +20,6 @@ products = {}
 categories = {}
 tags = {}
 colors = {}
-
 
 def reset_db():
     db.drop_all()
@@ -343,3 +341,4 @@ for c in categories:
 # with the other tables
 for b in brands:
     insert_brand_product_relations(b, brands[b])
+
