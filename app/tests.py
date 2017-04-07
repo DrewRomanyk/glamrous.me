@@ -4,7 +4,15 @@
 # pylint: disable=line-too-long
 
 import unittest
+import requests
+import json
 from . import app, db
+from app.api.about.views import get_contributions
+from app.api.brands.views import get_brands, get_brand
+from app.api.products.views import get_products, get_product
+from app.api.tags.views import get_tags, get_tag
+from app.api.categories.views import get_categories, get_category
+
 from .models import Brand, Category, SubCategory, Product, Color, Tag
 
 
@@ -44,10 +52,6 @@ class UnitTests(unittest.TestCase):
             db.session.delete(brand)
             db.session.commit()
 
-    # def test_model_brand_3(self):
-    #     with app.test_request_context():
-    #         brand = Brand('Pure Anada', None, None, None, None)
-    #         self.assertEqual(brand, <Brand 'Pure Anada'>)
 
     def test_model_product_brand_1(self):
         with app.test_request_context():
@@ -97,10 +101,6 @@ class UnitTests(unittest.TestCase):
             db.session.delete(category)
             db.session.commit()
 
-    # def test_model_category_2(self):
-    #     with app.test_request_context():
-    #         category = Category('blush', 12.99, 2.13, 2)
-    #         self.assertEqual(category, <type 'blush'>)
 
     def test_model_category_3(self):
         with app.test_request_context():
@@ -125,11 +125,6 @@ class UnitTests(unittest.TestCase):
 
             db.session.delete(category)
             db.session.commit()
-
-    # def test_model_sub_category_2(self):
-    #     with app.test_request_context():
-    #         category = Category('pencil', 12.99, 2.13, 2)
-    #         self.assertEqual(category, "<type 'pencil'>")
 
     def test_model_sub_category_3(self):
         with app.test_request_context():
@@ -194,12 +189,58 @@ class UnitTests(unittest.TestCase):
             db.session.delete(tag)
             db.session.commit()
 
+    def test_endpoint_brand_1(self):
+        with app.test_request_context():
+            res = get_brand(0)
+            brands = json.loads(res.data.decode())
+            self.assertEqual(len(brands), 8)
+
+    def test_endpoint_brand_2(self):
+        with app.test_request_context():
+            res = get_brands()
+            brands = json.loads(res.data.decode())
+            self.assertEqual(len(brands), 3)
+
+    def test_endpoint_tag_1(self):
+        with app.test_request_context():
+            res = get_tag(0)
+            tags = json.loads(res.data.decode())
+            self.assertEqual(len(tags), 7)
+
+    def test_endpoint_tag_2(self):
+        with app.test_request_context():
+            res = get_tags()
+            tags = json.loads(res.data.decode())
+            self.assertEqual(len(tags), 3)
+
+    def test_endpoint_product_1(self):
+        with app.test_request_context():
+            res = get_product(0)
+            products = json.loads(res.data.decode())
+            self.assertEqual(len(products), 10)
+
+    def test_endpoint_product_2(self):
+        with app.test_request_context():
+            res = get_products()
+            products = json.loads(res.data.decode())
+            self.assertEqual(len(products), 3)
+
+    def test_endpoint_categories_1(self):
+        with app.test_request_context():
+            res = get_category(0)
+            categories = json.loads(res.data.decode())
+            self.assertEqual(len(categories), 7)
+
+    def test_endpoint_categories_2(self):
+        with app.test_request_context():
+            res = get_categories()
+            categories = json.loads(res.data.decode())
+            self.assertEqual(len(categories), 3)
 
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(UnitTests, 'test'))
     return suite
-
 
 if __name__ == '__main__':
     with app.test_request_context():

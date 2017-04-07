@@ -73,7 +73,7 @@ product_data = {
 
 
 @api_products_blueprints.route('/api/products')
-def get_brands():
+def get_products():
     product_data_list = [product_data[key] for key in product_data]
     return jsonify(product_data_list)
 

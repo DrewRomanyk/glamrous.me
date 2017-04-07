@@ -21,7 +21,6 @@ categories = {}
 tags = {}
 colors = {}
 
-
 def reset_db():
     db.drop_all()
     db.create_all()
@@ -332,8 +331,8 @@ for b in brands:
     insert_brand_product_relations(b, brands[b])
 
 
-class SetEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, set):
-            return list(obj)
-        return json.JSONEncoder.default(self, obj)
+# class SetEncoder(json.JSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, set):
+#             return list(obj)
+#         return json.JSONEncoder.default(self, obj)

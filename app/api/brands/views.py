@@ -92,8 +92,6 @@ brand_data = {
 
 @api_brands_blueprints.route('/api/brands')
 def get_brands():
-    for brand in Brand.query.all():
-        print(brand)
     brand_data_list = [brand_data[key] for key in brand_data]
     return jsonify(brand_data_list)
 

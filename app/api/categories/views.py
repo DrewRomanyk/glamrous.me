@@ -118,11 +118,11 @@ category_data = {
 
 
 @api_categories_blueprints.route('/api/categories')
-def get_brands():
+def get_categories():
     tag_data_list = [category_data[key] for key in category_data]
     return jsonify(tag_data_list)
 
 
 @api_categories_blueprints.route('/api/categories/<id>')
-def get_tag(id):
+def get_category(id):
     return jsonify(category_data[int(id)])
