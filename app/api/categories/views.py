@@ -8,7 +8,7 @@ api_categories_blueprints = Blueprint(
 
 @api_categories_blueprints.route('/api/categories')
 
-def get_brands():
+def get_categories():
     result = []
     for category in Category.query.all():
         category_json = dict()
@@ -22,7 +22,7 @@ def get_brands():
 
 
 @api_categories_blueprints.route('/api/categories/<id>')
-def get_tag(id):
+def get_category(id):
     result = {}
     try:
         category = Category.query.filter_by(id=id).first()
