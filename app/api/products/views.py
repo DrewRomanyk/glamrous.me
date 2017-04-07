@@ -32,13 +32,12 @@ def get_products():
                 'hashcode': color.hashcode
             })
         product_json['category'] = {}
-        prod_cat_query = ProductCategory.query.filter_by(product_id=product.id).first()
-        for prodcat in prod_cat_query:
-            cats = Category.query.filter_by(id=prodcat.category_id).first()
-            product_json['category'] = {
-                'id': cats.id,
-                'name': cats.name
-            }
+        prodcat = ProductCategory.query.filter_by(product_id=product.id).first()
+        cats = Category.query.filter_by(id=prodcat.category_id).first()
+        product_json['category'] = {
+            'id': cats.id,
+            'name': cats.name
+        }
         product_json['tags'] = []
         for tag in product.tags:
             product_json['tags'].append({
