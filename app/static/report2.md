@@ -740,11 +740,6 @@ Edit deploy.sh with the following:
 
 ```
 #! /bin/bash
-
-docker-ip() {
-  sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
-}
-
 echo "Connected to server, deploying to prod."
 
 echo "Killing existing glamrous-server instance..."
@@ -782,13 +777,8 @@ if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
     sudo ./postgres.sh detach
 fi
 
-DB_IP=$(docker-ip glamrous-postgres)
-
-echo "IP address of postgres container is $DB_IP"
-
 echo "Creating configuration file..."
 cp /var/www/config.json config.json > /dev/null
-sed -ie "s/IPADDRESS/${DB_IP}/g" config.json
 
 echo "Starting glamrous-server..."
 sudo ./start.sh detach
