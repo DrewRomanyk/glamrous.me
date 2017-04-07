@@ -3,23 +3,35 @@ import React from 'react';
 import { Caption, GridCell, Row } from '../ui/Bootstrap.jsx';
 import SortFilterPaginate, { FILTER_TYPE } from '../ui/SortFilterPaginate.jsx';
 import Block from 'jsxstyle/Block';
+import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
 export default class Brands extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {brands: []};
+        this.state = {
+        	loaded: false,
+        	brands: []
+        };
     }
 
     componentDidMount() {
         $.getJSON(document.location.origin + '/api/brands')
             .then((data) => {
-                this.setState({brands: data});
+                this.setState({
+                	loaded: true,
+                	brands: data
+                });
             });
     }
 
     render() {
+    	if (!this.state.loaded) {
+            return (
+                <ClimbingBoxLoader />
+            );
+        }
         const brandObjs = this.state.brands.map(item => ({
 			filterables: [
 				{	name: 'Category',

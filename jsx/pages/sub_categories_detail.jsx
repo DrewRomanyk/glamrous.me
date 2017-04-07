@@ -1,11 +1,13 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React, {PropTypes} from 'react';
+import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
 
 export default class Sub_Categories_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
         this.state = {
+            loaded: false,
             sub_category: {
                 id: 0,
                 products: [],
@@ -26,11 +28,16 @@ export default class Sub_Categories_Details extends React.Component {
     componentDidMount() {
         $.getJSON(document.location.origin + '/api/sub_categories/' + this.id)
             .then((data) => {
-                this.setState({sub_category: data});
+                this.setState({loaded: true, sub_category: data});
             });
     }
 
     render() {
+        if (!this.state.loaded) {
+            return (
+                <ClimbingBoxLoader />
+            );
+        }
         const brands = this.state.sub_category.brands.map(item => {
             return (
                 <span key={item.id} className='label label-primary'>
