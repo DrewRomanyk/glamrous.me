@@ -34,7 +34,7 @@ def get_tag(data):
                 results['Brand'][keyword] = set()
             contents = [brand.name]
             if search_for_keyword(keyword, contents):
-                results['Brand'][keyword][brand.id] |= {brand.id}
+                results['Brand'][keyword] |= {brand.id}
     # Products
     results['Product'] = {}
     for product in Product.query.all():
