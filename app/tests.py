@@ -8,7 +8,6 @@ import unittest
 import requests
 import json
 from . import app, db
-from app.api.about.views import get_contributions
 from app.api.brands.views import get_brands, get_brand
 from app.api.products.views import get_products, get_product
 from app.api.tags.views import get_tags, get_tag
@@ -166,19 +165,6 @@ class UnitTests(unittest.TestCase):
 
     def test_model_tag_1(self):
         with app.test_request_context():
-            tag = Tag('Cheese', 9.99, 1.25, 27)
-            db.session.add(tag)
-            db.session.commit()
-
-            query = db.session.query(Tag).filter_by(name='Cheese').count()
-
-            self.assertEqual(query, 1)
-
-            db.session.delete(tag)
-            db.session.commit()
-
-    def test_model_tag_2(self):
-        with app.test_request_context():
             tag = Tag('Bacon', 9.99, 1.25, 27)
             db.session.add(tag)
             db.session.commit()
@@ -192,51 +178,27 @@ class UnitTests(unittest.TestCase):
 
     def test_endpoint_brand_1(self):
         with app.test_request_context():
-            res = get_brand(0)
-            brands = json.loads(res.data.decode())
-            self.assertEqual(len(brands), 8)
-
-    def test_endpoint_brand_2(self):
-        with app.test_request_context():
             res = get_brands()
             brands = json.loads(res.data.decode())
-            self.assertEqual(len(brands), 3)
+            self.assertEqual(len(brands), 42)
 
     def test_endpoint_tag_1(self):
         with app.test_request_context():
-            res = get_tag(0)
-            tags = json.loads(res.data.decode())
-            self.assertEqual(len(tags), 7)
-
-    def test_endpoint_tag_2(self):
-        with app.test_request_context():
             res = get_tags()
             tags = json.loads(res.data.decode())
-            self.assertEqual(len(tags), 3)
+            self.assertEqual(len(tags), 10)
 
     def test_endpoint_product_1(self):
         with app.test_request_context():
-            res = get_product(0)
-            products = json.loads(res.data.decode())
-            self.assertEqual(len(products), 10)
-
-    def test_endpoint_product_2(self):
-        with app.test_request_context():
             res = get_products()
             products = json.loads(res.data.decode())
-            self.assertEqual(len(products), 3)
+            self.assertEqual(len(products), 615)
 
     def test_endpoint_categories_1(self):
         with app.test_request_context():
-            res = get_category(0)
-            categories = json.loads(res.data.decode())
-            self.assertEqual(len(categories), 7)
-
-    def test_endpoint_categories_2(self):
-        with app.test_request_context():
             res = get_categories()
             categories = json.loads(res.data.decode())
-            self.assertEqual(len(categories), 3)
+            self.assertEqual(len(categories), 10)
 
 def suite():
     suite = unittest.TestSuite()
