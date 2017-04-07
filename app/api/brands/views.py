@@ -11,6 +11,7 @@ def get_brands():
     result = []
     for brand in Brand.query.all():
         brand_json = dict()
+        brand_json['name'] = brand.name
         brand_json['id'] = brand.id
         brand_json['avg_price'] = brand.avg_price
         brand_json['avg_rating'] = brand.avg_rating
@@ -25,6 +26,7 @@ def get_brand(id):
     result = {}
     try:
         brand = Brand.query.filter_by(id=id).first()
+        result['name'] = brand.name
         result['id'] = brand.id
         result['avg_price'] = brand.avg_price
         result['avg_rating'] = brand.avg_rating

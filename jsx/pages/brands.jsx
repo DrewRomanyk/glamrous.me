@@ -1,6 +1,7 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
 import React from 'react';
-import { Caption, Container, GridCell, Row } from '../ui/Bootstrap.jsx';
+import { Caption, GridCell, Row } from '../ui/Bootstrap.jsx';
+import SortFilterPaginate from '../ui/SortFilterPaginate.jsx';
 
 // Credit: Use http://bootsnipp.com/snippets/featured/list-grid-view as a html template
 
@@ -18,8 +19,22 @@ export default class Brands extends React.Component {
     }
 
     render() {
-        const brands = this.state.brands.map(item => {
-            return (
+        const brandObjs = this.state.brands.map(item => ({
+			filterables: [
+
+			],
+			sortables: [
+				{	name: 'Name',
+					sort: item.name,
+				},
+				{	name: 'Price',
+					sort: item.avg_price,
+				},
+				{	name: 'Rating',
+					sort: item.avg_rating,
+				},
+			],
+			display: () => (
                 <div key={item.id} className="item  col-xs-6 col-lg-4">
                     <div className="card thumbnail">
                         <div className="card-img center-cropped"
@@ -37,14 +52,10 @@ export default class Brands extends React.Component {
 						</Caption>
                     </div>
                 </div>
-            );
-        });
+            )
+        }));
         return (
-			<Container>
-				<div id="brands" className="row list-group">
-					{ brands }
-				</div>
-			</Container>
+			<SortFilterPaginate data={brandObjs} />
         );
     }
 }
