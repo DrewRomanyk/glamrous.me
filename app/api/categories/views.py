@@ -16,6 +16,32 @@ def get_categories():
         category_json['avg_price'] = category.avg_price
         category_json['avg_rating'] = category.avg_rating
         category_json['num_products'] = category.num_products
+        category_json['brands'] = []
+        category_json['tags'] = []
+        tag_dict = dict()
+        brand_dict = dict()
+
+        product_cats = ProductCategory.query.filter_by(category_id=category.id).all()
+        for product_cat in product_cats:
+            product = Product.query.filter_by(id=product_cat.product_id).first()
+
+            brand = Brand.query.filter_by(id=product.brand_id).first()
+            brand_dict[brand.id] = {
+                'id': brand.id,
+                'name': brand.name
+            }
+
+            for tag in product.tags:
+                tag_dict[tag.id] = {
+                    'id': tag.id,
+                    'name': tag.name
+                }
+
+        for brand_key in brand_dict:
+            category_json['brands'].append(brand_dict[brand_key])
+        for tag_key in tag_dict:
+            category_json['tags'].append(tag_dict[tag_key])
+
         result.append(category_json)
     return jsonify(result)
 
@@ -37,12 +63,10 @@ def get_category(id):
         tag_dict = dict()
         brand_dict = dict()
         sub_cat_dict = dict()
-        product_cats = ProductCategory.query.filter_by(
-            category_id=category.id).all()
+        product_cats = ProductCategory.query.filter_by(category_id=category.id).all()
         for product_cat in product_cats:
             # Handle the product
-            product = Product.query.filter_by(
-                id=product_cat.product_id).first()
+            product = Product.query.filter_by(id=product_cat.product_id).first()
             product_json = dict()
             product_json['id'] = product.id
             product_json['name'] = product.name
@@ -58,7 +82,7 @@ def get_category(id):
                     'name': tag.name
                 }
             # Handle the sub_categories
-            if product_cat.sub_category_id is not None:
+            if product_cat.sub_category_id is not None and product_cat.sub_category_id != 1:
                 sub_category = SubCategory.query.filter_by(
                     id=product_cat.sub_category_id).first()
                 sub_cat_json = {

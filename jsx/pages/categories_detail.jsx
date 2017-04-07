@@ -1,5 +1,5 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 
 export default class Categories_Details extends React.Component {
     constructor(props) {
@@ -7,7 +7,12 @@ export default class Categories_Details extends React.Component {
         this.id = props.id;
         this.state = {
             category: {
-                products: [], brands: [], name: '', avg_price: '', avg_rating: ''
+                products: [],
+                brands: [],
+                sub_categories: [],
+                name: '',
+                avg_price: '',
+                avg_rating: ''
             }
         };
     }
@@ -34,6 +39,13 @@ export default class Categories_Details extends React.Component {
                 </span>
             );
         });
+        const sub_categories = this.state.category.sub_categories.map(item => {
+            return (
+                <span key={item.id} className='label label-primary'>
+                    <a href={'/sub_categories/' + item.id}>{item.name}</a>
+                </span>
+            );
+        });
         return (
             <div className="container">
 
@@ -54,6 +66,10 @@ export default class Categories_Details extends React.Component {
                         <div className="thumbnail horizontal-container">
                             {products}
                         </div>
+                        <h5>Sub Categories: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {sub_categories}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,5 +77,5 @@ export default class Categories_Details extends React.Component {
     }
 }
 Categories_Details.propTypes = {
-	id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };

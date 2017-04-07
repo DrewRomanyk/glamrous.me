@@ -21,6 +21,10 @@ export default class Categories extends React.Component {
     render() {
         const categoryObjs = this.state.categories.map(item => ({
 			filterables: [
+				{	name: 'Brand',
+					type: FILTER_TYPE.SELECTABLE,
+					value: item.brands.map(tagObj => tagObj.name),
+				},
 				{	name: 'Average Price',
 					type: FILTER_TYPE.RANGE,
 					value: item.avg_price,
