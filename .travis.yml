@@ -8,6 +8,8 @@ python:
 
 sudo: required
 
+privileged: true
+
 services:
   - docker
 
@@ -15,7 +17,7 @@ cache:
   directories:
     - node_modules
     - $HOME/google-cloud-sdk/
-    - __pychache__
+    - __pycache__
     - app/__pycache__
 
 notifications:
@@ -28,6 +30,7 @@ script:
   - make Dockerfile.db
   - make Dockerfile.server
   - make start-db
+  - sudo docker ps
   - make test
   - cat tests.tmp
 

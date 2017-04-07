@@ -29,7 +29,7 @@ $ rollup -cw
 
 #### Configuration
  * Copy `config.json.template` to `config.json` and fill out.
- * To get DB URI, use `docker inspect --format '{{ .NetworkSettings.IPAddress }}' "glamrous-postgres"`
+ * `SQLALCHEMY_DATABASE_URI` should be `postgresql://glamrous@postgres/glamrous`
 
 #### Start Server
 ```bash
@@ -37,8 +37,7 @@ $ ./start.sh [detach]
 ```
 
 ## Testing
-[Travis](https://travis-ci.org/DrewRomanyk/glamrous.me) runs tests automatically, but to run them on your machine first make sure no instances
-of `glamrous-db` are running.
+[Travis](https://travis-ci.org/DrewRomanyk/glamrous.me) runs tests automatically, but to run them on your machine:
 
 ```bash
 $ make Dockerfile.db
