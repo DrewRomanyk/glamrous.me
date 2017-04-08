@@ -1,4 +1,4 @@
-## Technical Report #2
+## Technical Report #3
 #### IDB Group #10 - Glamrous
 
 Drew Romanyk |
