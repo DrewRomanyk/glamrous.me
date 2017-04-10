@@ -30,7 +30,7 @@ app.register_blueprint(api_categories_blueprints)
 app.register_blueprint(api_test_blueprints)
 app.register_blueprint(api_about_blueprints)
 
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources=r'/api/*')
 
 # Client-side routing through React
 @app.route('/', defaults={'path': ''})
