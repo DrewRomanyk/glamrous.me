@@ -9,7 +9,7 @@ export default class Report extends React.Component {
 		this.state = {markdown: ''};
 	}
 	componentDidMount() {
-		$.get(document.location.origin + '/static/report2.md')
+		$.get(document.location.origin + '/static/report3.md')
 			.then((data) => {
 				this.setState({markdown: data});
 			});

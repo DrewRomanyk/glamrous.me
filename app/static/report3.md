@@ -355,7 +355,7 @@ num_products        Integer         number of products with this SubCategory
 
 #### Search
 
-TODO: Fill this in...
+We implemented search by using our own API backend. All that is required is the query, which is a string of keywords put into a list by splitting them by whitespaces between the words, for the API call. From there, it will search each attribute that makes sense to search, such as names, descriptions, or sub-objects within the models, such as colors for products. Once it collects this for each keyword, then it compares the keywords to each object id and type it found and combines same ids in order to form a AND result and always include for the OR results. For each of the results it will append to the context string of what it found that keyword with.
 
 ### Tools
 
