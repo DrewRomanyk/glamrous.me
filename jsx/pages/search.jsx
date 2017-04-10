@@ -45,8 +45,9 @@ export default class Search extends React.Component {
                     <Thumbnail>
                         <Caption>
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
-                            <p className="group inner list-group-item-text max-lines card-detail">{item.type}</p>
-                            <p className="group inner list-group-item-text max-lines card-detail">{item.id}</p>
+                            <p className="one-line card-detail">{item.type}</p>
+                            <p className="one-line card-detail">{item.id}</p>
+                            <p className="three-max-lines card-detail" dangerouslySetInnerHTML={{__html: item.context}}/>
                             <a className="card-btn btn" href={item.url_type + item.id}>View</a>
                         </Caption>
                     </Thumbnail>
@@ -66,8 +67,9 @@ export default class Search extends React.Component {
                         <Thumbnail>
                             <Caption>
                                 <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
-                                <p className="group inner list-group-item-text max-lines card-detail">{item.type}</p>
-                                <p className="group inner list-group-item-text max-lines card-detail">{item.id}</p>
+                                <p className="one-line card-detail">{item.type}</p>
+                                <p className="one-line card-detail">{item.id}</p>
+                                <p className="three-max-lines card-detail" dangerouslySetInnerHTML={{__html: item.context}}/>
                                 <a className="card-btn btn" href={item.url_type + item.id}>View</a>
                             </Caption>
                         </Thumbnail>

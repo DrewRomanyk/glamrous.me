@@ -75,7 +75,7 @@ export default class Products extends React.Component {
                              backgroundImage={'url(' + item.image_url + ' )'} />
 						 <Caption>
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
-                            <p className="group inner list-group-item-text max-lines card-detail">{item.description}</p>
+                            <p className="group inner list-group-item-text one-line card-detail">{item.description}</p>
 							<Row>
 								<GridCell xs={12} md={12}>
                                     <p className="card-detail">Brand: {item.brand.name}</p>

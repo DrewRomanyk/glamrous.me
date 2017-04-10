@@ -13,10 +13,22 @@ search_results = {
 
 
 def search_for_keyword(keyword, contents):
+    spacing_context = 4
     for content in contents:
-        if content.lower().find(keyword.lower()) != -1:
-            return True
-    return False
+        index = content.lower().find(keyword.lower())
+        if index != -1:
+            pre_str = content[max(0, index - spacing_context):index]
+            context_str = '<b>' + content[index: index + len(keyword)] + '</b>'
+            post_str = content[index + len(keyword):min(len(content), index + len(keyword) + spacing_context)]
+            context_str = pre_str + context_str + post_str
+            if max(0, index - spacing_context) > 0:
+                context_str = '...' + context_str
+            if min(len(content), index + len(keyword) + spacing_context) < len(content):
+                context_str += '...'
+            context_str = "'" + context_str + "'"
+
+            return True, context_str
+    return False, None
 
 
 @api_search_blueprints.route('/api/search/<data>')
@@ -29,68 +41,84 @@ def get_tag(data):
     # Brands
     results['Brand'] = {}
     for brand in Brand.query.all():
+        contents = [brand.name]
         for keyword in keywords:
             if keyword not in results['Brand']:
-                results['Brand'][keyword] = set()
-            contents = [brand.name]
-            if search_for_keyword(keyword, contents):
-                results['Brand'][keyword] |= {brand.id}
+                results['Brand'][keyword] = dict()
+            found, context = search_for_keyword(keyword, contents)
+            if found:
+                results['Brand'][keyword][brand.id] = context
     # Products
     results['Product'] = {}
     for product in Product.query.all():
+        contents = [product.name, product.description]
         for keyword in keywords:
             if keyword not in results['Product']:
-                results['Product'][keyword] = set()
-            contents = [product.name, product.description]
+                results['Product'][keyword] = dict()
             for color in product.colors:
                 contents.append(color.name)
-            if search_for_keyword(keyword, contents):
-                results['Product'][keyword] |= {product.id}
+            found, context = search_for_keyword(keyword, contents)
+            if found:
+                results['Product'][keyword][product.id] = context
     # Categories
     results['Category'] = {}
     for category in Category.query.all():
+        contents = [category.name]
         for keyword in keywords:
             if keyword not in results['Category']:
-                results['Category'][keyword] = set()
-            contents = [category.name]
-            if search_for_keyword(keyword, contents):
-                results['Category'][keyword] |= {category.id}
+                results['Category'][keyword] = dict()
+            found, context = search_for_keyword(keyword, contents)
+            if found:
+                results['Category'][keyword][category.id] = context
     # SubCategories
     results['Sub Category'] = {}
     for sub_category in SubCategory.query.all():
+        contents = [sub_category.name]
         for keyword in keywords:
             if keyword not in results['Sub Category']:
-                results['Sub Category'][keyword] = set()
-            contents = [sub_category.name]
-            if search_for_keyword(keyword, contents):
-                results['Sub Category'][keyword] |= {sub_category.id}
+                results['Sub Category'][keyword] = dict()
+            found, context = search_for_keyword(keyword, contents)
+            if found:
+                results['Sub Category'][keyword][sub_category.id] = context
     # Tags
     results['Tag'] = {}
     for tag in Tag.query.all():
+        contents = [tag.name]
         for keyword in keywords:
             if keyword not in results['Tag']:
                 results['Tag'][keyword] = set()
-            contents = [tag.name]
-            if search_for_keyword(keyword, contents):
-                results['Tag'][keyword] |= {tag.id}
+            found, context = search_for_keyword(keyword, contents)
+            if found:
+                results['Tag'][keyword][tag.id] = context
 
     search_results['and_results'] = []
     search_results['or_results'] = []
 
     for class_name in results:
         is_first_keyword = True
-        and_class_id_set = set()
-        or_class_id_set = set()
+        and_class_id_results = dict()
+        or_class_id_results = dict()
         for keyword in results[class_name]:
-            id_set = set()
+            id_results = dict()
             for id in results[class_name][keyword]:
-                id_set |= {id}
+                id_results[id] = results[class_name][keyword][id]
 
-            or_class_id_set |= id_set
+            for id in id_results:
+                if id in or_class_id_results:
+                    or_class_id_results[id] += ' or ' + id_results[id]
+                else:
+                    or_class_id_results[id] = id_results[id]
             if is_first_keyword:
-                and_class_id_set = id_set
+                and_class_id_results = id_results
             else:
-                and_class_id_set = and_class_id_set.intersection(id_set)
+                and_delete_set = set()
+                for and_id in and_class_id_results:
+                    if and_id in id_results:
+                        and_class_id_results[and_id] += ' and ' + id_results[and_id]
+                    else:
+                        and_delete_set |= {and_id}
+                for delete_id in and_delete_set:
+                    del and_class_id_results[delete_id]
 
             is_first_keyword = False
 
@@ -116,25 +144,27 @@ def get_tag(data):
             print("Model Class not found: " + class_name)
 
         # And
-        if len(and_class_id_set) > 0:
-            query = model_class.query.filter(model_class.id.in_(and_class_id_set)).all()
+        if len(and_class_id_results) > 0:
+            query = model_class.query.filter(model_class.id.in_(and_class_id_results.keys())).all()
             for obj in query:
                 search_results['and_results'].append({
                     'id': obj.id,
                     'type': class_name,
                     'url_type': url_class,
-                    'name': obj.name
+                    'name': obj.name,
+                    'context': and_class_id_results[obj.id]
                 })
 
         # Or
-        if len(or_class_id_set) > 0:
-            query = model_class.query.filter(model_class.id.in_(or_class_id_set)).all()
+        if len(or_class_id_results) > 0:
+            query = model_class.query.filter(model_class.id.in_(or_class_id_results)).all()
             for obj in query:
                 search_results['or_results'].append({
                     'id': obj.id,
                     'type': class_name,
                     'url_type': url_class,
-                    'name': obj.name
+                    'name': obj.name,
+                    'context': or_class_id_results[obj.id]
                 })
 
     return jsonify(search_results)
