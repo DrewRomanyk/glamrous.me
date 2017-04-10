@@ -47,7 +47,8 @@ export default class Search extends React.Component {
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
                             <p className="one-line card-detail">{item.type}</p>
                             <p className="one-line card-detail">{item.id}</p>
-                            <p className="three-max-lines card-detail" dangerouslySetInnerHTML={{__html: item.context}}/>
+                            <p className="three-max-lines card-detail"
+                               dangerouslySetInnerHTML={{__html: item.context}}/>
                             <a className="card-btn btn" href={item.url_type + item.id}>View</a>
                         </Caption>
                     </Thumbnail>
@@ -69,7 +70,8 @@ export default class Search extends React.Component {
                                 <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
                                 <p className="one-line card-detail">{item.type}</p>
                                 <p className="one-line card-detail">{item.id}</p>
-                                <p className="three-max-lines card-detail" dangerouslySetInnerHTML={{__html: item.context}}/>
+                                <p className="three-max-lines card-detail"
+                                   dangerouslySetInnerHTML={{__html: item.context}}/>
                                 <a className="card-btn btn" href={item.url_type + item.id}>View</a>
                             </Caption>
                         </Thumbnail>
@@ -87,7 +89,7 @@ export default class Search extends React.Component {
         return (
             <Container>
                 <h1>Search results for "{and_text}"</h1>
-                <SortFilterPaginate remove_bar='true' data={and_objs}/>
+                <SortFilterPaginate per_page="10" remove_bar='true' data={and_objs}/>
                 {or_search_results}
             </Container>
         );

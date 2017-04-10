@@ -19,7 +19,7 @@ class SortFilterPaginate extends Component {
             selectedAttributes: {},
             selectedText: [],
 
-            per_page: 6,
+            per_page: parseInt(this.props.per_page),
             offset: 0,
             page: 0,
         };
@@ -30,6 +30,8 @@ class SortFilterPaginate extends Component {
         this.changeBounds = this.changeBounds.bind(this);
         this.handlePageClick = this.handlePageClick.bind(this);
     }
+
+
 
     componentWillReceiveProps(props) {
         this.setState({
@@ -213,9 +215,15 @@ class SortFilterPaginate extends Component {
         );
     }
 }
+
+SortFilterPaginate.defaultProps = {
+    per_page: '6'
+};
+
 SortFilterPaginate.propTypes = {
     id: PropTypes.string,
     remove_bar: PropTypes.string,
+    per_page: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.shape({
         display: PropTypes.func.isRequired,
         filterables: PropTypes.arrayOf(
