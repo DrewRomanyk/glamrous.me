@@ -19,7 +19,7 @@ class SortFilterPaginate extends Component {
 			selectedAttributes: {},
 			selectedText: [],
 
-			per_page: 6,
+			per_page: this.props.perPage,
 			offset: 0,
 			page: 0,
 		};
@@ -202,6 +202,9 @@ class SortFilterPaginate extends Component {
 		);
 	}
 }
+SortFilterPaginate.defaultPRops = {
+	perPage: 6,
+};
 SortFilterPaginate.propTypes = {
 	id: PropTypes.string,
 	data: PropTypes.arrayOf(PropTypes.shape({
