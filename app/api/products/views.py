@@ -11,7 +11,6 @@ def get_products():
     result = []
     for product in Product.query.all():
         product_json = dict()
-        product_json['brand_id'] = product.brand_id
         brand = Brand.query.filter_by(id=product.brand_id).first()
         product_json['brand'] = {
             'id': brand.id,
@@ -59,7 +58,6 @@ def get_product(id):
     result = {}
     try:
         product = Product.query.filter_by(id=id).first()
-        result['brand_id'] = product.brand_id
         brand = Brand.query.filter_by(id=product.brand_id).first()
         result['brand'] = {
             'id': brand.id,

@@ -31,9 +31,9 @@ def search_for_keyword(keyword, contents):
     return False, None
 
 
-@api_search_blueprints.route('/api/search/<data>')
-def get_tag(data):
-    keywords = data.split(' ')
+@api_search_blueprints.route('/api/search/<query>')
+def get_tag(query):
+    keywords = query.split(' ')
     search_results['keywords'] = keywords
 
     # Search for keywords for the entire database

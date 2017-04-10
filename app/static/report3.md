@@ -64,7 +64,8 @@ cosmetics. The following is a list of use cases for Glamrous.me:
 
 #### RESTful API
 
-Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON object modeled after it’s backend model except for internal mapping tables.
+Glamrous.me has a fairly simple API. Every resource has a GET method which returns a JSON object modeled after its
+backend model except for internal mapping tables.
 
 ##### glamrous.me/products [GET]
 
@@ -74,16 +75,16 @@ the JSON object is a list of product JSON Objects. The product object matches th
 model closely. It has the following fields :
 
 ```
+description: string, description of the product
 id: integer, unique value that identifies the product in the backend
+image_url: string, link to the image of the product
+name: string, name of the product
+price: decimal, price of the product
+rating: decimal, rating of the product
 brand: object, brand of the product
     name: string, name of brand
     id: integer, primary key of brand
-name: string, name of the product 
-description: string, description of the product
-price: decimal, price of the product
-rating: decimal, rating of the product
-image_url: string, link to the image of the product
-colors: List of mini-color objects each containing:
+colors: List of color objects each containing:
     hashcode: string, hex value of the color
     name: string, name of color
     id: integer, primary key of color
@@ -93,6 +94,9 @@ tags: list of tags associated with product
 category: category associated with product
     id: integer, primary key of category
     name: string, name of category
+sub_category: sub category associated with product
+    id: integer, primary key of sub category
+    name: string, name of sub category
 ```
 
 ##### glamrous.me/products/:id [GET]
@@ -103,25 +107,28 @@ the JSON object is a product JSON Object. The product object matches the product
 model closely. It has the following fields :
 
 ```
+description: string, description of the product
 id: integer, unique value that identifies the product in the backend
+image_url: string, link to the image of the product
+name: string, name of the product
+price: decimal, price of the product
+rating: decimal, rating of the product
 brand: object, brand of the product
     name: string, name of brand
     id: integer, primary key of brand
-name: string, name of the product
-description: string, description of the product
-price: decimal, price of the product
-rating: decimal, rating of the product
-image_url: string, link to the image of the product
+category: category associated with product
+    id: integer, primary key of category
+    name: string, name of category
 colors: List of mini-color objects each containing:
     hashcode: string, hex value of the color
     name: string, name of color
     id: integer, primary key of color
+sub_category: optional field that will show the sub category associated with product
+    id: integer, primary key of sub category
+    name: string, name of sub category
 tags: list of tags associated with product
     id: integer, primary key of tag
     name: string, name of tag
-category: category associated with product
-    id: integer, primary key of category
-    name: string, name of category
 ```
 
 ##### glamrous.me/brands [GET]
@@ -132,12 +139,21 @@ object is a list of brand JSON Objects. The brand object matches the brand model
 It has the following fields :
 
 ```
-id: integer, unique brand id given by the backend server
-name: string, name of the brand
 avg_price: decimal, average price of all the products under the brand
 avg_rating: decimal, average rating of all the products under the brand
-num_products: integer, number of products under the brand
+id: integer, unique brand id given by the backend server
 image_url: string, link to the brand image
+name: string, name of the brand
+num_products: integer, number of products under the brand
+categories: list of categories
+    id: integer, primary key of category
+    name: string, name of category
+sub_categories: list of sub_categories
+    id: integer, primary key of sub_category
+    name: string, name of sub_category
+tags: list of tags associated with the brand
+    id: integer, primary key of tag
+    name: string, name of tag
 ```
 
 ##### glamrous.me/brands/:id [GET]
@@ -148,15 +164,21 @@ object is a brand JSON Object. The brand object matches the brand model closely.
 It has the following fields :
 
 ```
-id: integer, unique brand id given by the backend server
-name: string, name of the brand
 avg_price: decimal, average price of all the products under the brand
 avg_rating: decimal, average rating of all the products under the brand
-num_products: integer, number of products under the brand
+id: integer, unique brand id given by the backend server
 image_url: string, link to the brand image
+name: string, name of the brand
+num_products: integer, number of products under the brand
+categories: list of categories
+    id: integer, primary key of category
+    name: string, name of category
 products: list of product objects
     id: integer, primary key for product
     name: string, name of product
+sub_categories: list of sub_categories
+    id: integer, primary key of sub_category
+    name: string, name of sub_category
 tags: list of tags associated with the brand
     id: integer, primary key of tag
     name: string, name of tag
@@ -170,11 +192,17 @@ the JSON object is a list of category JSON Objects. The category object matches 
 category model closely. It has the following fields :
 
 ```
-id: integer, unique category id given by the backend server
-name: string, name of the category
 avg_price: decimal, average price of all products within this category
 avg_rating: decimal, average rating of all products within this category
+id: integer, unique category id given by the backend server
+name: string, name of the category
 num_products: integer, number of products within this category
+brands: list of brands associated with the category
+    name: string, name of brand
+    id: integer, primary key of brand
+tags: list of tags associated with the category
+    id: integer, primary key of tag
+    name: string, name of tag
 ```
 
 ##### glamrous.me/categories/:id [GET]
@@ -185,10 +213,10 @@ the JSON object is a category JSON Object. The category object matches the
 category model closely. It has the following fields :
 
 ```
-id: integer, unique category id given by the backend server
-name: string, name of the category
 avg_price: decimal, average price of all products within this category
 avg_rating: decimal, average rating of all products within this category
+id: integer, unique category id given by the backend server
+name: string, name of the category
 num_products: integer, number of products within this category
 brands: list of brands
     id: integer, primary key of brand
@@ -204,6 +232,33 @@ tags: list of tags
     name: string, name of tag
 ```
 
+##### glamrous.me/sub_categories/:id [GET]
+
+This API call will return a JSON object containing a sub category of the id. The HTTP
+response for a successful call will be 200 and will contain a JSON object. The format of
+the JSON object is a sub category JSON Object. The sub category object matches the
+sub category model closely. It has the following fields :
+
+```
+avg_price: decimal, average price of all products within this category
+avg_rating: decimal, average rating of all products within this category
+id: integer, unique category id given by the backend server
+name: string, name of the category
+num_products: integer, number of products within this category
+brands: list of brands
+    id: integer, primary key of brand
+    name: string, name of brand
+category: category associated with sub category
+    id: integer, primary key of category
+    name: string, name of category
+products: list of products
+    id: integer, primary key of product
+    name: string, name of product
+tags: list of tags
+    id: integer, primary key of tag
+    name: string, name of tag
+```
+
 ##### glamrous.me/tags [GET]
 
 This API call will return a JSON object containing all the tags held. The HTTP response
@@ -212,10 +267,10 @@ object is a list of tags JSON Objects. The tags object matches the tags model cl
 has the following fields:
 
 ```
-id: integer, unique tag id given by the backend server
-name: string, name of the tag
 avg_price: decimal, average price of all products associate with this tag
 avg_rating: decimal, average rating of all products associate with this tag
+id: integer, unique tag id given by the backend server
+name: string, name of the tag
 num_products: integer, number of products associate with this tag
 brands: list of brands
     id: integer, primary key of brand
@@ -230,10 +285,10 @@ object is a tag JSON Object. The tags object matches the tags model closely. It
 has the following fields:
 
 ```
-id: integer, unique tag id given by the backend server
-name: string, name of the tag
 avg_price: decimal, average price of all products associate with this tag
 avg_rating: decimal, average rating of all products associate with this tag
+id: integer, unique tag id given by the backend server
+name: string, name of the tag
 num_products: integer, number of products associate with this tag
 products: list of products
     id: integer, primary key of product
@@ -241,6 +296,28 @@ products: list of products
 brands: list of brands
     id: integer, primary key of brand
     name: string, name of brand
+```
+
+##### glamrous.me/search/:query [GET]
+
+This API call will return a JSON object containing an object that has the fields and_results, keywords, and or_results.
+The and_results field is a list of search objects that represents an AND on all the keywords in the query for all of the
+models. The keywords field is a list of keywords into a list by splitting the words by whitespace. The or_results field
+is a list of search objects that represents an OR on all of the keywords on the query for all the models. The HTTP
+response for a successful call will be 200 and will contain a JSON object. It has the following fields:
+
+```
+and_results: list of search objects
+    id: integer, primary key of type
+    name: string, name of object
+    type: string, type of object
+    url_type: string, url path for type
+keywords: list of strings that are the keywords of the query
+or_results: list of search objects
+    id: integer, primary key of type
+    name: string, name of object
+    type: string, type of object
+    url_type: string, url path for type
 ```
 
 #### Models
@@ -353,15 +430,16 @@ avg_rating          Float           the average rating for Products with this Su
 num_products        Integer         number of products with this SubCategory
 ```
 
-#### Search
-
-We implemented search by using our own API backend. All that is required is the query, which is a string of keywords put into a list by splitting them by whitespaces between the words, for the API call. From there, it will search each attribute that makes sense to search, such as names, descriptions, or sub-objects within the models, such as colors for products. Once it collects this for each keyword, then it compares the keywords to each object id and type it found and combines same ids in order to form a AND result and always include for the OR results. For each of the results it will append to the context string of what it found that keyword with.
-
 ### Tools
 
 #### Front-End
 
-For the frontend, Glamrous is using React & rollup. [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg) is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how our web app looks and functions to our end users. [Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw) is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
+For the frontend, Glamrous is using React & rollup.
+[React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)
+is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how
+our web app looks and functions to our end users.
+[Rollup](https://www.google.com/url?q=https://github.com/rollup/rollup&sa=D&ust=1490321471970000&usg=AFQjCNF7a3dcM6st5Ku-M_gTI4wdRcG9Sw)
+is a javascript bundler that compiles all of our front end code into one file and into normal javascript.
 
 Basic layout for the React files:
 
@@ -371,7 +449,13 @@ Basic layout for the React files:
 
 #### Back-End
 
-For the backend and API service, Glamrous is using [Flask](https://www.google.com/url?q=http://flask.pocoo.org/&sa=D&ust=1490321471972000&usg=AFQjCNGUbauaA4holcNJH3ncUaq5dmykQA). Flask is a microframework for Python, which allows us to route and control how our web application functions. Currently the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up to sub-modules that uses the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing service. Currently for the api, it just sends static json, but we plan to use data from our database in further versions. We also plan to use Postgres as our database.
+For the backend and API service, Glamrous is using
+[Flask](https://www.google.com/url?q=http://flask.pocoo.org/&sa=D&ust=1490321471972000&usg=AFQjCNGUbauaA4holcNJH3ncUaq5dmykQA).
+Flask is a microframework for Python, which allows us to route and control how our web application functions. Currently
+the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up to
+sub-modules that uses the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing
+service. For the api, it sends the model data from the database as specified from the RESTful API Design section of
+this report.
 
 #### Embedded-Media-Service
 
@@ -411,21 +495,32 @@ doesn't sometimes. We're putting off fixing that for stage two of the project.
 
 #### Getting Data
 
-In order to populate the database, we first had to create a script that would gather all of the cosmetics information. Once we had this information, we converted their schema into our own schema that would eventually fit into our own design and our database.
+In order to populate the database, we first had to create a script that would gather all of the cosmetics information.
+Once we had this information, we converted their schema into our own schema that would eventually fit into our own
+design and our database.
 
 #### Importing to Database
 
-From the json that we formated our schema into, we were able to create a script to parse through the data and insert it into our database as well defining the different relationships between our models. By collecting all of the data from their API into our own json file we avoided the issues of rate limiting from their site, their data changing from how we built our API to interpret it, and the off chance that their API goes offline or is removed. 
+From the json that we formated our schema into, we were able to create a script to parse through the data and insert it
+into our database as well defining the different relationships between our models. By collecting all of the data from
+their API into our own json file we avoided the issues of rate limiting from their site, their data changing from how
+we built our API to interpret it, and the off chance that their API goes offline or is removed.
 
 ### Hosting
 
 #### Introduction
 
-Glamrous is hosted on [Google Cloud Platform](https://www.google.com/url?q=https://cloud.google.com&sa=D&ust=1490321472013000&usg=AFQjCNHzfJtsBLbm3TSfkFPZSzsM9B3Fwg) using a g1-small Compute Engine VM running Ubuntu 16.04 LTS. Our particular instance is running in the us-central1-b zone.
+Glamrous is hosted on
+[Google Cloud Platform](https://www.google.com/url?q=https://cloud.google.com&sa=D&ust=1490321472013000&usg=AFQjCNHzfJtsBLbm3TSfkFPZSzsM9B3Fwg)
+using a g1-small Compute Engine VM running Ubuntu 16.04 LTS. Our particular instance is running in the us-central1-b
+zone.
 
-To set up a fresh deployment of Glamrous, first create a new Compute Engine instance using the Google Cloud Console. The choose at least a g1-small server and select a zone of your choice. For the sake of consistency, use Ubuntu 16.04 LTS.
+To set up a fresh deployment of Glamrous, first create a new Compute Engine instance using the Google Cloud Console.
+The choose at least a g1-small server and select a zone of your choice. For the sake of consistency, use Ubuntu 16.04
+LTS.
 
-The IP addressed assigned to your instance is initially ephemeral. Go to the Networking section of the Google Cloud Console and select “External IP addresses”. Change your instance’s IP to static.
+The IP addressed assigned to your instance is initially ephemeral. Go to the Networking section of the Google Cloud
+Console and select “External IP addresses”. Change your instance’s IP to static.
 
 #### nginx
 
@@ -437,7 +532,8 @@ $ sudo apt-get upgrade
 $ sudo apt-get install nginx
 ```
 
-nginx will handle incoming HTTP requests and forward them to our application. To do so, nginx needs to be properly configured. Edit /etc/nginx/sites-available/default with the following information:
+nginx will handle incoming HTTP requests and forward them to our application. To do so, nginx needs to be properly
+configured. Edit /etc/nginx/sites-available/default with the following information:
 
 ```
 server {
@@ -461,7 +557,8 @@ server {
 }
 ```
 
-Of course, replace glamrous.me with your domain name. When setting up your domain, create a DNS A record pointing to the static external IP created earlier.
+Of course, replace glamrous.me with your domain name. When setting up your domain, create a DNS A record pointing to
+the static external IP created earlier.
 
 Whenever nginx’s configuration is changed, restart the service:
 
@@ -471,7 +568,9 @@ $ sudo service nginx restart
 
 #### HTTPS
 
-For the sake of security, [LetsEncrypt](https://www.google.com/url?q=https://letsencrypt.org&sa=D&ust=1490321472036000&usg=AFQjCNFA8mkD7GtK25O7v-avuemkpagVjA) can be used to get a free SSL certificate. To do so:
+For the sake of security,
+[LetsEncrypt](https://www.google.com/url?q=https://letsencrypt.org&sa=D&ust=1490321472036000&usg=AFQjCNFA8mkD7GtK25O7v-avuemkpagVjA)
+can be used to get a free SSL certificate. To do so:
 
 ```
 $ sudo apt-get install letsencrypt
@@ -480,7 +579,8 @@ $ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 $ letsencrypt certonly --webroot -w /var/www/glamrous-static -d glamrous.me -d www.glamrous.me
 ```
 
-Go through the LetsEncrypt prompts until you see a success message. At this point, edit the nginx configuration from earlier to add the following:
+Go through the LetsEncrypt prompts until you see a success message. At this point, edit the nginx configuration from
+earlier to add the following:
 
 ```
 server {
@@ -525,7 +625,8 @@ server {
 }
 ```
 
-Note the domain name within the path to the SSL certificates. As always, restart nginx after saving the configuration file.
+Note the domain name within the path to the SSL certificates. As always, restart nginx after saving the configuration
+file.
 
 ```
 $ sudo service nginx restart
@@ -598,7 +699,8 @@ Next, build the frontend assets.
 $ ./build.sh auto
 ```
 
-Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can use `postgresql://glamrous@postgres/glamrous`.
+Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can use
+`postgresql://glamrous@postgres/glamrous`.
 
 Finally, start the server.
 
@@ -632,15 +734,20 @@ To start up the updated Glamrous instance, use the commands from the “Running�
 
 #### Continuous Deployment
 
-The above processes to update, stop, and start the Glamrous instance aren’t thatinvolved, but quickly get tedious with room for error. To make deployment a breeze, [Travis CI](https://www.google.com/url?q=https://travis-ci.org&sa=D&ust=1490321472096000&usg=AFQjCNFKjfX5zt_S1q3ENyIoe4tH4c2kpg) can be configured to automatically deploy to the Compute VM upon a successful build on master.
+The above processes to update, stop, and start the Glamrous instance aren’t thatinvolved, but quickly get tedious with
+room for error. To make deployment a breeze,
+[Travis CI](https://www.google.com/url?q=https://travis-ci.org&sa=D&ust=1490321472096000&usg=AFQjCNFKjfX5zt_S1q3ENyIoe4tH4c2kpg)
+can be configured to automatically deploy to the Compute VM upon a successful build on master.
 
 These next steps assume you’ve set up the server as described in the earlier sections.
 
 ##### Configuring Travis
 
-Note: It is assumed that the following section is performed on your development machine, NOT the Compute VM set up earlier.
+Note: It is assumed that the following section is performed on your development machine, NOT the Compute VM set up
+earlier.
 
-Connect Travis CI to the repository using the normal process. Create the project’s .travis.yml file in the repository root.
+Connect Travis CI to the repository using the normal process. Create the project’s .travis.yml file in the repository
+root.
 
 The .travis.yml file should look like the following for right now:
 
@@ -664,7 +771,8 @@ script:
  - echo "Hello world!"
 
  after_success:
- - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf                                         $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
+ - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf
+ $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
  - source /home/travis/google-cloud-sdk/path.bash.inc
  - tar -xzf credentials.tar.gz
  - gcloud version
@@ -672,9 +780,11 @@ script:
  - bash ./scripts/gcloud-deploy.sh
 ```
 
-Before continuing to edit the .travis.yml file, we need to create the necessary service account for Travis to access our Google Cloud project. To do this:
+Before continuing to edit the .travis.yml file, we need to create the necessary service account for Travis to access
+our Google Cloud project. To do this:
 
-1.  In your Cloud Platform Console project, open the [Credentials page](https://www.google.com/url?q=https://console.cloud.google.com/project/_/apiui/credential&sa=D&ust=1490321472105000&usg=AFQjCNEA2RYyYMpdTJsowr5eikDr6HFLVg).
+1.  In your Cloud Platform Console project, open the
+[Credentials page](https://www.google.com/url?q=https://console.cloud.google.com/project/_/apiui/credential&sa=D&ust=1490321472105000&usg=AFQjCNEA2RYyYMpdTJsowr5eikDr6HFLVg).
 2.  Click Create credentials > Service account key.
 3.  Under Service account select New service account.
 4.  Enter a Service account name such as continuous-integration-test.
@@ -683,13 +793,16 @@ Before continuing to edit the .travis.yml file, we need to create the necessary 
 7.  Click Create and download the JSON file to your computer.
 8.  Copy this file to the root of your GitHub repo and rename the file client-secret.json.
 
-With the client secret created, we need to encrypt the file to ensure it isn’t publicly readable. To do this, first [install the Travis command line utility.](https://www.google.com/url?q=https://github.com/travis-ci/travis.rb%23installation&sa=D&ust=1490321472111000&usg=AFQjCNE4ExGM8s_v8GEizmCuJ0aOnC_oVg) With the utility installed, login to Travis:
+With the client secret created, we need to encrypt the file to ensure it isn’t publicly readable. To do this, first
+[install the Travis command line utility.](https://www.google.com/url?q=https://github.com/travis-ci/travis.rb%23installation&sa=D&ust=1490321472111000&usg=AFQjCNE4ExGM8s_v8GEizmCuJ0aOnC_oVg)
+With the utility installed, login to Travis:
 
 ```
 $ sudo travis login
 ```
 
-Once logged in, navigate to the local repository and put client-secret.json (and any other files with secret keys) into a tarball.
+Once logged in, navigate to the local repository and put client-secret.json (and any other files with secret keys) into
+a tarball.
 
 ```
 $ tar -czf credentials.tar.gz client-secret.json
@@ -701,9 +814,11 @@ Next, encrypt credentials.tar.gz using the Travis utility:
 $ sudo travis encrypt-file credentials.tar.gz --add
 ```
 
-Note: Upon running this command successfully, remove client-secret.json, credentials.tar.gz, and any other sensitive files!
+Note: Upon running this command successfully, remove client-secret.json, credentials.tar.gz, and any other sensitive
+files!
 
-Travis will automatically edit your .travis.ymlfile to include the necessary command to decrypt the tarball during builds in the before_installstage. You can now edit the rest of your .travis.yml file as you see fit for testing.
+Travis will automatically edit your .travis.ymlfile to include the necessary command to decrypt the tarball during
+builds in the before_installstage. You can now edit the rest of your .travis.yml file as you see fit for testing.
 
 The configuration file will look similar to this:
 
@@ -722,11 +837,14 @@ cache:
 
 notifications:
    email: false before_install:
-   - openssl aes-256-cbc -K $encrypted_8f789aaec97f_key -iv                                         $encrypted_8f789aaec97f_iv -in credentials.tar.gz.enc -out                                 credentials.tar.gz -d script:
+   - openssl aes-256-cbc -K $encrypted_8f789aaec97f_key -iv
+   $encrypted_8f789aaec97f_iv -in credentials.tar.gz.enc -out
+   credentials.tar.gz -d script:
    - echo "Hello world!"
 
  after_success:
-   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf                                         $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com |                         bash; fi
+   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf
+   $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
    - source /home/travis/google-cloud-sdk/path.bash.inc
    - tar -xzf credentials.tar.gz
    - gcloud version
@@ -734,11 +852,13 @@ notifications:
    - bash ./scripts/gcloud-deploy.sh
 ```
 
-This configuration runs any necessary tests, etc. within the scriptstage. If this stage passes successfully, the after_success stage will be invoked. It is within this stage where deployment will take place.
+This configuration runs any necessary tests, etc. within the scriptstage. If this stage passes successfully, the
+after_success stage will be invoked. It is within this stage where deployment will take place.
 
 ###### Environment Variables
 
-Several environment variables need to be set for Travis to successfully run the configuration above. These can be set in the Travis project’s settings page.
+Several environment variables need to be set for Travis to successfully run the configuration above. These can be set
+in the Travis project’s settings page.
 
 *   `CLOUDSDK_CORE_DISABLE_PROMPTS`
     -   This should be set to a value of 1.
@@ -758,7 +878,8 @@ Several environment variables need to be set for Travis to successfully run the 
 
 ###### gcloud-auth
 
-gcloud-auth.sh is a script which authenticates Travis with Google Cloud Platform using the JSON file generated and encrypted earlier. It contains the following:
+gcloud-auth.sh is a script which authenticates Travis with Google Cloud Platform using the JSON file generated and
+encrypted earlier. It contains the following:
 
 ```
 #!/bin/bash
@@ -863,7 +984,8 @@ sudo ./start.sh detach
 echo "Finished deploying to prod."
 ```
 
-The script will stop any running containers, pull from git, rebuild the container, build the frontend, start the database as needed, and start a detached instance of Glamrous.
+The script will stop any running containers, pull from git, rebuild the container, build the frontend, start the
+database as needed, and start a detached instance of Glamrous.
 
 #### Start on Boot
 
