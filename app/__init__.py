@@ -5,7 +5,6 @@
 import os
 
 from flask import Flask, send_from_directory
-from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='/static')
@@ -32,9 +31,6 @@ app.register_blueprint(api_sub_categories_blueprints)
 app.register_blueprint(api_test_blueprints)
 app.register_blueprint(api_about_blueprints)
 app.register_blueprint(api_search_blueprints)
-
-CORS(app, resources=r'/api/*')
-
 
 # Client-side routing through React
 @app.route('/', defaults={'path': ''})
