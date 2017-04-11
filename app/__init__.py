@@ -9,7 +9,6 @@ from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='/static')
-CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 app.config.from_json(os.getcwd() + "/config.json")
 db = SQLAlchemy(app)
@@ -33,6 +32,8 @@ app.register_blueprint(api_sub_categories_blueprints)
 app.register_blueprint(api_test_blueprints)
 app.register_blueprint(api_about_blueprints)
 app.register_blueprint(api_search_blueprints)
+
+CORS(app, resources=r'/api/*')
 
 
 # Client-side routing through React

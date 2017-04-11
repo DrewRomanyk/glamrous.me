@@ -81,7 +81,7 @@ export default class Search extends React.Component {
             or_search_results = (
                 <div>
                     <h1>Search results for "{or_text}"</h1>
-                    <SortFilterPaginate remove_bar='true' data={or_objs}/>
+                    <SortFilterPaginate per_page="10" remove_bar='true' data={or_objs}/>
                 </div>
             );
         }
