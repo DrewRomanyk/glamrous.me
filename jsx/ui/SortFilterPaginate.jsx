@@ -202,7 +202,7 @@ class SortFilterPaginate extends Component {
 		);
 	}
 }
-SortFilterPaginate.defaultPRops = {
+SortFilterPaginate.defaultProps = {
 	perPage: 6,
 };
 SortFilterPaginate.propTypes = {
