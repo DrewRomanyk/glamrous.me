@@ -41,7 +41,7 @@ export default class Search extends React.Component {
             filterables: [],
             sortables: [],
             display: () => (
-                <div key={item.id} className="item col-xs-6 col-lg-4">
+                <div key={item.type + item.id} className="item col-xs-6 col-lg-4">
                     <Thumbnail>
                         <Caption>
                             <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>
@@ -64,7 +64,7 @@ export default class Search extends React.Component {
                 filterables: [],
                 sortables: [],
                 display: () => (
-                    <div key={item.id} className="item col-xs-6 col-lg-4">
+                    <div key={item.type + item.id} className="item col-xs-6 col-lg-4">
                         <Thumbnail>
                             <Caption>
                                 <h4 className="two-max-lines group inner list-group-item-heading">{item.name}</h4>

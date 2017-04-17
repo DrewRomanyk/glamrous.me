@@ -32,7 +32,6 @@ class SortFilterPaginate extends Component {
     }
 
 
-
     componentWillReceiveProps(props) {
         this.setState({
             allSorts: this.getAllSorts(props.data),
