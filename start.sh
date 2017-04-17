@@ -4,6 +4,7 @@ if [[ "$1" == "detach" ]]; then
 	FLAG="-d"
 fi
 exec sudo docker run \
+    --name glamrous-server \
 	-v $(pwd):/usr/web $FLAG \
 	-w /usr/web \
 	-p 8080:5000 \

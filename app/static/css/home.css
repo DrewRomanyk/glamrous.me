@@ -98,6 +98,11 @@ body {
     margin-bottom: .5em;
 }
 
+.card-detail b {
+    color: #673AB7;
+}
+
+
 .card-btn {
     margin-top: .5em;
 }
@@ -108,7 +113,13 @@ body {
     overflow: hidden; /* prevents extra lines from being visible */
 }
 
-.max-lines {
+.three-max-lines {
+    line-height: 1.5em;
+    height: 4.5em; /* height is 2x line-height, so two lines will display */
+    overflow: hidden; /* prevents extra lines from being visible */
+}
+
+.one-line {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -148,6 +159,7 @@ body {
 /* Search box */
 
 .searchBox {
+    padding-top: 16px;
     width: 20em;
     vertical-align: middle;
     white-space: nowrap;
@@ -159,7 +171,7 @@ body {
     height: 2.5em;
     border: none;
     background: #f5f5f5;
-    font-size: large;
+    font-size: 13px;
     float: left;
     padding-left: 45px;
     border-radius: 5px;
@@ -176,7 +188,7 @@ body {
     top: 50%;
     z-index: 1;
     margin-left: 1.4em;
-    margin-top: 0.85em;
+    margin-top: 0.99em;
 }
 
 .searchBox input.search::-webkit-input-placeholder {

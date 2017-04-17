@@ -1,13 +1,22 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
+import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
 
 export default class Brands_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
         this.state = {
+            loaded: false,
             brand: {
-                tags: [], products: [], name: '', avg_price: '', image_url: '', avg_rating: ''
+                tags: [],
+                products: [],
+                categories: [],
+                sub_categories: [],
+                name: '',
+                avg_price: '',
+                image_url: '',
+                avg_rating: ''
             }
         };
     }
@@ -15,11 +24,16 @@ export default class Brands_Details extends React.Component {
     componentDidMount() {
         $.getJSON(document.location.origin + '/api/brands/' + this.id)
             .then((data) => {
-                this.setState({brand: data});
+                this.setState({loaded: true, brand: data});
             });
     }
 
     render() {
+        if (!this.state.loaded) {
+            return (
+                <ClimbingBoxLoader />
+            );
+        }
         const products = this.state.brand.products.map(item => {
             return (
                 <span key={item.id} className="label label-primary">
@@ -31,6 +45,20 @@ export default class Brands_Details extends React.Component {
             return (
                 <span key={item.id} className="label label-primary">
                     <a href={'/tags/' + item.id}>{item.name}</a>
+                </span>
+            );
+        });
+        const categories = this.state.brand.categories.map(item => {
+            return (
+                <span key={item.id} className="label label-primary">
+                    <a href={'/categories/' + item.id}>{item.name}</a>
+                </span>
+            );
+        });
+        const sub_categories = this.state.brand.sub_categories.map(item => {
+            return (
+                <span key={item.id} className="label label-primary">
+                    <a href={'/sub_categories/' + item.id}>{item.name}</a>
                 </span>
             );
         });
@@ -55,6 +83,14 @@ export default class Brands_Details extends React.Component {
                         <div className="thumbnail horizontal-container">
                             {tags}
                         </div>
+                        <h5>Categories: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {categories}
+                        </div>
+                        <h5>Sub Categories: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {sub_categories}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,5 +98,5 @@ export default class Brands_Details extends React.Component {
     }
 }
 Brands_Details.propTypes = {
-	id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };

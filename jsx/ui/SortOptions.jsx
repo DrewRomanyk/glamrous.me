@@ -38,7 +38,7 @@ class SortOptions extends Component {
 				</Flex>
 				<div className='dropdown'>
 					<button className='btn btn-default dropdown-toggle' type='button' id='sortByDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-						{this.props.current} <Inline className='caret' marginLeft='5px' />
+						{this.props.current} <Inline className='caret' marginLeft='5px' marginBottom='4px' display='inline-block'/>
 					</button>
 					<ul className='dropdown-menu' aria-labelledby='sortByDropdown'>
 						{sorts.map( sort => dropdownItem(sort) )}

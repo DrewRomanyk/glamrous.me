@@ -14,6 +14,8 @@ import Tags from './pages/tags.jsx';
 import Tags_Details from './pages/tags_detail.jsx';
 import Categories from './pages/categories.jsx';
 import Categories_Details from './pages/categories_detail.jsx';
+import Sub_Categories_Details from './pages/sub_categories_detail.jsx';
+import Search from './pages/search.jsx';
 import Not_Found from './pages/not_found.jsx';
 
 const wrap = (name, component) => (
@@ -32,16 +34,18 @@ const Routed = () => (
 	<Router>
 		<Switch>
 			<Route exact path='/' render={() => wrap('Home', <Home />)} />
-			{route('/about',          'About',      About)}
-			{route('/report',         'Report',     Report)}
-			{route('/brands',         'Brands',     Brands)}
-			{route('/brands/:id',     'Brands',     Brands_Detail,      true)}
-			{route('/products',       'Products',   Products)}
-			{route('/products/:id',   'Products',   Products_Details,   true)}
-			{route('/categories',     'Categories', Categories)}
-			{route('/categories/:id', 'Products',   Categories_Details, true)}
-			{route('/tags',           'Tags',       Tags)}
-			{route('/tags/:id',       'Tags',       Tags_Details,       true)}
+			{route('/about',              'About',            About)}
+			{route('/report',             'Report',           Report)}
+			{route('/brands',             'Brands',           Brands)}
+			{route('/brands/:id',         'Brands',           Brands_Detail,      true)}
+			{route('/products',           'Products',         Products)}
+			{route('/products/:id',       'Products',         Products_Details,   true)}
+			{route('/categories',         'Categories',       Categories)}
+			{route('/categories/:id',     'Products',         Categories_Details, true)}
+			{route('/sub_categories/:id', 'Sub Categories',   Sub_Categories_Details, true)}
+			{route('/tags',               'Tags',             Tags)}
+			{route('/tags/:id',           'Tags',             Tags_Details,       true)}
+			{route('/search/:id',         'Search',           Search,             true)}
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>

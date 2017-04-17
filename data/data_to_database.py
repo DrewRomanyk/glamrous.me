@@ -12,7 +12,7 @@ with open('config.json') as f:
 # response = urllib.request.urlopen(url)
 # api_products = json.load(response)
 """ MODIFIED JSON """
-with open('makeup_products.json') as f:
+with open('data/makeup_products.json') as f:
     api_products = json.load(f)
 
 brands = {}
@@ -21,6 +21,7 @@ categories = {}
 tags = {}
 colors = {}
 
+
 def reset_db():
     db.drop_all()
     db.create_all()
@@ -28,7 +29,7 @@ def reset_db():
 
 def get_brand_images():
     brand_images = {}
-    brand_images_json_fn = 'brand_images.json'
+    brand_images_json_fn = 'data/brand_images.json'
     brand_images_json_file = Path(brand_images_json_fn)
     if not brand_images_json_file.is_file():
         # Create json
@@ -210,7 +211,7 @@ def insert_brand_product_relations(bname, b):
         cur_product = products[p]
         product = Product(brand.id, cur_product['name'], cur_product['description'],
                           float(format(cur_product['price'], '.2f')), float(
-                              format(cur_product['rating'], '.2f')),
+                format(cur_product['rating'], '.2f')),
                           cur_product['image_url'])
         db.session.add(product)
         db.session.flush()
@@ -341,4 +342,3 @@ for c in categories:
 # with the other tables
 for b in brands:
     insert_brand_product_relations(b, brands[b])
-

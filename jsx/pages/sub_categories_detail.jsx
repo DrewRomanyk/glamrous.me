@@ -2,17 +2,23 @@
 import React, {PropTypes} from 'react';
 import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
 
-export default class Categories_Details extends React.Component {
+export default class Sub_Categories_Details extends React.Component {
     constructor(props) {
         super(props);
         this.id = props.id;
         this.state = {
             loaded: false,
-            category: {
+            sub_category: {
+                id: 0,
                 products: [],
                 brands: [],
-                sub_categories: [],
+                tags: [],
                 name: '',
+                num_products: 0,
+                category: {
+                    id: 0,
+                    name: ''
+                },
                 avg_price: '',
                 avg_rating: ''
             }
@@ -20,9 +26,9 @@ export default class Categories_Details extends React.Component {
     }
 
     componentDidMount() {
-        $.getJSON(document.location.origin + '/api/categories/' + this.id)
+        $.getJSON(document.location.origin + '/api/sub_categories/' + this.id)
             .then((data) => {
-                this.setState({loaded: true, category: data});
+                this.setState({loaded: true, sub_category: data});
             });
     }
 
@@ -32,24 +38,24 @@ export default class Categories_Details extends React.Component {
                 <ClimbingBoxLoader />
             );
         }
-        const brands = this.state.category.brands.map(item => {
+        const brands = this.state.sub_category.brands.map(item => {
             return (
                 <span key={item.id} className='label label-primary'>
                     <a href={'/tags/' + item.id}>{item.name}</a>
                 </span>
             );
         });
-        const products = this.state.category.products.map(item => {
+        const products = this.state.sub_category.products.map(item => {
             return (
                 <span key={item.id} className='label label-primary'>
                     <a href={'/products/' + item.id}>{item.name}</a>
                 </span>
             );
         });
-        const sub_categories = this.state.category.sub_categories.map(item => {
+        const tags = this.state.sub_category.tags.map(item => {
             return (
                 <span key={item.id} className='label label-primary'>
-                    <a href={'/sub_categories/' + item.id}>{item.name}</a>
+                    <a href={'/tags/' + item.id}>{item.name}</a>
                 </span>
             );
         });
@@ -58,13 +64,17 @@ export default class Categories_Details extends React.Component {
 
                 <div className="panel panel-default">
                     <div className="panel-heading">
-                        <h1 className="panel-title">{this.state.category.name}</h1>
+                        <h1 className="panel-title">{this.state.sub_category.name}</h1>
                     </div>
                     <div className="panel-body">
                         <h5>Average price: </h5>
-                        <p>{Number(this.state.category.avg_price).toFixed(2)}</p>
+                        <p>{Number(this.state.sub_category.avg_price).toFixed(2)}</p>
                         <h5>Average rating: </h5>
-                        <p>{Number(this.state.category.avg_rating).toFixed(2)}</p>
+                        <p>{Number(this.state.sub_category.avg_rating).toFixed(2)}</p>
+                        <h5>Category: </h5>
+                        <span key={this.state.sub_category.category.id} className='label label-primary'>
+                            <a href={'/categories/' + this.state.sub_category.category.id}>{this.state.sub_category.category.name}</a>
+                        </span>
                         <h5>Brands: </h5>
                         <div className="thumbnail horizontal-container">
                             {brands}
@@ -73,9 +83,9 @@ export default class Categories_Details extends React.Component {
                         <div className="thumbnail horizontal-container">
                             {products}
                         </div>
-                        <h5>Sub Categories: </h5>
+                        <h5>Tags: </h5>
                         <div className="thumbnail horizontal-container">
-                            {sub_categories}
+                            {tags}
                         </div>
                     </div>
                 </div>
@@ -83,6 +93,6 @@ export default class Categories_Details extends React.Component {
         );
     }
 }
-Categories_Details.propTypes = {
+Sub_Categories_Details.propTypes = {
     id: PropTypes.string.isRequired,
 };

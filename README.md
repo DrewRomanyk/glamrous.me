@@ -2,6 +2,11 @@ glamrous.me
 ===========
 [![Build Status](https://travis-ci.org/DrewRomanyk/glamrous.me.svg?branch=master)](https://travis-ci.org/DrewRomanyk/glamrous.me)
 
+## Project Structure
+
+For stylization, we decided to change the placement of our .log and .html files to the documentation folder.
+
+
 ## Installation
 
 #### Requirements

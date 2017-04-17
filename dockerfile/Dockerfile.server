@@ -11,8 +11,6 @@ RUN python -m ensurepip && \
 	pip install --upgrade pip && \
 	pip install \
 		flask \
-		flask-cors \
-		Flask-Migrate \
 		Flask-SQLAlchemy \
 		requests \
 		psycopg2 \
@@ -20,4 +18,3 @@ RUN python -m ensurepip && \
 		coverage
 
 EXPOSE 5000
-EXPOSE 5432
