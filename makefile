@@ -47,6 +47,7 @@ docker-build:
 
 test:
 	cp config.json.test config.json
+	docker-compose --version
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up --exit-code-from app
 
 tests.tmp: clean .pylintrc
