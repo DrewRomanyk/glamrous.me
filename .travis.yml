@@ -35,6 +35,8 @@ before_install:
 script:
   - docker-compose -f docker-compose.yml -f docker-compose-test.yml build
   - sleep 8
+  - coverage-3.5 --version
+  - coverage-3.5 --help
   - make test
   - cat tests.tmp
 
