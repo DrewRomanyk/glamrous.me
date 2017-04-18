@@ -5,7 +5,7 @@ HOST: http://glmarous.me/
 
 Glamrous has a simple API that lets you get information all your favorite makeup items.
 
-## Products Collection [/product]
+## Products Collection [/products]
 
 ### List All Products [GET]
 
@@ -13,85 +13,76 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 
         [
           {
-            "brand": {
-              "id": 1, 
-              "name": "pure anada"
-            }, 
-            "brand_id": 1, 
-            "category": {
-              "id": 1, 
-              "name": "mascara"
-            }, 
+            "description": "One innovative product, two ways to double the impact of your unique eye color! Simply smooth the silky, weightless liquid over lids for a shimmering splash of eye-enhancing color, or top with powder shadow for an even bolder, longer lasting look. Either way, feel confident knowing that the built-in primer ensures that the multi-dimensional finish won’t crease, fade, or smudge all day!How to Use: Apply to the inner corner of the lid and blend outwards using fingers. Apply more for a bolder pop of color, or layer under your favorite intense i-color shadow kit for an even more intense look.",
+            "id": 1,
+            "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/757cf4197fe84ed9c1e2c21ed63d1be3_ra,w158,h184_pa,w158,h184.jpeg",
+            "name": "Almay Intense i-Color Liquid Shadow + Color Primer",
+            "price": 10.99,
+            "rating": 4.50,
+            "brand":
+                {
+                    "name": "almay",
+                    "id": 1
+                },
             "colors": [
-              {
-                "hashcode": "#3E2829", 
-                "id": 1, 
-                "name": "Brown "
-              }, 
-              {
-                "hashcode": "#000000", 
-                "id": 2, 
-                "name": "Black "
-              }
-            ], 
-            "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you\u2019", 
-            "id": 1, 
-            "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg", 
-            "name": "Pure Anada Natural Mascara", 
-            "price": 14.0, 
-            "rating": 4.6, 
+                {
+                    "hashcode": "#000000",
+                    "name": "Black",
+                    "id": 1
+                }
+            ],
             "tags": [
-              {
-                "id": 1, 
-                "name": "Canadian"
-              }, 
-              {
-                "id": 2, 
-                "name": "Gluten Free"
-              }, 
-              {
-                "id": 3, 
-                "name": "Natural"
-              }
-            ]
-          }, 
-          {
-            "brand": {
-              "id": 1, 
-              "name": "pure anada"
-            }, 
-            "brand_id": 1, 
+                {
+                    "id": 1,
+                    "name": "Organic"
+                }
+            ],
             "category": {
-              "id": 7, 
-              "name": "bronzer"
-            }, 
-            "colors": [
-              {
-                "hashcode": "#FFFFFF", 
-                "id": 1726, 
-                "name": "Earth "
-              }
-            ], 
-            "description": "Impart a healthy glow, with a Pure Anada luminous mineral bronzer!Shade Range:Ingredients: Mica,\u00a0 Iron Oxides, Ultramarines, May contain: Titanium Dioxide", 
-            "id": 2, 
-            "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/01195de6de1092125f703c5662d99af9_ra,w158,h184_pa,w158,h184.jpeg", 
-            "name": "Pure Anada Loose Mineral Luminous Bronzer", 
-            "price": 12.0, 
-            "rating": 5.0, 
-            "tags": [
-              {
-                "id": 1, 
-                "name": "Canadian"
-              }, 
-              {
-                "id": 3, 
-                "name": "Natural"
-              }
-            ]
-          }
+                "id": 1,
+                "name": "eyeshadow"
+            },
+            "sub_category": {
+                "id": 1,
+                "name": "pencil"
+            }
+            },
+            {
+                "description": "Almay Smart Shade™ makeup makes it easy to find “the one” with just three skintone-adjusting shades to choose from, not hundreds! It adjusts to the natural tones and nuances of your skin with breakthrough new Almay ToneMimic™ shade-sensing bead technology which intuitively transforms to your skintone for all day natural looking coverage in your perfect shade. Contains broad spectrum SPF 15. HYPOALLERGENIC. DERMATOLOGIST TESTED. MADE FOR SENSITIVE SKIN.Shade Range:",
+                "id": 2,
+                "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/afcbd92c05ea8b6452eabc80e2b9d549_ra,w158,h184_pa,w158,h184.jpeg",
+                "name": "Almay Smart Shade Skintone Matching Makeup",
+                "price": 17.29,
+                "rating": 4.50,
+                "brand": {
+                    "name": "almay",
+                    "id": 1
+                },
+                "colors": [
+                    {
+                        "hashcode": "#A0522D",
+                        "id": 1
+                    }
+                ],
+                "tags": [
+                    {
+                        "id": 1,
+                        "name": "Organic"
+                    }
+                ],
+                "category": {
+                    "id": 1,
+                    "name": "foundation"
+                },
+                "sub_category":{
+                    "id": 1,
+                    "name": "liquid"
+                }
+                
+            }
+          
         ]
 
-## Product Collection [/product/{product_id}]
+## Product Collection [/products/{product_id}]
 
 + Parameters
     + product_id (number) - ID of the product in the form of an integer
@@ -144,7 +135,7 @@ Glamrous has a simple API that lets you get information all your favorite makeup
           ]
         }
             
-## Brands Collection [/brand]
+## Brands Collection [/brands]
 
 ### List All Brands [GET]
 
@@ -221,8 +212,128 @@ Glamrous has a simple API that lets you get information all your favorite makeup
               }
         ]
 
+## Brand Collection [/brands/{brand_id}]
 
-## Category Collection [/category]
++ Parameters 
+    + brand_id (number) - ID of the brand in the form of an integer
+
+### List Information of Brand [GET]
+
++ Response 200 (application/json)
+
+        {
+            "avg_price": 12.79,
+            "avg_rating": 3.60,
+            "id": 1,
+            "image_url": "http://www.logotypes101.com/logos/848/4EB2A4D7683533F8F80ABEFC588C22B0/Almay.png,
+            "num_products": 14,
+            "categories": [
+                { 
+                    "id": 1,
+                    "name": "eyeliner"
+                },
+                {
+                    "id": 2,
+                    "name": "lipstick"
+                },
+                {
+                    "id": 3,
+                    "name": "foundation"
+                },
+                {
+                    "id": 4,
+                    "name": "eyeshadow"
+                },
+                {
+                    "id": 5,
+                    "name": "blush"
+                },
+                {
+                    "id": 6,
+                    "name": "masacara"
+                },
+                {
+                    "id": 7,
+                    "name": "bronzer"
+                }
+            ],
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Almay Smart Shade Anti-Aging Skintone Matching Makeup"
+                },
+                {
+                    "id": 2,
+                    "name": "Almay Smart Shade Skintone Matching Makeup"
+                },
+                {
+                    "id": 3,
+                    "name": "Almay Smart Shade Powder Bronzer"
+                },
+                {
+                    "id": 4,
+                    "name": "Almay Intense i-Color Volumizing Masacara"
+                },
+                {
+                    "id": 5,
+                    "name": "Almay One Coat Get Up & Grow Mascara"
+                },
+                {
+                    "id": 6,
+                    "name": "Almay Intense i-Color Liquid Shadow + Color Primer"
+                },
+                {
+                    "id": 7,
+                    "name": "Almay Intense i-Colour Play Up Liquid Liner"
+                },
+                {
+                    "id": 8,
+                    "name": "Almay Smart Shade Butter Kiss Lipstick"
+                },
+                {
+                    "id": 9,
+                    "name": "Almay One Coat Thickening Mascara"
+                },
+                {
+                    "id": 10,
+                    "name": "Almay Liquid Liner"
+                },
+                {
+                    "id": 11,
+                    "name": "Almay Intense i-Color Everyday Neutrals for Blue Eyes"
+                },
+                {
+                    "id": 12,
+                    "name": "Almay Smart Shade Powder Blush"
+                },
+                {
+                    "id": 13,
+                    "name": "Almay Intense i-Colour Bring Out Eyeliner"
+                },
+                {
+                    "id": 14,
+                    "name": "Almay Truly Lasting Color Makeup"
+                }
+            ],
+            "sub_categories": [
+                {
+                    "id": 1,
+                    "name": "powder"
+                },
+                {
+                    "id": 2,
+                    "name": "pencil"
+                },
+                {
+                    "id": 3,
+                    "name": "liquid"
+                }
+            ],
+            "tags": [
+            ]
+        }
+
+## Category Collection [/categories]
 
 ### List All Categories [GET]
 
@@ -238,7 +349,7 @@ Glamrous has a simple API that lets you get information all your favorite makeup
               }
         ]
             
-## Tags Collection [/tag]
+## Tags Collection [/tags]
 
 ### List All Tags [GET]
 
