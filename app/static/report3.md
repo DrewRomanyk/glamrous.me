@@ -667,24 +667,26 @@ $ sudo chmod -R 777 "$PWD"
 
 #### Running
 
-The easiest way to run Glamrous is to use [Docker](https://www.google.com/url?q=https://www.docker.com&sa=D&ust=1490321472074000&usg=AFQjCNHlmRwf4zVFAhylCPyOBsP_MF0ZjA).
+The easiest way to run Glamrous is to use [Docker](https://docker.com).
 
 ```
+$ # Install Docker
 $ sudo apt-get update
 $ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 $ sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 $ sudo apt-get update
 $ apt-cache policy docker-engine
 $ sudo apt-get install docker-engine
+$
+$ # Install Docker Compose
+$ curl -L https://github.com/docker/compose/releases/download/1.12.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+$ chmod +x /usr/local/bin/docker-compose
 ```
 
 With Docker installed, we can build the Glamrous container and get the server running.
 
 ```
-$ cd /var/www/glamrous-server/dockerfile
-$ docker build -t glamrous-db -f Dockerfile.db .
-$ docker build -t glamrous-dev -f Dockerfile.dev .
-$ docker build -t glamrous-server -f Dockerfile.server .
+$ docker-compose build
 ```
 
 Once the container is built, start Glamrous using start.sh in the repository root.
@@ -700,7 +702,7 @@ $ ./build.sh auto
 ```
 
 Create a `config.json` file using `config.json.template`. For `SQLALCHEMY_DATABASE_URI`, you can use
-`postgresql://glamrous@postgres/glamrous`.
+`postgresql://glamrous:glamrous1234@postgres/glamrous`.
 
 Finally, start the server.
 
@@ -940,46 +942,25 @@ Edit deploy.sh with the following:
 #! /bin/bash
 echo "Connected to server, deploying to prod."
 
-echo "Killing existing glamrous-server instance..."
-sudo docker kill $(sudo docker ps | grep "glamrous-server" | cut -d" " -f1)
-
-echo "Cleaning up exited containers..."
-sudo docker rm $(sudo docker ps -q -f status=exited)
-
 echo "Pulling latest from master..."
 cd /var/www/glamrous-server > /dev/null
 git fetch --all
 git checkout --force origin/master
 
-echo "Building dockerfiles..."
-cd dockerfile > /dev/null
-sudo docker build -t glamrous-db -f Dockerfile.db .
-sudo docker build -t glamrous-dev -f Dockerfile.dev .
-sudo docker build -t glamrous-server -f Dockerfile.server .
-
-cd ..
+echo "Building Docker containers..."
+docker-compose build
 
 echo "Grabbing latest npm dependencies..."
 sudo npm update
 
 echo "Building frontend..."
-sudo ./build.sh auto
-
-echo "Ensuring postgres container is running..."
-if [ ! "$(sudo docker ps -q -f name=glamrous-postgres)" ]; then
-    if [ "$(sudo docker ps -aq -f status=exited -f name=glamrous-postgres)" ]; then
-        echo "Cleaning up exited containers..."
-        docker rm glamrous-postgres
-    fi
-    echo "Starting postgres container..."
-    sudo ./postgres.sh detach
-fi
+sudo ./scripts/build.sh auto
 
 echo "Creating configuration file..."
 cp /var/www/config.json config.json > /dev/null
 
-echo "Starting glamrous-server..."
-sudo ./start.sh detach
+echo "Starting server..."
+docker-compose up -d
 
 echo "Finished deploying to prod."
 ```
