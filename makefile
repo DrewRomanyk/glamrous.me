@@ -48,11 +48,12 @@ docker-build:
 test:
 	cp config.json.test config.json
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up -d
-	echo $(docker wait glamrousme_app_1)
+	docker wait glamrousme_app_1
+	cat tests.tmp
 
 tests.tmp: clean .pylintrc
 	-$(PYLINT) run_tests.py
-	$(COVERAGE) run    --branch run_tests.py
+	$(COVERAGE) run    --branch run_tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
 	cat tests.tmp
 
