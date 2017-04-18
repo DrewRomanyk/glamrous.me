@@ -46,6 +46,8 @@ docker-build:
 	docker-compose build
 
 test:
+	coverage-3.5 --help
+	coverage-3.5 --version
 	cp config.json.test config.json
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
