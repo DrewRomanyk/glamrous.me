@@ -47,10 +47,7 @@ docker-build:
 
 test:
 	cp config.json.test config.json
-	docker-compose --version
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml create
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml start
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml run app make tests.tmp
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
 tests.tmp: clean .pylintrc
 	coverage-3.5 --help
