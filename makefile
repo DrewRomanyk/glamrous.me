@@ -42,14 +42,8 @@ IDB1.html:
 IDB1.log:
 	git log > IDB1.log
 
-Dockerfile.db:
-	cd dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
-
-Dockerfile.dev:
-	cd dockerfile && sudo docker build -t glamrous-dev -f Dockerfile.dev .
-
-Dockerfile.server:
-	cd dockerfile && sudo docker build -t glamrous-server -f Dockerfile.server .
+docker-build:
+	docker-compose build
 
 start-db:
 	sudo docker run -d \
