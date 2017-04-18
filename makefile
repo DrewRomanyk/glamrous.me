@@ -48,10 +48,8 @@ docker-build:
 test:
 	cp config.json.test config.json
 	docker-compose --version
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml create data
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml create postgres
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml start data
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml start postgres
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml create
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml start
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml run app make tests.tmp
 
 tests.tmp: clean .pylintrc
