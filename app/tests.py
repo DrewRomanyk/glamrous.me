@@ -191,17 +191,35 @@ class UnitTests(unittest.TestCase):
             tags = json.loads(res.data.decode())
             self.assertEqual(len(tags), 10)
 
+    def test_endpoint_tag_2(self):
+        with app.test_request_context():
+            res = get_tag(1)
+            tags = json.loads(res.data.decode())
+            self.assertEqual(len(tags), 1)
+
     def test_endpoint_product_1(self):
         with app.test_request_context():
             res = get_products()
             products = json.loads(res.data.decode())
             self.assertEqual(len(products), 615)
 
+    def test_endpoint_product_2(self):
+        with app.test_request_context():
+            res = get_product(1)
+            products = json.loads(res.data.decode())
+            self.assertGreater(len(products), 0)
+
     def test_endpoint_categories_1(self):
         with app.test_request_context():
             res = get_categories()
             categories = json.loads(res.data.decode())
             self.assertEqual(len(categories), 10)
+
+    def test_endpoint_categories_2(self):
+        with app.test_request_context():
+            res = get_categories()
+            categories = json.loads(res.data.decode())
+            self.assertGreater(len(categories), 0)
 
 
 def suite():
