@@ -421,7 +421,7 @@ Glamrous has a simple API that lets you get information all your favorite makeup
             "tags":[
                 {
                     "id": 1,
-                    "name": "Natural
+                    "name": "Natural"
                 },
                 {
                     "id": 2,
@@ -542,3 +542,66 @@ Glamrous has a simple API that lets you get information all your favorite makeup
                 ]
               }
         ]
+## Tag Collection [/tags/{tag_id}]
++ Parameters
+    + tag_id (number) - ID for tag as an Integer
+
+### List Information for Tag [GET]
+
++ Response 200 (application/json)
+
+        {
+            "avg_price": 14.99,
+            "avg_rating": 1.00,
+            "id": 1,
+            "name": "Dairy Free",
+            "num_products": 3,
+            "products": [
+                {
+                    "id": 1,
+                    "name": "moov"
+                }
+            ],
+            "brands":[
+                {
+                    "id": 1,
+                    "name": "Moov Cosmetics Home Grown Canuck Collection"
+                },
+                {
+                    "id": 2,
+                    "name": "Moov Cosmetics St. Tropez Collection"
+                },
+                {
+                    "id": 3,
+                    "name": "Moov Cosmetics Caribbean Wedding Collection"
+                }
+            ]
+            
+        }
+
+## Search Collection [/query]
+
+### List information of Search [GET]
+
++ Response 200 (application/json)
+
+        {
+            "and_results":[
+                {
+                    "id": 1,
+                    "name": "Physicians Formula Shimmer Strips Extreme",
+                    "type": "eyeliner",
+                    "url_type": "https://glamrous.me/products/3"
+                }
+            ],
+            "keywords":[
+                "eyeliner", 
+            ],
+            "or_results":[
+                {
+                    "id": 1,
+                    "name": "Physicians Formula Shimmer Strips Kohl Kajal Eyeliner Trio",
+                    "type": "eyeliner",
+                    "url_type": "https://glamrous.me/products/21r"
+                }
+            ]
