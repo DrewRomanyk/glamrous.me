@@ -181,9 +181,9 @@ class UnitTests(unittest.TestCase):
 
     def test_endpoint_brand_2(self):
         with app.test_request_context():
-            res = get_brands(1)
+            res = get_brand(1)
             brands = json.loads(res.data.decode())
-            self.assertEqual(len(brands), 1)
+            self.assertGreater(len(brands), 0)
 
     def test_endpoint_tag_1(self):
         with app.test_request_context():
