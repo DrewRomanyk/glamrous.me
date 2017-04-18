@@ -45,20 +45,9 @@ IDB1.log:
 docker-build:
 	docker-compose build
 
-start-db:
-	sudo docker run -d \
-	--name glamrous-postgres \
-	glamrous-db
-
 test:
 	cp config.json.test config.json
-	sudo docker run \
-	-v $(ROOT_DIR):/usr/web -t \
-	-w /usr/web \
-	-p 8081:5000 \
-	--link glamrous-postgres:postgres \
-	glamrous-server \
-	make tests.tmp
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
 tests.tmp: clean .pylintrc
 	-$(PYLINT) run_tests.py
