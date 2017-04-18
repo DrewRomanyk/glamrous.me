@@ -46,8 +46,6 @@ docker-build:
 	docker-compose build
 
 test:
-	ps aux | grep docker
-	netstat -pna | grep 5432
 	cp config.json.test config.json
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
@@ -55,6 +53,8 @@ tests.tmp: clean .pylintrc
 	-$(PYLINT) run_tests.py
 	$(COVERAGE) run    --branch run_tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
+	pwd
+	ls
 	cat tests.tmp
 
 clean:
