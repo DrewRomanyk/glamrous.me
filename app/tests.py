@@ -11,7 +11,7 @@ from app.api.brands.views import get_brands, get_brand
 from app.api.products.views import get_products, get_product
 from app.api.tags.views import get_tags, get_tag
 from app.api.categories.views import get_categories, get_category
-
+from app.api.about.views import get_contributions
 from .models import Brand, Category, SubCategory, Product, Color, Tag
 
 
