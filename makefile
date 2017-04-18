@@ -46,7 +46,8 @@ docker-build:
 	docker-compose build
 
 test:
-	docker ps
+	ps aux | grep docker
+	netstat -pna | grep 5432
 	cp config.json.test config.json
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
