@@ -46,6 +46,7 @@ docker-build:
 	docker-compose build
 
 test:
+	docker ps
 	cp config.json.test config.json
 	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
 
