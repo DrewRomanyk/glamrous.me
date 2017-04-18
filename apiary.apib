@@ -92,47 +92,41 @@ Glamrous has a simple API that lets you get information all your favorite makeup
 + Response 200 (application/json)
 
         {
+          "description": "Play up your eye color with dramatic contrasting color! Define your eyes with bold color. Comes with a precision tip applicator so you can smoothly and easily create a high impact look. Features: Hypoallergenic non-irritating Ophthalmologist Clinically and allergy tested Suitable for contact lens wearers",
+          "id": 1,
+          "image_url":"https://d3t32hsnjxo7q6.cloudfront.net/i/6cf30fccb626b5b1eacc9db7b29dc6c2_ra,w158,h184_pa,w158,h184.jpeg",
+          "name":"Almay Intense i-Colour Play Up Liquid Liner",
+          "price": 10.99,
+          "rating": 4.00,
           "brand": {
-            "id": 1, 
-            "name": "pure anada"
-          }, 
-          "brand_id": 1, 
-          "category": {
-            "id": 1, 
-            "name": "mascara"
-          }, 
-          "colors": [
+            "name": "almay",
+            "id": 1
+          },
+          "category":
             {
-              "hashcode": "#3E2829", 
-              "id": 1, 
-              "name": "Brown "
-            }, 
-            {
-              "hashcode": "#000000", 
-              "id": 2, 
-              "name": "Black "
-            }
-          ], 
-          "description": "Finally, a natural mascara you can feel good about putting on your lashes!\nIt is naturally paraben-free, gluten-free, and mercury-free. \nYou will be amazed at how well this mascara builds volume and length to your lashes.\nThis is the natural mascara you\u2019ve been waiting for!Ingredients: Aqua (Water), Oryza Sativa Wax (Rice Bran Wax), Olea Europea fruit oil \n(Olive Oil), Vegetable Source Cetyl Alcohol (Coconut), Coernica Cerifera\n (Carnauba Wax), Euphorbia Cerifera (Candelilla Wax), Vegetable \nGlycerin, Stearic Acid, Acacia Gum, Black Iron oxide (CI 77499),\u00a0 \nAminomethyl Popandiol (Ph Adjuster), Phenoxyethanol (Preservative).", 
-          "id": 1, 
-          "image_url": "https://d3t32hsnjxo7q6.cloudfront.net/i/afefede002b8d94f6e53ea07dd4070f9_ra,w158,h184_pa,w158,h184.jpg", 
-          "name": "Pure Anada Natural Mascara", 
-          "price": 14.0, 
-          "rating": 4.6, 
-          "tags": [
-            {
-              "id": 1, 
-              "name": "Canadian"
-            }, 
-            {
-              "id": 2, 
-              "name": "Gluten Free"
-            }, 
-            {
-              "id": 3, 
-              "name": "Natural"
-            }
-          ]
+                "id": 1,
+                "name": "eyeliner"
+            },
+          "colors":
+            [ 
+                {
+                    "hashcode":"#D3D3D3",
+                    "name": "lightgray",
+                    "id": 1
+                }
+            ],
+            "sub_category": 
+                {
+                    "id": 1,
+                    "name": "liquid"
+                },
+            "tags":
+                [
+                    {
+                        "id": 1,
+                        "name": "Canadian"
+                    }
+                ]
         }
             
 ## Brands Collection [/brands]
@@ -225,11 +219,11 @@ Glamrous has a simple API that lets you get information all your favorite makeup
             "avg_price": 12.79,
             "avg_rating": 3.60,
             "id": 1,
-            "image_url": "http://www.logotypes101.com/logos/848/4EB2A4D7683533F8F80ABEFC588C22B0/Almay.png,
+            "image_url": "http://www.logotypes101.com/logos/848/4EB2A4D7683533F8F80ABEFC588C22B0/Almay.png",
             "num_products": 14,
             "categories": [
                 { 
-                    "id": 1,
+                    "id": 1,    
                     "name": "eyeliner"
                 },
                 {
