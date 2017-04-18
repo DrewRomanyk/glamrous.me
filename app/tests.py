@@ -183,7 +183,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_brand(1)
             brands = json.loads(res.data.decode())
-            self.assertGreater(len(brands), 0)
+            self.assertEqual(len(brands), 10)
 
     def test_endpoint_tag_1(self):
         with app.test_request_context():
@@ -195,7 +195,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_tag(1)
             tags = json.loads(res.data.decode())
-            self.assertEqual(len(tags), 1)
+            self.assertEqual(len(tags), 7)
 
     def test_endpoint_product_1(self):
         with app.test_request_context():
@@ -207,7 +207,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_product(1)
             products = json.loads(res.data.decode())
-            self.assertGreater(len(products), 0)
+            self.assertEqual(len(products), 10)
 
     def test_endpoint_categories_1(self):
         with app.test_request_context():
@@ -219,7 +219,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_categories()
             categories = json.loads(res.data.decode())
-            self.assertGreater(len(categories), 0)
+            self.assertEqual(len(categories), 9)
 
 
 def suite():
