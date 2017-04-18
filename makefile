@@ -48,7 +48,9 @@ docker-build:
 test:
 	cp config.json.test config.json
 	docker-compose --version
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml up --exit-code-from app
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml start data
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml start postgres
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml run app make tests.tmp
 
 tests.tmp: clean .pylintrc
 	coverage-3.5 --help
