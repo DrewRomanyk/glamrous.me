@@ -46,12 +46,12 @@ docker-build:
 	docker-compose build
 
 test:
-	coverage-3.5 --help
-	coverage-3.5 --version
 	cp config.json.test config.json
-	docker-compose -f docker-compose.yml -f docker-compose-test.yml up
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml up --exit-code-from app
 
 tests.tmp: clean .pylintrc
+	coverage-3.5 --help
+	coverage --help
 	-$(PYLINT) run_tests.py
 	$(COVERAGE) run    --branch run_tests.py >  tests.tmp 2>&1
 	$(COVERAGE) report -m                      >> tests.tmp
