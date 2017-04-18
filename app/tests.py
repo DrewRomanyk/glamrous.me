@@ -201,6 +201,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_contributions()
             contributions = json.loads(res.data.decode())
+            self.assertGreater(len(contributions), 300)
 
 
 def suite():
