@@ -14,7 +14,6 @@ from app.api.categories.views import get_categories, get_category
 from app.api.about.views import get_contributions
 from .models import Brand, Category, SubCategory, Product, Color, Tag
 
-
 class UnitTests(unittest.TestCase):
     def test_model_brand_1(self):
         with app.test_request_context():
@@ -197,6 +196,11 @@ class UnitTests(unittest.TestCase):
             res = get_categories()
             categories = json.loads(res.data.decode())
             self.assertEqual(len(categories), 10)
+
+    def test_endpoint_about_1(self):
+        with app.test_request_context():
+            res = get_contributions()
+            contributions = json.loads(res.data.decode())
 
 
 def suite():
