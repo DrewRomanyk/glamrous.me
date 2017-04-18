@@ -14,21 +14,13 @@ For stylization, we decided to change the placement of our .log and .html files 
 
 #### Building containers
 ```bash
-$ cd dockerfile
-$ docker build -t glamrous-db -f Dockerfile.db .
-$ docker build -t glamrous-dev -f Dockerfile.dev .
-$ docker build -t glamrous-server -f Dockerfile.server .
-```
-
-#### Starting postgres
-```bash
-$ ./postgres.sh [detach]
+$ docker-compose build
 ```
 
 #### Build the frontend
 ```bash
 $ npm install
-$ ./build.sh
+$ ./scripts/build.sh
 $ rollup -cw
 ```
 
@@ -38,7 +30,7 @@ $ rollup -cw
 
 #### Start Server
 ```bash
-$ ./start.sh [detach]
+$ docker-compose up
 ```
 
 ## Testing

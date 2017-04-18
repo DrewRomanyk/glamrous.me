@@ -42,29 +42,14 @@ IDB1.html:
 IDB1.log:
 	git log > IDB1.log
 
-Dockerfile.db:
-	cd dockerfile && sudo docker build -t glamrous-db -f Dockerfile.db .
-
-Dockerfile.dev:
-	cd dockerfile && sudo docker build -t glamrous-dev -f Dockerfile.dev .
-
-Dockerfile.server:
-	cd dockerfile && sudo docker build -t glamrous-server -f Dockerfile.server .
-
-start-db:
-	sudo docker run -d \
-	--name glamrous-postgres \
-	glamrous-db
+docker-build:
+	docker-compose build
 
 test:
 	cp config.json.test config.json
-	sudo docker run \
-	-v $(ROOT_DIR):/usr/web -t \
-	-w /usr/web \
-	-p 8081:5000 \
-	--link glamrous-postgres:postgres \
-	glamrous-server \
-	make tests.tmp
+	docker-compose -f docker-compose.yml -f docker-compose-test.yml up -d
+	docker wait glamrousme_app_1
+	cat tests.tmp
 
 tests.tmp: clean .pylintrc
 	-$(PYLINT) run_tests.py
