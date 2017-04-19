@@ -421,7 +421,7 @@ Glamrous has a simple API that lets you get information all your favorite makeup
             "tags":[
                 {
                     "id": 1,
-                    "name": "Natural
+                    "name": "Natural"
                 },
                 {
                     "id": 2,
@@ -430,6 +430,64 @@ Glamrous has a simple API that lets you get information all your favorite makeup
             ]
         }
             
+## SubCategories Collection [/sub_categories/{sub_category_id}]
++ Parameters 
+    + sub_category_id (number) - ID of the sub_category in the form of an integer
+
+### List Information of Sub_Category [GET]
+
++ Response 200 (application/json)
+
+        {
+            "avg_price": 11.36,
+            "avg_rating": 2.54,
+            "id": 1,
+            "name": "pencil",
+            "num_products": 53,
+            "brands": 
+                [
+                    {
+                        "id": 1,
+                        "name":"physicians formula"
+                    },
+                    {
+                        "id": 2,
+                        "name": "wet n wild"
+                    }
+                ],
+            "products":
+                [
+                    {
+                        "id": 1,
+                        "name": "Physicians Formula Shimmer Strips Extreme Shimmer Eyeliner Trio in Nude"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Revlon PhotoReady Kajal Matte Eye Pencil"
+                    }
+                ],
+            "tags":
+                [
+                    {
+                        "id": 1,
+                        "name": "vegan"
+                    },
+                    {
+                        "id": 2,
+                        "name": "natural"
+                    },
+                    {
+                        "id":3,
+                        "name": "Candadian"
+                    },
+                    {
+                        "id": 4,
+                        "name": "gluten free"
+                    }
+                ]
+        }
+
+
 
 ## Tags Collection [/tags]
 
@@ -440,7 +498,10 @@ Glamrous has a simple API that lets you get information all your favorite makeup
         [
             {
                 "avg_price": 17.77, 
-                "avg_rating": 2.97, 
+                "avg_rating": 2.97,
+                "id": 1,
+                "name": "Canadian",
+                "num_products": 51,
                 "brands": [
                   {
                     "id": 1, 
@@ -478,9 +539,69 @@ Glamrous has a simple API that lets you get information all your favorite makeup
                     "id": 40, 
                     "name": "saint cosmetics"
                   }
-                ], 
-                "id": 1, 
-                "name": "Canadian", 
-                "num_products": 51
+                ]
               }
         ]
+## Tag Collection [/tags/{tag_id}]
++ Parameters
+    + tag_id (number) - ID for tag as an Integer
+
+### List Information for Tag [GET]
+
++ Response 200 (application/json)
+
+        {
+            "avg_price": 14.99,
+            "avg_rating": 1.00,
+            "id": 1,
+            "name": "Dairy Free",
+            "num_products": 3,
+            "products": [
+                {
+                    "id": 1,
+                    "name": "moov"
+                }
+            ],
+            "brands":[
+                {
+                    "id": 1,
+                    "name": "Moov Cosmetics Home Grown Canuck Collection"
+                },
+                {
+                    "id": 2,
+                    "name": "Moov Cosmetics St. Tropez Collection"
+                },
+                {
+                    "id": 3,
+                    "name": "Moov Cosmetics Caribbean Wedding Collection"
+                }
+            ]
+            
+        }
+
+## Search Collection [/query]
+
+### List information of Search [GET]
+
++ Response 200 (application/json)
+
+        {
+            "and_results":[
+                {
+                    "id": 1,
+                    "name": "Physicians Formula Shimmer Strips Extreme",
+                    "type": "eyeliner",
+                    "url_type": "https://glamrous.me/products/3"
+                }
+            ],
+            "keywords":[
+                "eyeliner", 
+            ],
+            "or_results":[
+                {
+                    "id": 1,
+                    "name": "Physicians Formula Shimmer Strips Kohl Kajal Eyeliner Trio",
+                    "type": "eyeliner",
+                    "url_type": "https://glamrous.me/products/21r"
+                }
+            ]
