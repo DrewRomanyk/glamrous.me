@@ -48,7 +48,7 @@ const TheGlamFam = (props) => {
             <TeamMember
                 name='Drew Romanyk'
                 image='drew.jpg'
-                role='Frontend & Backend'
+                role='Frontend & Backend & Devops'
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
                 + 'intern with RetailMeNot over the summer.'}
@@ -74,7 +74,7 @@ const TheGlamFam = (props) => {
             <TeamMember
                 image='mpark.jpg'
                 name='Melody Park'
-                role='Frontend & Backend'
+                role='Frontend & API'
                 about={'Fourth year UT student who likes to get swole. Weenie on '
                 + 'the outside. Dragon on the inside.'}
                 contrib={{...stats('myopark'), tests: 0}}
@@ -82,7 +82,7 @@ const TheGlamFam = (props) => {
             <TeamMember
                 image='thomasp.jpg'
                 name='Thomas Potnuru'
-                role='API & Backend'
+                role='Project 1 API Documentation'
                 about={"Currently a senior at UT Austin doing my Bachelor's in "
                 + 'Computer Sceince. I am a IEEE Computer Society Officer '
                 + 'again this year! Usually making and eating dessert in my '
