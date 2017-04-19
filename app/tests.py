@@ -219,7 +219,7 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_categories()
             categories = json.loads(res.data.decode())
-            self.assertEqual(len(categories), 9)
+            self.assertEqual(len(categories), 10)
 
 
 def suite():
