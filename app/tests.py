@@ -102,6 +102,18 @@ class UnitTests(unittest.TestCase):
             db.session.delete(category)
             db.session.commit()
 
+    def test_model_category_2(self):
+        with app.test_request_context():
+            category = Category('spray', 3.0, 4.5, 3)
+            db.session.add(category)
+            db.session.commit()
+
+            query = db.session.query(Category).filter_by(name='spray').first()
+            self.assertEqual(query.avg_rating, 4.5)
+
+            db.session.delete(category)
+            db.session.commit()
+
     def test_model_category_3(self):
         with app.test_request_context():
             category = Category('paint', 12.99, 2.13, None)
@@ -121,6 +133,18 @@ class UnitTests(unittest.TestCase):
 
             query = db.session.query(SubCategory).filter_by(name='pen').first()
             self.assertEqual(query.avg_price, 12.99)
+
+            db.session.delete(category)
+            db.session.commit()
+
+    def test_model_sub_category_2(self):
+        with app.test_request_context():
+            category = SubCategory('pen', 12.99, 2.13, 2)
+            db.session.add(category)
+            db.session.commit()
+
+            query = db.session.query(SubCategory).filter_by(name='pen').first()
+            self.assertEqual(query.avg_rating, 2.13)
 
             db.session.delete(category)
             db.session.commit()
