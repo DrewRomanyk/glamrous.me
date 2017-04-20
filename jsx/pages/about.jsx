@@ -144,6 +144,7 @@ export default class About extends React.Component {
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me/issues">Github Issue Tracker</a>
                             </li>
                             <li><a href="https://github.com/DrewRomanyk/glamrous.me">Github Repo</a></li>
+                            <li><a href="https://docs.google.com/presentation/d/1kn9sclM0iOja9gl7rkz6aoODG4R9ds07qwSKuvAXTGw/edit?usp=sharing">Class Presentation</a></li>
                         </ul>
                     </GridCell>
                     <GridCell lg={4}>
