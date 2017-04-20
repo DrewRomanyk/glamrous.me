@@ -303,7 +303,7 @@ brands: list of brands
 This API call will return a JSON object containing an object that has the fields and_results, keywords, and or_results.
 The and_results field is a list of search objects that represents an AND on all the keywords in the query for all of the
 models. The keywords field is a list of keywords into a list by splitting the words by whitespace. The or_results field
-is a list of search objects that represents an OR on all of the keywords on the query for all the models. The HTTP
+is a list of search objects that represents an OR on all of the keywords in the query for all the models. The HTTP
 response for a successful call will be 200 and will contain a JSON object. It has the following fields:
 
 ```
@@ -391,7 +391,7 @@ Attributes:
 id              Integer         numerical identifier for this model
 name            String          name of the Tag
 avg_price       Float           the average price for Products with this Tag
-avg_rating      Float           the average rating fro Products with this Tag
+avg_rating      Float           the average rating for Products with this Tag
 num_products    Integer         number of products with this Tag
 ```
 
@@ -408,7 +408,7 @@ Attributes:
 id                  Integer         numerical identifier for this model
 name                String          name of the Category
 avg_price           Float           the average price for Products with this Category
-avg_rating          Float           the average rating fro Products with this Category
+avg_rating          Float           the average rating for Products with this Category
 num_products        Integer         number of products with this Category
 ```
 
@@ -432,7 +432,7 @@ num_products        Integer         number of products with this SubCategory
 
 #### Search
 
-Search is available on all pages, since it is on the navigation bar. Once a user presses enter on their query, it is
+Search is available on all pages since it is on the navigation bar. Once a user presses enter on their query, it is
 sent to the react page, which then requests a search API call on the query. It then displays all of the items and
 highlights the context of why it was found due to the keywords. Our search looks through all of the names and
 descriptions of all of our models.
@@ -441,7 +441,7 @@ descriptions of all of our models.
 
 #### Front-End
 
-For the frontend, Glamrous is using React & rollup.
+For the frontend, Glamrous is using React & Rollup.
 [React](https://www.google.com/url?q=https://facebook.github.io/react/&sa=D&ust=1490321471969000&usg=AFQjCNFv9Oo93qwAdGzVMuJem3TB5hAsYg)
 is a javascript library for building user interfaces, which allows us to route all client-side paths, and control how
 our web app looks and functions to our end users.
@@ -459,9 +459,9 @@ Basic layout for the React files:
 For the backend and API service, Glamrous is using
 [Flask](https://www.google.com/url?q=http://flask.pocoo.org/&sa=D&ust=1490321471972000&usg=AFQjCNGUbauaA4holcNJH3ncUaq5dmykQA).
 Flask is a microframework for Python, which allows us to route and control how our web application functions. Currently
-the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up to
-sub-modules that uses the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing
-service. For the api, it sends the model data from the database as specified from the RESTful API Design section of
+the Flask app routes all client-side routing to the React routing service, while the API-side routing is broken up into
+sub-modules that use the Flask blueprints methodology to integrate each api endpoint modularly into Flask’s routing
+service. For the API, it sends the model data from the database as specified by the RESTful API Design section of
 this report.
 
 #### Embedded-Media-Service
@@ -473,7 +473,7 @@ For embedding media, we used HTML to display our images.
 #### Docker
 
 To prevent everyone needing to install their own versions of the software used, all
-development and running is performed through `docker`. Install that on your local machine
+development and running are performed through `docker`. Install that on your local machine
 however you do, then build our two images:
 
 ```bash
@@ -489,14 +489,14 @@ $ docker pull postgres
 ```
 
 Then, from the project root, run `./postgres.sh [detach]` to spin up the Postgres daemon
-(adding `detach` runs it in the backgroun), followed by `./start.sh [detach]` to start the
+(adding `detach` runs it in the background), followed by `./start.sh [detach]` to start the
 server (adding `detach`, unsurprisingly, also runs it in the background). 
 
 Run `./build.sh` to open up a `tmux` window with the tools you'll need for building
 already installed---in particular, run `rollup -cw` to watch for and rebundle javascript
-changes. It may be necessary, depending on machine (we think...?) to run `npm install`
+changes. It may be necessary, depending on machine to run `npm install`
 before launching `./build.sh`; the image is supposed to do that automatically but it just
-doesn't sometimes. We're putting off fixing that for stage two of the project.
+doesn't sometimes.
 
 ### Database
 
@@ -522,7 +522,7 @@ Glamrous is hosted on
 using a g1-small Compute Engine VM running Ubuntu 16.04 LTS. Our particular instance is running in the us-central1-b
 zone.
 
-To set up a fresh deployment of Glamrous, first create a new Compute Engine instance using the Google Cloud Console.
+To set up a fresh deployment of Glamrous, first, create a new Compute Engine instance using the Google Cloud Console.
 The choose at least a g1-small server and select a zone of your choice. For the sake of consistency, use Ubuntu 16.04
 LTS.
 
