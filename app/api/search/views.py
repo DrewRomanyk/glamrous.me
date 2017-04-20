@@ -32,7 +32,7 @@ def search_for_keyword(keyword, contents):
 
 
 @api_search_blueprints.route('/api/search/<query>')
-def get_tag(query):
+def get_search_results(query):
     keywords = query.split(' ')
     search_results['keywords'] = keywords
 
