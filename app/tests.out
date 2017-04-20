@@ -1,20 +1,22 @@
-test_endpoint_brand_1 (app.tests.UnitTests) ... ok
-test_endpoint_categories_1 (app.tests.UnitTests) ... ok
-test_endpoint_product_1 (app.tests.UnitTests) ... ok
-test_endpoint_tag_1 (app.tests.UnitTests) ... ok
-test_model_brand_1 (app.tests.UnitTests) ... ok
-test_model_brand_2 (app.tests.UnitTests) ... ok
-test_model_category_1 (app.tests.UnitTests) ... ok
-test_model_category_3 (app.tests.UnitTests) ... ok
-test_model_color_1 (app.tests.UnitTests) ... ok
-test_model_color_2 (app.tests.UnitTests) ... ok
-test_model_product_brand_1 (app.tests.UnitTests) ... ok
-test_model_product_brand_2 (app.tests.UnitTests) ... ok
-test_model_sub_category_1 (app.tests.UnitTests) ... ok
-test_model_sub_category_3 (app.tests.UnitTests) ... ok
-test_model_tag_1 (app.tests.UnitTests) ... ok
-
+...........................
 ----------------------------------------------------------------------
-Ran 15 tests in 6.055s
+Ran 27 tests in 14.142s
 
 OK
+Name                              Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------
+app/__init__.py                      25      1      0      0    96%   39
+app/api/about/views.py               40     35     16      0     9%   14-64
+app/api/brands/views.py              75      4     26      2    94%   78, 96, 101-102, 77->78, 95->96
+app/api/categories/views.py          69      6     22      2    91%   86-92, 99-101, 85->86, 98->99
+app/api/products/views.py            57      3     12      1    94%   82, 100-101, 81->82
+app/api/search/views.py             122      5     86      5    95%   50, 72, 82, 92, 144, 49->50, 71->72, 81->82, 91->92, 140->144
+app/api/sub_categories/views.py      39      4     10      3    86%   41, 57-59, 40->41, 46->27, 56->57
+app/api/tags/views.py                44      2     10      0    96%   63-64
+app/api/tests/views.py                7      0      0      0   100%
+app/models.py                       136      6      0      0    96%   52, 108, 142, 181, 221, 259
+app/tests.py                        248      2      2      1    99%   322-323, 321->322
+data/data_to_database.py            167     11     58      4    92%   36-41, 50-58, 34->36, 180->exit, 186->exit, 195->exit
+run_tests.py                          9      0      2      1    91%   17->exit
+-----------------------------------------------------------------------------
+TOTAL                              1038     79    244     19    91%

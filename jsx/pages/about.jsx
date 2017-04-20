@@ -43,7 +43,7 @@ const TheGlamFam = (props) => {
                 role='Devops & Frontend'
                 about={"I'm an avid lover of the outdoors and the co-lead of Freetail "
                 + "Hackers. I'll be an intern at Microsoft this summer."}
-                contrib={{...stats('ThomasGaubert'), tests: 6}}
+                contrib={{...stats('ThomasGaubert'), tests: 5}}
             />
             <TeamMember
                 name='Drew Romanyk'
@@ -52,7 +52,7 @@ const TheGlamFam = (props) => {
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
                 + 'intern with RetailMeNot over the summer.'}
-                contrib={{...stats('DrewRomanyk'), tests: 6}}
+                contrib={{...stats('DrewRomanyk'), tests: 5}}
             />
             <TeamMember
                 name='Cameron Piel'
@@ -61,7 +61,7 @@ const TheGlamFam = (props) => {
                 about={'My name is Cameron Piel, I am a 5th year student here at '
                 + 'UT. When I am not coding or cooking you can find me sitting '
                 + 'at my desk pretending to be productive.'}
-                contrib={{...stats('Cpiely'), tests: 15}}
+                contrib={{...stats('Cpiely'), tests: 13}}
             />
             <TeamMember
                 image='rperce.jpg'
@@ -69,7 +69,7 @@ const TheGlamFam = (props) => {
                 role='Frontend & Devops'
                 about={'Fourth-year Computer Science and Mathematics student at UT '
                 + "Austin. I'll be starting full-time at Indeed in July!"}
-                contrib={{...stats('rperce'), tests: 0}}
+                contrib={{...stats('rperce'), tests: 2}}
             />
             <TeamMember
                 image='mpark.jpg'
@@ -77,7 +77,7 @@ const TheGlamFam = (props) => {
                 role='Frontend & API'
                 about={'Fourth year UT student who likes to get swole. Weenie on '
                 + 'the outside. Dragon on the inside.'}
-                contrib={{...stats('myopark'), tests: 0}}
+                contrib={{...stats('myopark'), tests: 2}}
             />
             <TeamMember
                 image='thomasp.jpg'
