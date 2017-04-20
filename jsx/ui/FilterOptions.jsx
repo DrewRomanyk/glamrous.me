@@ -266,7 +266,6 @@ class FilterOptions extends Component {
 	}
 
 	render() {
-		console.log('mobile', this.state.mobile);
 		return this.state.mobile ? this.renderMobile() : this.renderDesktop();
 	}
 }
