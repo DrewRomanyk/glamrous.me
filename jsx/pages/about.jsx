@@ -1,5 +1,5 @@
 /*global $*/ //tells ESLint that $ is a global object and is fine to use undefined
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import {Badge, Container, GridCell, Modal, PageHeader, Row} from '../ui/Bootstrap.jsx';
 import find from 'lodash/find';
 
@@ -19,15 +19,15 @@ const TeamMember = (props) => (
     </GridCell>
 );
 TeamMember.propTypes = {
-	image: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	role: PropTypes.string.isRequired,
-	about: PropTypes.string.isRequired,
-	contrib: PropTypes.shape({
-		commits: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-		issues: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-		tests: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-	}).isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    contrib: PropTypes.shape({
+        commits: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        issues: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        tests: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    }).isRequired,
 };
 
 const TheGlamFam = (props) => {
@@ -48,11 +48,11 @@ const TheGlamFam = (props) => {
             <TeamMember
                 name='Drew Romanyk'
                 image='drew.jpg'
-                role='Frontend & Backend'
+                role='Frontend & Backend & Devops'
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
                 + 'intern with RetailMeNot over the summer.'}
-                contrib={{...stats('DrewRomanyk'), tests: 0}}
+                contrib={{...stats('DrewRomanyk'), tests: 6}}
             />
             <TeamMember
                 name='Cameron Piel'
@@ -74,7 +74,7 @@ const TheGlamFam = (props) => {
             <TeamMember
                 image='mpark.jpg'
                 name='Melody Park'
-                role='Frontend & Backend'
+                role='Frontend & API'
                 about={'Fourth year UT student who likes to get swole. Weenie on '
                 + 'the outside. Dragon on the inside.'}
                 contrib={{...stats('myopark'), tests: 0}}
@@ -82,7 +82,7 @@ const TheGlamFam = (props) => {
             <TeamMember
                 image='thomasp.jpg'
                 name='Thomas Potnuru'
-                role='API & Backend'
+                role='Project 1 API Documentation'
                 about={"Currently a senior at UT Austin doing my Bachelor's in "
                 + 'Computer Sceince. I am a IEEE Computer Society Officer '
                 + 'again this year! Usually making and eating dessert in my '
@@ -93,7 +93,7 @@ const TheGlamFam = (props) => {
     );
 };
 TheGlamFam.propTypes = {
-	stats: PropTypes.array.isRequired, // TODO lazy
+    stats: PropTypes.array.isRequired, // TODO lazy
 };
 
 export default class About extends React.Component {
@@ -136,7 +136,7 @@ export default class About extends React.Component {
                         <PageHeader>Stats</PageHeader>
                         <ul>
                             <li>
-								<Badge>{totalStats.commits}</Badge> commits (excluding merge commits)
+                                <Badge>{totalStats.commits}</Badge> commits (excluding merge commits)
                             </li>
                             <li><Badge>{totalStats.issues}</Badge> issues</li>
                             <li><Badge>15</Badge> unit tests</li>
@@ -152,6 +152,13 @@ export default class About extends React.Component {
                             information
                             about each cosmetics brand, product, and details
                             about those objects.
+                        </li>
+                        <li><a href="https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api">Bing
+                            Image Search API</a>
+                            - used to collect images for Brands.
+                        </li>
+                        <li><a href="https://developer.github.com/v3/">Github API</a>
+                            - used to collect Github Repo statistics and information to display on the About page.
                         </li>
                     </GridCell>
                     <GridCell lg={4}>

@@ -11,6 +11,8 @@ from app.api.brands.views import get_brands, get_brand
 from app.api.products.views import get_products, get_product
 from app.api.tags.views import get_tags, get_tag
 from app.api.categories.views import get_categories, get_category
+from app.api.sub_categories.views import get_sub_category
+from app.api.search.views import get_search_results
 
 from .models import Brand, Category, SubCategory, Product, Color, Tag
 
@@ -180,11 +182,28 @@ class UnitTests(unittest.TestCase):
             brands = json.loads(res.data.decode())
             self.assertEqual(len(brands), 41)
 
+    def test_endpoint_specific_brand_1(self):
+        with app.test_request_context():
+            res = get_brand(1)
+            brand = json.loads(res.data.decode())
+            self.assertEqual(brand['id'], 1)
+            self.assertGreaterEqual(len(brand['name']), 1)
+            self.assertGreaterEqual(brand['num_products'], 1)
+
     def test_endpoint_tag_1(self):
         with app.test_request_context():
             res = get_tags()
             tags = json.loads(res.data.decode())
             self.assertEqual(len(tags), 10)
+
+    def test_endpoint_specific_tag_1(self):
+        with app.test_request_context():
+            res = get_tag(2)
+            tag = json.loads(res.data.decode())
+            self.assertEqual(tag['id'], 2)
+            self.assertGreaterEqual(tag['avg_price'], 0)
+            self.assertGreaterEqual(len(tag['name']), 1)
+            self.assertGreaterEqual(tag['num_products'], 1)
 
     def test_endpoint_product_1(self):
         with app.test_request_context():
@@ -192,11 +211,46 @@ class UnitTests(unittest.TestCase):
             products = json.loads(res.data.decode())
             self.assertEqual(len(products), 615)
 
+    def test_endpoint_specific_product_1(self):
+        with app.test_request_context():
+            res = get_product(1)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 1)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
+
     def test_endpoint_categories_1(self):
         with app.test_request_context():
             res = get_categories()
             categories = json.loads(res.data.decode())
             self.assertEqual(len(categories), 10)
+
+    def test_endpoint_specific_category_1(self):
+        with app.test_request_context():
+            res = get_category(1)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 1)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['num_products'], 1)
+            self.assertGreaterEqual(category['avg_price'], 0)
+
+    def test_endpoint_specific_sub_category_1(self):
+        with app.test_request_context():
+            res = get_sub_category(2)
+            sub_category = json.loads(res.data.decode())
+            self.assertEqual(sub_category['id'], 2)
+            self.assertGreaterEqual(len(sub_category['name']), 1)
+            self.assertGreaterEqual(sub_category['num_products'], 1)
+            self.assertGreaterEqual(sub_category['avg_price'], 0)
+
+    def test_endpoint_search_1(self):
+        with app.test_request_context():
+            res = get_search_results('makeup red')
+            search_results = json.loads(res.data.decode())
+            self.assertEqual(len(search_results['and_results']), 64)
+            self.assertEqual(len(search_results['or_results']), 374)
+            self.assertEqual(len(search_results['keywords']), 2)
 
 
 def suite():

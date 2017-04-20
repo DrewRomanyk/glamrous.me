@@ -183,12 +183,12 @@ class SortFilterPaginate extends Component {
         return (
             <Container>
                 {bar_html}
-                <div className="row list-group">
+                <Flex flexWrap='wrap' justifyContent='center' width='100%'>
                     {displayData
                         .slice(this.state.offset, this.state.offset + this.state.per_page)
                         .map(element => element.display())}
-                </div>
-                <Flex justifyContent='center' width='100%'>
+                </Flex>
+                <Flex justifyContent='center' wrap='wrap' width='100%'>
                     <ReactPaginate
                         previousLabel={'<'}
                         nextLabel={'>'}
