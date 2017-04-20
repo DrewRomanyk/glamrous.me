@@ -640,6 +640,69 @@ file.
 $ sudo service nginx restart
 ```
 
+#### CORS
+To enable CORS for the API, modify your nginx config file to be the following:
+
+```
+server {
+    server_name www.glamrous.me glamrous.me;
+    return 301 https://glamrous.me$request_uri;
+}
+
+server {
+    listen 443 ssl spdy;
+    server_name glamrous.me;
+    ssl_certificate /etc/letsencrypt/live/glamrous.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/glamrous.me/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/glamrous.me/fullchain.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+    ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+    ssl_buffer_size 8k;
+    ssl_session_timeout 30m;
+    ssl_session_cache shared:SSL:30m;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    add_header Strict-Transport-Security max-age=31536000;
+    
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /api/ {
+        if ($request_method = 'OPTIONS') {
+            add_header 'Access-Control-Allow-Origin' $http_origin;
+            add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
+            add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+            return 204;
+        }
+
+        if ($request_method = 'GET') {
+            proxy_pass http://127.0.0.1:8080;
+            add_header 'Access-Control-Allow-Origin' $http_origin;
+            add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS';
+            add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
+        }
+    }
+
+    location ~ /.well-known {
+        root /var/www/glamrous-static;
+    }
+
+    error_page 500 502 503 504 /error.html;
+
+    location = /error.html {
+        root /var/www/glamrous-server/app/static/html;
+        internal;
+    }
+}
+```
+
 #### Permissions
 
 With nginx setup, we can prepare to clone the git repository and set up continuous
