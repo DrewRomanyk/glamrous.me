@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/DrewRomanyk/glamrous.me#readme",
   "devDependencies": {
+    "babel-eslint": "^7.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-preset-es2015-rollup": "^3.0.0",
