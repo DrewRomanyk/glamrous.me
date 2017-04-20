@@ -23,7 +23,7 @@ export default class Visualization extends React.Component {
 				<Col justifyContent='center' alignItems='center'>
 					<Block fontSize='large'>
 						Stars of <a href='//spacecowboys.me/'>SpaceCowboys</a> projected
-						onto a celestial sphere (as seen from the outside).
+						onto a celestial sphere (as seen as if Earth was in the center).
 					</Block>
 					<Block>
 						Diameter of star in pixels is number of solar diameters of star.
