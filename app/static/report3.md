@@ -756,10 +756,10 @@ These next steps assume you’ve set up the server as described in the earlier s
 Note: It is assumed that the following section is performed on your development machine, NOT the Compute VM set up
 earlier.
 
-Connect Travis CI to the repository using the normal process. Create the project’s .travis.yml file in the repository
+Connect Travis CI to the repository using the normal process. Create the project’s `.travis.yml` file in the repository
 root.
 
-The .travis.yml file should look like the following for right now:
+The `.travis.yml` file should look like the following for right now:
 
 ```
 os:
@@ -789,7 +789,7 @@ after_success:
     - bash ./scripts/gcloud-deploy.sh
 ```
 
-Before continuing to edit the .travis.yml file, we need to create the necessary service account for Travis to access
+Before continuing to edit the `.travis.yml` file, we need to create the necessary service account for Travis to access
 our Google Cloud project. To do this:
 
 1.  In your Cloud Platform Console project, open the
