@@ -762,31 +762,30 @@ The .travis.yml file should look like the following for right now:
 
 ```
 os:
-   - linux
+    - linux
 
 language: python
 
 python:
-   - '2.7'
+    - '2.7'
 
 cache:
-   directories:
-       - $HOME/google-cloud-sdk/
+    directories:
+        - $HOME/google-cloud-sdk/
 
 notifications:
-   email: false
+    email: false
 
 script:
- - echo "Hello world!"
+    - echo "Hello world!"
 
- after_success:
- - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf
- $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
- - source /home/travis/google-cloud-sdk/path.bash.inc
- - tar -xzf credentials.tar.gz
- - gcloud version
- - bash ./scripts/gcloud-auth.sh
- - bash ./scripts/gcloud-deploy.sh
+after_success:
+    - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
+    - source /home/travis/google-cloud-sdk/path.bash.inc
+    - tar -xzf credentials.tar.gz
+    - gcloud version
+    - bash ./scripts/gcloud-auth.sh
+    - bash ./scripts/gcloud-deploy.sh
 ```
 
 Before continuing to edit the .travis.yml file, we need to create the necessary service account for Travis to access
@@ -826,39 +825,58 @@ $ sudo travis encrypt-file credentials.tar.gz --add
 Note: Upon running this command successfully, remove client-secret.json, credentials.tar.gz, and any other sensitive
 files!
 
-Travis will automatically edit your .travis.ymlfile to include the necessary command to decrypt the tarball during
-builds in the before_installstage. You can now edit the rest of your .travis.yml file as you see fit for testing.
+Travis will automatically edit your `.travis.yml` file to include the necessary command to decrypt the tarball during
+builds in the `before_install` stage. You can now edit the rest of your `.travis.yml` file as you see fit for testing.
 
 The configuration file will look similar to this:
 
 ```
 os:
-   - linux
+    - linux
 
 language: python
 
 python:
-   - '2.7'
+    - '2.7'
 
 cache:
-   directories:
-       - $HOME/google-cloud-sdk/
+    directories:
+        - $HOME/google-cloud-sdk/
+        - $HOME/google-cloud-sdk/
+        - __pycache__
+        - app/__pycache__
 
 notifications:
-   email: false before_install:
-   - openssl aes-256-cbc -K $encrypted_8f789aaec97f_key -iv
-   $encrypted_8f789aaec97f_iv -in credentials.tar.gz.enc -out
-   credentials.tar.gz -d script:
-   - echo "Hello world!"
+    email: false 
+
+before_install:
+    - sudo apt-get update
+    - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+    - openssl aes-256-cbc -K $encrypted_8f789aaec97f_key -iv $encrypted_8f789aaec97f_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
+    # Disable services enabled by default
+    # http://docs.travis-ci.com/user/database-setup/#MySQL
+    - sudo /etc/init.d/mysql stop
+    - sudo /etc/init.d/postgresql stop
+    # Update docker-compose
+    # https://docs.travis-ci.com/user/docker/
+    - sudo rm /usr/local/bin/docker-compose
+    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+    - chmod +x docker-compose
+    - sudo mv docker-compose /usr/local/bin
+
+script:
+    - docker-compose -f docker-compose.yml -f docker-compose-test.yml build
+    - sleep 5
+    - make test
+    - cat tests.tmp
 
  after_success:
-   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf
-   $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
-   - source /home/travis/google-cloud-sdk/path.bash.inc
-   - tar -xzf credentials.tar.gz
-   - gcloud version
-   - bash ./scripts/gcloud-auth.sh
-   - bash ./scripts/gcloud-deploy.sh
+    - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
+    - source /home/travis/google-cloud-sdk/path.bash.inc
+    - tar -xzf credentials.tar.gz
+    - gcloud version
+    - bash ./scripts/gcloud-auth.sh
+    - bash ./scripts/gcloud-deploy.sh
 ```
 
 This configuration runs any necessary tests, etc. within the scriptstage. If this stage passes successfully, the
