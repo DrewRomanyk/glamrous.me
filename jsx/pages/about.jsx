@@ -43,7 +43,7 @@ const TheGlamFam = (props) => {
                 role='Devops & Frontend'
                 about={"I'm an avid lover of the outdoors and the co-lead of Freetail "
                 + "Hackers. I'll be an intern at Microsoft this summer."}
-                contrib={{...stats('ThomasGaubert'), tests: 0}}
+                contrib={{...stats('ThomasGaubert'), tests: 6}}
             />
             <TeamMember
                 name='Drew Romanyk'
