@@ -201,7 +201,7 @@ class UnitTests(unittest.TestCase):
             res = get_tag(2)
             tag = json.loads(res.data.decode())
             self.assertEqual(tag['id'], 2)
-            self.assertGreaterEqual(tag['avg_price'], 1.0)
+            self.assertGreaterEqual(tag['avg_price'], 0)
             self.assertGreaterEqual(len(tag['name']), 1)
             self.assertGreaterEqual(tag['num_products'], 1)
 
@@ -233,7 +233,7 @@ class UnitTests(unittest.TestCase):
             self.assertEqual(category['id'], 1)
             self.assertGreaterEqual(len(category['name']), 1)
             self.assertGreaterEqual(category['num_products'], 1)
-            self.assertGreaterEqual(category['avg_price'], 1)
+            self.assertGreaterEqual(category['avg_price'], 0)
 
     def test_endpoint_specific_sub_category_1(self):
         with app.test_request_context():
@@ -242,7 +242,7 @@ class UnitTests(unittest.TestCase):
             self.assertEqual(sub_category['id'], 2)
             self.assertGreaterEqual(len(sub_category['name']), 1)
             self.assertGreaterEqual(sub_category['num_products'], 1)
-            self.assertGreaterEqual(sub_category['avg_price'], 1)
+            self.assertGreaterEqual(sub_category['avg_price'], 0)
 
     def test_endpoint_search_1(self):
         with app.test_request_context():
