@@ -248,8 +248,8 @@ class UnitTests(unittest.TestCase):
         with app.test_request_context():
             res = get_search_results('makeup red')
             search_results = json.loads(res.data.decode())
-            self.assertEqual(len(search_results['and_results']), 14)
-            self.assertEqual(len(search_results['or_results']), 169)
+            self.assertEqual(len(search_results['and_results']), 64)
+            self.assertEqual(len(search_results['or_results']), 374)
             self.assertEqual(len(search_results['keywords']), 2)
 
 
