@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Flex from 'jsxstyle/Flex';
+import Row from 'jsxstyle/Row';
+import Block from 'jsxstyle/Block';
+import { Modal } from '../ui/Bootstrap.jsx';
+//import Col from 'jsxstyle/Col';
 
 export const FILTER_TYPE = {
 	SELECTABLE: 0,
@@ -171,22 +175,99 @@ FilterButton.propTypes = {
 class FilterOptions extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			mobile: false,
+		};
+
+		this.filterButtons = this.filterButtons.bind(this);
+		this.renderMobile = this.renderMobile.bind(this);
+		this.renderDesktop = this.renderDesktop.bind(this);
+		this.updateDimensions = this.updateDimensions.bind(this);
+	}
+
+	filterButtons() {
+		return this.props.filters.map(filter => ({
+			key: filter.name,
+			render: () => (
+				<FilterButton
+					filter={filter}
+					toggleSelected={this.props.toggleSelected}
+					changeBounds={this.props.changeBounds}
+				/>
+			),
+		}));
+	}
+
+	renderMobile() {
+		return (
+			<Block>
+				<button type="button" className="btn btn-default"
+					data-toggle="modal" data-target="#filterModal">
+					Filters
+				</button>
+
+				<Modal.Modal id="filterModal">
+					<Modal.Header>
+						<Modal.CloseX />
+						<Modal.Title>Filters</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<Row flexWrap='wrap'>
+							{this.filterButtons().map(button => (
+								<Block key={button.key} marginBottom='1em' marginRight='1em'>
+									{button.render()}
+								</Block>
+							))}
+						</Row>
+					</Modal.Body>
+					<Modal.Footer>
+						<Modal.CloseButton />
+					</Modal.Footer>
+				</Modal.Modal>
+			</Block>
+		);
+	}
+
+	renderDesktop() {
+		return (
+			<Row>
+				<Block marginRight='18px' fontSize='large'>Filters:</Block>
+				{this.filterButtons().map(button => (
+					<Block key={button.key}>
+						{button.render()}
+					</Block>
+				))}
+			</Row>
+		);
+	}
+
+	updateDimensions() {
+
+		// adapted from
+		// http://stackoverflow.com/questions/19014250/reactjs-rerender-on-browser-resize
+		const element = document.documentElement;
+		const body = document.getElementsByTagName('body')[0];
+		const width = window.innerWidth || element.clientWidth || body.clientWidth;
+
+		// 768 is the "medium" break point as defined by bootstrap and the default break
+		// point for, e.g., navbar switching between mobile- and desktop-variants
+		// (see https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss;
+		// search for "// Grid breakpoints")
+		this.setState({ mobile: width < 768 });
+	}
+	componentWillMount() {
+		this.updateDimensions();
+	}
+	componentDidMount() {
+		window.addEventListener('resize', this.updateDimensions);
+	}
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateDimensions);
 	}
 
 	render() {
-		return (
-			<Flex>
-				<Flex marginRight='5px' fontSize='large'>Filters:</Flex>
-				{this.props.filters.map(filter => (
-					<FilterButton
-						key={filter.name}
-						filter={filter}
-						toggleSelected={this.props.toggleSelected}
-						changeBounds={this.props.changeBounds}
-					/>
-				))}
-			</Flex>
-		);
+		console.log('mobile', this.state.mobile);
+		return this.state.mobile ? this.renderMobile() : this.renderDesktop();
 	}
 }
 FilterOptions.propTypes = {

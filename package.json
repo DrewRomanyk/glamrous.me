@@ -26,6 +26,7 @@
     "jsxstyle": "^1.0.2",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
+    "react-measure": "^1.4.7",
     "react-router-dom": "^4.0.0",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",

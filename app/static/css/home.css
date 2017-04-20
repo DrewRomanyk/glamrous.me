@@ -102,7 +102,6 @@ body {
     color: #673AB7;
 }
 
-
 .card-btn {
     margin-top: .5em;
 }
@@ -207,6 +206,32 @@ body {
     color: #858585;
 }
 
+@media (max-width: 868px) {
+    .searchBox,
+    .searchBox input.search {
+        width: 15em;
+    }
+}
+
+@media (max-width: 803px) {
+    .searchBox,
+    .searchBox input.search {
+        width: 10em;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Fill up and pad the search box as its on its own row*/
+    .searchBox,
+    .searchBox input.search {
+        width: 97vw;
+    }
+
+    .searchBox {
+        margin: auto;
+    }
+
+}
 
 /** ClimbingBoxLoader CSS https://codepen.io/pqcm/pen/dMqrqd */
 #loader {
@@ -403,27 +428,33 @@ body {
 
 /* Pagination */
 .paginate-container {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: auto;
 }
+
 .paginate-previous, .paginate-next, .paginate-page {
-	list-style-type: none;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
-	margin-bottom: 2em;
+    list-style-type: none;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    margin-bottom: 2em;
 }
+
 .paginate-disabled > a, .paginate-disabled > a:hover,
 .paginate-disabled > a:focus, .paginate-disabled > a:active {
-	background-color: #bbb;
-	outline: none;
+    background-color: #bbb;
+    outline: none;
 }
+
 .paginate-active > a {
-	background-color: #adf;
+    background-color: #adf;
 }
+
 .paginate-break {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 3em;
-	height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3em;
+    height: 3em;
 }
