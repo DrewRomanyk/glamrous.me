@@ -29,14 +29,31 @@ const nextId = function() { id = ~~(id + 1); return id; }
 const λ = (α) => (α > 180 ? α - 360 : α);
 const φ = (δ) => (δ);
 let locations = [];
+
+const starClassColors = {
+	O: {foreground: '#0037ff', background: '#ddd'},
+	B: {foreground: '#0fb4ff', background: '#ddd'},
+	A: {foreground: '#3369ff', background: '#ddd'},
+	F: {foreground: '#888888', background: '#ddd'},
+	G: {foreground: '#ffa94d', background: '#ddd'},
+	K: {foreground: '#ff981a', background: '#ddd'},
+	M: {foreground: '#d67600', background: '#ddd'},
+};
+const starClass = function(temp) {
+	if (temp >= 33000) return 'O';
+	if (temp >= 10500) return 'B';
+	if (temp >= 7500) return 'A';
+	if (temp >= 6000) return 'F';
+	if (temp >= 5500) return 'G';
+	if (temp >= 4000) return 'K';
+	return 'M';
+}
 const drawStars = function(view) {
-	locations.forEach(function(location) {
-		const α = location.α; // right ascension
-		const δ = location.δ; // declination
-		const point = {type: 'Point', coordinates: [λ(α), φ(δ)], id: nextId(), diameter: location.diameter};
+	locations.forEach(function({α, δ, temp, diameter}) {
+		const point = {type: 'Point', coordinates: [λ(α), φ(δ)], id: nextId(), diameter: diameter};
 		context.beginPath();
 		path(point);
-		context.fillStyle = location[view];
+		context.fillStyle = starClassColors[starClass(temp)][view];
 		context.fill();
 	});
 };
@@ -45,14 +62,6 @@ d3.timer(function() {
 	context.clearRect(0, 0, WIDTH, HEIGHT);
 
 	projection.rotate([SPEED * (Date.now() - start_time), -15]).clipAngle(90);
-
-	//context.beginPath();
-	//path({type: 'Sphere'});
-	//context.lineWidth = 3;
-	//context.strokeStyle = "#000";
-	//context.stroke();
-	//context.fillStyle = "#fff";
-	//context.fill();
 
 	projection.clipAngle(180);
 
@@ -70,7 +79,8 @@ d3.timer(function() {
 });
 
 const url_of_page = function(page) {
-	return '/static/js/lol-api/stars.' + page;
+	//return '/static/js/lol-api/stars.' + page;
+	return '//spacecowboys.me/api/v1/stars?page=' + page;
 }
 for (let page = 1; page < 32; page++) {
 	d3.json(url_of_page(page), function(err, json) {
@@ -80,8 +90,7 @@ for (let page = 1; page < 32; page++) {
 			return ({
 				δ: star.dec,
 				α: star.ra,
-				foreground: '#000',
-				background: '#ddd',
+				temp: star.temperature,
 				diameter: star.diameter,
 			});
 		}));
