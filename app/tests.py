@@ -214,6 +214,14 @@ class UnitTests(unittest.TestCase):
             self.assertGreaterEqual(len(brand['name']), 1)
             self.assertGreaterEqual(brand['num_products'], 1)
 
+    def test_endpoint_specific_brand_2(self):
+        with app.test_request_context():
+            res = get_brand(2)
+            brand = json.loads(res.data.decode())
+            self.assertEqual(brand['id'], 2)
+            self.assertGreaterEqual(len(brand['name']), 1)
+            self.assertGreaterEqual(brand['num_products'], 1)
+
     def test_endpoint_tag_1(self):
         with app.test_request_context():
             res = get_tags()
@@ -229,6 +237,15 @@ class UnitTests(unittest.TestCase):
             self.assertGreaterEqual(len(tag['name']), 1)
             self.assertGreaterEqual(tag['num_products'], 1)
 
+    def test_endpoint_specific_tag_2(self):
+        with app.test_request_context():
+            res = get_tag(3)
+            tag = json.loads(res.data.decode())
+            self.assertEqual(tag['id'], 3)
+            self.assertGreaterEqual(tag['avg_price'], 0)
+            self.assertGreaterEqual(len(tag['name']), 1)
+            self.assertGreaterEqual(tag['num_products'], 1)
+
     def test_endpoint_product_1(self):
         with app.test_request_context():
             res = get_products()
@@ -240,6 +257,24 @@ class UnitTests(unittest.TestCase):
             res = get_product(1)
             category = json.loads(res.data.decode())
             self.assertEqual(category['id'], 1)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
+
+    def test_endpoint_specific_product_2(self):
+        with app.test_request_context():
+            res = get_product(2)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 2)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
+
+    def test_endpoint_specific_product_3(self):
+        with app.test_request_context():
+            res = get_product(3)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 3)
             self.assertGreaterEqual(len(category['name']), 1)
             self.assertGreaterEqual(category['price'], 0)
             self.assertGreaterEqual(category['brand']['id'], 1)
