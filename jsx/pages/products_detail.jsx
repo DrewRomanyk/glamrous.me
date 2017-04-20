@@ -2,6 +2,7 @@
 import React, {PropTypes} from 'react';
 import {Container, Panel} from '../ui/Bootstrap.jsx';
 import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
+import InlineBlock from 'jsxstyle/inlineblock';
 
 export default class Products_Details extends React.Component {
     constructor(props) {
@@ -48,6 +49,13 @@ export default class Products_Details extends React.Component {
                 </span>
             );
         });
+        const colors = this.state.product.colors.map(item => {
+            return (
+                <InlineBlock key={item.id} className="label" backgroundColor={item.hashcode}>
+                    {item.name}
+                </InlineBlock>
+            );
+        });
         let sub_category_data = (<p>No sub categories here!</p>);
         if (this.state.product.sub_category !== undefined) {
             sub_category_data = (
@@ -72,6 +80,10 @@ export default class Products_Details extends React.Component {
                         <p>{Number(this.state.product.rating).toFixed(2)}</p>
                         <h5>Brand: </h5>
                         <p><a href={'/brands/' + this.state.product.brand_id}>{this.state.product.brand.name}</a></p>
+                        <h5>Colors: </h5>
+                        <div className="thumbnail horizontal-container">
+                            {colors}
+                        </div>
                         <h5>Tags: </h5>
                         <div className="thumbnail horizontal-container">
                             {tags}
