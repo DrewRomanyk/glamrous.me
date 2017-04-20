@@ -26,6 +26,7 @@ Melody Park
     1. [Docker](#docker)
     2. [Database](#database)
     3. [Hosting](#hosting)
+    3. [Planning Poker](#planning-poker)
 
 ---
 
@@ -1000,3 +1001,37 @@ To start Glamrous on boot, simply add the following using sudo crontab -e.
 ```
 @reboot /var/www/deploy.sh
 ```
+
+### Planning Poker
+
+#### Stories
+
+1. Implement search into our site. The search needs to be across all models, link to the item in the model, and show the context that the results were found it.  
+**Expected:** 5hrs **Taken:** 4hrs
+
+2. Write more tests and have multiple people do them.  
+**Expected:** 30min **Taken:** 40min
+
+3. Create a visualization of another group’s project and add a page about it to our site. The plan is to “map” the planets, stars, and galaxies that the space cowboys have on their site.  
+**Expected:** 6hrs **Taken:** 5hrs 35min
+
+4. Refine the API to make it more user-friendly for the group that has to visualize our data.  
+**Expected:** 40min **Taken:** 25min
+
+5. Add loading screens to the rest of the site to make up for the time the api has to load the models.  
+**Expected:** 45min **Taken:** 25min
+
+6. Alter the nginx configuration to permit CORS on /api. Ensure the main site is NOT open to CORS, and remove attempted CORS stuff from the Flask setup.  
+**Expected:** 2hrs **Taken:** 1hr 10 min
+
+7. Write up critiques of our own site and add them to the presentation. Everyone needs to contribute at least one.  
+**Expected:** 20min **Taken:** 20min
+
+8. Add rest of things to the writeup and make it at least 5k words long.  
+**Expected:** 30min **Taken:** 40min 
+
+9. Make docker actually fail when tests fail.  
+**Expected:** 30min **Taken:** 20min
+
+10. Create 10 things we need to do and write how long we expected each to take and how long it actaully took.  
+**Expected:** 1hr **Taken:** 30min
