@@ -1,6 +1,6 @@
 # generated build files
 node_modules
-app/static/js
+app/static/js/bundle.js
 __pycache__
 *.pyc
 brands.json

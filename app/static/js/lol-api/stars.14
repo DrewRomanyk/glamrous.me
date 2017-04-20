@@ -1,0 +1,106 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": -8.026946, 
+      "diameter": 1.97, 
+      "galaxy_pid": 143, 
+      "mass": 1.08, 
+      "model_type": "stars", 
+      "name": "WASP-36", 
+      "pid": 118, 
+      "ra": 131.580405, 
+      "temperature": 5959
+    }, 
+    {
+      "dec": -45.89822, 
+      "diameter": 3.74, 
+      "galaxy_pid": 143, 
+      "mass": 1.39, 
+      "model_type": "stars", 
+      "name": "WASP-120", 
+      "pid": 119, 
+      "ra": 62.616051, 
+      "temperature": 6450
+    }, 
+    {
+      "dec": -47.360626, 
+      "diameter": 2.1, 
+      "galaxy_pid": 143, 
+      "mass": 1.06, 
+      "model_type": "stars", 
+      "name": "WASP-96", 
+      "pid": 120, 
+      "ra": 1.046351, 
+      "temperature": 5540
+    }, 
+    {
+      "dec": 46.96513, 
+      "diameter": 3.64, 
+      "galaxy_pid": 143, 
+      "mass": 1.1, 
+      "model_type": "stars", 
+      "name": "Kepler-87", 
+      "pid": 121, 
+      "ra": 297.916877, 
+      "temperature": 5600
+    }, 
+    {
+      "dec": -22.673937, 
+      "diameter": 1.728, 
+      "galaxy_pid": 143, 
+      "mass": 0.84, 
+      "model_type": "stars", 
+      "name": "WASP-6", 
+      "pid": 122, 
+      "ra": 348.157246, 
+      "temperature": 5375
+    }, 
+    {
+      "dec": -47.613693, 
+      "diameter": 2.182, 
+      "galaxy_pid": 143, 
+      "mass": 1.13, 
+      "model_type": "stars", 
+      "name": "HATS-17", 
+      "pid": 123, 
+      "ra": 192.189799, 
+      "temperature": 5846
+    }, 
+    {
+      "dec": 0.746143, 
+      "diameter": 1.58, 
+      "galaxy_pid": 143, 
+      "mass": 0.89, 
+      "model_type": "stars", 
+      "name": "CoRoT-10", 
+      "pid": 124, 
+      "ra": 291.063708, 
+      "temperature": 5075
+    }, 
+    {
+      "dec": 26.692652, 
+      "diameter": 3.666, 
+      "galaxy_pid": 143, 
+      "mass": 1.54, 
+      "model_type": "stars", 
+      "name": "HAT-P-49", 
+      "pid": 125, 
+      "ra": 305.441397, 
+      "temperature": 6820
+    }, 
+    {
+      "dec": -2.970947, 
+      "diameter": 2.792, 
+      "galaxy_pid": 143, 
+      "mass": 1.28, 
+      "model_type": "stars", 
+      "name": "HAT-P-46", 
+      "pid": 126, 
+      "ra": 270.444201, 
+      "temperature": 6120
+    }
+  ], 
+  "page": 14, 
+  "total_pages": 31
+}

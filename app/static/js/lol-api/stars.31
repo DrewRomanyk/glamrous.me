@@ -1,0 +1,29 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": 46.391178, 
+      "diameter": 1.9, 
+      "galaxy_pid": 143, 
+      "mass": 0.85, 
+      "model_type": "stars", 
+      "name": "Kepler-423", 
+      "pid": 271, 
+      "ra": 292.855742, 
+      "temperature": 5560
+    }, 
+    {
+      "dec": 9.6697, 
+      "diameter": 1.0, 
+      "galaxy_pid": 143, 
+      "mass": 1.0, 
+      "model_type": "stars", 
+      "name": "Sun", 
+      "pid": 272, 
+      "ra": 23.1458, 
+      "temperature": 5778
+    }
+  ], 
+  "page": 31, 
+  "total_pages": 31
+}

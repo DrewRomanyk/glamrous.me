@@ -1,0 +1,106 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": 33.835052, 
+      "diameter": 3.274, 
+      "galaxy_pid": 143, 
+      "mass": 1.38, 
+      "model_type": "stars", 
+      "name": "HAT-P-33", 
+      "pid": 82, 
+      "ra": 113.184212, 
+      "temperature": 6446
+    }, 
+    {
+      "dec": -30.63987, 
+      "diameter": 1.74, 
+      "galaxy_pid": 143, 
+      "mass": 0.93, 
+      "model_type": "stars", 
+      "name": "WASP-41", 
+      "pid": 83, 
+      "ra": 190.618736, 
+      "temperature": 5545
+    }, 
+    {
+      "dec": 36.290325, 
+      "diameter": 2.3, 
+      "galaxy_pid": 143, 
+      "mass": 1.2, 
+      "model_type": "stars", 
+      "name": "WTS-1", 
+      "pid": 84, 
+      "ra": 293.9932, 
+      "temperature": 6250
+    }, 
+    {
+      "dec": 2.700539, 
+      "diameter": 3.46, 
+      "galaxy_pid": 143, 
+      "mass": 1.46, 
+      "model_type": "stars", 
+      "name": "WASP-76", 
+      "pid": 85, 
+      "ra": 26.632746, 
+      "temperature": 6250
+    }, 
+    {
+      "dec": 42.45108, 
+      "diameter": 2.972, 
+      "galaxy_pid": 143, 
+      "mass": 1.21, 
+      "model_type": "stars", 
+      "name": "Kepler-8", 
+      "pid": 86, 
+      "ra": 281.288118, 
+      "temperature": 6213
+    }, 
+    {
+      "dec": -2.144208, 
+      "diameter": 1.172, 
+      "galaxy_pid": 143, 
+      "mass": 0.58, 
+      "model_type": "stars", 
+      "name": "WASP-80", 
+      "pid": 87, 
+      "ra": 303.167407, 
+      "temperature": 4143
+    }, 
+    {
+      "dec": -23.189288, 
+      "diameter": 2.2, 
+      "galaxy_pid": 143, 
+      "mass": 1.07, 
+      "model_type": "stars", 
+      "name": "K2-38", 
+      "pid": 88, 
+      "ra": 240.033579, 
+      "temperature": 5757
+    }, 
+    {
+      "dec": -30.012999, 
+      "diameter": 2.476, 
+      "galaxy_pid": 143, 
+      "mass": 0.97, 
+      "model_type": "stars", 
+      "name": "HATS-16", 
+      "pid": 89, 
+      "ra": 358.55871, 
+      "temperature": 5738
+    }, 
+    {
+      "dec": 41.86676, 
+      "diameter": 1.904, 
+      "galaxy_pid": 143, 
+      "mass": 1.05, 
+      "model_type": "stars", 
+      "name": "Kepler-539", 
+      "pid": 90, 
+      "ra": 299.122454, 
+      "temperature": 5820
+    }
+  ], 
+  "page": 10, 
+  "total_pages": 31
+}
