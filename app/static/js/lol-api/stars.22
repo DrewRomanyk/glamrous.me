@@ -1,0 +1,106 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": 16.762152, 
+      "diameter": 2.178, 
+      "galaxy_pid": 143, 
+      "mass": 1.1, 
+      "model_type": "stars", 
+      "name": "HAT-P-23", 
+      "pid": 190, 
+      "ra": 306.123854, 
+      "temperature": 5885
+    }, 
+    {
+      "dec": 42.463078, 
+      "diameter": 2.474, 
+      "galaxy_pid": 143, 
+      "mass": 1.22, 
+      "model_type": "stars", 
+      "name": "HAT-P-16", 
+      "pid": 191, 
+      "ra": 9.573181, 
+      "temperature": 6158
+    }, 
+    {
+      "dec": 42.338726, 
+      "diameter": 1.9278, 
+      "galaxy_pid": 143, 
+      "mass": 0.95, 
+      "model_type": "stars", 
+      "name": "Kepler-20", 
+      "pid": 192, 
+      "ra": 287.698004, 
+      "temperature": 5495
+    }, 
+    {
+      "dec": 31.462852, 
+      "diameter": 1.396, 
+      "galaxy_pid": 143, 
+      "mass": 0.75, 
+      "model_type": "stars", 
+      "name": "WASP-10", 
+      "pid": 193, 
+      "ra": 348.992912, 
+      "temperature": 4675
+    }, 
+    {
+      "dec": 0.226919, 
+      "diameter": 2.04, 
+      "galaxy_pid": 143, 
+      "mass": 1.14, 
+      "model_type": "stars", 
+      "name": "CoRoT-20", 
+      "pid": 194, 
+      "ra": 97.720408, 
+      "temperature": 5880
+    }, 
+    {
+      "dec": 24.88929, 
+      "diameter": 1.226, 
+      "galaxy_pid": 143, 
+      "mass": 0.72, 
+      "model_type": "stars", 
+      "name": "WASP-59", 
+      "pid": 195, 
+      "ra": 349.623126, 
+      "temperature": 4650
+    }, 
+    {
+      "dec": 25.197405, 
+      "diameter": 1.918, 
+      "galaxy_pid": 143, 
+      "mass": 1.01, 
+      "model_type": "stars", 
+      "name": "HAT-P-25", 
+      "pid": 196, 
+      "ra": 48.435419, 
+      "temperature": 5500
+    }, 
+    {
+      "dec": 39.619003, 
+      "diameter": 2.64, 
+      "galaxy_pid": 143, 
+      "mass": 1.2, 
+      "model_type": "stars", 
+      "name": "Kepler-76", 
+      "pid": 197, 
+      "ra": 294.192118, 
+      "temperature": 6409
+    }, 
+    {
+      "dec": 24.402043, 
+      "diameter": 1.72, 
+      "galaxy_pid": 143, 
+      "mass": 0.94, 
+      "model_type": "stars", 
+      "name": "K2-29", 
+      "pid": 198, 
+      "ra": 62.670647, 
+      "temperature": 5358
+    }
+  ], 
+  "page": 22, 
+  "total_pages": 31
+}

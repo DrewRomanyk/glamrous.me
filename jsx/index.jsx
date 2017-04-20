@@ -17,6 +17,7 @@ import Categories_Details from './pages/categories_detail.jsx';
 import Sub_Categories_Details from './pages/sub_categories_detail.jsx';
 import Search from './pages/search.jsx';
 import Not_Found from './pages/not_found.jsx';
+import Visualization from './pages/visualization.jsx';
 
 const wrap = (name, component) => (
 	<App pageName={name}>{component}</App>
@@ -46,6 +47,7 @@ const Routed = () => (
 			{route('/tags',               'Tags',             Tags)}
 			{route('/tags/:id',           'Tags',             Tags_Details,       true)}
 			{route('/search/:id',         'Search',           Search,             true)}
+			{route('/visualization',      'Visualization',    Visualization)}
 			<Route path='*' render={() => wrap('Not Found', <Not_Found />)} />
 		</Switch>
 	</Router>

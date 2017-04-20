@@ -1,0 +1,106 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": -3.381036, 
+      "diameter": 2.638, 
+      "galaxy_pid": 143, 
+      "mass": 1.26, 
+      "model_type": "stars", 
+      "name": "HAT-P-45", 
+      "pid": 181, 
+      "ra": 274.373238, 
+      "temperature": 6330
+    }, 
+    {
+      "dec": -8.926325, 
+      "diameter": 4.42, 
+      "galaxy_pid": 143, 
+      "mass": 1.41, 
+      "model_type": "stars", 
+      "name": "WASP-136", 
+      "pid": 182, 
+      "ra": 0.32575, 
+      "temperature": 6260
+    }, 
+    {
+      "dec": 46.668255, 
+      "diameter": 2.84, 
+      "galaxy_pid": 143, 
+      "mass": 1.32, 
+      "model_type": "stars", 
+      "name": "Kepler-43", 
+      "pid": 183, 
+      "ra": 285.240856, 
+      "temperature": 6041
+    }, 
+    {
+      "dec": 37.140652, 
+      "diameter": 2.64, 
+      "galaxy_pid": 143, 
+      "mass": 1.28, 
+      "model_type": "stars", 
+      "name": "HAT-P-9", 
+      "pid": 184, 
+      "ra": 110.168529, 
+      "temperature": 6350
+    }, 
+    {
+      "dec": 47.526608, 
+      "diameter": 4.26, 
+      "galaxy_pid": 143, 
+      "mass": 1.48, 
+      "model_type": "stars", 
+      "name": "Kepler-40", 
+      "pid": 185, 
+      "ra": 296.81369, 
+      "temperature": 6510
+    }, 
+    {
+      "dec": 48.239964, 
+      "diameter": 2.782, 
+      "galaxy_pid": 143, 
+      "mass": 1.21, 
+      "model_type": "stars", 
+      "name": "Kepler-6", 
+      "pid": 186, 
+      "ra": 296.837254, 
+      "temperature": 5647
+    }, 
+    {
+      "dec": -28.061733, 
+      "diameter": 3.144, 
+      "galaxy_pid": 143, 
+      "mass": 1.31, 
+      "model_type": "stars", 
+      "name": "WASP-17", 
+      "pid": 187, 
+      "ra": 239.962306, 
+      "temperature": 6650
+    }, 
+    {
+      "dec": 8.523038, 
+      "diameter": 2.02, 
+      "galaxy_pid": 143, 
+      "mass": 0.93, 
+      "model_type": "stars", 
+      "name": "WASP-65", 
+      "pid": 188, 
+      "ra": 133.324304, 
+      "temperature": 5600
+    }, 
+    {
+      "dec": 12.13941, 
+      "diameter": 3.396, 
+      "galaxy_pid": 143, 
+      "mass": 1.27, 
+      "model_type": "stars", 
+      "name": "HAT-P-50", 
+      "pid": 189, 
+      "ra": 118.063411, 
+      "temperature": 6280
+    }
+  ], 
+  "page": 21, 
+  "total_pages": 31
+}

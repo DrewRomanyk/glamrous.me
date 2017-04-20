@@ -1,0 +1,106 @@
+{
+  "num_results": 272, 
+  "objects": [
+    {
+      "dec": 16.419609, 
+      "diameter": 3.5, 
+      "galaxy_pid": 143, 
+      "mass": 1.12, 
+      "model_type": "stars", 
+      "name": "K2-108", 
+      "pid": 235, 
+      "ra": 123.381875, 
+      "temperature": 5474
+    }, 
+    {
+      "dec": -42.409744, 
+      "diameter": 3.04, 
+      "galaxy_pid": 143, 
+      "mass": 1.24, 
+      "model_type": "stars", 
+      "name": "KELT-14", 
+      "pid": 236, 
+      "ra": 108.301485, 
+      "temperature": 5720
+    }, 
+    {
+      "dec": -2.057665, 
+      "diameter": 1.854, 
+      "galaxy_pid": 143, 
+      "mass": 0.89, 
+      "model_type": "stars", 
+      "name": "WASP-57", 
+      "pid": 237, 
+      "ra": 223.820104, 
+      "temperature": 5600
+    }, 
+    {
+      "dec": -41.277149, 
+      "diameter": 2.058, 
+      "galaxy_pid": 143, 
+      "mass": 0.96, 
+      "model_type": "stars", 
+      "name": "WASP-5", 
+      "pid": 238, 
+      "ra": 359.348991, 
+      "temperature": 5700
+    }, 
+    {
+      "dec": 49.4734, 
+      "diameter": 1.84, 
+      "galaxy_pid": 143, 
+      "mass": 0.91, 
+      "model_type": "stars", 
+      "name": "Kepler-426", 
+      "pid": 239, 
+      "ra": 289.434628, 
+      "temperature": 5725
+    }, 
+    {
+      "dec": -23.48621, 
+      "diameter": 2.58, 
+      "galaxy_pid": 143, 
+      "mass": 1.34, 
+      "model_type": "stars", 
+      "name": "WASP-101", 
+      "pid": 240, 
+      "ra": 98.351102, 
+      "temperature": 6400
+    }, 
+    {
+      "dec": 6.429536, 
+      "diameter": 1.68, 
+      "galaxy_pid": 143, 
+      "mass": 0.89, 
+      "model_type": "stars", 
+      "name": "WASP-2", 
+      "pid": 241, 
+      "ra": 307.725542, 
+      "temperature": 5200
+    }, 
+    {
+      "dec": 50.135754, 
+      "diameter": 2.974, 
+      "galaxy_pid": 143, 
+      "mass": 1.22, 
+      "model_type": "stars", 
+      "name": "Kepler-4", 
+      "pid": 242, 
+      "ra": 285.615322, 
+      "temperature": 5857
+    }, 
+    {
+      "dec": 5.937688, 
+      "diameter": 2.74, 
+      "galaxy_pid": 143, 
+      "mass": 1.27, 
+      "model_type": "stars", 
+      "name": "CoRoT-11", 
+      "pid": 243, 
+      "ra": 280.687263, 
+      "temperature": 6440
+    }
+  ], 
+  "page": 27, 
+  "total_pages": 31
+}
