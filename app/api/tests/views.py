@@ -13,7 +13,7 @@ test_data = {
 
 
 @api_test_blueprints.route('/api/test')
-def get_tests():
+def get_tests(): # pragma: no cover
     # Run tests.py here
     with open("unit-test.cache", "w") as stream:
         unittest.TextTestRunner(stream=stream, verbosity=2).run(suite())

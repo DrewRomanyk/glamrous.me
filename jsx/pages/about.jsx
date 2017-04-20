@@ -52,7 +52,7 @@ const TheGlamFam = (props) => {
                 about={"I'm currently a junior computer science student at The University of "
                 + "Texas at Austin. I'm the president of MAD, and currently going to "
                 + 'intern with RetailMeNot over the summer.'}
-                contrib={{...stats('DrewRomanyk'), tests: 0}}
+                contrib={{...stats('DrewRomanyk'), tests: 6}}
             />
             <TeamMember
                 name='Cameron Piel'
