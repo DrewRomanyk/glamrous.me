@@ -86,7 +86,7 @@ def get_search_results(query):
         contents = [tag.name]
         for keyword in keywords:
             if keyword not in results['Tag']:
-                results['Tag'][keyword] = set()
+                results['Tag'][keyword] = dict()
             found, context = search_for_keyword(keyword, contents)
             if found:
                 results['Tag'][keyword][tag.id] = context
