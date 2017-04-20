@@ -187,8 +187,8 @@ class UnitTests(unittest.TestCase):
             res = get_brand(1)
             brand = json.loads(res.data.decode())
             self.assertEqual(brand['id'], 1)
-            self.assertEqual(brand['name'], 'stila')
-            self.assertEqual(brand['num_products'], 11)
+            self.assertGreaterEqual(len(brand['name']), 1)
+            self.assertGreaterEqual(brand['num_products'], 1)
 
     def test_endpoint_tag_1(self):
         with app.test_request_context():
@@ -201,9 +201,9 @@ class UnitTests(unittest.TestCase):
             res = get_tag(2)
             tag = json.loads(res.data.decode())
             self.assertEqual(tag['id'], 2)
-            self.assertEqual(tag['name'], 'Gluten Free')
-            self.assertEqual(tag['num_products'], 78)
-            self.assertEqual(tag['avg_price'], 17.96)
+            self.assertGreaterEqual(tag['avg_price'], 1.0)
+            self.assertGreaterEqual(len(tag['name']), 1)
+            self.assertGreaterEqual(tag['num_products'], 1)
 
     def test_endpoint_product_1(self):
         with app.test_request_context():
@@ -216,9 +216,9 @@ class UnitTests(unittest.TestCase):
             res = get_product(1)
             category = json.loads(res.data.decode())
             self.assertEqual(category['id'], 1)
-            self.assertEqual(category['name'], 'Stila La Quill Eye Liner Brush')
-            self.assertEqual(category['price'], 36.0)
-            self.assertEqual(category['brand']['id'], 1)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
 
     def test_endpoint_categories_1(self):
         with app.test_request_context():
@@ -231,18 +231,18 @@ class UnitTests(unittest.TestCase):
             res = get_category(1)
             category = json.loads(res.data.decode())
             self.assertEqual(category['id'], 1)
-            self.assertEqual(category['name'], 'eyebrow')
-            self.assertEqual(category['num_products'], 19)
-            self.assertEqual(category['avg_price'], 32.61)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['num_products'], 1)
+            self.assertGreaterEqual(category['avg_price'], 1)
 
     def test_endpoint_specific_sub_category_1(self):
         with app.test_request_context():
             res = get_sub_category(2)
-            category = json.loads(res.data.decode())
-            self.assertEqual(category['id'], 2)
-            self.assertEqual(category['name'], 'liquid')
-            self.assertEqual(category['num_products'], 112)
-            self.assertEqual(category['avg_price'], 16.21)
+            sub_category = json.loads(res.data.decode())
+            self.assertEqual(sub_category['id'], 2)
+            self.assertGreaterEqual(len(sub_category['name']), 1)
+            self.assertGreaterEqual(sub_category['num_products'], 1)
+            self.assertGreaterEqual(sub_category['avg_price'], 1)
 
     def test_endpoint_search_1(self):
         with app.test_request_context():
