@@ -214,6 +214,14 @@ class UnitTests(unittest.TestCase):
             self.assertGreaterEqual(len(brand['name']), 1)
             self.assertGreaterEqual(brand['num_products'], 1)
 
+    def test_endpoint_specific_brand_2(self):
+        with app.test_request_context():
+            res = get_brand(2)
+            brand = json.loads(res.data.decode())
+            self.assertEqual(brand['id'], 2)
+            self.assertGreaterEqual(len(brand['name']), 1)
+            self.assertGreaterEqual(brand['num_products'], 1)
+
     def test_endpoint_tag_1(self):
         with app.test_request_context():
             res = get_tags()
@@ -225,6 +233,15 @@ class UnitTests(unittest.TestCase):
             res = get_tag(2)
             tag = json.loads(res.data.decode())
             self.assertEqual(tag['id'], 2)
+            self.assertGreaterEqual(tag['avg_price'], 0)
+            self.assertGreaterEqual(len(tag['name']), 1)
+            self.assertGreaterEqual(tag['num_products'], 1)
+
+    def test_endpoint_specific_tag_2(self):
+        with app.test_request_context():
+            res = get_tag(3)
+            tag = json.loads(res.data.decode())
+            self.assertEqual(tag['id'], 3)
             self.assertGreaterEqual(tag['avg_price'], 0)
             self.assertGreaterEqual(len(tag['name']), 1)
             self.assertGreaterEqual(tag['num_products'], 1)
