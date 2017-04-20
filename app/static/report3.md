@@ -430,6 +430,13 @@ avg_rating          Float           the average rating for Products with this Su
 num_products        Integer         number of products with this SubCategory
 ```
 
+#### Search
+
+Search is available on all pages, since it is on the navigation bar. Once a user presses enter on their query, it is
+sent to the react page, which then requests a search API call on the query. It then displays all of the items and
+highlights the context of why it was found due to the keywords. Our search looks through all of the names and
+descriptions of all of our models.
+
 ### Tools
 
 #### Front-End
