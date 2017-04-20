@@ -175,17 +175,21 @@ export default class About extends React.Component {
                 </Row>
 
                 <Row>
-                    <GridCell lg={6}>
+                    <GridCell lg={4}>
                         <PageHeader>Technical Report</PageHeader>
                         <a className="btn" href="/report">View Report</a>
                     </GridCell>
-                    <GridCell lg={6}>
+                    <GridCell lg={4}>
                         <PageHeader>Unit Tests</PageHeader>
                         <button onClick={(e) => this.runUnitTests(e)} type="button"
                                 className="btn btn-info btn-lg antisocial" data-toggle="modal"
                                 data-target="#myModal">Run
                         </button>
                     </GridCell>
+					<GridCell lg={4}>
+						<PageHeader>Visualization</PageHeader>
+						<a className="btn" href="/visualization">SpaceCowboys Visualization</a>
+					</GridCell>
                 </Row>
 
                 <Modal.Modal id="myModal">
