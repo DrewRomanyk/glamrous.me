@@ -232,7 +232,11 @@ class FilterOptions extends Component {
 		return (
 			<Row>
 				<Block marginRight='18px' fontSize='large'>Filters:</Block>
-				{this.filterButtons()}
+				{this.filterButtons().map(button => (
+					<Block key={button.key}>
+						{button.render()}
+					</Block>
+				))}
 			</Row>
 		);
 	}
