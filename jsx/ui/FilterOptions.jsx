@@ -19,33 +19,32 @@ class DropdownRange extends Component {
 			minValid: true,
 			maxValid: true,
 		};
-
-		const isValidNum = (str) => {
-			return (
-				str.length > 0 &&
-				!isNaN(str)
-			);
-		};
-
-		this.onMinChange = (evt) => {
-			this.setState({
-				min: evt.target.value,
-				minValid: isValidNum(evt.target.value),
-			});
-		};
-		this.onMaxChange = (evt) => {
-			this.setState({
-				max: evt.target.value,
-				maxValid: isValidNum(evt.target.value),
-			});
-		};
-		this.apply = () => {
-			this.props.changeBounds(
-				this.state.min,
-				this.state.max
-			);
-		};
 	}
+
+	isValidNum = (str) => (
+		str.length > 0 && !isNaN(str)
+	);
+
+	onMinChange = (evt) => {
+		this.setState({
+			min: evt.target.value,
+			minValid: this.isValidNum(evt.target.value),
+		});
+	};
+
+	onMaxChange = (evt) => {
+		this.setState({
+			max: evt.target.value,
+			maxValid: this.isValidNum(evt.target.value),
+		});
+	};
+
+	apply = () => {
+		this.props.changeBounds(
+			this.state.min,
+			this.state.max
+		);
+	};
 
 	render() {
 		const minID = this.props.filter.name + 'min';
@@ -115,18 +114,11 @@ DropdownSelectable.propTypes = {
 };
 
 class FilterButton extends Component {
-	constructor(props) {
-		super(props);
-
-		this.selectableOnClick = this.selectableOnClick.bind(this);
-		this.changeBounds = this.changeBounds.bind(this);
-	}
-
-	selectableOnClick(option) {
+	selectableOnClick = (option) => {
 		this.props.toggleSelected(this.props.filter.name, option);
 	}
 
-	changeBounds(min, max) {
+	changeBounds = (min, max) => {
 		this.props.changeBounds(this.props.filter.name, min, max);
 	}
 
@@ -178,14 +170,9 @@ class FilterOptions extends Component {
 		this.state = {
 			mobile: false,
 		};
-
-		this.filterButtons = this.filterButtons.bind(this);
-		this.renderMobile = this.renderMobile.bind(this);
-		this.renderDesktop = this.renderDesktop.bind(this);
-		this.updateDimensions = this.updateDimensions.bind(this);
 	}
 
-	filterButtons() {
+	filterButtons = () => {
 		return this.props.filters.map(filter => ({
 			key: filter.name,
 			render: () => (
@@ -198,7 +185,7 @@ class FilterOptions extends Component {
 		}));
 	}
 
-	renderMobile() {
+	renderMobile = () => {
 		return (
 			<Block>
 				<button type="button" className="btn btn-default"
@@ -228,7 +215,7 @@ class FilterOptions extends Component {
 		);
 	}
 
-	renderDesktop() {
+	renderDesktop = () => {
 		return (
 			<Row>
 				<Block marginRight='18px' fontSize='large'>Filters:</Block>
@@ -241,8 +228,7 @@ class FilterOptions extends Component {
 		);
 	}
 
-	updateDimensions() {
-
+	updateDimensions = () => {
 		// adapted from
 		// http://stackoverflow.com/questions/19014250/reactjs-rerender-on-browser-resize
 		const element = document.documentElement;
@@ -264,7 +250,6 @@ class FilterOptions extends Component {
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateDimensions);
 	}
-
 	render() {
 		return this.state.mobile ? this.renderMobile() : this.renderDesktop();
 	}

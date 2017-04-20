@@ -23,12 +23,6 @@ class SortFilterPaginate extends Component {
             offset: 0,
             page: 0,
         };
-
-        this.setSortBy = this.setSortBy.bind(this);
-        this.getAllSorts = this.getAllSorts.bind(this);
-        this.toggleSelected = this.toggleSelected.bind(this);
-        this.changeBounds = this.changeBounds.bind(this);
-        this.handlePageClick = this.handlePageClick.bind(this);
     }
 
 
@@ -39,7 +33,7 @@ class SortFilterPaginate extends Component {
         });
     }
 
-    getAllSorts(data) {
+	getAllSorts = (data) => {
         let allSortMethods = new Set();
         data.forEach(datum => {
             datum.sortables.map(sortable => sortable.name).forEach(name => {
@@ -49,7 +43,7 @@ class SortFilterPaginate extends Component {
         return allSortMethods;
     }
 
-    getFilters(data) {
+	getFilters = (data) => {
         let allFilters = [];
         data.forEach(datum => {
             datum.filterables.forEach(filterable => {
@@ -80,14 +74,14 @@ class SortFilterPaginate extends Component {
         return allFilters;
     }
 
-    setSortBy(sortBy, reverse) {
+	setSortBy = (sortBy, reverse) => {
         this.setState({
             sortBy: sortBy,
             sortReverse: reverse,
         });
     }
 
-    toggleSelected(filterName, option) {
+	toggleSelected = (filterName, option) => {
         // TODO immutable.js would be p cool
         const filters = cloneDeep(this.state.filters);
         const filter = find(filters, {name: filterName});
@@ -100,7 +94,7 @@ class SortFilterPaginate extends Component {
         });
     }
 
-    changeBounds(filterName, min, max) {
+	changeBounds = (filterName, min, max) => {
         const filters = cloneDeep(this.state.filters);
         const filter = find(filters, {name: filterName});
         filter.min = min;
@@ -112,7 +106,7 @@ class SortFilterPaginate extends Component {
         });
     }
 
-    handlePageClick(data) {
+	handlePageClick = (data) => {
         const selected = data.selected;
         const offset = Math.ceil(selected * this.state.per_page);
 

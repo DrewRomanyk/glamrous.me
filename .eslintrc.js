@@ -5,8 +5,9 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "installedESLint": true,
+    "parser": "babel-eslint",
     "parserOptions": {
-	"ecmaVersion": 6,
+		"ecmaVersion": 6,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true
