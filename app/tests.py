@@ -244,6 +244,24 @@ class UnitTests(unittest.TestCase):
             self.assertGreaterEqual(category['price'], 0)
             self.assertGreaterEqual(category['brand']['id'], 1)
 
+    def test_endpoint_specific_product_2(self):
+        with app.test_request_context():
+            res = get_product(2)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 2)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
+
+    def test_endpoint_specific_product_3(self):
+        with app.test_request_context():
+            res = get_product(3)
+            category = json.loads(res.data.decode())
+            self.assertEqual(category['id'], 3)
+            self.assertGreaterEqual(len(category['name']), 1)
+            self.assertGreaterEqual(category['price'], 0)
+            self.assertGreaterEqual(category['brand']['id'], 1)
+
     def test_endpoint_categories_1(self):
         with app.test_request_context():
             res = get_categories()
