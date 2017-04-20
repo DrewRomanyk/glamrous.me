@@ -3,7 +3,7 @@ import Flex from 'jsxstyle/Flex';
 import Row from 'jsxstyle/Row';
 import Block from 'jsxstyle/Block';
 import { Modal } from '../ui/Bootstrap.jsx';
-//import Col from 'jsxstyle/Col';
+import WindowSizeWatcher from '../ui/WindowSizeWatcher.jsx';
 
 export const FILTER_TYPE = {
 	SELECTABLE: 0,
@@ -228,30 +228,19 @@ class FilterOptions extends Component {
 		);
 	}
 
-	updateDimensions = () => {
-		// adapted from
-		// http://stackoverflow.com/questions/19014250/reactjs-rerender-on-browser-resize
-		const element = document.documentElement;
-		const body = document.getElementsByTagName('body')[0];
-		const width = window.innerWidth || element.clientWidth || body.clientWidth;
-
+	updateDimensions = ({width}) => {
 		// 768 is the "medium" break point as defined by bootstrap and the default break
 		// point for, e.g., navbar switching between mobile- and desktop-variants
 		// (see https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss;
 		// search for "// Grid breakpoints")
 		this.setState({ mobile: width < 768 });
 	}
-	componentWillMount() {
-		this.updateDimensions();
-	}
-	componentDidMount() {
-		window.addEventListener('resize', this.updateDimensions);
-	}
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateDimensions);
-	}
 	render() {
-		return this.state.mobile ? this.renderMobile() : this.renderDesktop();
+		return (
+			<WindowSizeWatcher onSizeChange={this.updateDimensions}>
+				{this.state.mobile ? this.renderMobile() : this.renderDesktop()}
+			</WindowSizeWatcher>
+		);
 	}
 }
 FilterOptions.propTypes = {

@@ -2,7 +2,7 @@
 import React, {PropTypes} from 'react';
 import {Container, Panel} from '../ui/Bootstrap.jsx';
 import ClimbingBoxLoader from '../ui/ClimbingBoxLoader.jsx';
-import InlineBlock from 'jsxstyle/inlineblock';
+import InlineBlock from 'jsxstyle/InlineBlock';
 
 export default class Products_Details extends React.Component {
     constructor(props) {

@@ -7,6 +7,7 @@ import {Container} from '../ui/Bootstrap.jsx';
 import Flex from 'jsxstyle/Flex';
 import SortOptions from '../ui/SortOptions.jsx';
 import FilterOptions, {FILTER_TYPE} from '../ui/FilterOptions.jsx';
+import WindowSizeWatcher from '../ui/WindowSizeWatcher.jsx';
 
 class SortFilterPaginate extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class SortFilterPaginate extends Component {
             per_page: parseInt(this.props.per_page),
             offset: 0,
             page: 0,
+            tinyPaginate: false,
         };
     }
 
@@ -116,6 +118,10 @@ class SortFilterPaginate extends Component {
         });
     }
 
+	updateDimensions = ({width}) => {
+		this.setState({ tinyPaginate: width < 400 });
+	}
+
     render() {
         const displayData = this.props.data.filter(element => {
             return this.state.filters.every(filter => {
@@ -183,26 +189,28 @@ class SortFilterPaginate extends Component {
                         .map(element => element.display())}
                 </Flex>
                 <Flex justifyContent='center' wrap='wrap' width='100%'>
-                    <ReactPaginate
-                        previousLabel={'<'}
-                        nextLabel={'>'}
-                        breakLabel={'...'}
-                        pageCount={pageCount}
-                        marginPagesDisplayed={1}
-                        pageRangeDisplayed={3}
-                        onPageChange={this.handlePageClick}
-                        forcePage={this.state.page}
-                        containerClassName='paginate-container'
-                        breakClassName='paginate-break'
-                        pageClassName='paginate-page'
-                        pageLinkClassName='paginate-link btn btn-default'
-                        activeClassName='paginate-active'
-                        previousClassName='paginate-previous'
-                        nextClassName='paginate-next'
-                        previousLinkClassName='btn-default btn'
-                        nextLinkClassName='btn btn-default'
-                        disabledClassName='btn-default paginate-disabled'
-                    />
+					<WindowSizeWatcher onSizeChange={this.updateDimensions}>
+						<ReactPaginate
+							previousLabel={'<'}
+							nextLabel={'>'}
+							breakLabel={'...'}
+							pageCount={pageCount}
+							marginPagesDisplayed={1}
+							pageRangeDisplayed={this.state.tinyPaginate ? 0 : 3}
+							onPageChange={this.handlePageClick}
+							forcePage={this.state.page}
+							containerClassName='paginate-container'
+							breakClassName='paginate-break'
+							pageClassName='paginate-page'
+							pageLinkClassName='paginate-link btn btn-default'
+							activeClassName='paginate-active'
+							previousClassName='paginate-previous'
+							nextClassName='paginate-next'
+							previousLinkClassName='btn-default btn'
+							nextLinkClassName='btn btn-default'
+							disabledClassName='btn-default paginate-disabled'
+						/>
+					</WindowSizeWatcher>
                 </Flex>
             </Container>
         );
