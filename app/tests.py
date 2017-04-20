@@ -137,6 +137,18 @@ class UnitTests(unittest.TestCase):
             db.session.delete(category)
             db.session.commit()
 
+    def test_model_sub_category_2(self):
+        with app.test_request_context():
+            category = SubCategory('pen', 12.99, 2.13, 2)
+            db.session.add(category)
+            db.session.commit()
+
+            query = db.session.query(SubCategory).filter_by(name='pen').first()
+            self.assertEqual(query.avg_rating, 2.13)
+
+            db.session.delete(category)
+            db.session.commit()
+
     def test_model_sub_category_3(self):
         with app.test_request_context():
             category = SubCategory('pen', 12.99, 2.13, None)
