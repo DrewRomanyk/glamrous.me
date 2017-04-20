@@ -43,7 +43,7 @@ before_install:
 
 script:
   - docker-compose -f docker-compose.yml -f docker-compose-test.yml build
-  - sleep 8
+  - sleep 5
   - make test
   - cat tests.tmp
 
