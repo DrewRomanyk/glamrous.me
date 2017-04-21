@@ -1,10 +1,14 @@
 # pylint: disable=wildcard-import
+# pylint: disable=missing-docstring
+# pylint: disable=unused-import
+# pylint: disable=wrong-import-position
+
 import json
 
 with open('config.json') as f:
-    debug = json.load(f)['DEBUG']
+    DEBUG = json.load(f)['DEBUG']
 
-if not debug:
+if not DEBUG:
     import data.data_to_database
 
 from app import app
