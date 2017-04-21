@@ -1,0 +1,2372 @@
+commit f4b1955a3dcd15a63af730cbdc8697d63a099a01
+Merge: 11b9a55 03867ed
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 19:13:21 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 11b9a5583d4eb1fba5526fb6886c0d5a3b892389
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 19:13:18 2017 -0500
+
+    Visualization resizes on window change
+
+commit 03867ed0f86f8fa85b34913738f437c013eb1ff4
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 19:03:28 2017 -0500
+
+    Fix database code
+
+commit 034b804e0cc4b10a8d036acd09ebc4a440d25266
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 18:49:07 2017 -0500
+
+    pylint fixes
+
+commit e682da90b875576ba9cbded32a550144f350e7ea
+Merge: f94a500 0f943e2
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 18:16:51 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit f94a500002e136b27151876c233d6c8e85022473
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 18:16:44 2017 -0500
+
+    Shrink pagination context on very small (<400px) screens. Closes #71.
+
+commit 0f943e2bf2b1be8c1172a784db512f6ea1cc0cb7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 18:13:13 2017 -0500
+
+    Fix search for query 'a'
+
+commit 2edb48793fafcad3c8e32612fe40e44ea89a7c4e
+Merge: 32a4829 9630ce9
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:51:55 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 32a482982605e0ae52ab91f0e76e00160d5ddecd
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:51:48 2017 -0500
+
+    update tests.out and unit test count
+
+commit 9630ce9b3002527f0e34bc0cb5281c68c003e122
+Merge: 67d2d0c a2b0f03
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 17:48:20 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 67d2d0cf0fe6b1547420b64ec80f1e87a1acb7e4
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 17:48:08 2017 -0500
+
+    Remove .bind in favor of transformed object properties. Closes #72
+
+commit a2b0f034c3c4f1c8701a01b825da9eed5fdc125c
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:40:40 2017 -0500
+
+    update report to include CORS config
+
+commit ad2b9b15af94a6876917808c6ccb9c3a35183b18
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 17:36:58 2017 -0500
+
+    Add colors to Product details
+
+commit f57f8f9f96920421339fe9ddbb48a9e1318a6d18
+Merge: 80a7cb8 e016e22
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:22:28 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 80a7cb83fa149d145313db0470584784ed31f018
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:22:23 2017 -0500
+
+    couple more report tweaks
+
+commit e016e225912dd3c0b330c4c4709c052ab76ca55c
+Merge: c3beb56 7c943ab
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 17:20:29 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit c3beb563cc1ba196240b0a9cf3bdeca8075015dd
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 17:20:28 2017 -0500
+
+    They fixed their API. Also, we have colors now.
+
+commit 7c943ab07235620af5703cbcd20268fb4fe7c71e
+Merge: 1f93074 2d6cb57
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:16:52 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 1f930747e248303f6fd28deebfa98f1063fc77d3
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 17:16:46 2017 -0500
+
+    update report 3
+
+commit 2d6cb57cf9ca733760162396cb35d1120db8b743
+Author: Cameron Piel <Cpiely@users.noreply.github.com>
+Date:   Thu Apr 20 17:08:56 2017 -0500
+
+    Add planning poker
+
+commit fdcb70e746b36f5dd4765b6a40e2fc5ab1b8a7bb
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 16:56:46 2017 -0500
+
+    Class presentation link
+
+commit fd0631e5e2dea8e17e5e521f91c128b95e058776
+Merge: 0e73d44 45a2d1c
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 16:10:31 2017 -0500
+
+    Merge branch 'visualization'
+
+commit 45a2d1c931b581a449f605917e42989fa74dddef
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 16:10:01 2017 -0500
+
+    Add visualization d3 file and downloaded spacecowboys api (since they haven't set up CORS headers yet)
+
+commit 379203797612082e235b2689b6d6bd0031a9eccc
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 16:08:19 2017 -0500
+
+    Add visualization page and framework.
+    
+    See /static/js/visualization.js for actual d3 code.
+
+commit 0e73d4487c846d52154b116b3d591d2456a584cf
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 14:55:26 2017 -0500
+
+    Add IDB3 .html and .pdf since these are unchanged from IDB2
+
+commit 4ebf1d00ea9da189134e4ef805d15543ecdb207a
+Merge: c2b5870 011c6dc
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Apr 20 13:40:07 2017 -0500
+
+    Merge pull request #76 from DrewRomanyk/more-tests
+    
+    More tests
+
+commit 011c6dcd16ce84f968841997f0a6e3727ffae385
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 13:34:32 2017 -0500
+
+    update test count
+
+commit 27bc4a8ba35bfcb5c7886ab25bdac36caca9f10c
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 13:28:11 2017 -0500
+
+    More tests
+
+commit 9cec9ab2e9f0212487e4ad8d3fde0fcf109576c4
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 13:25:11 2017 -0500
+
+    Added a couple more tests
+
+commit c2b5870445565927e106c872fe256a046ed612dc
+Merge: db94d78 ee48a2e
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Thu Apr 20 13:13:42 2017 -0500
+
+    Merge pull request #75 from DrewRomanyk/report
+    
+    Report
+
+commit ee48a2ea897dc15514eff5e4f281664a33d4266f
+Author: melody park <melodypark@utexas.edu>
+Date:   Thu Apr 20 13:11:08 2017 -0500
+
+    got rid of the newlines
+
+commit ed92fd2d33739b8c42c6e7a25c4f552f6b88f7d5
+Author: melody park <melodypark@utexas.edu>
+Date:   Thu Apr 20 12:56:20 2017 -0500
+
+    grammar changes
+
+commit db94d788424ca33dae9fcbba2e9f7424844e9ec4
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 12:52:40 2017 -0500
+
+    I made some tests
+
+commit 008c3959614677f8f06340c3c479ce2a4e053faa
+Merge: 3ceff3b 490346c
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Apr 20 12:50:28 2017 -0500
+
+    Merge pull request #73 from DrewRomanyk/test
+    
+    Test
+
+commit 3ceff3bce233199007381eb69e144f66a846403f
+Merge: 8168881 a3c09b6
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 12:45:12 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 8168881562fc59021742022d1ed3d030eb17bfaa
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 12:45:07 2017 -0500
+
+    Remove now-useless console.log
+
+commit a3c09b647cfacc45276e464690e4b535efda5e1c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 12:43:49 2017 -0500
+
+    Add coverage to run unit test on about page
+
+commit 4de3e74a7dbf6c4729450cd664d999da1842a9f8
+Merge: d97b34c 107d72f
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 12:43:18 2017 -0500
+
+    Merge branch 'mobilize'
+
+commit 107d72fbf91ffe61525f44f9dd0b97430a72b3cd
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 12:43:00 2017 -0500
+
+    Fix desktop render of FilterOptions
+
+commit 490346c21db41c317d6b9dcdff108748c90265bc
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 12:41:54 2017 -0500
+
+    Added another test
+
+commit 3e3add0eb023587f531d9bb46f67725b4328dff6
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 12:32:03 2017 -0500
+
+    Added missing second category test
+
+commit d97b34c65badd4af823e7aa663fe85d4f2bd5170
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 11:39:45 2017 -0500
+
+    shorten Travis sleep time
+
+commit 84a37544ea838893fc92c45bb1fc06f81b2ce39e
+Merge: 74537b1 8c142ab
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 11:39:45 2017 -0500
+
+    Merge branch 'mobilize' of github.com:DrewRomanyk/glamrous.me into mobilize
+
+commit 74537b146f0b1e8e751892ca69ef2ee4147f73e3
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 20 11:39:31 2017 -0500
+
+    Mobilize Filter button
+
+commit 8c142ab8a775eea8889362e4aa20410bce48c3b4
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 11:38:46 2017 -0500
+
+    fix paginate, grid cells, searchbox on mobile
+
+commit d878e54a2ffbec69fab0290761522a8332afb1d8
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 20 11:23:43 2017 -0500
+
+    Restore Travis fix
+
+commit 7a4d6593a3083fa0abb6c72a6e4dcf98ff9bb8e6
+Merge: aaffa28 51a9180
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 08:02:12 2017 -0500
+
+    Merge pull request #69 from DrewRomanyk/moar_tests
+    
+    Moar tests
+
+commit 51a9180f3d440573deddbcc151717e873da791fd
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:53:56 2017 -0500
+
+    Update about page
+
+commit 18ba17a4f932abb9feb22839e71d6d2821ea38d8
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:48:53 2017 -0500
+
+    Fix possible issues with the tests
+
+commit 6791698a23c3735d1daa745d1c6cd1d32432d31f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:43:56 2017 -0500
+
+    That file was used, whoops
+
+commit 865a47a16f11f7fddedc68269886fea96b48f1cd
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:40:00 2017 -0500
+
+    Update about page & remove unused python file
+
+commit d5d056602da3a507d8195e19235925ce7bbf80f3
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:33:12 2017 -0500
+
+    Fix search test
+
+commit 999630e44663b1fe80d1575c329f540e5f5ac1c4
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:28:03 2017 -0500
+
+    Account for database changing the id's
+
+commit 4fedb5fe68a3b32562d856a20b3123b292d7b25d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 07:15:31 2017 -0500
+
+    Add moar tests!
+
+commit aaffa288d5b4ec0ced67073707e630448aeec169
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 20 06:41:52 2017 -0500
+
+    Add search section for report
+
+commit c6c61d0734dde02aa8d9e3bda2c8a3984c1973f2
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Wed Apr 19 13:57:43 2017 -0500
+
+    Repushing Apiary File
+
+commit f2fad358d5198d1d555379efeb4fbebd57814b52
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 19 12:35:10 2017 -0500
+
+    Added Bing Image API and Github API in Data section for About
+
+commit 60c8be91308408cc569ec0358bad7986d924e2af
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 19 12:30:48 2017 -0500
+
+    Update About page
+
+commit eed69debdd296a28a8646974bdb26d9cdd4138a5
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Tue Apr 18 17:28:56 2017 -0500
+
+    Added SubCategories
+
+commit fad8024b310303f1898f74fc1d8ae9d727693226
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Tue Apr 18 17:09:59 2017 -0500
+
+    List of Brands API
+
+commit 5f6d60c9354e2224b662af086890ab225645e3ec
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Tue Apr 18 15:24:12 2017 -0500
+
+    Product View
+
+commit 2f94dd8baa8395369c23e6fd01e4187e98bbda7c
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Tue Apr 18 14:27:19 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit e74cdae6df869d497b759958dedc83c5942f7a77
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Tue Apr 18 14:20:47 2017 -0500
+
+    update report
+
+commit c4648945b902fabc75b571b1d0cd0ad0ac2868b6
+Merge: e4c71e6 a15faa8
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Tue Apr 18 13:54:03 2017 -0500
+
+    Merge pull request #64 from DrewRomanyk/docker-compose
+    
+    Implement Docker Compose
+
+commit a15faa8cb393228c6945530fec06cfa8b6d414f3
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 12:31:59 2017 -0500
+
+    Please work
+
+commit 263e43fec352d858a1286838d80b9bd060614e0a
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 12:21:14 2017 -0500
+
+    Maybe?
+
+commit b3dfcec5866c6d6a6dd853a71d72fd7a7d5dba88
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 12:09:36 2017 -0500
+
+    whoops
+
+commit c1c1bf4d9723bb3f034ca84a587d25d4593ce974
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 12:04:46 2017 -0500
+
+    Okay this time? 👌
+
+commit d7c41a7d02b276fdfe4ed4722d28482446517b17
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 11:57:34 2017 -0500
+
+    Maybe please fix? 👀😘😘😘
+
+commit 0cc63e73dfe94831f7a58e91750bf7d007eb85a3
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 11:36:09 2017 -0500
+
+    Lets try again?
+
+commit f921b435ffefbeb268fc183bff9e16430aefa33c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 11:26:08 2017 -0500
+
+    Maybe?
+
+commit 5792df8a8a5b5c781977064cb6376943866c6338
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 11:09:47 2017 -0500
+
+    Please?
+
+commit b192abebf8ab887303f8860714c3dab858c97a06
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:50:04 2017 -0500
+
+    Update docker compose
+
+commit e85ee77e79bf3366614ff310adbce957624739f1
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:42:58 2017 -0500
+
+    Old version of docker compose?
+
+commit 6066725bfea79224f7ed93ca2857cbbe957b9228
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:35:00 2017 -0500
+
+    Add exit code return
+
+commit 7d9bf08b3ac1fc8cab5fa7b38108bd14a2f251c1
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:26:18 2017 -0500
+
+    Move coverage commands for debug
+
+commit 5ffbbf9ce4a803da84fe0a2236b90a38906feeed
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:23:52 2017 -0500
+
+    Is there an issue with coverage?
+
+commit 00aa0ff345efb900c1f843e685678ab83ecf923f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:10:17 2017 -0500
+
+    Fixed port issue, now fix tests.tmp file issue
+
+commit 7104195fcf9a847873da1bd5d083f4c3639ca9ef
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 10:01:48 2017 -0500
+
+    Hit me baby one more time?
+
+commit 56e105a03d0e3ce10306b805f005b66753a22104
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 09:45:50 2017 -0500
+
+    Again?
+
+commit 3cb1783eec69082799e71bd51b54b94c7943e374
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 09:36:24 2017 -0500
+
+    Lets try again
+
+commit bef87161c9e089e693ee5581fdee16705979e3a6
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 09:21:48 2017 -0500
+
+    See why database port is used
+
+commit 4e04a7af11071bbe3cd875cd8722eeb943780fc5
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 09:13:00 2017 -0500
+
+    get tests to work
+
+commit e60d8136b61285bd29938b539794fdeabecb2dc0
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 00:21:12 2017 -0500
+
+    Progress with testing for docker-compose
+
+commit 90daede2ca9d78f27bbebc7ab3b361d66f01dce7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 18 00:14:42 2017 -0500
+
+    Be able to start server from docker-compose, next is tests
+
+commit e4c71e6b4f28ac3e9c041c7faedff74fbb74ecab
+Merge: 4924861 ae2c5d7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 17 12:03:31 2017 -0500
+
+    Merge pull request #63 from DrewRomanyk/search
+    
+    Search
+
+commit ae2c5d7454554ec2cadd0fd1bd6dcb140a77213c
+Merge: d7eb6d3 4924861
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 17 12:02:43 2017 -0500
+
+    fix key item in search list
+
+commit 49248613b30800e897859c94c833a6fef35ff1f9
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 12 23:09:15 2017 -0500
+
+    fix typo
+
+commit d7eb6d3cdacdd7c0023ff4b8d9178869d767ad12
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Apr 11 11:59:51 2017 -0500
+
+    Remove all CORS stuff from flask: it didn't work and we don't need it.
+
+commit 65bc9534820084f5fd68ca1467644ae10b426bb6
+Merge: 7546a1c f764c9d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 11 08:23:24 2017 -0500
+
+    Merge
+
+commit f764c9d40b18a9122c0f152277160a20af291315
+Author: Robert Perce <contact@rperce.net>
+Date:   Mon Apr 10 17:32:22 2017 -0500
+
+    Don't explicitly set CORS origin
+    
+    Hopefully flask-cors does the right thing (set allowed-origin to whoever requested it); if
+    not, I think we'll have to do cross-origin through nginx.
+
+commit efc8c2d07133a31a16849093567ea8aa07644239
+Author: Robert Perce <contact@rperce.net>
+Date:   Mon Apr 10 17:11:31 2017 -0500
+
+    Move CORS call in app.py to see if that makes a difference
+
+commit 2a76485e7f8542ad2561235924209fb794280a57
+Merge: a767f7d 05abf86
+Author: Robert Perce <contact@rperce.net>
+Date:   Mon Apr 10 17:08:06 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 7546a1ceac96ddf7067896c5a28280d1ad129999
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 10 15:55:24 2017 -0500
+
+    Update tech report API section & added search API & formatted tech report
+
+commit f6e751789147d160492e2d57731988ae55fad59e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 10 14:56:17 2017 -0500
+
+    Add search to the tech report
+
+commit c291f253dfa5508b0820e8afe59b65d2496b1e06
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 10 14:42:21 2017 -0500
+
+    Make search be 10 items per page
+
+commit a767f7d20faa34d694167ca075bbd769ed971ed3
+Author: Robert Perce <contact@rperce.net>
+Date:   Mon Apr 10 14:26:49 2017 -0500
+
+    SortFilterPaginate element accepts perPage prop to customize pagination
+
+commit 3683ec2a233f19277e04ab62b1ad89469edad49d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Apr 10 14:24:18 2017 -0500
+
+    Add context to search
+
+commit 6bf0a609d16a9477a80c7ecab1050ff3b3021284
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Sat Apr 8 00:11:29 2017 -0500
+
+    Fix sort dropdown caret & add name to start script & re-number tech report
+
+commit f2dbdf9487b1c4ece2e1fc2a6660425ebdec5173
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 18:05:06 2017 -0500
+
+    Add loading indicators to all pages that list info
+
+commit efa02af7f4a414aae423976ca2f02ea4167e7ae8
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 16:28:07 2017 -0500
+
+    Added Sub categories to Products API & Front-end (description, category, category filtering added too)
+
+commit 76f54684a7a843e8a5cf18ef20e1a84210756e17
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 16:27:21 2017 -0500
+
+    Add Brands/Tags/Sub-cats/ to Categories API & Front-end (Brand filtering added)
+
+commit dbcdc3a1f4c0b6736e40877bf40dcdb746b52dc0
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 16:25:51 2017 -0500
+
+    Add categories/sub cats to Brand API & Front-end
+
+commit e526cc4f24af39c047545e6fbd2854b7e4ed1b4c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 16:24:16 2017 -0500
+
+    Add sub categories front-end
+
+commit 9e8c292891d3d81e25fac445b23bcdbc518b3c12
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 16:23:39 2017 -0500
+
+    Add sub categories
+
+commit a53e3e25a5c3f60dae38f48986a5dcde3779551e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 14:46:44 2017 -0500
+
+    SortFilterPaginate handles hiding the bar, Front-end for Search is done, added url_type to Search API
+
+commit 8c0a00f59f4a20719f52dbbdaa847a8e5b7e3658
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 13:55:32 2017 -0500
+
+    Add new Tech Report with search section
+
+commit 659e9effaedb7f4946c2f79fc32c7b6f9a52452e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 13:45:35 2017 -0500
+
+    Fix search api
+
+commit 75ccc5ae2d9b0deaad0079739e49776c813ca3a5
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 13:44:31 2017 -0500
+
+    Get working Search API based on AND & OR on the keywords ALSO if debug then don't rebuild database
+
+commit cdcceb23577bf8af0351b4d46385e3f418e06c63
+Merge: 7f4b146 05abf86
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 12:19:49 2017 -0500
+
+    Merge branch 'master' into search
+
+commit 05abf86b20f22a94b7da9ba158c223fd81312aee
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 11:05:03 2017 -0500
+
+    add tests.out
+
+commit 7f4b1468ddcb4633dd29d26c19be5b5b956569da
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 09:31:00 2017 -0500
+
+    Progress with searching
+
+commit c4c26a8703638035b97085728b6c4d9c4ca8a302
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 09:01:11 2017 -0500
+
+    Add tests.out
+
+commit 246a8058aa4c4dbcb6634d57455f64b64b69db43
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 08:47:17 2017 -0500
+
+    Reorganize data & documentation, remove flask-migration
+
+commit 794b425f981163389e66a1269fe403ae5f15f72b
+Merge: 3ffc6ae d71755b
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Apr 7 08:27:59 2017 -0500
+
+    merge
+
+commit d71755b76ec74125a93fea51af611ccd40e798f7
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 22:03:36 2017 -0500
+
+    Add git log to IDB2.log. Closes #33.
+
+commit 6af69ed99925666adede8cd1d2e586fc8032fdf2
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 22:03:08 2017 -0500
+
+    Run autopep8. Closes #34
+
+commit 22627fd0fdd9893fd6b28389d264a2682068e3c0
+Merge: 67897ac a16ba4b
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 22:00:59 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 67897acf2392bc7118123a88736450a1bf81ae67
+Merge: 0792778 0f0c4b3
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 22:00:56 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit a16ba4b68744f2364f852140f141f3112635816f
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 22:00:24 2017 -0500
+
+    yes
+
+commit 07927781f17a84ccf7dee23c610d92a870e31570
+Merge: 4804a29 49ad70b
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:53:46 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 0f0c4b35f2e2785866b0332c89dadeee753e25da
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 21:58:20 2017 -0500
+
+    Maybe working now
+
+commit 4804a29967bfb45631131a6d6b6729ad00128894
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:51:56 2017 -0500
+
+    Add PropType validation to everything. Closes #41
+
+commit 49ad70b929aebf3c01478424e037def54070a726
+Merge: c5da79a b81da63
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 21:51:02 2017 -0500
+
+    Merge branch 'master' of https://github.com/DrewRomanyk/glamrous.me
+
+commit c5da79adc61f77b5989108162452897bf52524c6
+Merge: 122d78a 2bf06bc
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 21:50:46 2017 -0500
+
+    Fixed merged?
+
+commit b81da63abb787b5194b2df0d5eef465f531f3436
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 21:49:07 2017 -0500
+
+    Fix Product API
+
+commit 49fad55219b49e3b8a7d92cf4eee0af588169824
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 21:46:41 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 122d78a3d90a3ca47d1737c48725d10cc6824f39
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 21:41:07 2017 -0500
+
+    Fix Product API
+
+commit 2bf06bcf1e677fe04e530a56f3a1c444641718c0
+Merge: 2bf67d7 350a902
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 21:38:30 2017 -0500
+
+    Merge branch 'tests' of https://github.com/DrewRomanyk/glamrous.me into tests
+
+commit 2bf67d7a6a7e3751341396f6414cb30331c2c072
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 21:38:21 2017 -0500
+
+    Finish tests with tons of time to spare.
+
+commit 6322a9d2579d97e7ea4d6a5d2d1af02e6428969c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 21:37:17 2017 -0500
+
+    Add category to products and brands
+
+commit b0090e6d4a07ceb23c3228c655dd24e1293d92b9
+Merge: 6ef4ccf ec93980
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:27:36 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 6ef4ccf05bc83dab58db8899e8a7306f12bd7d08
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:27:33 2017 -0500
+
+    Removed unused classname and switch  for jsxstyle elements. Closes #43.
+
+commit ec9398091b0b130accbf86a5a419c028c6c7f642
+Merge: 73dee63 14bb969
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 21:25:35 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 73dee63a4ffbee5585f244d9226c4dda253475e0
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 21:25:23 2017 -0500
+
+    IDB2.pdf
+
+commit 14bb96954cc3dbd7ec29ce0994ff50989619efec
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 21:24:58 2017 -0500
+
+    Update API report and fix category api
+
+commit 5bf24684ab285bc6fed4f34ea5257ba273dadcde
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 21:24:56 2017 -0500
+
+    add IDB2.html
+
+commit f0b1ca1f79432cdbe81670c06bce47212c78165a
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:19:03 2017 -0500
+
+    Add a blurb about React layout to the report. Closes #19
+
+commit 5eb62fd76b1702e047f02a57a853ca88c879ea81
+Merge: 16294f6 d41d649
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:14:42 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 16294f6fc06e140c6314185988de9f4a0f625d7b
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 21:14:39 2017 -0500
+
+    Add pagination to all sort/filtered pages. Closes #31.
+
+commit 350a902585fa519f482533466f2e6f6d3e3d2e5a
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 21:07:22 2017 -0500
+
+    lost
+
+commit 134d367ca2e941b7d2e75036638275543dbb223c
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:59:38 2017 -0500
+
+    update to latest docker on travis
+
+commit 7f1fdeac654c4583d430f5bffbcde8ee484c7d98
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:56:00 2017 -0500
+
+    update to latest docker on travis
+
+commit 14810173ddd83a3d3b7cbe775b45726a91d34fa6
+Merge: a9719e1 85b0263
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 20:47:57 2017 -0500
+
+    Merge branch 'tests' of https://github.com/DrewRomanyk/glamrous.me into tests
+
+commit a9719e1d8a5bf8183b25d0ed24d88a5d7afab7f6
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 20:47:49 2017 -0500
+
+    TESTS!
+
+commit 85b026357a35d902c410d4920a789978f9c9c192
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 20:46:05 2017 -0500
+
+    API test working
+
+commit 9bf78e699921ae5efa40c570a40583f3d92f9633
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:35:46 2017 -0500
+
+    fix typo
+
+commit 3eaf23c87d42fdd99ebcfce39dba7e62f025d151
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:35:06 2017 -0500
+
+    debug
+
+commit 7bf174e3657e5bd8c505de96f4647ede4fa78a06
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:31:14 2017 -0500
+
+    idk
+
+commit ea49744276132eecb67d9bcc3c409a029906683d
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:24:09 2017 -0500
+
+    fix missing config on travis
+
+commit 560fe4bb3e2393ee0c81256b891a6551b412404f
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:18:38 2017 -0500
+
+    remove old scripts
+
+commit 31fd0f54e3d78de74d2cf9eabacc3cb6694c0eff
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:06:49 2017 -0500
+
+    more doc updates
+
+commit 395955178411fb48f7164a89a563b51725537438
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 20:00:22 2017 -0500
+
+    more doc updates
+
+commit d41d649129dcd3a4248d65eeec8e4085ec6a591c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 20:00:00 2017 -0500
+
+    Fix GitHub issues count
+
+commit 8315579dc2aaa6445397396e72db6283e55daac9
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 19:58:01 2017 -0500
+
+    update readme
+
+commit 3f5f9ef687bc6ae2c4c97dd357c03646e6b39afb
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 19:48:26 2017 -0500
+
+    fix again...
+
+commit 06d647155954d75ab8c1d62b0113f78dfe150bb8
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 19:47:27 2017 -0500
+
+    fix tests db
+
+commit 3e77a1609954ab338dc2714a3e8501432b6e19d2
+Merge: 088c1a7 de11a57
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 19:45:01 2017 -0500
+
+    Merge branch 'add-loaders'
+
+commit 088c1a76d87ace302c951a3ed5ba56959a1439b1
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 19:44:47 2017 -0500
+
+    Wow i forgot sorting on brands that's silly. Closes #48
+
+commit 63df42b32478d10d0f5b8e779e55abfc35a37fb9
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 19:27:30 2017 -0500
+
+    Add some bootstrap elements
+
+commit 9a6c339a5636db0df0f0d42e354ceff803c1ded6
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 19:25:09 2017 -0500
+
+    try again
+
+commit b5abfaa5b59f82e704ae8e53b6bc5b1e25af0eeb
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 19:22:01 2017 -0500
+
+    Fix travis connection to db
+
+commit 0e3053c717fcbd27102b317c97b4da829e1a3f09
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 19:15:42 2017 -0500
+
+    Hopefully it should run the tests?
+
+commit 00fd8b4b4b515f7775a3e2b92cfa228156168afd
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 18:51:30 2017 -0500
+
+    Update README
+
+commit d9847dddb012688863dcb508cbeea4c20a162f40
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 18:49:31 2017 -0500
+
+    Update README
+
+commit 70b77a1e0f20bc972193920fba0e129d3ae06122
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 18:46:15 2017 -0500
+
+    Get tests to run
+
+commit de11a573796a2f1ecd45dae7ed68c050ee9c2693
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 18:44:16 2017 -0500
+
+    Loader setup
+
+commit 443265274f073ba3f6cc9f4ff8ae3069e73c56d9
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 18:37:07 2017 -0500
+
+    Fix eslint errors. So many eslint errors. Closes #47
+
+commit 3fada3b57c0a8925df1f6c04e29c7baac40faf9d
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 17:32:50 2017 -0500
+
+    Change tags api to include brands
+
+commit 33936e66358f750c781c5fe29a6bf980419beeae
+Merge: 2548afc 915533f
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 17:22:28 2017 -0500
+
+    Resolve merge conflicts
+
+commit 19f807f66b627d4ca3d09f8e611858ceba5b1fd3
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 17:22:04 2017 -0500
+
+    Fix pylint and import error.
+
+commit 61dbd447bfbc4db3a27e2b62442fa9e48a34415f
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 17:18:05 2017 -0500
+
+    No mo test db
+
+commit dc7808708175335e2fd5e54cb04865ae8c8b1131
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 17:12:43 2017 -0500
+
+    3.5.3-slim instead of 3-slim
+
+commit 2548afcf552525054ef623df44aeaf52ab028f16
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 17:02:24 2017 -0500
+
+    Add CORS?
+
+commit 53035a5c627f72aa28be70ace68a4a150c9f0c83
+Merge: ffbed5c 1d1c8ff
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 17:00:55 2017 -0500
+
+    Merge branch 'tests' of https://github.com/DrewRomanyk/glamrous.me into tests
+
+commit ffbed5c01f5861745d5c827b2e96d8b624d1906b
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 17:00:47 2017 -0500
+
+    Moved stuff back
+
+commit 1d1c8fff9021639963731804bb6d5c466b4ababd
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 16:52:07 2017 -0500
+
+    remove unnecessary config from travis.yml
+
+commit 44031301df06168b1ebb7ee57e40fab679810c2b
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 16:48:38 2017 -0500
+
+    Shorten descriptions for /api/products
+
+commit 915533f3829652ee212da1b29b30a571a9523098
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 16:36:46 2017 -0500
+
+    FILTERING B O I S
+
+commit c9676e8c64aeae7661d91636c5127570f2ea8824
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 16:36:23 2017 -0500
+
+    Remove defunct FilterBar
+
+commit 876b41583178b1e55e7219d043032e3c805ff5b0
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 16:33:45 2017 -0500
+
+    Ensure that each rating/price always has 2 decimals
+
+commit 7de54fd2f59ad59a9dfed7f878d5f923d011d073
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 16:30:24 2017 -0500
+
+    Maybe this will work now.
+
+commit c3e548471b08345dc7b19d5358dccaf7b088bcd0
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 16:25:33 2017 -0500
+
+    More test stuff
+
+commit 180ff2f482f7a0ad0437e39b3c54d7f38ebda233
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 16:11:27 2017 -0500
+
+    Change more imports
+
+commit f3209027f3eda239ee06c826746fc65b3c458ae6
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 16:00:42 2017 -0500
+
+    fix import error
+
+commit 1d40ed83546aa8205e522d7506509fb672f90e02
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 15:54:34 2017 -0500
+
+    make it actally do that.
+
+commit a80c197bd91fe7436cec3097b13133fe01c10063
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 15:51:24 2017 -0500
+
+    make test database
+
+commit 34f000cafd38d79f4e2753c276a4119b2d46c39a
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:44:48 2017 -0500
+
+    +x scripts
+
+commit 6524aa0d0f7eae818692f1d8159a70497464ae81
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:40:00 2017 -0500
+
+    add missing files
+
+commit e9c832ec963d6a04c40ac32f4d3111e2e6848d1a
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:39:44 2017 -0500
+
+    fix config swapping
+
+commit 0f9cd57455bb807f765a0092f016c9be224648ea
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:30:02 2017 -0500
+
+    don't fail if file doesn't exist
+
+commit 3192915937c593cc9d2958cd40ca89a2807d6b64
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:21:45 2017 -0500
+
+    more travis magic
+
+commit 78b228efe432fae5bfa41c746d6f49b2c209127b
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 15:20:42 2017 -0500
+
+    Format and pylint for models, test, and migration
+
+commit 062207c12cb62246247149116d45cb592e5a0edf
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 15:02:59 2017 -0500
+
+    try to fix db starting on travis
+
+commit fdb4bfc9e1a177d20fccf3c0bd15d91da26db1f4
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:59:20 2017 -0500
+
+    I was too eager
+
+commit 0d5095b9129b7e013b548f5c0417c047c726a0e0
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:55:47 2017 -0500
+
+    grr
+
+commit 6643e3cf898582468e8d9969cbdc464ffe3808c1
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:54:13 2017 -0500
+
+    third time's the charm
+
+commit d661a4f3659701e2ef3fe740c6ca2c1ac8d56a8f
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:48:23 2017 -0500
+
+    further fixes
+
+commit d47a3824c1bfcf63d1af4bae94f42600c8a967ea
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:43:15 2017 -0500
+
+    try fixing build error
+
+commit f452cddb1395963c3e1cb2feecc3444f9a1aa8b5
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:35:27 2017 -0500
+
+    need sudo and docker for travis
+
+commit 27ae8a59569519e3e059f9c33de78483d8468fe3
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:31:48 2017 -0500
+
+    Add more targets, attempt to run on travis
+
+commit a32fb0e8aa0d64358efe372c4f35b85794099277
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:25:32 2017 -0500
+
+    Improve test pipeline
+
+commit 36e1cf1fb0831ea84898b4df3c107d2951529831
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:18:11 2017 -0500
+
+    Fix accidental edit of start.sh
+
+commit 1257ea3c712fb76d2dd2b0e4b18cbb0365fc73e8
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 14:13:06 2017 -0500
+
+    Start work on tests
+
+commit 7c491104ec717f1d1fa70ec86f3c9f31ce12ee5d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 13:53:47 2017 -0500
+
+    Initialize API getting data from database
+
+commit d392302912db7818e3cab130bbb3b29329799329
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 13:12:01 2017 -0500
+
+    Update report 2 further
+
+commit 83f8987b872602bec56603fb8ac55f3d7935ca5d
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Apr 6 13:04:20 2017 -0500
+
+    wow sorting wow
+
+commit 4c26d36fccd65827355bcd39dd253822f16e2e9e
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 13:03:56 2017 -0500
+
+    Update report 2
+
+commit 71ab671b487e4d8ab630a4c3251edc9f1d2ca0a5
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 12:59:50 2017 -0500
+
+    Update README
+
+commit 9ebbca32bc7ece444474793aa5be7d0828813c6e
+Merge: 447af5a 7c34216
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 12:36:45 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 447af5ace9b22303764e991970208c285c7b60c1
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Apr 6 12:36:39 2017 -0500
+
+    Setup db at start
+
+commit 7c34216af5e1be6e5608c1397f1d72be03c4b9d8
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 12:29:34 2017 -0500
+
+    Handle 202 error for GitHub about page
+
+commit 12102398267f02330d63cb4a4ed22e816910587a
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 12:10:08 2017 -0500
+
+    Starting to fix docker server file to connect database to API
+
+commit a72284158db2b6cc943d73cc1d18f59b5e738ebf
+Merge: 7d770e2 042e30a
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 11:30:15 2017 -0500
+
+    Merge pull request #45 from DrewRomanyk/data-into-python
+    
+    Data into python into database
+
+commit 042e30a61d170ad9b9d7c7d32915c5b77ef243b9
+Merge: c736401 7d770e2
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 11:29:13 2017 -0500
+
+    Merge branch 'master' into data-into-python
+
+commit c7364014dcc98d3ea567ea362388f8c933adcdfb
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 11:26:43 2017 -0500
+
+    Fix brand images
+
+commit f9271e0febb85b074f8db9ffeda30827ab5f47fc
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 10:57:19 2017 -0500
+
+    Import brand images to brand python model
+
+commit d42f97e60067c160378be4a4421555b01e4fce01
+Merge: 55c3d2d 3dd6622
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 10:53:39 2017 -0500
+
+    Merge branch 'data-into-python' of github.com:DrewRomanyk/glamrous.me into data-into-python
+
+commit 55c3d2d211e6b921adf677597dd8f28e4bda32b8
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 10:53:30 2017 -0500
+
+    get brand images
+
+commit 7d770e236b0e4a208d5dce3fddb462a7dd66c7f1
+Author: Cameron Piel <Cpiely@users.noreply.github.com>
+Date:   Thu Apr 6 10:48:40 2017 -0500
+
+    Add database info to report
+
+commit 3dd662253a727da3cccf17ee43222da12bb1b82c
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 10:45:52 2017 -0500
+
+    Remove subcategory lipstick
+
+commit 2a518e94d5d2d13c334130775530591b5a635b35
+Merge: a0cfc3c 6c8896d
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 10:34:33 2017 -0500
+
+    Merge branch 'data-into-python' of https://github.com/DrewRomanyk/glamrous.me into data-into-python
+
+commit a0cfc3caa119f8870ed57ca51e6f4b907b060ad1
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Apr 6 10:34:19 2017 -0500
+
+    Change ints to float in models. Insert the data
+
+commit 6c8896d74db0a0c436250ab93efffc034ce6f09a
+Merge: a507ffe 6615b1d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 09:06:41 2017 -0500
+
+    Merge branch 'master' into data-into-python
+
+commit 3ffc6aee4d26daaa867bc3497637a232a78561de
+Merge: 9b9354e 6615b1d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 09:06:18 2017 -0500
+
+    Merge branch 'master' into search
+
+commit 6615b1d3a438f32cd0c7173f5dc2bdc4bd953270
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 08:48:58 2017 -0500
+
+    Change View {object} to View
+
+commit 92bca7e92d51636d61eed3449f973d902ef72241
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 00:56:30 2017 -0500
+
+    Reorganize report
+
+commit 9b9354e9c789f5a73148d9ef3507da7db9ad0f36
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 00:34:57 2017 -0500
+
+    Get search page working
+
+commit 579a1101c416674fde7bab2c7c5b6e4b35654b50
+Merge: a0e8b27 e9cd096
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 00:25:16 2017 -0500
+
+    Merge branch 'master' into search
+
+commit e9cd0966b3f69bea6ceda8f9e02ce322a8115e40
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Apr 6 00:21:15 2017 -0500
+
+    Fix Grid Cells in mobile
+
+commit a0e8b27ce0ab50e8df739e9ebbcda7b6cfe0ff5b
+Merge: 8696729 fbc9dbe
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 23:52:01 2017 -0500
+
+    Merge branch 'master' into search
+
+commit fbc9dbebb21dc079151e691c6d5032e34cafdb12
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 23:46:18 2017 -0500
+
+    Fix GitHub issues counter on About page
+
+commit 481890cbaf07360ac1611f0ff09ebb72d075f07f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 23:05:34 2017 -0500
+
+    Update styles for mobile
+
+commit 86967297a2fbbe655ce6967d1b80479a428abaac
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 22:58:40 2017 -0500
+
+    Enable searching to use keyword inputs
+
+commit 5385348efd51cc0ffd6f006d63ed5b3fc72dd35c
+Merge: c2b1427 0bfaf2d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 21:51:22 2017 -0500
+
+    Merge branch 'master' into search
+
+commit 0bfaf2db7c3266a2cdf368606738cb08b3ea1675
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 21:43:33 2017 -0500
+
+    Change font, and modify carousel text
+
+commit c2b14272f47f2abb4bae401bd5fe15f752c061d1
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 21:40:18 2017 -0500
+
+    initial changes for search
+
+commit 507e25ea1320a46726194f22b7d8008a2f8ece8e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 18:26:17 2017 -0500
+
+    Handle overflowing product detail image
+
+commit 790d84b0146d32d37c8bc7449107491736b6f6da
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 18:24:53 2017 -0500
+
+    Fix overflowing lists/images in details
+
+commit b4b601ed31e33e0fa30d50ed5b9f2c39b57ba5a5
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 17:57:55 2017 -0500
+
+    Format the header for table of contents to be lower
+
+commit e2a833e0634985df518e965e31e785010304a9a0
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 17:56:47 2017 -0500
+
+    Add padding to about page & add database section to report
+
+commit 20027788c5e77d0e615c948dd9ec64bdbb84f45d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 17:42:24 2017 -0500
+
+    Update Report & About Page
+
+commit 0ece4694c59d3a7f506c9a8567a0b2e36459e1ba
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 14:55:34 2017 -0500
+
+    Handle long descriptions for products page, and add badges
+
+commit c7ac8cba183233e73cea7df6e1fa7ec796c4dd90
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Apr 5 14:02:03 2017 -0500
+
+    redesign home and navbar
+
+commit a507ffefce48e958705683bcbd2b6dc0a60690a0
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 4 17:04:41 2017 -0500
+
+    Fix errors, and finish api to python data
+
+commit 1803cf9fe07acb3b2570c7dfd3ed31ca74b2c38c
+Merge: 11fb987 af4b0d8
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 4 15:28:39 2017 -0500
+
+    merge
+
+commit af4b0d85180167c380c9a12ab61ff577d2d068d1
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Tue Apr 4 14:15:50 2017 -0500
+
+    Fix product_category model
+
+commit 11fb98798b23c5762bbc175ffbee984529604323
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 4 12:14:44 2017 -0500
+
+    Create initial code, has bing image search, and has modified json data
+
+commit 32be5dbe6cdbc8c45093a9229d5d9296fd1ecdec
+Merge: 78b4fbd 0839dc7
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Apr 4 11:58:35 2017 -0500
+
+    Merge branch 'react-pagination' into filter-bar-paginate
+
+commit 78b4fbd059bb538caa97c05119ee61f2209cd0ae
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Tue Apr 4 10:50:24 2017 -0500
+
+    Add -p flag to postgres.sh
+
+commit 04435ff1673bc99439b5298a52ff1c5466f20923
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Tue Apr 4 10:48:02 2017 -0500
+
+    Expose port for db docker container
+
+commit c61b93e6cc409ce18d09dd23b370350c51840459
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Tue Apr 4 10:30:33 2017 -0500
+
+    Add GitHub auth token to config.json.template
+
+commit 0839dc728dc2e5b080ab2ad74c839d85c65d916a
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Fri Mar 31 13:01:28 2017 -0500
+
+    start on pagination for react
+
+commit 67bada03f7a56a8f4f721d90f6a073eee1efeb9e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 4 10:28:28 2017 -0500
+
+    change speed for carousel
+
+commit 8c4e8521ee5d76479105a4e4d38bca272d889c87
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Apr 4 01:50:24 2017 -0500
+
+    fix caoursel inital state
+
+commit 372e675f0f6e5aa82aed01fa3297713cd61083c4
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Mon Apr 3 14:14:40 2017 -0500
+
+    Change Brand-Product relationship to use the class not the table.
+
+commit 899bf51b4bd84d6b3633feeda6f9aae09d04a823
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 16:02:19 2017 -0500
+
+    Note that merge commits are not included in the total
+
+commit 54ab51e0f61a782a85c332872cd409c23141d42d
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 14:23:12 2017 -0500
+
+    Add dynamic total stats to about page
+
+commit 7c8f590588019ed67a4383f3dc16d5ee0c5b6f0b
+Merge: 0c7c3ec 7facd26
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 14:01:27 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 0c7c3ec82722bd5213789fc83b6ee0ffa44021b6
+Merge: 11eebc4 ec76a01
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 14:01:14 2017 -0500
+
+    Merge branch 'github-stats'
+
+commit 7facd26dfffb67337c5a4d6116b699f09b9f9f5e
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:50:30 2017 -0500
+
+    Add/start second report
+
+commit ec76a014c1dc72198892201a05247ce3c645f37e
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 13:43:34 2017 -0500
+
+    Remove debugging console.log
+
+commit 193f8f8210c1f44bc70f659fa74724ba9b3fa9b2
+Merge: db2c4d7 11eebc4
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:41:36 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit db2c4d75f7120fe4082349dfa9538eb852285647
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:41:06 2017 -0500
+
+    Update README
+
+commit 11eebc40b1f26edc22fb6876d84955fb0acf996f
+Merge: f213a85 ec0f5ec
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 13:40:42 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 287e95a347575282244980ae49d660f2ad791f6c
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 13:38:24 2017 -0500
+
+    Make about page ask api for statistics
+
+commit ec6294e3498469a650f514723c7dc421b0f6cde3
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 13:38:10 2017 -0500
+
+    Add api to get statistics
+
+commit f91cbc7f2e6cb1a2637fedd5567a488ec99fecf7
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 13:37:52 2017 -0500
+
+    Prepare to use requests library
+
+commit ec0f5ec3f3dd5f12f3971ebd8d7e9e932af27629
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:30:56 2017 -0500
+
+    Update postgres.sh
+
+commit 7c06c85739b19fe9981fea85ecc80749bb63f7fe
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:23:11 2017 -0500
+
+    Add missing file (oops)
+
+commit 57d37f595f090f3d8c8c16ca340adace7c51d1ed
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:22:34 2017 -0500
+
+    Actually fix Dockerfile.db
+
+commit e1fc57dd7c2429e4b94459437cb800f9e26d6096
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 30 13:18:10 2017 -0500
+
+    Try fixing Dockerfile.db directory
+
+commit f213a85caa03d2b7f3a912f2e5e866b306598052
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 30 11:33:46 2017 -0500
+
+    Start creating React components for bootstrap classes and cleaning up render code
+
+commit d5e0f796c8c1137e76309fde3fef7cce2b4efba6
+Merge: d87b327 d06663d
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 29 12:20:53 2017 -0500
+
+    Merge branch 'master' of https://github.com/DrewRomanyk/glamrous.me
+
+commit d87b3270a6980fb0390d1eabe476297b7a37a05a
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 29 12:20:38 2017 -0500
+
+    Add database docker files.
+
+commit d06663daf8e61329a7ae5d473578cb1377eb0825
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Mar 28 11:32:56 2017 -0500
+
+    Added test api, and run test button on about page
+
+commit 342b932bd294db631c7ce7652af3a9271f76bc37
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Tue Mar 28 11:26:26 2017 -0500
+
+    Fix errors that occur when migrating
+
+commit e6bf936efd6aa89a41f13b3b244ce3d091b5bbf7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Mar 27 15:03:43 2017 -0500
+
+    fix carousel image streching
+
+commit 6f848d038acf447513aa921414f99e4e652242bd
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Mar 27 14:52:55 2017 -0500
+
+    fix carousel
+
+commit c89c108420ad53bf68d32c052293922e6a4895c5
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 21:41:45 2017 -0500
+
+    Update API section of report and update about page and git log
+
+commit 3258d19db6d1984d2847d7d37a364ce1bd5bf365
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 21:33:21 2017 -0500
+
+    Update about.jsx, create log and model documentation files
+
+commit 906730e25084715f970a9478fc7b89e58ae9c706
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 21:29:31 2017 -0500
+
+    git stats update
+
+commit 50e0a2623d9f1aba552eafa3c4be1964310ed00c
+Merge: 44a8b8e af17517
+Author: Melody Park <melodypark@utexas.edu>
+Date:   Thu Mar 23 21:19:31 2017 -0500
+
+    Merge pull request #18 from DrewRomanyk/home
+    
+    Home
+
+commit af17517c047b311f0324d4daaa68b0284aa28487
+Author: melody park <melodypark@utexas.edu>
+Date:   Thu Mar 23 21:17:15 2017 -0500
+
+    update profile
+
+commit 44a8b8ebada4cebc105acf6eb9eed2790fb72988
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 21:15:20 2017 -0500
+
+    Add blurb about Docker to the report
+
+commit 40a36bd2f3dc61ba9d8488c07def0e2502ca328d
+Merge: 442e34b c6e1269
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 20:58:41 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 442e34b7365fec9061f62803c56f2b51d898a7cb
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 20:58:39 2017 -0500
+
+    Add report.md and render it
+
+commit 584782949700a0d4b53ff7cc2fbc9993e2d3ca4d
+Author: melody park <melodypark@utexas.edu>
+Date:   Thu Mar 23 20:12:37 2017 -0500
+
+    home html added images and changed font for carousel
+
+commit c6e12692dfc52655d2ede2d4df11fc79de4f0f56
+Merge: cdf65c1 279f447
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 20:07:59 2017 -0500
+
+    Merge branch 'master' of https://github.com/DrewRomanyk/glamrous.me
+
+commit cdf65c1a6f6362dc60a536d45685cf5b84e24455
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 20:07:50 2017 -0500
+
+    Add comments to models and set up pydoc.
+
+commit 279f44718a0bc1bec0436129d58519ef7cab05aa
+Merge: 21bb19d ff7ccc2
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 19:36:20 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 21bb19d4d0ad3ec75119dec32c84be036534d94f
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 19:34:11 2017 -0500
+
+    Add sort/filter bar to Brands, Products, Categories, and Tags
+
+commit ff7ccc2b95816df4d0616d023df58560671c3a0b
+Author: thomas-potnuru <thomas.potnuru@utexas.edi>
+Date:   Thu Mar 23 19:16:04 2017 -0500
+
+    removed all instances of type found elsewhere
+
+commit 51c9638e818aff9a0914afeb4b02cc3f88c619e7
+Merge: 7c55e32 9c725ea
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 18:47:29 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 7c55e32a254f30ff603c910392c0629f84f5252f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 18:47:22 2017 -0500
+
+    Create Report page
+
+commit 9c725eab72555f357beb89fea10f114ac3fd435a
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 18:34:32 2017 -0500
+
+    Add more 404
+
+commit 4d7989251e26e755593b0629b59b14a1082c15aa
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 18:26:52 2017 -0500
+
+    Add tests
+
+commit 9e0322e09b470e152d894853684b783087e35ae6
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 18:21:43 2017 -0500
+
+    Much needed
+
+commit 87ea3e18e5c46518c495eef6f9c3aec11c968211
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 18:13:47 2017 -0500
+
+    Promoted to frontend
+
+commit 2b6c020c03e40232c6741e1e636b247dd5313484
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Mar 23 18:11:19 2017 -0500
+
+    Add over-engineered 404 page (#17)
+    
+    * Add over-engineered 404 page
+    
+    * Tabs -> spaces
+
+commit 715b8593403a90908ce482732943c50ee58a2942
+Author: thomas-potnuru <thomas.potnuru@utexas.edu>
+Date:   Thu Mar 23 17:34:26 2017 -0500
+
+    removed type, added sub category
+    
+    updated apiary
+
+commit 6da5e57afc029ad1315c208370e904142bb417b7
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 17:23:54 2017 -0500
+
+    Add placeholder image for Melody Park
+
+commit 16b84e20b0e817c8c7a645704c893e2c87db72f4
+Merge: 4bcead4 5b5e5c6
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 17:17:39 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 4bcead4307cf0165c13de1fd54487e162c0b733c
+Author: Robert Perce <contact@rperce.net>
+Date:   Thu Mar 23 17:17:35 2017 -0500
+
+    Add myself to About page
+
+commit 5b5e5c6cd4ba2a4ba76956ca6f3c2e71cb988528
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 17:08:30 2017 -0500
+
+    Add Glamrous colors
+
+commit b1f8e94267fd7eb2cba9ffaa52a6338f8be34eed
+Author: thomas-potnuru <thomas.potnuru@utexas.edu>
+Date:   Thu Mar 23 17:03:12 2017 -0500
+
+    Updated bio again and added apiary file
+    
+    The API is in (hopefully)
+
+commit 19b04fdd2482ec5a1d8eaccdbc441ce4a811e701
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 17:01:22 2017 -0500
+
+    Add Favicon
+
+commit 8974215f8de7ceebc4d2d01823527c260149533c
+Author: thomas-potnuru <thomas.potnuru@utexas.edu>
+Date:   Thu Mar 23 17:00:15 2017 -0500
+
+    Updated my bio
+    
+    Updated my bio and added a pic
+
+commit d00f89f2799770874c10876021e7f9820831db2e
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Mar 23 16:24:02 2017 -0500
+
+    Update README.md final time
+
+commit 2974e7a20f4f9d666c25589e31a669447b5d785b
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Mar 23 16:23:22 2017 -0500
+
+    Update README.md
+
+commit 90cb1811f88794984e499dd035267ac37484c201
+Author: Thomas Gaubert <ThomasGaubert@users.noreply.github.com>
+Date:   Thu Mar 23 16:22:43 2017 -0500
+
+    Update README.md
+
+commit b3d30b7a58071445b4829b2a61810bc4fc540584
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 16:20:30 2017 -0500
+
+    Add links to other models in detail pages
+
+commit f88a9a8955d3554060c1727e4c0b04d3d05c5aad
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 15:35:18 2017 -0500
+
+    Add makefile
+
+commit f39d5c1eeca22d4a98fc4620ca04109a00874e99
+Merge: a08fcee 36c7561
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 12:20:38 2017 -0500
+
+    Merge branch 'master' of https://github.com/DrewRomanyk/glamrous.me
+
+commit a08fceeb3beb1bca9382e9b060b2ce6c1e9a1b65
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 12:20:29 2017 -0500
+
+    Change assertion types for rating and price to float.
+
+commit 36c75610ff3c013c1bbf580466fb11671d8b928e
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 12:12:01 2017 -0500
+
+    Add Category API and Frontend
+
+commit 517ef8d90830c59eddddf58b6c55ddb3b80563dd
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 12:02:14 2017 -0500
+
+    Start progress with Tags Frontend
+
+commit f1708cf9c66c1bf4d9d35cc417626fa22f868b6b
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 11:50:56 2017 -0500
+
+    Add more to data to product detail page
+
+commit db8a88ee11e1699678bc68be18db602a6a179a7f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 11:47:06 2017 -0500
+
+    Add more data to brand detail page
+
+commit 045f39a48aa2b58e9ced39354446407f01c9e5ee
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 11:22:11 2017 -0500
+
+    Use real product/brands data
+
+commit 6ea34c001c5338a09b2095a36f12864b1f55f7a4
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 10:56:28 2017 -0500
+
+    Add static page during deployments
+
+commit 5b5c87206491de1fb985287ef03383c2077721c4
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 10:55:30 2017 -0500
+
+    Create grid system for Brands & Products
+
+commit de00556158f3b5b5ec5ca15782404f9c91b7768b
+Merge: 53ed2a6 7204340
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 10:37:55 2017 -0500
+
+    merge
+
+commit 53ed2a65aa16d72470aa147afd958cc23ed934a4
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 10:35:46 2017 -0500
+
+    add member specific details in about page
+
+commit 72043407ab92ba1d191031b964671e834db9ecdc
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 10:33:28 2017 -0500
+
+    Update by bio
+
+commit 327597a7761844d1e8ef25ecb9830a64d393bc26
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 10:29:35 2017 -0500
+
+    Update about page
+
+commit 80599e0ba30ff3057d0292205ed68bb06ddb0aa1
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Thu Mar 23 10:24:13 2017 -0500
+
+    Add about page details
+
+commit fa420bb33c5a4e16f220ae49aefca7c3968ed890
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 10:03:27 2017 -0500
+
+    Tweak build.sh flags
+
+commit 065af43e3d72cfa736d97993b8e747ac958adfde
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 09:53:32 2017 -0500
+
+    Fix syntax error
+
+commit 51f93d68725d17d63366d3a432bd764792c69c09
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Thu Mar 23 09:47:10 2017 -0500
+
+    Update models.py and uml file with new model names
+
+commit e6661b63234f4e185dced4392aa9d3e50cce65ae
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 09:25:57 2017 -0500
+
+    Fix syntax
+
+commit 926820bd1ce4467e43d0740de0e8992e0746eef1
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Thu Mar 23 09:23:27 2017 -0500
+
+    Potential fix for Travis deployment
+
+commit 097fc0bfee8f847d9f33f87261b68f641c79ccc6
+Merge: 2234fcb b2d5584
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 18:19:26 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 2234fcb218076f4f4a17d6e5da89644f96845e50
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 18:19:17 2017 -0500
+
+    Add Product/Tag API, and add react ui for those pages
+
+commit b2d558433d7f0ebff8826693408018dcdff54088
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Wed Mar 22 17:50:27 2017 -0500
+
+    Add sudo to postgres.sh
+
+commit adf21da4d469422d105b5f56393270f491a8d05c
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 22 17:02:42 2017 -0500
+
+    Create documentation dir with uml file
+
+commit 83e4d22a01680d0338336521703fb45bbf9c7d20
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 22 16:46:57 2017 -0500
+
+    Fix ids
+
+commit 43a6b85b3d293681ba352bba4deb33c7ac088f6d
+Merge: 30474f3 eedc1c5
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 16:37:31 2017 -0500
+
+    fix compile issues with models
+
+commit 30474f3f5f31a1aea898de3285e6968cfb37149a
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 16:32:50 2017 -0500
+
+    Abstract api call code in react
+
+commit 8a613f5a6d8ea28e791c85a056a4821bb53297c2
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 16:32:33 2017 -0500
+
+    Fix models code
+
+commit eedc1c53906138e002683cb4dbaddb9d23d0f710
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Wed Mar 22 16:30:26 2017 -0500
+
+    Fix scripts on GCP instance
+
+commit 0f223cd0400ecb9af2b91f210eb61c362490f8bf
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 22 16:28:07 2017 -0500
+
+    Update relationships to auto-add to assos tables.
+
+commit a03e8dc00d4ebec7249be9420e49e02165e7c2fd
+Merge: bc0de2e accf46f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 15:49:29 2017 -0500
+
+    Merge pull request #16 from DrewRomanyk/react
+    
+    React
+
+commit accf46f42f7d4fbd4807926b7331b61a3e45490f
+Author: Robert Perce <contact@rperce.net>
+Date:   Wed Mar 22 15:40:15 2017 -0500
+
+    Stop eslinting for errors on rollup for now, and add 'auto' cmd to build.sh
+
+commit e2f6b317660cdf7744f55abbeba9771a561a3a56
+Author: Cameron Piel <cameron.piel@gitty.xyz>
+Date:   Wed Mar 22 15:17:22 2017 -0500
+
+    Add models.py
+
+commit deb0eb391168303a166a3caef285b5f2b521b2d6
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 15:09:00 2017 -0500
+
+    Get brand details from api
+
+commit 53655ff30987457fae6e57194a6978b3643ec9c7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 14:39:11 2017 -0500
+
+    Add Brand API
+
+commit f4560c21a883016a0f2aacccc49f82bdfe3257d6
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 14:10:12 2017 -0500
+
+    Add specific brands route
+
+commit c30886e9f231ae9e1273f4dfa267544822eee5d2
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 09:57:34 2017 -0500
+
+    fix react routing with flask
+
+commit 0ab8a342c5eda088ed5fe70b1673c39cd20abafd
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 09:35:30 2017 -0500
+
+    add other pages
+
+commit 2972dc881637d38ed9c31a5438431122193c675d
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Wed Mar 22 09:35:10 2017 -0500
+
+    Remove bundle from repo and add carousel
+
+commit e7828884f7580e6a3211f456051653d8518d230f
+Author: Robert Perce <contact@rperce.net>
+Date:   Wed Mar 22 08:48:58 2017 -0500
+
+    Add working routing
+
+commit cd33e56170e73f990f923a9b6a87b127d96994d9
+Merge: 79df212 35a2093
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 18:43:00 2017 -0500
+
+    Merge branch 'react' of github.com:DrewRomanyk/glamrous.me into react
+
+commit 79df212a21704eb7ebf2d77f581f2b9247d487e7
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 18:40:55 2017 -0500
+
+    Fix app for routing
+
+commit a10499651b20cdf384c002c34ba50561e85fab09
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 18:40:36 2017 -0500
+
+    Make eslint stop whining about indentation
+
+commit 35a20931fb3373da8cecb6a5d82b7a027e6a2fc7
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Mar 21 18:39:44 2017 -0500
+
+    Remove templates, move js to static, & add nav bar
+
+commit a16574ed96b45c700a40ee857a72bf37d3858843
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 18:03:19 2017 -0500
+
+    Fix README mistake and fix 'dockerfle' typo
+
+commit 829599b490f3d90403ce1427d920c74e1b5599e9
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 17:52:38 2017 -0500
+
+    Initial react interface setup
+
+commit 93ba9053d34ba1ee7c55e8f4eac39e68d8c9cbe9
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 16:40:50 2017 -0500
+
+    Switch server dockerfile to use alpine linux for a order of magnitude space saving
+
+commit 1d05ac1dd11d727008a51964a082284f39dee58e
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 16:40:23 2017 -0500
+
+    Fix server error
+
+commit f472d1edf49d2b2cabd52bad09fd2c5605aeab3c
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 16:40:04 2017 -0500
+
+    Add postgres docker image instructions and startfile
+
+commit 010ece134153772edadb989919cd657761350db6
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 16:39:13 2017 -0500
+
+    Add detach option to start.sh
+
+commit 15ca9fec7df5dbf678a4f2fda7f276db01e74e0a
+Merge: cb7cd40 a750d06
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 16:15:26 2017 -0500
+
+    Merge flask-init branch
+
+commit cb7cd400716ecf8593ba7cc52a0bde307f4d0896
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 15:02:03 2017 -0500
+
+    Update internal documentation
+
+commit 2849ce8903f37d9022da4463f03a8478dcd21aa4
+Author: Robert Perce <contact@rperce.net>
+Date:   Tue Mar 21 15:01:10 2017 -0500
+
+    Get react working, tweak dockerfiles
+
+commit a750d06dfdfd59d5e3c9f543449aecb9f9114288
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Mar 21 13:13:41 2017 -0500
+
+    Fix docker, and re-add README
+
+commit d59d4047b2c4efb3bf4120ae05bcea4082c2ba99
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Tue Mar 21 13:10:27 2017 -0500
+
+    Add templating, about, migrations
+
+commit bc0de2e286d130c61a1a98d6b7eacda9c28f76a3
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 23:17:46 2017 -0500
+
+    start-detached.sh is now executable
+
+commit b02d5d3dd094c6c8c500067d914e67c86a211930
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 23:10:43 2017 -0500
+
+    Add start-detached.sh for auto deployment
+
+commit 42a5f4d47bf192d80395fd7ab5be71a02e23fd95
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 22:32:44 2017 -0500
+
+    Update gcloud-deploy.sh
+
+commit aa64950d37f5118b153aa21f1dad881d1faa5372
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 22:23:39 2017 -0500
+
+    gcloud requires Python 2.7...
+
+commit 5d62c5aafa684b93c2dd2ec9fbdd5c0d4cce155d
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 22:11:40 2017 -0500
+
+    Enable gcloud auth and deploy scripts
+
+commit 7cd8d0454a58074d1a7d07ff2df0ab19e7dd01b6
+Merge: 175541c 1cde78b
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 22:06:05 2017 -0500
+
+    Merge branch 'master' of github.com:DrewRomanyk/glamrous.me
+
+commit 175541c0c61c5907cd1715a43966e7c2080fc2ac
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 22:05:56 2017 -0500
+
+    Add gcloud credentials
+
+commit 1cde78b09002eeb3284e55e27aa3da87755a771f
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Mar 20 16:58:39 2017 -0500
+
+    Add Travis CI build status
+
+commit dacc970aee9068f6791f272d37d959f248d6415a
+Author: Thomas Gaubert <tpgaubert@gmail.com>
+Date:   Mon Mar 20 16:55:01 2017 -0500
+
+    Start of .travis.yml
+
+commit 5204258a1d41435f89e62a3a1611191f7c6bd437
+Author: Robert Perce <contact@rperce.net>
+Date:   Mon Mar 20 16:51:03 2017 -0500
+
+    Add docker script to run server.py
+
+commit 1d44489da1876bac1fae4a448109fce79e3b831c
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Mar 20 15:16:35 2017 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit fd6cb3de72e400e357834b7094feab1bf5bc3d12
+Author: Drew Romanyk <drewiswaycool@gmail.com>
+Date:   Mon Mar 20 15:16:03 2017 -0500
+
+    first commit :shipit:
