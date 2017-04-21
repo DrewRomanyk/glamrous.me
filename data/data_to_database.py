@@ -208,12 +208,12 @@ def get_sub_category_id(sid):
         return sid
 
 
-def insert_brand_product_relations(bname, brand):
-    brand = Brand(bname, float(format(brand['avg_price'], '.2f')), float(format(brand['avg_rating'], '.2f')),
-                  len(brand['products']), brand['image_url'])
+def insert_brand_product_relations(bname, brand_dict):
+    brand = Brand(bname, float(format(brand_dict['avg_price'], '.2f')), float(format(brand_dict['avg_rating'], '.2f')),
+                  len(brand_dict['products']), brand_dict['image_url'])
     db.session.add(brand)
     db.session.flush()
-    for prod in brand['products']:
+    for prod in brand_dict['products']:
         cur_product = PRODUCTS[prod]
         product = Product(brand.id, cur_product['name'], cur_product['description'],
                           float(format(cur_product['price'], '.2f')), float(format(cur_product['rating'], '.2f')),
@@ -272,7 +272,8 @@ def insert_tag(tname, tag):
 
 
 def insert_subcategory(sname, sub_cat):
-    sub_category = SubCategory(sname, float(format(sub_cat['avg_price'], '.2f')), float(format(sub_cat['avg_rating'], '.2f')),
+    sub_category = SubCategory(sname, float(format(sub_cat['avg_price'], '.2f')),
+                               float(format(sub_cat['avg_rating'], '.2f')),
                                len(sub_cat['products']))
     db.session.add(sub_category)
     db.session.commit()
