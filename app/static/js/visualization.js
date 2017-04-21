@@ -1,8 +1,10 @@
-(function() {
+console.log('boop');
+const visualize = function() {
 
-const WIDTH = 800,
-      HEIGHT = 800,
-      SPEED = -1e-2;
+console.log('beep');
+const WIDTH = Math.min(800, document.getElementById('canvas-holder').offsetWidth);
+const HEIGHT = WIDTH;
+const SPEED = -1e-2;
 const start_time = Date.now();
 
 let projection = d3.geoOrthographic()
@@ -12,6 +14,7 @@ let projection = d3.geoOrthographic()
 
 let graticule = d3.geoGraticule();
 
+document.getElementById('canvas-holder').innerHTML='';
 const canvas = d3.select('#canvas-holder').append('canvas')
 	.attr('width', WIDTH)
 	.attr('height', HEIGHT);
@@ -97,4 +100,6 @@ for (let page = 1; page < 32; page++) {
 	});
 }
 
-})();
+};
+window.addEventListener('resize', visualize, true);
+visualize();
