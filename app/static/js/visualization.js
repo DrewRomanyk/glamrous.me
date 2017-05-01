@@ -1,29 +1,25 @@
-console.log('boop');
-const visualize = function() {
+window.onload = function() {
 
-console.log('beep');
-const WIDTH = Math.min(800, document.getElementById('canvas-holder').offsetWidth);
-const HEIGHT = WIDTH;
-const SPEED = -1e-2;
+let WIDTH, HEIGHT, SPEED, context, projection;
 const start_time = Date.now();
+function setup() {
+	WIDTH = Math.min(800, document.getElementById('canvas-holder').offsetWidth);
+	HEIGHT = WIDTH;
+	SPEED = -1e-2;
 
-let projection = d3.geoOrthographic()
-	.scale(WIDTH / 2.1)
-	.translate([WIDTH / 2, HEIGHT / 2])
-	.precision(.5);
+	document.getElementById('canvas-holder').innerHTML='';
+	const canvas = d3.select('#canvas-holder').append('canvas')
+		.attr('width', WIDTH)
+		.attr('height', HEIGHT);
+	context = canvas.node().getContext('2d');
+
+	projection = d3.geoOrthographic()
+		.scale(WIDTH / 2.1)
+		.translate([WIDTH / 2, HEIGHT / 2])
+		.precision(.5);
+}
 
 let graticule = d3.geoGraticule();
-
-document.getElementById('canvas-holder').innerHTML='';
-const canvas = d3.select('#canvas-holder').append('canvas')
-	.attr('width', WIDTH)
-	.attr('height', HEIGHT);
-const context = canvas.node().getContext('2d');
-
-let path = d3.geoPath()
-	.projection(projection)
-	.pointRadius(function (d) { return d.diameter; })
-	.context(context);
 
 const grid = graticule();
 let id = 0;
@@ -51,7 +47,7 @@ const starClass = function(temp) {
 	if (temp >= 4000) return 'K';
 	return 'M';
 }
-const drawStars = function(view) {
+const drawStars = function(view, path) {
 	locations.forEach(function({α, δ, temp, diameter}) {
 		const point = {type: 'Point', coordinates: [λ(α), φ(δ)], id: nextId(), diameter: diameter};
 		context.beginPath();
@@ -61,28 +57,35 @@ const drawStars = function(view) {
 	});
 };
 
-d3.timer(function() {
-	context.clearRect(0, 0, WIDTH, HEIGHT);
+setup();
+function doTimer() {
+	const path = d3.geoPath()
+		.projection(projection)
+		.pointRadius(function (d) { return d.diameter; })
+		.context(context);
+	return d3.timer(function() {
+		context.clearRect(0, 0, WIDTH, HEIGHT);
 
-	projection.rotate([SPEED * (Date.now() - start_time), -15]).clipAngle(90);
+		projection.rotate([SPEED * (Date.now() - start_time), -15]).clipAngle(90);
 
-	projection.clipAngle(180);
+		projection.clipAngle(180);
 
-	context.beginPath();
-	path(grid);
-	context.lineWidth = .5;
-	context.strokeStyle = "rgba(119,119,119,.5)";
-	context.stroke();
+		context.beginPath();
+		path(grid);
+		context.lineWidth = .5;
+		context.strokeStyle = "rgba(119,119,119,.5)";
+		context.stroke();
 
-	drawStars('background');
+		drawStars('background', path);
 
-	projection.clipAngle(90);
+		projection.clipAngle(90);
 
-	drawStars('foreground');
-});
+		drawStars('foreground', path);
+	});
+}
+let timer = doTimer();
 
 const url_of_page = function(page) {
-	//return '/static/js/lol-api/stars.' + page;
 	return '//spacecowboys.me/api/v1/stars?page=' + page;
 }
 for (let page = 1; page < 32; page++) {
@@ -100,6 +103,5 @@ for (let page = 1; page < 32; page++) {
 	});
 }
 
+window.addEventListener('resize', function() { setup(); timer.stop(); timer = doTimer(); }, true);
 };
-window.addEventListener('resize', visualize, true);
-visualize();
